@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noshahi School System</title>
+    <meta name="description" content="Welcome to Noshahi School System. Modern Academic Education with a Special Focus on Computer Education and Islamic Education.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                <span class="logo-text">Noshahi School System</span>
+            </a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academics Overview</a></li>
+                        <li><a href="computer-education.html">Computer Ed</a></li>
+                        <li><a href="islamic-education.html">Islamic Ed</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-carousel" id="home">
+        <div class="carousel-container">
+            <!-- Slide 1 -->
+            <div class="carousel-slide active">
+                <img src="img/hero_slide_1.png" alt="Modern Campus" class="carousel-bg">
+                <div class="carousel-overlay"></div>
+                <div class="container carousel-content">
+                    <h1>Welcome to Noshahi School System</h1>
+                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <div class="hero-buttons">
+                        <a href="admissions.html" class="btn btn-accent">Apply Now</a>
+                        <a href="about.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-slide">
+                <img src="img/hero_slide_2.png" alt="Computer Education" class="carousel-bg">
+                <div class="carousel-overlay"></div>
+                <div class="container carousel-content">
+                    <h1>Empowering Digital Leaders</h1>
+                    <p>State-of-the-art computer labs, coding, and AI awareness from early ages.</p>
+                    <div class="hero-buttons">
+                        <a href="computer-education.html" class="btn btn-accent">Explore IT</a>
+                        <a href="admissions.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-slide">
+                <img src="img/hero_slide_3.png" alt="Islamic Education" class="carousel-bg">
+                <div class="carousel-overlay"></div>
+                <div class="container carousel-content">
+                    <h1>Nurturing Islamic Values</h1>
+                    <p>Integrating core Islamic values, Nazra Quran, and character building alongside modern academics.</p>
+                    <div class="hero-buttons">
+                        <a href="islamic-education.html" class="btn btn-accent">Explore Islamic Ed</a>
+                        <a href="admissions.html" class="btn btn-outline">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="bg-light" id="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-laptop-code card-icon"></i>
+                    <h3 class="card-title">Computer Education</h3>
+                    <p>State-of-the-art computer labs with focus on coding basics, AI awareness, and digital literacy from early ages.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-book-quran card-icon"></i>
+                    <h3 class="card-title">Islamic Education</h3>
+                    <p>Integrating core Islamic values, Nazra Quran, daily Duas, and character building alongside modern academics.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-user-graduate card-icon"></i>
+                    <h3 class="card-title">Academic Excellence</h3>
+                    <p>Highly qualified faculty delivering a comprehensive curriculum designed for student success and lifelong learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Programs -->
+    <section id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Academic Programs</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card" style="text-align: center;">
+                    <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 10px;">Play Group & Pre-School</h3>
+                    <p>Nurturing environment focusing on early childhood development and foundational skills.</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 10px;">Primary</h3>
+                    <p>Building strong core knowledge in subjects while introducing basic computer skills and Islamic studies.</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 10px;">Middle & Secondary</h3>
+                    <p>Preparing students for higher education with advanced computer labs and comprehensive academics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas (Computer & Islamic) -->
+    <section class="bg-light" id="focus-areas">
+        <div class="container">
+            <div class="grid-2">
+                <div class="img-text-content">
+                    <h3>Focus on Computer Education</h3>
+                    <p>We believe in preparing our students for the digital future. Our modern computer labs are equipped with the latest technology.</p>
+                    <ul class="feature-list">
+                        <li>Typing & MS Office Proficiency</li>
+                        <li>Internet & Digital Literacy</li>
+                        <li>Coding Basics & Problem Solving</li>
+                        <li>AI Awareness & Practical Learning</li>
+                    </ul>
+                    <a href="computer-education.html" class="btn btn-primary" style="margin-top: 1.5rem;">Explore Computer Ed</a>
+                </div>
+                <div class="img-text-block">
+                    <img src="img/hero_slide_2.png" alt="Computer Education Lab" style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--border-radius); box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-top: 5rem;">
+                <div class="img-text-block" style="order: -1;">
+                     <img src="img/hero_slide_3.png" alt="Islamic Education" style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--border-radius); box-shadow: var(--shadow-lg);">
+                </div>
+                <div class="img-text-content">
+                    <h3>Focus on Islamic Education</h3>
+                    <p>Our Islamic vision focuses on character building and nurturing students with profound Islamic values and knowledge.</p>
+                    <ul class="feature-list">
+                        <li>Nazra Quran with Tajweed</li>
+                        <li>Islamic Studies & Hadith</li>
+                        <li>Daily Duas & Sunnah Practices</li>
+                        <li>Character Building & Islamic Events</li>
+                    </ul>
+                    <a href="islamic-education.html" class="btn btn-primary" style="margin-top: 1.5rem;">Explore Islamic Ed</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus & Student Life -->
+    <section id="campus-life">
+        <div class="container">
+            <div class="section-title">
+                <h2>Campus Facilities & Student Life</h2>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-building" style="color:var(--accent-color); margin-right:10px;"></i> Facilities</h3>
+                    <p>Modern Classrooms, Computer & Science Labs, Library, Prayer Area, Transport, and top-tier Security.</p>
+                    <a href="campus-facilities.html" class="card-link">View Facilities →</a>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-users" style="color:var(--accent-color); margin-right:10px;"></i> Student Activities</h3>
+                    <p>Engaging Science Activities, Computer & Islamic Competitions, Art projects, and Educational Trips.</p>
+                    <a href="about.html" class="card-link">Discover More →</a>
+                </div>
+                <div class="card bg-light">
+                    <h3 class="card-title" style="color: var(--primary-color);">Admissions Open!</h3>
+                    <p>Join the Noshahi School System family and give your child the best foundation for their future.</p>
+                    <a href="admissions.html" class="btn btn-accent" style="margin-top: 1rem; text-align: center;">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                    </div>
+                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Special Focus</h3>
+                    <ul class="footer-links">
+                        <li><a href="computer-education.html">Computer Education</a></li>
+                        <li><a href="islamic-education.html">Islamic Education</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Our Faculty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Education Street, City</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@noshahischool.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

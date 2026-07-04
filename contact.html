@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Noshahi School System</title>
+    <meta name="description" content="Get in touch with Noshahi School System. Find our contact details, location map, and inquiry form.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                <span class="logo-text">Noshahi School System</span>
+            </a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academics Overview</a></li>
+                        <li><a href="computer-education.html">Computer Ed</a></li>
+                        <li><a href="islamic-education.html">Islamic Ed</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
+        <div class="page-header-content">
+            <h1>Contact Us</h1>
+            <p>We'd Love to Hear From You</p>
+        </div>
+    </header>
+
+    <!-- Contact Information & Form -->
+    <section id="contact-info">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2>Get In Touch</h2>
+                    <p>Whether you have questions about admissions, our curriculum, or want to schedule a campus tour, our team is ready to assist you.</p>
+
+                    <div style="margin-top: 2rem;">
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 0.2rem;">Address</h4>
+                                <p style="margin-bottom: 0;">123 Education Street, Academic District<br>City Name, Country</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                            <i class="fas fa-phone-alt" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 0.2rem;">Phone</h4>
+                                <p style="margin-bottom: 0;">+1 234 567 8900<br>+1 234 567 8901 (Admissions)</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+                            <i class="fas fa-envelope" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 0.2rem;">Email</h4>
+                                <p style="margin-bottom: 0;">info@noshahischool.edu<br>admissions@noshahischool.edu</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: flex-start;">
+                            <i class="fas fa-clock" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <div>
+                                <h4 style="margin-bottom: 0.2rem;">Working Hours</h4>
+                                <p style="margin-bottom: 0;">Monday - Thursday: 8:00 AM - 2:00 PM<br>Friday: 8:00 AM - 12:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>Send us a Message</h3>
+                    <form style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <input type="text" placeholder="First Name" style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                            <input type="text" placeholder="Last Name" style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                        </div>
+                        <input type="email" placeholder="Email Address" style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;" required>
+                        <select style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; background: white;" required>
+                            <option value="">Select Department</option>
+                            <option value="admissions">Admissions</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="careers">Careers</option>
+                        </select>
+                        <textarea placeholder="Your Message" rows="5" style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; resize: vertical;" required></textarea>
+                        <button type="button" class="btn btn-accent" style="align-self: flex-start;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Map Placeholder -->
+    <section style="padding: 0;">
+        <div style="width: 100%; height: 400px; background-color: #ddd; display: flex; align-items: center; justify-content: center; color: #777;">
+            <div style="text-align: center;">
+                <i class="fas fa-map" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h3>Google Map Embed</h3>
+                <p>Interactive map pointing to the school's location will be placed here.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: 0;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                    </div>
+                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Special Focus</h3>
+                    <ul class="footer-links">
+                        <li><a href="computer-education.html">Computer Education</a></li>
+                        <li><a href="islamic-education.html">Islamic Education</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Our Faculty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Education Street, City</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@noshahischool.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

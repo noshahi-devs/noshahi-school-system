@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Noshahi School System</title>
-    <meta name="description" content="View our campus, classrooms, computer labs, and Islamic activities in the Noshahi School System gallery.">
+    <title>Noshahi School System</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
+    <meta name="description"
+        content="View our campus, classrooms, computer labs, and Islamic activities in the Noshahi School System gallery.">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -15,6 +19,7 @@
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
         }
+
         .gallery-item {
             position: relative;
             border-radius: var(--border-radius);
@@ -28,11 +33,13 @@
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
         }
+
         .gallery-item:hover {
             transform: scale(1.05);
             box-shadow: var(--shadow-lg);
             z-index: 10;
         }
+
         .gallery-caption {
             position: absolute;
             bottom: 0;
@@ -45,11 +52,13 @@
             transform: translateY(100%);
             transition: var(--transition);
         }
+
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -109,7 +118,7 @@
                     <i class="fas fa-tree" style="font-size: 3rem;"></i>
                     <div class="gallery-caption">Green Courtyard</div>
                 </div>
-                
+
                 <!-- Classrooms -->
                 <div class="gallery-item">
                     <i class="fas fa-chalkboard" style="font-size: 3rem;"></i>
@@ -184,7 +193,8 @@
                 <div class="footer-col">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Education Street, City</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Education Street, City
+                        </li>
                         <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 234 567 8900</li>
                         <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@noshahischool.edu</li>
                     </ul>
@@ -198,5 +208,15 @@
 
     <!-- Custom JS -->
     <script src="js/main.js"></script>
+    <!-- Floating Widgets -->
+    <div class="floating-widgets">
+        <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="scrollToTopBtn" class="scroll-top-btn" title="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
 </body>
+
 </html>

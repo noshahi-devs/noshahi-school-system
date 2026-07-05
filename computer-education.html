@@ -1,18 +1,652 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Education | Noshahi School System</title>
-    <meta name="description" content="Discover our specialized Computer Education program focusing on coding, AI, and digital literacy.">
+    <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
+    <meta name="description" content="Discover our specialized Computer Education program focusing on coding, AI, robotics, and digital literacy.">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <style>
+        /* =============================================
+           COMPUTER ED PAGE — DARK TECH THEME
+        ============================================= */
+        :root {
+            --tech-bg: #0B0F19;
+            --tech-surface: #131929;
+            --tech-card: #161D2F;
+            --tech-border: rgba(56, 139, 253, 0.25);
+            --electric-blue: #3B82F6;
+            --blue-glow: rgba(59, 130, 246, 0.15);
+            --orange: #FF8C00;
+            --orange-glow: rgba(255, 140, 0, 0.2);
+            --white: #FFFFFF;
+            --white-dim: rgba(255, 255, 255, 0.7);
+            --white-dimmer: rgba(255, 255, 255, 0.4);
+        }
 
-    <!-- Navbar -->
+        /* Override body bg for this page */
+        body.tech-page {
+            background-color: var(--tech-bg);
+        }
+
+        /* ── HERO SECTION ── */
+        .tech-hero {
+            min-height: 100vh;
+            background-color: var(--tech-bg);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        /* animated grid background */
+        .tech-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+
+        /* radial glow top-right */
+        .tech-hero::after {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .tech-hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-left .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid var(--tech-border);
+            color: var(--electric-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-left h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-left h1 span {
+            color: var(--orange);
+        }
+
+        .hero-left p {
+            font-size: 1.1rem;
+            color: var(--white-dim);
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--orange);
+            color: #fff;
+            padding: 1rem 2.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(255,140,0,0.4);
+            color: #fff;
+        }
+
+        .hero-cta i {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover i {
+            transform: translateX(4px);
+        }
+
+        /* ── LAPTOP GRAPHIC ── */
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .laptop-graphic {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .laptop-body {
+            background: #0d1117;
+            border: 2px solid rgba(59,130,246,0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 0 60px rgba(59,130,246,0.15), 0 0 30px rgba(255,140,0,0.08);
+            position: relative;
+        }
+
+        .laptop-topbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .win-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .win-red   { background: #FF5F57; box-shadow: 0 0 6px #FF5F57; }
+        .win-yellow { background: #FFBD2E; box-shadow: 0 0 6px #FFBD2E; }
+        .win-orange { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+
+        .laptop-topbar span {
+            margin-left: auto;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+            font-family: monospace;
+        }
+
+        .code-lines {
+            font-family: 'Courier New', monospace;
+            font-size: 0.82rem;
+            line-height: 1.8;
+        }
+
+        .code-line {
+            display: flex;
+            gap: 12px;
+        }
+
+        .ln { color: rgba(255,255,255,0.2); min-width: 18px; text-align: right; }
+        .kw { color: #FF7B72; }
+        .fn { color: #79C0FF; }
+        .str { color: #A5D6FF; }
+        .cm { color: #8B949E; }
+        .op { color: #FF8C00; }
+        .tx { color: #E6EDF3; }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 14px;
+            background: var(--orange);
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+        /* floating orange orbs around laptop */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(18px);
+            opacity: 0.5;
+            animation: floatOrb 4s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 80px; height: 80px;
+            background: var(--orange);
+            top: -30px; right: -20px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 50px; height: 50px;
+            background: var(--electric-blue);
+            bottom: 20px; left: -25px;
+            animation-delay: 1.5s;
+        }
+
+        .orb-3 {
+            width: 35px; height: 35px;
+            background: var(--orange);
+            bottom: -10px; right: 40px;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes floatOrb {
+            0%,100% { transform: translateY(0) scale(1); }
+            50%      { transform: translateY(-15px) scale(1.1); }
+        }
+
+        /* floating tags */
+        .float-tag {
+            position: absolute;
+            background: rgba(255,140,0,0.12);
+            border: 1px solid rgba(255,140,0,0.3);
+            color: var(--orange);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            animation: floatOrb 3.5s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        .float-tag-1 { top: 10px; left: -100px; animation-delay: 0.3s; }
+        .float-tag-2 { bottom: 60px; right: -90px; animation-delay: 1.2s; }
+
+        /* ── BENTO GRID (Skills Matrix) ── */
+        .bento-section {
+            background-color: var(--tech-bg);
+            padding: 5rem 0;
+        }
+
+        .bento-section .section-title h2 {
+            color: var(--white);
+        }
+
+        .bento-section .section-title h2::after {
+            background-color: var(--orange);
+        }
+
+        .bento-section .section-title p {
+            color: var(--white-dim);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-box {
+            background: rgba(22, 29, 47, 0.7);
+            border: 1px solid var(--tech-border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(59,130,246,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .bento-box:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255,140,0,0.4);
+            box-shadow: 0 20px 50px rgba(255,140,0,0.08);
+        }
+
+        .bento-icon {
+            font-size: 2rem;
+            color: var(--orange);
+            background: rgba(255,140,0,0.1);
+            border: 1px solid rgba(255,140,0,0.25);
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .bento-box:hover .bento-icon {
+            background: var(--orange);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(255,140,0,0.3);
+        }
+
+        .bento-box h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-box p {
+            color: var(--white-dim);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+        }
+
+        .bento-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .bento-tag {
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.2);
+            color: #93C5FD;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        /* ── LIVE CODE WIDGET ── */
+        .live-code-section {
+            background: linear-gradient(180deg, var(--tech-bg) 0%, #0e1525 100%);
+            padding: 5rem 0;
+            overflow: hidden;
+        }
+
+        .live-code-section .section-title h2 { color: var(--white); }
+        .live-code-section .section-title h2::after { background-color: var(--orange); }
+        .live-code-section .section-title p { color: var(--white-dim); }
+
+        .live-code-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .code-editor-card {
+            background: #0d1117;
+            border: 1px solid rgba(59,130,246,0.3);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(59,130,246,0.08);
+        }
+
+        .editor-titlebar {
+            background: #161b22;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .editor-titlebar .win-dot { width: 13px; height: 13px; }
+
+        .editor-title-text {
+            margin-left: 10px;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.35);
+            font-family: monospace;
+        }
+
+        .editor-body {
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 2;
+            min-height: 280px;
+        }
+
+        /* live code preview box */
+        .code-preview-right h3 {
+            color: var(--white);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .code-preview-right p {
+            color: var(--white-dim);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-output {
+            background: rgba(22,29,47,0.8);
+            border: 1px solid var(--tech-border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-output-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--electric-blue);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .html-preview-box {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            font-family: sans-serif;
+        }
+
+        .html-preview-box h2 {
+            color: #0B0F19;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .html-preview-box p {
+            color: #444;
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .preview-btn-demo {
+            display: inline-block;
+            background: #FF8C00;
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-top: 0.6rem;
+            cursor: default;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .stat-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--orange);
+            line-height: 1;
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.78rem;
+            color: var(--white-dimmer);
+            margin-top: 0.25rem;
+        }
+
+        /* ── CONVERSION BLOCK ── */
+        .conversion-section {
+            background-color: var(--tech-bg);
+            padding: 5rem 0 6rem;
+        }
+
+        .conversion-card {
+            background: linear-gradient(135deg, #131929 0%, #0e1525 100%);
+            border: 1px solid rgba(255,140,0,0.2);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 80px rgba(255,140,0,0.05);
+        }
+
+        .conversion-card::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,140,0,0.07) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .conversion-card .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--orange);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .conversion-card h2 {
+            color: var(--white);
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .conversion-card h2 span {
+            color: var(--orange);
+        }
+
+        .conversion-card p {
+            color: var(--white-dim);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .conversion-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--orange);
+            color: #fff;
+            padding: 1.1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .conversion-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 16px 40px rgba(255,140,0,0.4);
+            color: #fff;
+        }
+
+        .conversion-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .conversion-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* trust badges row */
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white-dimmer);
+            font-size: 0.85rem;
+        }
+
+        .trust-item i {
+            color: var(--electric-blue);
+            font-size: 1rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 992px) {
+            .tech-hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-left p { max-width: 100%; }
+            .hero-left h1 { font-size: 2.6rem; }
+            .float-tag-1, .float-tag-2 { display: none; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .live-code-wrapper { grid-template-columns: 1fr; }
+            .conversion-card h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-left h1 { font-size: 2rem; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .stat-row { justify-content: center; }
+        }
+    </style>
+</head>
+
+<body class="tech-page">
+
+    <!-- ==================== NAVBAR ==================== -->
     <nav class="navbar scrolled">
         <div class="container">
             <a href="index.html" class="logo">
@@ -47,88 +681,220 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
-        <div class="page-header-content">
-            <h1>Computer Education</h1>
-            <p>Empowering the Innovators of Tomorrow</p>
-        </div>
-    </header>
-
-    <!-- Why Computer Education -->
-    <section id="why-computer-ed">
+    <!-- ==================== HERO ==================== -->
+    <section class="tech-hero">
         <div class="container">
-            <div class="grid-2">
-                <div class="img-text-content">
-                    <h2>Why Computer Education?</h2>
-                    <p>In the 21st century, technological literacy is non-negotiable. At Noshahi School System, we believe that understanding technology is essential for future success across all fields.</p>
-                    <p>Our dedicated computer education program is designed to transform students from passive consumers of technology into active creators and problem solvers. We provide early exposure to computational thinking, preparing them for the digital challenges of the future.</p>
+            <!-- LEFT: Text -->
+            <div class="hero-left">
+                <div class="badge">
+                    <i class="fas fa-microchip"></i> NSS Tech Lab
                 </div>
-                <div class="img-text-block">
-                    <div style="background-color: var(--primary-color); height: 350px; border-radius: var(--border-radius); display:flex; align-items:center; justify-content:center; color: var(--accent-color);">
-                        <i class="fas fa-microchip" style="font-size: 6rem;"></i>
+                <h1>Coding the <span>Leaders</span><br>of Tomorrow.</h1>
+                <p>We go beyond textbooks — our students build real projects, write actual code, and experience the future of technology hands-on, from day one.</p>
+                <a href="#tech-lab-tour" class="hero-cta">
+                    Explore Our Tech Lab <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- RIGHT: Laptop Graphic -->
+            <div class="hero-right">
+                <div class="laptop-graphic">
+                    <div class="orb orb-1"></div>
+                    <div class="orb orb-2"></div>
+                    <div class="orb orb-3"></div>
+                    <span class="float-tag float-tag-1"><i class="fas fa-bolt"></i> Live Coding</span>
+                    <span class="float-tag float-tag-2"><i class="fas fa-robot"></i> AI Projects</span>
+                    <div class="laptop-body">
+                        <div class="laptop-topbar">
+                            <span class="win-dot win-red"></span>
+                            <span class="win-dot win-yellow"></span>
+                            <span class="win-dot win-orange"></span>
+                            <span>student_project.py</span>
+                        </div>
+                        <div class="code-lines">
+                            <div class="code-line"><span class="ln">1</span><span class="cm"># NSS Tech Lab — Student Project</span></div>
+                            <div class="code-line"><span class="ln">2</span><span class="kw">def</span> <span class="fn">greet_student</span><span class="tx">(name):</span></div>
+                            <div class="code-line"><span class="ln">3</span><span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;message = </span><span class="str">"Hello, "</span><span class="tx"> + name</span></div>
+                            <div class="code-line"><span class="ln">4</span><span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kw">return</span><span class="tx"> message</span></div>
+                            <div class="code-line"><span class="ln">5</span>&nbsp;</div>
+                            <div class="code-line"><span class="ln">6</span><span class="fn">student</span><span class="tx"> = </span><span class="str">"Ahmed"</span></div>
+                            <div class="code-line"><span class="ln">7</span><span class="op">print</span><span class="tx">(greet_student(student))</span></div>
+                            <div class="code-line"><span class="ln">8</span>&nbsp;</div>
+                            <div class="code-line"><span class="ln">9</span><span class="cm"># Output:</span><span class="tx"> </span><span class="str">"Hello, Ahmed"</span><span class="typing-cursor"></span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modern Computer Lab -->
-    <section class="bg-light" id="modern-lab">
+    <!-- ==================== SKILLS MATRIX BENTO GRID ==================== -->
+    <section class="bento-section">
         <div class="container">
             <div class="section-title">
-                <h2>Modern Computer Lab</h2>
+                <h2>The Skills Matrix</h2>
+                <p style="color:var(--white-dim); margin-top:0.5rem;">Four core pillars of our computer education curriculum — practical, modern, and future-ready.</p>
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">Our campus features state-of-the-art computer laboratories equipped with the latest hardware and high-speed internet. Every student has dedicated access to a workstation during their practical sessions.</p>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-desktop card-icon"></i>
-                    <h3 class="card-title">Latest Hardware</h3>
-                    <p>High-performance machines capable of running modern software for coding and design.</p>
+
+            <div class="bento-grid">
+                <!-- Box 1 -->
+                <div class="bento-box">
+                    <div class="bento-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Coding &amp; Logic Building</h3>
+                    <p>Students learn computational thinking from scratch — starting with visual block-based coding and progressing to Python and JavaScript. Real problems, real solutions.</p>
+                    <div class="bento-tags">
+                        <span class="bento-tag">Python</span>
+                        <span class="bento-tag">Scratch</span>
+                        <span class="bento-tag">Logic Trees</span>
+                        <span class="bento-tag">Algorithms</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <i class="fas fa-wifi card-icon"></i>
-                    <h3 class="card-title">High-Speed Connectivity</h3>
-                    <p>Uninterrupted internet access for research, digital learning, and cloud-based projects.</p>
+
+                <!-- Box 2 -->
+                <div class="bento-box">
+                    <div class="bento-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Robotics &amp; AI Basics</h3>
+                    <p>Hands-on experiments with robotics kits and AI concepts. Students understand how machines "think," opening doors to engineering and data science careers.</p>
+                    <div class="bento-tags">
+                        <span class="bento-tag">AI Awareness</span>
+                        <span class="bento-tag">Robotics Kits</span>
+                        <span class="bento-tag">Automation</span>
+                        <span class="bento-tag">Problem Solving</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <i class="fas fa-shield-alt card-icon"></i>
-                    <h3 class="card-title">Safe Environment</h3>
-                    <p>Strict network security and content filtering to ensure a safe browsing experience.</p>
+
+                <!-- Box 3 -->
+                <div class="bento-box">
+                    <div class="bento-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development &amp; Design</h3>
+                    <p>From writing their first HTML tag to styling a full page — students build real websites and learn UI fundamentals that matter in every modern profession.</p>
+                    <div class="bento-tags">
+                        <span class="bento-tag">HTML</span>
+                        <span class="bento-tag">CSS</span>
+                        <span class="bento-tag">UI Design</span>
+                        <span class="bento-tag">Projects</span>
+                    </div>
+                </div>
+
+                <!-- Box 4 -->
+                <div class="bento-box">
+                    <div class="bento-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3>Cyber Safety for Kids</h3>
+                    <p>Parents can relax — we teach children how to stay safe online. Topics include digital footprints, safe browsing, password hygiene, and responsible social media use.</p>
+                    <div class="bento-tags">
+                        <span class="bento-tag">Safe Browsing</span>
+                        <span class="bento-tag">Privacy</span>
+                        <span class="bento-tag">Digital Etiquette</span>
+                        <span class="bento-tag">Passwords</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills & Practical Learning -->
-    <section id="skills">
+    <!-- ==================== LIVE CODE PREVIEW WIDGET ==================== -->
+    <section class="live-code-section">
         <div class="container">
             <div class="section-title">
-                <h2>Skills We Teach</h2>
+                <h2>The Live Code Experience</h2>
+                <p style="color:var(--white-dim); margin-top:0.5rem;">Watch what our students actually build — not rote memorization, but real creation.</p>
             </div>
-            <div class="grid-2">
-                <div class="card bg-light">
-                    <h3>Core Skills</h3>
-                    <ul class="feature-list">
-                        <li><strong>Typing Mastery:</strong> Building speed and accuracy from primary levels.</li>
-                        <li><strong>MS Office:</strong> Proficiency in Word, Excel, and PowerPoint for academic and professional use.</li>
-                        <li><strong>Internet & Digital Literacy:</strong> Effective research, email etiquette, and understanding digital footprints.</li>
-                    </ul>
+
+            <div class="live-code-wrapper">
+                <!-- Left: Code Editor Card -->
+                <div class="code-editor-card">
+                    <div class="editor-titlebar">
+                        <span class="win-dot win-red"></span>
+                        <span class="win-dot win-yellow"></span>
+                        <span class="win-dot win-orange"></span>
+                        <span class="editor-title-text">index.html — NSS Student Project</span>
+                    </div>
+                    <div class="editor-body">
+                        <div class="code-line"><span class="cm">&lt;!-- Student's First Webpage --&gt;</span></div>
+                        <div class="code-line"><span class="kw">&lt;!DOCTYPE</span> <span class="fn">html</span><span class="kw">&gt;</span></div>
+                        <div class="code-line"><span class="kw">&lt;html&gt;</span></div>
+                        <div class="code-line"><span class="kw">&lt;head&gt;</span></div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;title&gt;</span><span class="str">My NSS Project</span><span class="kw">&lt;/title&gt;</span></div>
+                        <div class="code-line"><span class="kw">&lt;/head&gt;</span></div>
+                        <div class="code-line"><span class="kw">&lt;body&gt;</span></div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;h2&gt;</span><span class="str">Hello, World!</span><span class="kw">&lt;/h2&gt;</span></div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;p&gt;</span><span class="str">I built this at NSS Tech Lab.</span><span class="kw">&lt;/p&gt;</span></div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;button</span> <span class="fn">style=</span><span class="str">"background:orange"</span><span class="kw">&gt;</span></div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">Click Me!</span></div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;/button&gt;</span></div>
+                        <div class="code-line"><span class="kw">&lt;/body&gt;</span><span class="typing-cursor"></span></div>
+                    </div>
                 </div>
-                <div class="card bg-light">
-                    <h3>Advanced Concepts</h3>
-                    <ul class="feature-list">
-                        <li><strong>Coding Basics:</strong> Introduction to programming logic using visual block-based tools and transitioning to languages like Python or HTML/JS.</li>
-                        <li><strong>AI Awareness:</strong> Understanding what Artificial Intelligence is, how it works, and its ethical implications.</li>
-                        <li><strong>Projects & Competitions:</strong> Hands-on application through term projects and inter-school tech competitions.</li>
-                    </ul>
+
+                <!-- Right: Explanation + Preview -->
+                <div class="code-preview-right">
+                    <h3>Practical.<br>Not Just Theory.</h3>
+                    <p>Every class ends with students running their own code and seeing it come to life. This is the live output of the code on the left — a webpage created by a student in their very first month.</p>
+
+                    <div class="preview-output">
+                        <div class="preview-output-label"><i class="fas fa-play-circle"></i> &nbsp;Live Output Preview</div>
+                        <div class="html-preview-box">
+                            <h2>Hello, World!</h2>
+                            <p>I built this at NSS Tech Lab.</p>
+                            <span class="preview-btn-demo">Click Me!</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-item">
+                            <div class="stat-num">3+</div>
+                            <div class="stat-label">Projects Per Term</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">1:1</div>
+                            <div class="stat-label">Student / PC Ratio</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num">100%</div>
+                            <div class="stat-label">Hands-On Learning</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==================== CONVERSION BLOCK ==================== -->
+    <section class="conversion-section" id="tech-lab-tour">
+        <div class="container">
+            <div class="conversion-card">
+                <div class="eyebrow">
+                    <i class="fas fa-flask"></i> Free Lab Tour
+                </div>
+                <h2>Want to see our<br>students <span>in action?</span></h2>
+                <p>Book a free guided tour of our Tech Lab and watch our students code, create, and collaborate in real time. It takes just 30 minutes — and it'll change how you think about your child's education.</p>
+                <a href="contact.html" class="conversion-btn">
+                    Book a Free Tech Lab Tour <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="trust-row">
+                    <div class="trust-item">
+                        <i class="fas fa-check-circle"></i> No Obligation
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i> 30-Minute Tour
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-calendar-check"></i> Flexible Timing
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -159,9 +925,9 @@
                 <div class="footer-col">
                     <h3>Contact Us</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Education Street, City</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +1 234 567 8900</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@noshahischool.edu</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i> 123 Education Street, City</li>
+                        <li><i class="fas fa-phone" style="margin-right:10px;"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope" style="margin-right:10px;"></i> info@noshahischool.edu</li>
                     </ul>
                 </div>
             </div>
@@ -171,7 +937,18 @@
         </div>
     </footer>
 
-    <!-- Custom JS -->
+    <!-- JS -->
     <script src="js/main.js"></script>
+
+    <!-- Floating Widgets -->
+    <div class="floating-widgets">
+        <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="scrollToTopBtn" class="scroll-top-btn" title="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
 </body>
 </html>

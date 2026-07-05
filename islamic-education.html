@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Education | Noshahi School System</title>
+    <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
+    <meta name="description" content="Nurturing Islamic values, character, and Quran education alongside modern academics at Noshahi School System.">
+    <!-- Google Fonts — Arabic + Latin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* =============================================
+           ISLAMIC ED PAGE — SERENE & PREMIUM THEME
+        ============================================= */
+        :root {
+            --ice-bg:     #F4F7FA;
+            --pure-white: #FFFFFF;
+            --deep-blue:  #0F1F3D;
+            --mid-blue:   #1A3A6B;
+            --sky-blue:   #4A90D9;
+            --sky-light:  rgba(74, 144, 217, 0.12);
+            --amber:      #E8941A;
+            --amber-soft: rgba(232, 148, 26, 0.15);
+            --text-body:  #374151;
+            --text-muted: #6B7280;
+            --border-soft: rgba(74, 144, 217, 0.18);
+        }
+
+        body.islamic-page {
+            background-color: var(--ice-bg);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ── Islamic page navbar: blue by default, white on scroll ── */
+        .islamic-page .navbar {
+            background-color: var(--mid-blue);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .islamic-page .navbar .logo-text,
+        .islamic-page .navbar .nav-links a,
+        .islamic-page .navbar .mobile-toggle {
+            color: #fff !important;
+        }
+
+        .islamic-page .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .islamic-page .navbar.scrolled .logo-text,
+        .islamic-page .navbar.scrolled .nav-links a {
+            color: var(--mid-blue) !important;
+        }
+
+        .islamic-page .navbar.scrolled .nav-links a.btn {
+            color: #fff !important;
+        }
+
+        .islamic-page .navbar.scrolled .mobile-toggle {
+            color: var(--mid-blue) !important;
+        }
+
+        /* ── shared overrides ── */
+        .islamic-page section { padding: 5rem 0; }
+
+        .isl-section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .isl-section-title .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--sky-light);
+            border: 1px solid var(--border-soft);
+            color: var(--sky-blue);
+            padding: 0.35rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+        }
+
+        .isl-section-title h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--deep-blue);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .isl-section-title h2 span { color: var(--amber); }
+
+        .isl-section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* ── underline decorator ── */
+        .isl-section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.6rem;
+        }
+        .isl-section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 3px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--amber), var(--sky-blue));
+        }
+
+        /* ============================================
+           1. HERO
+        ============================================= */
+        .isl-hero {
+            background-color: var(--pure-white);
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* soft top-left radial glow */
+        .isl-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74,144,217,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* bottom-right amber glow */
+        .isl-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(232,148,26,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .isl-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .isl-hero-left .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--sky-light);
+            border: 1px solid var(--border-soft);
+            color: var(--sky-blue);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .isl-hero-left h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--deep-blue);
+            line-height: 1.18;
+            margin-bottom: 1rem;
+        }
+
+        .isl-hero-left h1 span { color: var(--amber); }
+
+        .isl-hero-left .sub-heading {
+            font-size: 1.15rem;
+            color: var(--sky-blue);
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+        }
+
+        .isl-hero-left p {
+            color: var(--text-body);
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+            max-width: 460px;
+        }
+
+        .isl-hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-isl-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--mid-blue);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-isl-primary:hover {
+            background: var(--deep-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15,31,61,0.2);
+            color: #fff;
+        }
+
+        .btn-isl-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--mid-blue);
+            border: 2px solid var(--mid-blue);
+            padding: 0.85rem 2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-isl-outline:hover {
+            background: var(--mid-blue);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ── Hero Right: Portrait Frame ── */
+        .isl-hero-right {
+            position: relative;
+        }
+
+        .portrait-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .portrait-placeholder {
+            background: linear-gradient(135deg, #ddeeff 0%, #eef4fb 50%, #fef3e2 100%);
+            border-radius: 24px;
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            border: 2px solid rgba(74,144,217,0.15);
+            box-shadow: 0 20px 60px rgba(15,31,61,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* decorative circles inside portrait */
+        .portrait-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: rgba(232,148,26,0.07);
+        }
+
+        .portrait-placeholder::after {
+            content: '';
+            position: absolute;
+            bottom: -30px; left: -30px;
+            width: 160px; height: 160px;
+            border-radius: 50%;
+            background: rgba(74,144,217,0.08);
+        }
+
+        .portrait-icon-wrap {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: rgba(74,144,217,0.1);
+            border: 2px solid rgba(74,144,217,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--sky-blue);
+            position: relative;
+            z-index: 1;
+        }
+
+        .portrait-placeholder .placeholder-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* floating badge on portrait */
+        .portrait-badge {
+            position: absolute;
+            bottom: 28px;
+            left: -20px;
+            background: var(--pure-white);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            padding: 0.7rem 1.2rem;
+            box-shadow: 0 8px 30px rgba(15,31,61,0.12);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .portrait-badge .badge-icon {
+            width: 36px; height: 36px;
+            background: var(--amber-soft);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--amber);
+            font-size: 1rem;
+        }
+
+        .portrait-badge .badge-text strong {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            line-height: 1.2;
+        }
+
+        .portrait-badge .badge-text span {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .portrait-badge-2 {
+            position: absolute;
+            top: 28px;
+            right: -18px;
+            background: var(--pure-white);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            padding: 0.7rem 1.2rem;
+            box-shadow: 0 8px 30px rgba(15,31,61,0.12);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .portrait-badge-2 .badge-icon {
+            background: var(--sky-light);
+            color: var(--sky-blue);
+        }
+
+        /* ============================================
+           2. THREE PILLARS TIMELINE
+        ============================================= */
+        .pillars-section {
+            background-color: var(--ice-bg);
+            padding: 5rem 0;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        /* center vertical line */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 3px;
+            background: linear-gradient(180deg, var(--sky-blue) 0%, var(--amber) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        /* left-side items */
+        .timeline-item.left .tl-card { grid-column: 1; }
+        .timeline-item.left .tl-dot  { grid-column: 2; }
+        .timeline-item.left .tl-empty { grid-column: 3; }
+
+        /* right-side items */
+        .timeline-item.right .tl-empty { grid-column: 1; }
+        .timeline-item.right .tl-dot   { grid-column: 2; }
+        .timeline-item.right .tl-card  { grid-column: 3; }
+
+        .tl-card {
+            background: var(--pure-white);
+            border-radius: 18px;
+            padding: 2rem 1.75rem;
+            box-shadow: 0 4px 20px rgba(15,31,61,0.07);
+            border: 1px solid rgba(74,144,217,0.1);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+        }
+
+        .tl-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(232,148,26,0.12), 0 4px 15px rgba(15,31,61,0.06);
+        }
+
+        /* amber left-border accent */
+        .tl-card::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--amber) 0%, var(--sky-blue) 100%);
+            border-radius: 4px;
+        }
+
+        .tl-card .pillar-num {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sky-blue);
+            margin-bottom: 0.4rem;
+        }
+
+        .tl-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--deep-blue);
+            margin-bottom: 0.6rem;
+        }
+
+        .tl-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .tl-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tl-tag {
+            background: var(--sky-light);
+            border: 1px solid var(--border-soft);
+            color: var(--mid-blue);
+            padding: 0.2rem 0.65rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* center dot */
+        .tl-dot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .tl-dot-inner {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--pure-white);
+            border: 3px solid var(--sky-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sky-blue);
+            font-size: 1.1rem;
+            box-shadow: 0 0 0 6px rgba(74,144,217,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .tl-dot-inner {
+            border-color: var(--amber);
+            color: var(--amber);
+            box-shadow: 0 0 0 6px var(--amber-soft);
+        }
+
+        .tl-empty { /* placeholder side */ }
+
+        /* ============================================
+           3. DAILY VERSES COMPONENT
+        ============================================= */
+        .verses-section {
+            background-color: var(--ice-bg);
+            padding: 0 0 5rem;
+        }
+
+        .verse-card {
+            background: var(--deep-blue);
+            border-radius: 28px;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* geometric corner patterns */
+        .verse-card::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 220px; height: 220px;
+            border-radius: 50%;
+            border: 30px solid rgba(74,144,217,0.1);
+            pointer-events: none;
+        }
+
+        .verse-card::after {
+            content: '';
+            position: absolute;
+            bottom: -50px; right: -50px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            border: 25px solid rgba(232,148,26,0.1);
+            pointer-events: none;
+        }
+
+        /* extra geometric lines */
+        .geo-pattern {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .geo-pattern svg {
+            position: absolute;
+            opacity: 0.04;
+        }
+
+        .geo-pattern .svg-tl { top: 0; left: 0; width: 200px; }
+        .geo-pattern .svg-br { bottom: 0; right: 0; width: 200px; transform: rotate(180deg); }
+
+        .verse-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .verse-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74,144,217,0.15);
+            border: 1px solid rgba(74,144,217,0.3);
+            color: #93C5FD;
+            padding: 0.35rem 1rem;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .verse-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: #fff;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            direction: rtl;
+            text-shadow: 0 2px 20px rgba(232,148,26,0.2);
+        }
+
+        .verse-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--amber), var(--sky-blue));
+            border-radius: 2px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .verse-translation {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.75);
+            font-style: italic;
+            line-height: 1.75;
+            margin-bottom: 0.75rem;
+        }
+
+        .verse-source {
+            font-size: 0.8rem;
+            color: var(--amber);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           4. PARENT ASSURANCE GRID
+        ============================================= */
+        .assurance-section {
+            background-color: var(--pure-white);
+            padding: 5rem 0;
+        }
+
+        .assurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .assurance-card {
+            background: var(--ice-bg);
+            border: 1px solid rgba(74,144,217,0.12);
+            border-radius: 18px;
+            padding: 1.75rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .assurance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(15,31,61,0.08);
+            border-color: rgba(232,148,26,0.3);
+        }
+
+        .assurance-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: var(--amber-soft);
+            border: 1px solid rgba(232,148,26,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--amber);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .assurance-card:hover .assurance-icon {
+            background: var(--amber);
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(232,148,26,0.3);
+        }
+
+        .assurance-text strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--deep-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .assurance-text span {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 992px) {
+            .isl-hero .container { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .isl-hero-left p { max-width: 100%; }
+            .isl-hero-btns { justify-content: center; }
+            .portrait-badge { left: 10px; }
+            .portrait-badge-2 { right: 10px; }
+
+            .timeline-wrapper { padding: 0 1rem; }
+            .timeline-line { display: none; }
+            .timeline-item { grid-template-columns: 1fr; }
+            .timeline-item.left .tl-dot,
+            .timeline-item.left .tl-empty,
+            .timeline-item.right .tl-dot,
+            .timeline-item.right .tl-empty { display: none; }
+            .timeline-item.left .tl-card,
+            .timeline-item.right .tl-card { grid-column: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .isl-hero-left h1 { font-size: 2.2rem; }
+            .verse-arabic { font-size: 1.6rem; }
+            .verse-card { padding: 2.5rem 1.5rem; }
+        }
+    </style>
+</head>
+
+<body class="islamic-page">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="islamicNavbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                <span class="logo-text">Noshahi School System</span>
+            </a>
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="academics.html" class="active">Academics <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academics Overview</a></li>
+                        <li><a href="computer-education.html">Computer Ed</a></li>
+                        <li><a href="islamic-education.html" class="active">Islamic Ed</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="isl-hero">
+        <div class="container">
+
+            <!-- LEFT: Text -->
+            <div class="isl-hero-left">
+                <div class="badge-pill">
+                    <i class="fas fa-mosque"></i> Islamic Education
+                </div>
+                <h1>Nurturing the <span>Soul,</span><br>Building the Character.</h1>
+                <p class="sub-heading">"Where Islamic values guide modern success."</p>
+                <p>At Noshahi School System, we believe a truly educated child is one whose mind, heart, and character are all developed together. Our Islamic Education program is woven into every day — not as a separate subject, but as a way of life.</p>
+                <div class="isl-hero-btns">
+                    <a href="#pillars" class="btn-isl-primary">
+                        <i class="fas fa-book-open-reader"></i> Explore Our Curriculum
+                    </a>
+                    <a href="admissions.html" class="btn-isl-outline">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Portrait Frame -->
+            <div class="isl-hero-right">
+                <div class="portrait-frame">
+                    <div class="portrait-placeholder">
+                        <div class="portrait-icon-wrap">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <span class="placeholder-label">Student Portrait Photo</span>
+                    </div>
+                    <!-- floating badge 1 -->
+                    <div class="portrait-badge">
+                        <div class="badge-icon"><i class="fas fa-star"></i></div>
+                        <div class="badge-text">
+                            <strong>Character First</strong>
+                            <span>Daily Tarbiat Sessions</span>
+                        </div>
+                    </div>
+                    <!-- floating badge 2 -->
+                    <div class="portrait-badge-2">
+                        <div class="badge-icon"><i class="fas fa-quran"></i></div>
+                        <div class="badge-text">
+                            <strong>Quran &amp; Tajweed</strong>
+                            <span>Certified Huffaz Teachers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== THREE PILLARS TIMELINE ==================== -->
+    <section class="pillars-section" id="pillars">
+        <div class="container">
+            <div class="isl-section-title">
+                <div class="eyebrow"><i class="fas fa-layer-group"></i> Our Curriculum</div>
+                <h2>The Three <span>Pillars</span></h2>
+                <p>Every pillar is a complete world of learning — structured, purposeful, and delivered with love.</p>
+            </div>
+
+            <div class="timeline-wrapper">
+                <!-- Center Line -->
+                <div class="timeline-line"></div>
+
+                <!-- PILLAR 1 — LEFT -->
+                <div class="timeline-item left">
+                    <div class="tl-card">
+                        <div class="pillar-num">Pillar 01</div>
+                        <h3><i class="fas fa-book-quran" style="color:var(--amber);margin-right:8px;"></i>Hifz &amp; Nazra</h3>
+                        <p>Students memorize and recite the Quran with correct Tajweed. Our certified teachers follow a structured, age-appropriate program ensuring each child builds a strong and lasting connection with the Quran.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag">Hifz Program</span>
+                            <span class="tl-tag">Tajweed Rules</span>
+                            <span class="tl-tag">Nazra Quran</span>
+                            <span class="tl-tag">Makharij</span>
+                        </div>
+                    </div>
+                    <div class="tl-dot">
+                        <div class="tl-dot-inner"><i class="fas fa-book-quran"></i></div>
+                    </div>
+                    <div class="tl-empty"></div>
+                </div>
+
+                <!-- PILLAR 2 — RIGHT -->
+                <div class="timeline-item right">
+                    <div class="tl-empty"></div>
+                    <div class="tl-dot">
+                        <div class="tl-dot-inner"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="tl-card">
+                        <div class="pillar-num">Pillar 02</div>
+                        <h3><i class="fas fa-hands-holding-heart" style="color:var(--amber);margin-right:8px;"></i>Akhlaqiat &amp; Tarbiat</h3>
+                        <p>Character is built daily — through morning duas, respectful greetings, honesty exercises, and etiquette workshops. Students learn to respect parents, teachers, and peers as a lived practice, not just a lesson.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag">Daily Duas</span>
+                            <span class="tl-tag">Respect &amp; Adab</span>
+                            <span class="tl-tag">Honesty</span>
+                            <span class="tl-tag">Etiquette</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILLAR 3 — LEFT -->
+                <div class="timeline-item left">
+                    <div class="tl-card">
+                        <div class="pillar-num">Pillar 03</div>
+                        <h3><i class="fas fa-scroll" style="color:var(--amber);margin-right:8px;"></i>Islamic History</h3>
+                        <p>Children discover the inspiring stories of the Prophets, Sahaba, and great Islamic scholars. These heroes of history ignite ambition, purpose, and a sense of Islamic identity that lasts a lifetime.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag">Seerah</span>
+                            <span class="tl-tag">Sahaba Stories</span>
+                            <span class="tl-tag">Islamic Heroes</span>
+                            <span class="tl-tag">Khulafa</span>
+                        </div>
+                    </div>
+                    <div class="tl-dot">
+                        <div class="tl-dot-inner"><i class="fas fa-scroll"></i></div>
+                    </div>
+                    <div class="tl-empty"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DAILY VERSES COMPONENT ==================== -->
+    <section class="verses-section">
+        <div class="container">
+            <div class="verse-card">
+                <!-- Geometric SVG Patterns -->
+                <div class="geo-pattern">
+                    <svg class="svg-tl" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="0,0 200,0 0,200" fill="white"/>
+                        <line x1="0" y1="50" x2="150" y2="50" stroke="white" stroke-width="1"/>
+                        <line x1="0" y1="100" x2="100" y2="100" stroke="white" stroke-width="1"/>
+                        <line x1="50" y1="0" x2="50" y2="150" stroke="white" stroke-width="1"/>
+                        <line x1="100" y1="0" x2="100" y2="100" stroke="white" stroke-width="1"/>
+                        <circle cx="50" cy="50" r="30" stroke="white" stroke-width="1" fill="none"/>
+                        <circle cx="100" cy="100" r="20" stroke="white" stroke-width="1" fill="none"/>
+                    </svg>
+                    <svg class="svg-br" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="0,0 200,0 0,200" fill="white"/>
+                        <line x1="0" y1="50" x2="150" y2="50" stroke="white" stroke-width="1"/>
+                        <line x1="50" y1="0" x2="50" y2="150" stroke="white" stroke-width="1"/>
+                        <circle cx="50" cy="50" r="30" stroke="white" stroke-width="1" fill="none"/>
+                    </svg>
+                </div>
+
+                <div class="verse-inner">
+                    <div class="verse-label">
+                        <i class="fas fa-star-and-crescent"></i> Daily Verse
+                    </div>
+
+                    <div class="verse-arabic">
+                        اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ
+                    </div>
+
+                    <div class="verse-divider"></div>
+
+                    <p class="verse-translation">
+                        "Read in the name of your Lord who created —"
+                    </p>
+
+                    <p class="verse-source">— Surah Al-Alaq, Verse 1 (96:1)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PARENT ASSURANCE GRID ==================== -->
+    <section class="assurance-section">
+        <div class="container">
+            <div class="isl-section-title">
+                <div class="eyebrow"><i class="fas fa-shield-heart"></i> For Parents</div>
+                <h2>Your Peace of <span>Mind,</span> Guaranteed.</h2>
+                <p>We know parents have one question above all else: "Is my child really being shaped with the right values?" Here's our answer.</p>
+            </div>
+
+            <div class="assurance-grid">
+                <div class="assurance-card">
+                    <div class="assurance-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="assurance-text">
+                        <strong>Qualified Huffaz Teachers</strong>
+                        <span>All Quran classes are conducted by certified Huffaz with formal Tajweed qualifications and experience teaching children.</span>
+                    </div>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="assurance-text">
+                        <strong>Daily Practical Duas &amp; Prayers</strong>
+                        <span>Students begin every school day with collective Fajr duas and learn age-appropriate daily prayers by heart through consistent practice.</span>
+                    </div>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="assurance-text">
+                        <strong>Character Report Cards Sent to Parents</strong>
+                        <span>Beyond academics, parents receive a dedicated Character & Tarbiat report each term — documenting Akhlaq, punctuality, and Quran progress.</span>
+                    </div>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="assurance-text">
+                        <strong>Safe &amp; Nurturing Environment</strong>
+                        <span>Our school culture is built on respect, brotherhood, and Islamic values — bullying has zero tolerance and kindness is actively rewarded.</span>
+                    </div>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="assurance-text">
+                        <strong>Monthly Parent-Teacher Meetings</strong>
+                        <span>Regular meetings specifically covering your child's spiritual and moral development — not just their grades.</span>
+                    </div>
+                </div>
+                <div class="assurance-card">
+                    <div class="assurance-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="assurance-text">
+                        <strong>Islamic Events &amp; Competitions</strong>
+                        <span>Students participate in Naat competitions, Islamic quizzes, and Ramadan programs that build identity and pride in their deen.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                    </div>
+                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Special Focus</h3>
+                    <ul class="footer-links">
+                        <li><a href="computer-education.html">Computer Education</a></li>
+                        <li><a href="islamic-education.html">Islamic Education</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Our Faculty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:10px;"></i> 123 Education Street, City</li>
+                        <li><i class="fas fa-phone" style="margin-right:10px;"></i> +1 234 567 8900</li>
+                        <li><i class="fas fa-envelope" style="margin-right:10px;"></i> info@noshahischool.edu</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+
+    <script>
+        /* Islamic Page — Blue navbar → White on scroll */
+        (function () {
+            const nav = document.getElementById('islamicNavbar');
+            if (!nav) return;
+            const onScroll = () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                    nav.style.backgroundColor = 'var(--mid-blue)';
+                }
+            };
+            /* when scrolled class is added, remove inline bg so CSS takes over */
+            const observer = new MutationObserver(() => {
+                if (nav.classList.contains('scrolled')) {
+                    nav.style.backgroundColor = '';
+                } else {
+                    nav.style.backgroundColor = 'var(--mid-blue)';
+                }
+            });
+            observer.observe(nav, { attributes: true, attributeFilter: ['class'] });
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        })();
+    </script>
+
+    <!-- Floating Widgets -->
+    <div class="floating-widgets">
+        <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="scrollToTopBtn" class="scroll-top-btn" title="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+</body>
+</html>

@@ -174,9 +174,93 @@
     </section>
 
     <!-- Google Map Section -->
-    <section style="padding: 0; margin-top: 3rem;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.936!2d72.1856!3d30.7996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b5c8d9d9d9d9d%3A0x1a2b3c4d5e6f7g8h!2sNoshahi%20School%20System%2C%20Village%2097%20JB%2C%20Gojra%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2spk!4v1704067200000" 
-            width="100%" height="450" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <section style="padding: 3rem 0 4rem; background: linear-gradient(135deg, #F5F7FA 0%, #E8ECEF 100%); position: relative; overflow: hidden;">
+        <!-- Decorative elements -->
+        <div style="position: absolute; top: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,140,0,0.05); pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -80px; right: -80px; width: 250px; height: 250px; border-radius: 50%; background: rgba(59,130,246,0.05); pointer-events: none;"></div>
+        
+        <div class="container" style="position: relative; z-index: 1;">
+            <!-- Map Title -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); color: var(--accent-color); padding: 0.35rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;">
+                    <i class="fas fa-map-location-dot"></i> Our Location
+                </div>
+                <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">Find Us On The Map</h2>
+                <p style="color: var(--text-light); font-size: 1rem; max-width: 600px; margin: 0 auto;">Village 97 JB, Gojra, Punjab, Pakistan — Easily accessible and centrally located for your convenience</p>
+            </div>
+
+            <!-- Map Container with Premium Styling -->
+            <div style="border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(31,42,68,0.15); border: 1px solid rgba(31,42,68,0.08); backdrop-filter: blur(10px); position: relative; background: #fff;">
+                <!-- Map Loader Skeleton (optional) -->
+                <div style="position: relative; width: 100%; padding-bottom: 56.25%; background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); background-size: 200% 100%; animation: loading 1.5s infinite;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.936!2d72.1856!3d30.7996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b5c8d9d9d9d9d%3A0x1a2b3c4d5e6f7g8h!2sNoshahi%20School%20System%2C%20Village%2097%20JB%2C%20Gojra%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2spk!4v1704067200000" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 24px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Map Info Overlay Badge (bottom-left) -->
+                <div style="position: absolute; bottom: 20px; left: 20px; background: #fff; border-radius: 16px; padding: 1.25rem 1.5rem; box-shadow: 0 12px 40px rgba(31,42,68,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.9); z-index: 10; max-width: 280px;">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; flex-shrink: 0;">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div style="flex-grow: 1;">
+                            <p style="font-weight: 700; color: var(--primary-color); margin: 0 0 0.3rem 0; font-size: 0.95rem;">Noshahi School System</p>
+                            <p style="color: var(--text-light); font-size: 0.8rem; margin: 0; line-height: 1.5;">Village 97 JB, Gojra, Punjab, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Direction CTA Badge (bottom-right) -->
+                <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="position: absolute; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 8px; background: var(--accent-color); color: #fff; padding: 0.75rem 1.25rem; border-radius: 30px; font-weight: 700; font-size: 0.85rem; text-decoration: none; box-shadow: 0 8px 24px rgba(255,140,0,0.3); transition: all 0.3s ease; z-index: 10;"
+                    onmouseover="this.style.background='#e67e00'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 36px rgba(255,140,0,0.4)';"
+                    onmouseout="this.style.background='var(--accent-color)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(255,140,0,0.3)';">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+
+            <!-- Map Stats/Info Below -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+                <!-- Stat 1 -->
+                <div style="background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(31,42,68,0.07); text-align: center; transition: all 0.3s ease;"
+                    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(31,42,68,0.1)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(31,42,68,0.04)';">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255,140,0,0.1); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 1.3rem;">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.25rem;">Accessible Location</p>
+                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">Centrally located in Gojra for easy access</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div style="background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(31,42,68,0.07); text-align: center; transition: all 0.3s ease;"
+                    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(31,42,68,0.1)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(31,42,68,0.04)';">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(59,130,246,0.1); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; color: #3B82F6; font-size: 1.3rem;">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.25rem;">Contact Us</p>
+                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">0328-1642297 | 0321-6892097</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div style="background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(31,42,68,0.07); text-align: center; transition: all 0.3s ease;"
+                    onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 30px rgba(31,42,68,0.1)';"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(31,42,68,0.04)';">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(34,197,94,0.1); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; color: #22C55E; font-size: 1.3rem;">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.25rem;">Business Hours</p>
+                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">Mon-Thu: 8AM-2PM | Fri: 8AM-12:30PM</p>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes loading {
+                0% { background-position: 200% 0; }
+                100% { background-position: -200% 0; }
+            }
+        </style>
     </section>
 
     <!-- Footer -->

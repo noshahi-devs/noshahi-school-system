@@ -58,7 +58,7 @@
                 <div class="carousel-overlay"></div>
                 <div class="container carousel-content">
                     <h1>Welcome to Noshahi School System</h1>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <p>KG to Grade 12 · School &amp; Academy · Modern academics with special focus on Computer Education and Islamic character building.</p>
                     <div class="hero-buttons">
                         <a href="admissions.html" class="btn btn-accent">Apply Now</a>
                         <a href="about.html" class="btn btn-outline">Learn More</a>
@@ -70,10 +70,10 @@
                 <img src="img/hero_slide_2.png" alt="Computer Education" class="carousel-bg">
                 <div class="carousel-overlay"></div>
                 <div class="container carousel-content">
-                    <h1>Empowering Digital Leaders</h1>
-                    <p>State-of-the-art computer labs, coding, and AI awareness from early ages.</p>
+                    <h1>Computer as a Core Subject</h1>
+                    <p>Practical, hands-on Computer Education from Basic to Advanced — taught as a regular subject at every grade level, not a separate course.</p>
                     <div class="hero-buttons">
-                        <a href="computer-education.html" class="btn btn-accent">Explore IT</a>
+                        <a href="computer-education.html" class="btn btn-accent">Explore Computer Ed</a>
                         <a href="admissions.html" class="btn btn-outline">Apply Now</a>
                     </div>
                 </div>
@@ -83,8 +83,8 @@
                 <img src="img/hero_slide_3.png" alt="Islamic Education" class="carousel-bg">
                 <div class="carousel-overlay"></div>
                 <div class="container carousel-content">
-                    <h1>Nurturing Islamic Values</h1>
-                    <p>Integrating core Islamic values, Nazra Quran, and character building alongside modern academics.</p>
+                    <h1>Nurturing Character &amp; Values</h1>
+                    <p>Nazra Quran with Tajweed, daily Duas, Akhlaqiat, and high-quality character building — because academic success and moral strength go hand in hand.</p>
                     <div class="hero-buttons">
                         <a href="islamic-education.html" class="btn btn-accent">Explore Islamic Ed</a>
                         <a href="admissions.html" class="btn btn-outline">Apply Now</a>
@@ -215,25 +215,351 @@
 
     <!-- Campus & Student Life -->
     <section id="campus-life">
+        <style>
+            /* ── Campus Life Section ── */
+            #campus-life {
+                background-color: var(--bg-color);
+                padding: 5rem 0;
+            }
+
+            .campus-split {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .campus-panel {
+                background: var(--bg-light);
+                border-radius: 20px;
+                padding: 2.5rem 2rem;
+                border: 1px solid rgba(31,42,68,0.07);
+                transition: box-shadow 0.3s ease;
+            }
+
+            .campus-panel:hover {
+                box-shadow: 0 12px 40px rgba(31,42,68,0.09);
+            }
+
+            .campus-panel-header {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1.75rem;
+                padding-bottom: 1.25rem;
+                border-bottom: 2px solid rgba(255,140,0,0.15);
+            }
+
+            .campus-panel-header .panel-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+                background: var(--primary-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent-color);
+                font-size: 1.3rem;
+                flex-shrink: 0;
+            }
+
+            .campus-panel-header h3 {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                margin: 0;
+            }
+
+            .campus-panel-header p {
+                font-size: 0.8rem;
+                color: var(--text-light);
+                margin: 0.15rem 0 0;
+            }
+
+            /* facility rows */
+            .facility-list {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.65rem;
+            }
+
+            .facility-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.7rem 0.85rem;
+                border-radius: 10px;
+                background: #fff;
+                border: 1px solid rgba(31,42,68,0.06);
+                transition: all 0.25s ease;
+            }
+
+            .facility-item:hover {
+                border-color: rgba(255,140,0,0.25);
+                transform: translateY(-3px);
+                box-shadow: 0 6px 16px rgba(31,42,68,0.06);
+            }
+
+            .facility-item .fi-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                background: rgba(255,140,0,0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent-color);
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+
+            .facility-item span {
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                line-height: 1.3;
+            }
+
+            /* activity pills */
+            .activity-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.65rem;
+            }
+
+            .activity-pill {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                padding: 0.7rem 0.85rem;
+                border-radius: 10px;
+                background: #fff;
+                border: 1px solid rgba(31,42,68,0.06);
+                transition: all 0.25s ease;
+            }
+
+            .activity-pill:hover {
+                border-color: rgba(31,42,68,0.2);
+                transform: translateY(-3px);
+                box-shadow: 0 6px 16px rgba(31,42,68,0.08);
+            }
+
+            .activity-pill .ap-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                background: rgba(31,42,68,0.07);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary-color);
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+
+            .activity-pill span {
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: var(--text-dark);
+                line-height: 1.3;
+            }
+
+            /* bottom CTA strip */
+            .campus-cta-strip {
+                background: var(--primary-color);
+                border-radius: 20px;
+                padding: 2.25rem 2.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .campus-cta-strip .cta-left h3 {
+                color: #fff;
+                font-size: 1.35rem;
+                font-weight: 700;
+                margin-bottom: 0.35rem;
+            }
+
+            .campus-cta-strip .cta-left p {
+                color: rgba(255,255,255,0.65);
+                font-size: 0.88rem;
+                margin: 0;
+            }
+
+            .campus-cta-strip .cta-right {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                flex-shrink: 0;
+            }
+
+            .campus-cta-strip .cta-right a {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 0.75rem 1.6rem;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.88rem;
+                transition: all 0.3s ease;
+                text-decoration: none;
+            }
+
+            .cta-btn-solid {
+                background: var(--accent-color);
+                color: #fff !important;
+            }
+
+            .cta-btn-solid:hover {
+                background: #e67e00;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(255,140,0,0.35);
+                color: #fff !important;
+            }
+
+            .cta-btn-outline {
+                background: transparent;
+                border: 2px solid rgba(255,255,255,0.35);
+                color: #fff !important;
+            }
+
+            .cta-btn-outline:hover {
+                border-color: #fff;
+                background: rgba(255,255,255,0.08);
+                color: #fff !important;
+            }
+
+            @media (max-width: 992px) {
+                .campus-split { grid-template-columns: 1fr; }
+                .campus-cta-strip { flex-direction: column; align-items: flex-start; }
+            }
+
+            @media (max-width: 600px) {
+                .facility-list { grid-template-columns: 1fr; }
+                .activity-grid { grid-template-columns: 1fr; }
+                .campus-cta-strip .cta-right { flex-direction: column; width: 100%; }
+                .campus-cta-strip .cta-right a { justify-content: center; }
+            }
+        </style>
+
         <div class="container">
             <div class="section-title">
-                <h2>Campus Facilities & Student Life</h2>
+                <h2>Campus Facilities &amp; Student Life</h2>
             </div>
-            <div class="grid-3">
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-building" style="color:var(--accent-color); margin-right:10px;"></i> Our Facilities</h3>
-                    <p>Spacious private building · Computer Lab · Clean hygienic environment · Safe drinking water · CCTV security · Highly qualified staff · Supportive learning environment.</p>
-                    <a href="campus-facilities.html" class="card-link">View Facilities →</a>
+
+            <!-- Two-panel split -->
+            <div class="campus-split">
+
+                <!-- Panel 1: Facilities -->
+                <div class="campus-panel">
+                    <div class="campus-panel-header">
+                        <div class="panel-icon"><i class="fas fa-building"></i></div>
+                        <div>
+                            <h3>Campus Facilities</h3>
+                            <p>Everything your child needs — under one roof</p>
+                        </div>
+                    </div>
+                    <div class="facility-list">
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-broom"></i></div>
+                            <span>Clean &amp; Hygienic Environment</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-building"></i></div>
+                            <span>Spacious Private Building</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-desktop"></i></div>
+                            <span>Dedicated Computer Lab</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-droplet"></i></div>
+                            <span>Clean Drinking Water</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-shield-halved"></i></div>
+                            <span>CCTV Security System</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-user-tie"></i></div>
+                            <span>Highly Qualified Staff</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-comments"></i></div>
+                            <span>Continuous Parent Communication</span>
+                        </div>
+                        <div class="facility-item">
+                            <div class="fi-icon"><i class="fas fa-heart"></i></div>
+                            <span>Supportive Learning Environment</span>
+                        </div>
+                    </div>
+                    <a href="campus-facilities.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;font-weight:700;font-size:0.88rem;color:var(--accent-color);">
+                        View All Facilities <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="card">
-                    <h3 class="card-title"><i class="fas fa-star" style="color:var(--accent-color); margin-right:10px;"></i> Student Activities</h3>
-                    <p>Daily Morning Assembly · Naat &amp; Qirat Competitions · Speech &amp; Quiz Competitions · Science Experiments · National &amp; Religious Celebrations · Annual Prize Distribution · Moral Training Programs.</p>
-                    <a href="academics.html#activities" class="card-link">Discover More →</a>
+
+                <!-- Panel 2: Student Activities -->
+                <div class="campus-panel">
+                    <div class="campus-panel-header">
+                        <div class="panel-icon"><i class="fas fa-star"></i></div>
+                        <div>
+                            <h3>Student Activities</h3>
+                            <p>A vibrant, enriching life beyond the classroom</p>
+                        </div>
+                    </div>
+                    <div class="activity-grid">
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-sun"></i></div>
+                            <span>Daily Morning Assembly</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-microphone"></i></div>
+                            <span>Naat &amp; Qirat Competitions</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-comment-dots"></i></div>
+                            <span>Speech Competitions</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-circle-question"></i></div>
+                            <span>Quiz Competitions</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-flask"></i></div>
+                            <span>Science Experiments</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-flag"></i></div>
+                            <span>National &amp; Religious Celebrations</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-trophy"></i></div>
+                            <span>Annual Prize Distribution</span>
+                        </div>
+                        <div class="activity-pill">
+                            <div class="ap-icon"><i class="fas fa-heart"></i></div>
+                            <span>Moral Training Programs</span>
+                        </div>
+                    </div>
+                    <a href="academics.html#activities" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;font-weight:700;font-size:0.88rem;color:var(--accent-color);">
+                        Explore Student Life <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <div class="card bg-light">
-                    <h3 class="card-title" style="color: var(--primary-color);">Admissions Open!</h3>
-                    <p>Join the Noshahi School System family. KG to Grade 12 — School &amp; Academy. Give your child the best academic, computer, and Islamic foundation.</p>
-                    <a href="admissions.html" class="btn btn-accent" style="margin-top: 1rem; text-align: center;">Apply Now</a>
+
+            </div>
+
+            <!-- Bottom CTA Strip -->
+            <div class="campus-cta-strip">
+                <div class="cta-left">
+                    <h3>Admissions Open for 2025–26</h3>
+                    <p>KG to Grade 12 · School &amp; Academy · Boys &amp; Girls</p>
+                </div>
+                <div class="cta-right">
+                    <a href="admissions.html" class="cta-btn-solid"><i class="fas fa-paper-plane"></i> Apply Now</a>
+                    <a href="campus-facilities.html" class="cta-btn-outline"><i class="fas fa-eye"></i> View Campus</a>
                 </div>
             </div>
         </div>

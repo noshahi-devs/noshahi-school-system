@@ -63,67 +63,531 @@
 
     <!-- Facilities Grid -->
     <section id="facilities">
+        <style>
+            /* ═══════════════════════════════════════
+               OUR FACILITIES — PREMIUM REDESIGN
+            ═══════════════════════════════════════ */
+
+            #facilities {
+                background: #F5F7FA;
+                padding: 6rem 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* subtle top decorative bar */
+            #facilities::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 4px;
+                background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+            }
+
+            /* ── Section intro block ── */
+            .fac-intro {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: center;
+                margin-bottom: 4rem;
+            }
+
+            .fac-intro-left .fac-eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255,140,0,0.1);
+                border: 1px solid rgba(255,140,0,0.25);
+                color: var(--accent-color);
+                padding: 0.35rem 1rem;
+                border-radius: 30px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin-bottom: 1rem;
+            }
+
+            .fac-intro-left h2 {
+                font-size: 2.5rem;
+                font-weight: 800;
+                color: var(--primary-color);
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .fac-intro-left h2 span {
+                color: var(--accent-color);
+            }
+
+            .fac-intro-left p {
+                color: var(--text-light);
+                font-size: 1rem;
+                line-height: 1.75;
+                margin-bottom: 0;
+                max-width: 440px;
+            }
+
+            /* right: 3 stat counters */
+            .fac-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+
+            .fac-stat {
+                background: #fff;
+                border-radius: 16px;
+                padding: 1.5rem 1.25rem;
+                text-align: center;
+                border: 1px solid rgba(31,42,68,0.07);
+                box-shadow: 0 4px 16px rgba(31,42,68,0.05);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .fac-stat:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(31,42,68,0.1);
+            }
+
+            .fac-stat .stat-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: rgba(255,140,0,0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent-color);
+                font-size: 1.1rem;
+                margin: 0 auto 0.75rem;
+            }
+
+            .fac-stat .stat-num {
+                font-size: 2rem;
+                font-weight: 900;
+                color: var(--primary-color);
+                line-height: 1;
+                margin-bottom: 0.3rem;
+            }
+
+            .fac-stat .stat-lbl {
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: var(--text-light);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            /* ── Masonry-style bento grid ── */
+            .fac-bento {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: auto auto auto;
+                gap: 1.25rem;
+            }
+
+            /* base card */
+            .fac-card {
+                background: #fff;
+                border-radius: 20px;
+                padding: 2rem 1.75rem;
+                border: 1px solid rgba(31,42,68,0.07);
+                box-shadow: 0 2px 12px rgba(31,42,68,0.04);
+                transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1);
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .fac-card::after {
+                content: '';
+                position: absolute;
+                bottom: 0; left: 0; right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.35s ease;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .fac-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 50px rgba(31,42,68,0.12);
+                border-color: rgba(255,140,0,0.2);
+            }
+
+            .fac-card:hover::after {
+                transform: scaleX(1);
+            }
+
+            /* dark featured card */
+            .fac-card.dark {
+                background: var(--primary-color);
+                border-color: transparent;
+            }
+
+            .fac-card.dark::after {
+                background: linear-gradient(90deg, var(--accent-color), #ffb347);
+            }
+
+            .fac-card.dark .fac-card-icon {
+                background: rgba(255,140,0,0.15);
+                color: var(--accent-color);
+            }
+
+            /* wide card spans 2 columns */
+            .fac-card.wide { grid-column: span 2; }
+
+            /* tall card spans 2 rows */
+            .fac-card.tall { grid-row: span 2; }
+
+            .fac-card-icon {
+                width: 52px;
+                height: 52px;
+                border-radius: 14px;
+                background: rgba(255,140,0,0.09);
+                border: 1px solid rgba(255,140,0,0.15);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--accent-color);
+                font-size: 1.3rem;
+                margin-bottom: 1.25rem;
+                transition: all 0.3s ease;
+                flex-shrink: 0;
+            }
+
+            .fac-card:hover .fac-card-icon {
+                background: var(--accent-color);
+                color: #fff;
+                border-color: var(--accent-color);
+                box-shadow: 0 8px 20px rgba(255,140,0,0.3);
+                transform: scale(1.08);
+            }
+
+            .fac-card.dark:hover .fac-card-icon {
+                background: var(--accent-color);
+                color: #fff;
+            }
+
+            .fac-card h3 {
+                font-size: 1.05rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                margin-bottom: 0.6rem;
+                line-height: 1.3;
+            }
+
+            .fac-card p {
+                font-size: 0.87rem;
+                color: #4B5563;
+                line-height: 1.7;
+                margin: 0;
+                flex-grow: 1;
+            }
+
+            /* bold words inside light cards → blue */
+            .fac-card:not(.dark) p strong,
+            .fac-card:not(.dark) p b {
+                color: #1A3A6B;
+                font-weight: 700;
+            }
+
+            /* dark card text */
+            .fac-card.dark h3 { color: #fff; }
+            .fac-card.dark p  { color: rgba(255,255,255,0.82); }
+
+            /* bold words inside dark cards → orange-amber */
+            .fac-card.dark p strong,
+            .fac-card.dark p b {
+                color: #FFB347;
+                font-weight: 700;
+            }
+            .fac-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                background: rgba(255,140,0,0.1);
+                border: 1px solid rgba(255,140,0,0.2);
+                color: var(--accent-color);
+                padding: 0.2rem 0.65rem;
+                border-radius: 20px;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.85rem;
+                align-self: flex-start;
+            }
+
+            .fac-card.dark .fac-badge {
+                background: rgba(255,140,0,0.2);
+                border-color: rgba(255,140,0,0.35);
+            }
+
+            /* ── CTA block below grid ── */
+            .fac-cta {
+                margin-top: 3rem;
+                background: var(--primary-color);
+                border-radius: 24px;
+                padding: 2.5rem 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 2rem;
+                flex-wrap: wrap;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .fac-cta::before {
+                content: '';
+                position: absolute;
+                top: -60px; right: -60px;
+                width: 220px; height: 220px;
+                border-radius: 50%;
+                background: rgba(255,140,0,0.07);
+                pointer-events: none;
+            }
+
+            .fac-cta-text h3 {
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 800;
+                margin-bottom: 0.35rem;
+            }
+
+            .fac-cta-text p {
+                color: rgba(255,255,255,0.6);
+                font-size: 0.9rem;
+                margin: 0;
+            }
+
+            .fac-cta-btns {
+                display: flex;
+                gap: 1rem;
+                flex-shrink: 0;
+                flex-wrap: wrap;
+            }
+
+            .fac-btn-solid {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: var(--accent-color);
+                color: #fff;
+                padding: 0.8rem 1.75rem;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .fac-btn-solid:hover {
+                background: #e67e00;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 25px rgba(255,140,0,0.4);
+                color: #fff;
+            }
+
+            .fac-btn-ghost {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: transparent;
+                color: #fff;
+                border: 2px solid rgba(255,255,255,0.3);
+                padding: 0.8rem 1.75rem;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .fac-btn-ghost:hover {
+                border-color: #fff;
+                background: rgba(255,255,255,0.08);
+                color: #fff;
+            }
+
+            /* ── RESPONSIVE ── */
+            @media (max-width: 1100px) {
+                .fac-bento {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                .fac-card.wide { grid-column: span 2; }
+                .fac-card.tall { grid-row: span 1; }
+            }
+
+            @media (max-width: 768px) {
+                .fac-intro {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                    margin-bottom: 2.5rem;
+                }
+                .fac-intro-left h2 { font-size: 2rem; }
+                .fac-intro-left p { max-width: 100%; }
+                .fac-stats { grid-template-columns: repeat(3,1fr); }
+
+                .fac-bento {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .fac-card.wide { grid-column: span 2; }
+                .fac-card.tall { grid-row: span 1; }
+
+                .fac-cta {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    padding: 2rem 1.75rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .fac-bento {
+                    grid-template-columns: 1fr;
+                }
+                .fac-card.wide { grid-column: span 1; }
+                .fac-stats { grid-template-columns: 1fr 1fr; }
+                .fac-stat:last-child { grid-column: span 2; }
+                .fac-cta-btns { width: 100%; flex-direction: column; }
+                .fac-btn-solid, .fac-btn-ghost { justify-content: center; }
+            }
+        </style>
+
         <div class="container">
-            <div class="section-title">
-                <h2>Our Facilities</h2>
-            </div>
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-broom card-icon"></i>
-                    <h3 class="card-title">Clean & Hygienic Environment</h3>
-                    <p>Our campus is maintained to the highest standards of cleanliness and hygiene — every classroom, corridor, and common area is kept spotless every day.</p>
+
+            <!-- Intro Row -->
+            <div class="fac-intro">
+                <div class="fac-intro-left">
+                    <div class="fac-eyebrow"><i class="fas fa-building"></i> Our Campus</div>
+                    <h2>Everything Your Child<br>Needs — <span>Under One Roof</span></h2>
+                    <p>From a fully equipped Computer Lab to CCTV security and certified Quran teachers — every facility at Noshahi is designed with your child's safety, growth, and success in mind.</p>
                 </div>
-                <div class="card">
-                    <i class="fas fa-building card-icon"></i>
-                    <h3 class="card-title">Spacious Private Building</h3>
-                    <p>A purpose-built, spacious private campus designed to give students ample space to learn, explore, and grow in a structured and comfortable environment.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-user-tie card-icon"></i>
-                    <h3 class="card-title">Highly Qualified Staff</h3>
-                    <p>Our team of experienced, dedicated educators — including certified Huffaz and specialist computer teachers — ensures every student receives quality instruction.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-desktop card-icon"></i>
-                    <h3 class="card-title">Computer Lab Facility</h3>
-                    <p>A fully equipped Computer Lab where students get hands-on, practical sessions from Basic to Advanced level — computer is a core subject, not just an extra class.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-book-quran card-icon"></i>
-                    <h3 class="card-title">Nazra Quran with Tajweed</h3>
-                    <p>Structured Quran recitation classes with Tajweed, conducted by certified Huffaz teachers — helping every student build a strong, correct, and loving connection with the Quran.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-star card-icon"></i>
-                    <h3 class="card-title">Academic & Moral Training</h3>
-                    <p>Special emphasis on both academic excellence and moral development — our students are trained to be knowledgeable, disciplined, and people of strong character.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-heart card-icon"></i>
-                    <h3 class="card-title">High-Quality Character Building</h3>
-                    <p>Dedicated Tarbiat sessions, Akhlaqiat lessons, and daily etiquette practices ensure every student develops into a confident, respectful, and responsible individual.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-people-group card-icon"></i>
-                    <h3 class="card-title">Supportive Learning Environment</h3>
-                    <p>A warm, encouraging atmosphere where every student feels safe, valued, and motivated. Our teachers foster curiosity and confidence in every interaction.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-comments card-icon"></i>
-                    <h3 class="card-title">Continuous Parent Communication</h3>
-                    <p>Parents are kept informed and involved at every step — through regular meetings, term reports, Character Report Cards, and open-door access to teachers.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-droplet card-icon"></i>
-                    <h3 class="card-title">Clean Drinking Water</h3>
-                    <p>Filtered, safe drinking water is available throughout the campus at all times — because student health and wellbeing are never compromised.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-shield-halved card-icon"></i>
-                    <h3 class="card-title">CCTV Security System</h3>
-                    <p>Full campus CCTV surveillance ensures the safety of every student throughout the school day — parents can have complete peace of mind.</p>
+                <div class="fac-stats">
+                    <div class="fac-stat">
+                        <div class="stat-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="stat-num">1</div>
+                        <div class="stat-lbl">Computer Lab</div>
+                    </div>
+                    <div class="fac-stat">
+                        <div class="stat-icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="stat-num">24/7</div>
+                        <div class="stat-lbl">CCTV Security</div>
+                    </div>
+                    <div class="fac-stat">
+                        <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
+                        <div class="stat-num">100%</div>
+                        <div class="stat-lbl">Qualified Staff</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Bento Grid -->
+            <div class="fac-bento">
+
+                <!-- Row 1 -->
+
+                <!-- Card 1 — wide + dark: Computer Lab (hero card) -->
+                <div class="fac-card dark wide">
+                    <span class="fac-badge"><i class="fas fa-star"></i> Core Program</span>
+                    <div class="fac-card-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Dedicated Computer Lab</h3>
+                    <p>Fully equipped with modern machines for <strong>hands-on, practical Computer Education</strong> — Basic to Advanced. Computer is a <strong>mandatory regular subject</strong> at every grade, not just an extra class.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>CCTV Security System</h3>
+                    <p>Full campus surveillance throughout the school day. Complete peace of mind for every parent.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-broom"></i></div>
+                    <h3>Clean &amp; Hygienic Environment</h3>
+                    <p>Every classroom, corridor, and common area maintained spotless to the highest daily standards.</p>
+                </div>
+
+                <!-- Row 2 -->
+
+                <!-- Card 4 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-book-quran"></i></div>
+                    <h3>Nazra Quran with Tajweed</h3>
+                    <p>Structured Quran classes by certified Huffaz — correct recitation, Tajweed rules, and a lifelong bond with the Quran.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-building"></i></div>
+                    <h3>Spacious Private Building</h3>
+                    <p>A purpose-built campus giving students ample, comfortable space to learn and grow every day.</p>
+                </div>
+
+                <!-- Card 6 — wide: Parent Communication -->
+                <div class="fac-card wide">
+                    <div class="fac-card-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Continuous Parent Communication</h3>
+                    <p>Parents are involved at every step — <strong>regular meetings</strong>, term reports, <strong>Character Report Cards</strong>, and open-door teacher access ensure you are always informed about your child's progress.</p>
+                </div>
+
+                <!-- Row 3 -->
+
+                <!-- Card 7 — wide: Academic & Moral Training -->
+                <div class="fac-card wide">
+                    <div class="fac-card-icon"><i class="fas fa-star"></i></div>
+                    <h3>Academic &amp; Moral Training</h3>
+                    <p><strong>Special focus</strong> on both academic excellence and character — <strong>Tarbiat sessions</strong>, Akhlaqiat lessons, and daily etiquette practices shape students who are <strong>knowledgeable and principled</strong>.</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-droplet"></i></div>
+                    <h3>Clean Drinking Water</h3>
+                    <p>Filtered, safe water available throughout the campus at all times — student health is never compromised.</p>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Highly Qualified Staff</h3>
+                    <p>Certified Huffaz, specialist computer teachers &amp; experienced educators focused on real understanding.</p>
+                </div>
+
+                <!-- Card 10 — dark: Supportive Environment -->
+                <div class="fac-card dark">
+                    <div class="fac-card-icon"><i class="fas fa-people-group"></i></div>
+                    <h3>Supportive Learning Environment</h3>
+                    <p>A <strong>warm, safe atmosphere</strong> where every student feels valued, motivated, and confident to learn and grow.</p>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="fac-card">
+                    <div class="fac-card-icon"><i class="fas fa-heart"></i></div>
+                    <h3>High-Quality Character Building</h3>
+                    <p>Daily <strong>Tarbiat and Akhlaqiat sessions</strong> build confident, respectful, and responsible individuals ready for life.</p>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="fac-cta">
+                <div class="fac-cta-text">
+                    <h3>See It For Yourself</h3>
+                    <p>Book a free campus tour and witness our facilities, faculty, and student life in person.</p>
+                </div>
+                <div class="fac-cta-btns">
+                    <a href="admissions.html" class="fac-btn-solid"><i class="fas fa-paper-plane"></i> Apply Now</a>
+                    <a href="contact.html" class="fac-btn-ghost"><i class="fas fa-calendar-check"></i> Book a Tour</a>
+                </div>
+            </div>
+
         </div>
     </section>
 

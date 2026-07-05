@@ -71,37 +71,74 @@
                         our team is ready to assist you.</p>
 
                     <div style="margin-top: 2rem;">
+                        <!-- Address -->
                         <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
-                            <i class="fas fa-map-marker-alt"
-                                style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" 
+                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,140,0,0.1); margin-right: 1rem; margin-top: 0; transition: all 0.3s ease; flex-shrink: 0;"
+                                onmouseover="this.style.background='rgba(255,140,0,0.25)'; this.style.transform='scale(1.1)';"
+                                onmouseout="this.style.background='rgba(255,140,0,0.1)'; this.style.transform='scale(1)';">
+                                <i class="fas fa-map-marker-alt" style="color: var(--accent-color); font-size: 1.3rem;"></i>
+                            </a>
                             <div>
                                 <h4 style="margin-bottom: 0.2rem;">Address</h4>
-                                <p style="margin-bottom: 0;">Village 97 JB, Gojra<br>Punjab, Pakistan</p>
+                                <p style="margin-bottom: 0; color: #555;">Village 97 JB, Gojra<br>Punjab, Pakistan</p>
                             </div>
                         </div>
+
+                        <!-- Phone Numbers -->
                         <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
-                            <i class="fas fa-phone-alt"
-                                style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
-                            <div>
-                                <h4 style="margin-bottom: 0.2rem;">Phone</h4>
-                                <p style="margin-bottom: 0;">0328-1642297<br>0321-6892097</p>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem; flex-grow: 1;">
+                                <div style="display: flex; align-items: flex-start;">
+                                    <a href="tel:03281642297" 
+                                        style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,140,0,0.1); margin-right: 1rem; transition: all 0.3s ease; flex-shrink: 0;"
+                                        onmouseover="this.style.background='rgba(255,140,0,0.25)'; this.style.transform='scale(1.1)';"
+                                        onmouseout="this.style.background='rgba(255,140,0,0.1)'; this.style.transform='scale(1)';"
+                                        title="Click to call">
+                                        <i class="fas fa-phone-alt" style="color: var(--accent-color); font-size: 1.3rem;"></i>
+                                    </a>
+                                    <div>
+                                        <h4 style="margin-bottom: 0.2rem; font-size: 0.9rem;">Phone</h4>
+                                        <a href="tel:03281642297" style="color: #555; text-decoration: none; font-weight: 500; transition: color 0.3s ease;"
+                                            onmouseover="this.style.color='var(--accent-color)';"
+                                            onmouseout="this.style.color='#555';">0328-1642297</a>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: flex-start; margin-left: 0;">
+                                    <div style="width: 50px; height: 50px; margin-right: 1rem;"></div>
+                                    <div style="margin-top: 0.3rem;">
+                                        <a href="tel:03216892097" style="color: #555; text-decoration: none; font-weight: 500; transition: color 0.3s ease;"
+                                            onmouseover="this.style.color='var(--accent-color)';"
+                                            onmouseout="this.style.color='#555';">0321-6892097</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Email -->
                         <div style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
-                            <i class="fas fa-envelope"
-                                style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <a href="mailto:noshahischoolsystem@gmail.com" 
+                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,140,0,0.1); margin-right: 1rem; margin-top: 0; transition: all 0.3s ease; flex-shrink: 0;"
+                                onmouseover="this.style.background='rgba(255,140,0,0.25)'; this.style.transform='scale(1.1)';"
+                                onmouseout="this.style.background='rgba(255,140,0,0.1)'; this.style.transform='scale(1)';"
+                                title="Click to email">
+                                <i class="fas fa-envelope" style="color: var(--accent-color); font-size: 1.3rem;"></i>
+                            </a>
                             <div>
                                 <h4 style="margin-bottom: 0.2rem;">Email</h4>
-                                <p style="margin-bottom: 0;">noshahischoolsystem@gmail.com</p>
+                                <a href="mailto:noshahischoolsystem@gmail.com" style="color: #555; text-decoration: none; transition: color 0.3s ease;"
+                                    onmouseover="this.style.color='var(--accent-color)';"
+                                    onmouseout="this.style.color='#555';">noshahischoolsystem@gmail.com</a>
                             </div>
                         </div>
+
+                        <!-- Working Hours -->
                         <div style="display: flex; align-items: flex-start;">
-                            <i class="fas fa-clock"
-                                style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem; margin-top: 0.2rem;"></i>
+                            <div style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,140,0,0.1); margin-right: 1rem; flex-shrink: 0;">
+                                <i class="fas fa-clock" style="color: var(--accent-color); font-size: 1.3rem;"></i>
+                            </div>
                             <div>
                                 <h4 style="margin-bottom: 0.2rem;">Working Hours</h4>
-                                <p style="margin-bottom: 0;">Monday - Thursday: 8:00 AM - 2:00 PM<br>Friday: 8:00 AM -
-                                    12:30 PM</p>
+                                <p style="margin-bottom: 0; color: #555;">Monday - Thursday: 8:00 AM - 2:00 PM<br>Friday: 8:00 AM - 12:30 PM</p>
                             </div>
                         </div>
                     </div>
@@ -136,16 +173,10 @@
         </div>
     </section>
 
-    <!-- Google Map Placeholder -->
-    <section style="padding: 0;">
-        <div
-            style="width: 100%; height: 400px; background-color: #ddd; display: flex; align-items: center; justify-content: center; color: #777;">
-            <div style="text-align: center;">
-                <i class="fas fa-map" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                <h3>Google Map Embed</h3>
-                <p>Interactive map pointing to the school's location will be placed here.</p>
-            </div>
-        </div>
+    <!-- Google Map Section -->
+    <section style="padding: 0; margin-top: 3rem;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.8762949237583!2d72.18557692343153!3d30.799604870910863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b5c9d9d9d9d9d%3A0x0!2sVillage%2097%20JB%20Gojra!5e0!3m2!1sen!2s!4v1234567890" 
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <!-- Footer -->
@@ -178,10 +209,31 @@
                 </div>
                 <div class="footer-col">
                     <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Village 97 JB, Gojra, Pakistan</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> 0328-1642297 | 0321-6892097</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> noshahischoolsystem@gmail.com</li>
+                    <ul class="footer-links" style="position: relative;">
+                        <li style="display: flex; align-items: center; transition: all 0.3s ease;"
+                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
+                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="color: inherit; text-decoration: none;">Village 97 JB, Gojra, Pakistan</a>
+                        </li>
+                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
+                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
+                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
+                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
+                            <a href="tel:03281642297" style="color: inherit; text-decoration: none;">0328-1642297</a>
+                        </li>
+                        <li style="display: flex; align-items: center; margin-top: 0.25rem; transition: all 0.3s ease;"
+                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
+                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
+                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
+                            <a href="tel:03216892097" style="color: inherit; text-decoration: none;">0321-6892097</a>
+                        </li>
+                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
+                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
+                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
+                            <i class="fas fa-envelope" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
+                            <a href="mailto:noshahischoolsystem@gmail.com" style="color: inherit; text-decoration: none;">noshahischoolsystem@gmail.com</a>
+                        </li>
                     </ul>
                 </div>
             </div>

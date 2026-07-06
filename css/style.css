@@ -136,13 +136,13 @@ section {
 
 .btn-accent {
   background-color: var(--accent-color);
-  color: var(--text-white);
+  color: #000000;
 }
 
 .btn-accent:hover {
   background-color: #e67e00;
   box-shadow: var(--shadow-md);
-  color: var(--text-white);
+  color: #000000;
 }
 
 .btn-outline {
@@ -231,7 +231,7 @@ section {
 }
 
 .nav-links a.btn {
-  color: var(--text-white) !important;
+  color: #000000 !important;
   padding: 0.6rem 1.5rem;
   border-radius: 30px;
   box-shadow: 0 4px 15px rgba(255, 140, 0, 0.25);
@@ -247,7 +247,7 @@ section {
 }
 
 .navbar.scrolled .nav-links a.btn {
-  color: var(--text-white) !important;
+  color: #000000 !important;
   box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
 }
 
@@ -466,10 +466,14 @@ section {
 }
 
 .carousel-content p {
-  color: var(--text-white);
+  color: #FFFFFF;
   font-size: 1.25rem;
   margin-bottom: 2rem;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.page-header-content p {
+  color: #FFFFFF !important;
 }
 
 .hero-buttons {
@@ -1141,3 +1145,4 @@ footer {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(255, 140, 0, 0.4);
 }
+

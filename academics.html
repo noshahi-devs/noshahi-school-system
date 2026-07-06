@@ -1,40 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academics | Noshahi School System</title>
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
-    <meta name="description" content="Explore the comprehensive curriculum, educational levels, and subjects offered at Noshahi School System.">
-    <!-- Font Awesome -->
+    <meta name="description" content="Explore our comprehensive academic programs from Play Group to Higher Secondary, with special focus on Computer and Islamic Education.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* =============================================
-           ACADEMICS PAGE — DARK HERO + CLEAN BODY
-        ============================================= */
         :root {
-            --ac-dark:      #0B1120;
-            --ac-navy:      #1A2A4A;
-            --ac-blue:      #3B82F6;
-            --ac-blue-soft: rgba(59,130,246,0.12);
-            --ac-orange:    #FF8C00;
-            --ac-orange-soft: rgba(255,140,0,0.12);
-            --ac-white:     #FFFFFF;
-            --ac-bg:        #F5F7FA;
-            --ac-surface:   #FFFFFF;
-            --ac-text:      #1E293B;
-            --ac-muted:     #64748B;
-            --ac-border:    rgba(59,130,246,0.15);
+            --ac-primary: #1F2A44;
+            --ac-accent: #FF8C00;
+            --ac-dark: #0B1120;
+            --ac-blue: #3B82F6;
+            --ac-white: #FFFFFF;
+            --ac-bg: #F5F7FA;
+            --ac-text: #1E293B;
+            --ac-muted: #64748B;
+            --ac-border: 1px solid rgba(31,42,68,0.1);
         }
 
         body.academics-page {
             background-color: var(--ac-bg);
         }
 
-        /* ── shared title block ── */
+        .academics-page .navbar {
+            background-color: transparent;
+        }
+
+        .academics-page .navbar .logo-text,
+        .academics-page .navbar .nav-links a,
+        .academics-page .navbar .mobile-toggle {
+            color: #fff !important;
+        }
+
+        .academics-page .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .academics-page .navbar.scrolled .logo-text,
+        .academics-page .navbar.scrolled .nav-links a {
+            color: var(--ac-primary) !important;
+        }
+
+        .academics-page .navbar .nav-links a.btn {
+            color: #000 !important;
+        }
+
+        .academics-page .navbar.scrolled .nav-links a.btn {
+            color: #000 !important;
+        }
+
+        /* Dropdown menu links - black color */
+        .academics-page .dropdown-menu a,
+        .academics-page .navbar.scrolled .dropdown-menu a {
+            color: #1F2A44 !important;
+        }
+
+        .academics-page .dropdown-menu a:hover,
+        .academics-page .navbar.scrolled .dropdown-menu a:hover {
+            color: #FF8C00 !important;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .ac-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #060d1a 0%, #0f1d35 50%, #1a2a4a 100%);
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .ac-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+            background-size: 64px 64px;
+        }
+
+        .ac-hero::after {
+            content: '';
+            position: absolute;
+            top: -150px; right: -150px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255,140,0,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .ac-hero-glow {
+            position: absolute;
+            bottom: -100px; left: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .ac-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ac-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59,130,246,0.12);
+            border: 1px solid rgba(59,130,246,0.3);
+            color: #93C5FD;
+            padding: 0.4rem 1.1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: slideInUp 0.8s ease 0.2s both;
+        }
+
+        .ac-hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.12;
+            margin-bottom: 1.25rem;
+            max-width: 720px;
+            animation: slideInUp 0.8s ease 0.3s both;
+        }
+
+        .ac-hero h1 span {
+            color: var(--ac-accent);
+        }
+
+        .ac-hero .hero-sub {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 580px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            animation: slideInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-highlights {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: slideInUp 0.8s ease 0.5s both;
+        }
+
+        .highlight-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 0.85rem 1.25rem;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-chip:hover {
+            background: rgba(255,140,0,0.1);
+            border-color: rgba(255,140,0,0.25);
+            transform: translateY(-3px);
+        }
+
+        .highlight-chip .chip-icon {
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            background: rgba(255,140,0,0.15);
+            border: 1px solid rgba(255,140,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ac-accent);
+            font-size: 1rem;
+        }
+
+        .highlight-chip .chip-text strong {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .highlight-chip .chip-text span {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== EDUCATIONAL LEVELS SECTION ===== */
+        .levels-section {
+            background-color: var(--ac-bg);
+            padding: 5rem 0;
+        }
+
         .ac-title {
             text-align: center;
             margin-bottom: 3.5rem;
@@ -44,8 +224,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--ac-blue-soft);
-            border: 1px solid var(--ac-border);
+            background: rgba(59,130,246,0.12);
+            border: 1px solid rgba(59,130,246,0.2);
             color: var(--ac-blue);
             padding: 0.35rem 1rem;
             border-radius: 30px;
@@ -75,10 +255,12 @@
             width: 56px;
             height: 3px;
             border-radius: 2px;
-            background: linear-gradient(90deg, var(--ac-orange), var(--ac-blue));
+            background: linear-gradient(90deg, var(--ac-accent), var(--ac-blue));
         }
 
-        .ac-title h2 span { color: var(--ac-orange); }
+        .ac-title h2 span {
+            color: var(--ac-accent);
+        }
 
         .ac-title p {
             color: var(--ac-muted);
@@ -87,177 +269,7 @@
             margin: 0 auto;
         }
 
-        /* ── Academics navbar: transparent on dark hero ── */
-        .academics-page .navbar {
-            background-color: transparent;
-        }
-        .academics-page .navbar .logo-text,
-        .academics-page .navbar .nav-links a,
-        .academics-page .navbar .mobile-toggle {
-            color: #fff !important;
-        }
-        .academics-page .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.06);
-            border-bottom: 1px solid rgba(255,255,255,0.4);
-        }
-        .academics-page .navbar.scrolled .logo-text,
-        .academics-page .navbar.scrolled .nav-links a {
-            color: var(--ac-navy) !important;
-        }
-        .academics-page .navbar.scrolled .nav-links a.btn {
-            color: #fff !important;
-        }
-        .academics-page .navbar.scrolled .mobile-toggle {
-            color: var(--ac-navy) !important;
-        }
-
-        /* ── white section ── */
-        .ac-white-bg { background-color: var(--ac-surface); }
-
-        /* ============================================
-           1. HERO
-        ============================================= */
-        .ac-hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #060d1a 0%, #0f1d35 50%, #1a2a4a 100%);
-            display: flex;
-            align-items: center;
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* animated grid */
-        .ac-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
-            background-size: 64px 64px;
-        }
-
-        /* orange glow top-right */
-        .ac-hero::after {
-            content: '';
-            position: absolute;
-            top: -150px; right: -150px;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(255,140,0,0.1) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        /* blue glow bottom-left */
-        .ac-hero-glow-bl {
-            position: absolute;
-            bottom: -100px; left: -100px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 65%);
-            pointer-events: none;
-        }
-
-        .ac-hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .ac-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(59,130,246,0.12);
-            border: 1px solid rgba(59,130,246,0.3);
-            color: #93C5FD;
-            padding: 0.4rem 1.1rem;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .ac-hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            color: #fff;
-            line-height: 1.12;
-            margin-bottom: 1.25rem;
-            max-width: 720px;
-        }
-
-        .ac-hero h1 span { color: var(--ac-orange); }
-
-        .ac-hero .hero-sub {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.65);
-            max-width: 580px;
-            line-height: 1.7;
-            margin-bottom: 3rem;
-        }
-
-        /* highlights row */
-        .hero-highlights {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .highlight-chip {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 14px;
-            padding: 0.85rem 1.25rem;
-            backdrop-filter: blur(8px);
-            transition: all 0.3s ease;
-        }
-
-        .highlight-chip:hover {
-            background: rgba(255,140,0,0.1);
-            border-color: rgba(255,140,0,0.25);
-            transform: translateY(-3px);
-        }
-
-        .highlight-chip .chip-icon {
-            width: 38px; height: 38px;
-            border-radius: 10px;
-            background: var(--ac-orange-soft);
-            border: 1px solid rgba(255,140,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--ac-orange);
-            font-size: 1rem;
-        }
-
-        .highlight-chip .chip-text strong {
-            display: block;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .highlight-chip .chip-text span {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        /* ============================================
-           2. ACADEMIC LEVELS — INTERACTIVE TABS/CARDS
-        ============================================= */
-        .levels-section {
-            background-color: var(--ac-bg);
-            padding: 5rem 0;
-        }
-
-        /* tab bar */
+        /* Tab Buttons */
         .level-tabs {
             display: flex;
             justify-content: center;
@@ -275,7 +287,7 @@
             font-weight: 600;
             font-size: 0.88rem;
             cursor: pointer;
-            border: 2px solid var(--ac-border);
+            border: 2px solid rgba(31,42,68,0.15);
             background: transparent;
             color: var(--ac-muted);
             transition: all 0.3s ease;
@@ -284,46 +296,51 @@
         .level-tab-btn:hover {
             border-color: var(--ac-blue);
             color: var(--ac-blue);
-            background: var(--ac-blue-soft);
+            background: rgba(59,130,246,0.08);
         }
 
         .level-tab-btn.active {
-            background: var(--ac-navy);
-            border-color: var(--ac-navy);
+            background: var(--ac-primary);
+            border-color: var(--ac-primary);
             color: #fff;
             box-shadow: 0 6px 20px rgba(26,42,74,0.25);
         }
 
-        /* cards grid */
+        /* Cards Grid */
         .level-cards-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
         .level-card {
-            background: var(--ac-surface);
+            background: var(--ac-white);
             border: 1px solid rgba(59,130,246,0.1);
             border-radius: 20px;
             padding: 2rem 1.75rem;
             transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
-            display: none; /* hidden by default, shown by JS */
+            display: none;
+            flex-direction: column;
         }
 
         .level-card.visible {
             display: flex;
-            flex-direction: column;
+            animation: fadeIn 0.5s ease;
         }
 
-        /* top accent bar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .level-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--ac-navy), var(--ac-blue));
+            background: linear-gradient(90deg, var(--ac-primary), var(--ac-blue));
             border-radius: 20px 20px 0 0;
         }
 
@@ -335,8 +352,8 @@
 
         .level-card .card-level-badge {
             display: inline-block;
-            background: var(--ac-blue-soft);
-            border: 1px solid var(--ac-border);
+            background: rgba(59,130,246,0.12);
+            border: 1px solid rgba(59,130,246,0.2);
             color: var(--ac-blue);
             padding: 0.2rem 0.7rem;
             border-radius: 20px;
@@ -356,7 +373,7 @@
 
         .level-card .grade-range {
             font-size: 0.8rem;
-            color: var(--ac-orange);
+            color: var(--ac-accent);
             font-weight: 600;
             margin-bottom: 0.9rem;
         }
@@ -379,7 +396,7 @@
             background: var(--ac-bg);
             border: 1px solid rgba(59,130,246,0.12);
             color: var(--ac-text);
-            padding: 0.2rem 0.6rem;
+            padding: 0.25rem 0.7rem;
             border-radius: 20px;
             font-size: 0.7rem;
             font-weight: 600;
@@ -397,302 +414,397 @@
             text-decoration: none;
         }
 
-        .level-card:hover .card-cta { gap: 10px; }
-
-        /* ============================================
-           3. CURRICULUM MATRIX (BENTO)
-        ============================================= */
-        .matrix-section {
-            background: var(--ac-surface);
-            padding: 5rem 0;
+        .level-card:hover .card-cta {
+            gap: 10px;
         }
 
-        .matrix-bento {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: 1.25rem;
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1440px) {
+            .level-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        .mb-box {
-            background: var(--ac-bg);
-            border: 1px solid rgba(59,130,246,0.1);
-            border-radius: 20px;
-            padding: 2rem 1.75rem;
-            transition: all 0.35s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mb-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 40px rgba(26,42,74,0.08);
-            border-color: rgba(255,140,0,0.25);
-        }
-
-        /* large feature box — spans 2 rows */
-        .mb-box.featured {
-            grid-row: span 2;
-            background: var(--ac-navy);
-            border-color: transparent;
-        }
-
-        .mb-box.featured .mb-icon { background: rgba(255,140,0,0.15); color: var(--ac-orange); }
-        .mb-box.featured h3 { color: #fff; }
-        .mb-box.featured p  { color: rgba(255,255,255,0.6); }
-        .mb-box.featured .mb-tag { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
-
-        .mb-icon {
-            width: 52px; height: 52px;
-            border-radius: 14px;
-            background: var(--ac-blue-soft);
-            border: 1px solid var(--ac-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--ac-blue);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .mb-box h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--ac-text);
-            margin-bottom: 0.5rem;
-        }
-
-        .mb-box p {
-            font-size: 0.85rem;
-            color: var(--ac-muted);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .mb-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
-        .mb-tag {
-            background: var(--ac-surface);
-            border: 1px solid var(--ac-border);
-            color: var(--ac-muted);
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        /* stat box */
-        .mb-box.stat-box {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        .mb-stat-num {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--ac-orange);
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        .mb-stat-label {
-            font-size: 0.82rem;
-            color: var(--ac-muted);
-            font-weight: 600;
-        }
-
-        /* ============================================
-           4. ACADEMIC CALENDAR WIDGET
-        ============================================= */
-        .calendar-section {
-            background: var(--ac-bg);
-            padding: 5rem 0;
-        }
-
-        .calendar-widget {
-            background: var(--ac-navy);
-            border-radius: 24px;
-            padding: 2.5rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* subtle grid bg */
-        .calendar-widget::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .cal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cal-header h3 {
-            color: #fff;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .cal-filter-row {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .cal-filter-btn {
-            padding: 0.35rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.15);
-            background: transparent;
-            color: rgba(255,255,255,0.5);
-            transition: all 0.25s ease;
-        }
-
-        .cal-filter-btn.active,
-        .cal-filter-btn:hover {
-            background: var(--ac-orange);
-            border-color: var(--ac-orange);
-            color: #fff;
-        }
-
-        /* scrollable events row */
-        .cal-scroll-track {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            position: relative;
-            z-index: 1;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,0.15) transparent;
-        }
-
-        .cal-scroll-track::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .cal-scroll-track::-webkit-scrollbar-track { background: transparent; }
-        .cal-scroll-track::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.2);
-            border-radius: 4px;
-        }
-
-        .cal-event-card {
-            flex: 0 0 220px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 1.25rem;
-            scroll-snap-align: start;
-            transition: all 0.3s ease;
-        }
-
-        .cal-event-card:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.18);
-            transform: translateY(-4px);
-        }
-
-        .cal-event-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 0.2rem 0.65rem;
-            border-radius: 20px;
-            font-size: 0.65rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 0.85rem;
-        }
-
-        .badge-exam    { background: rgba(239,68,68,0.18);  color: #FCA5A5; border: 1px solid rgba(239,68,68,0.25); }
-        .badge-vacation { background: rgba(34,197,94,0.15); color: #86EFAC; border: 1px solid rgba(34,197,94,0.2); }
-        .badge-result  { background: rgba(255,140,0,0.18);  color: #FCD38A; border: 1px solid rgba(255,140,0,0.25); }
-        .badge-event   { background: rgba(59,130,246,0.18); color: #93C5FD; border: 1px solid rgba(59,130,246,0.25); }
-        .badge-holiday { background: rgba(168,85,247,0.18); color: #D8B4FE; border: 1px solid rgba(168,85,247,0.25); }
-
-        .cal-event-date {
-            font-size: 1.4rem;
-            font-weight: 900;
-            color: #fff;
-            line-height: 1;
-            margin-bottom: 0.2rem;
-        }
-
-        .cal-event-month {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.45);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.65rem;
-        }
-
-        .cal-event-title {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: rgba(255,255,255,0.9);
-            line-height: 1.4;
-        }
-
-        .cal-event-desc {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.4);
-            margin-top: 0.35rem;
-            line-height: 1.45;
-        }
-
-        /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
-            .matrix-bento { grid-template-columns: 1fr 1fr; }
-            .mb-box.featured { grid-row: span 1; }
-        }
-
-        @media (max-width: 992px) {
-            .ac-hero h1 { font-size: 2.8rem; }
-            .level-cards-grid { grid-template-columns: 1fr; }
+            .ac-hero h1 {
+                font-size: 2.8rem;
+            }
+            .level-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .ac-hero h1 { font-size: 2.2rem; }
-            .hero-highlights { gap: 1rem; }
-            .matrix-bento { grid-template-columns: 1fr; }
-            .ac-title h2 { font-size: 1.9rem; }
-            .cal-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+            .ac-hero {
+                padding: 100px 0 60px;
+            }
+            .ac-hero h1 {
+                font-size: 2.2rem;
+            }
+            .ac-hero .hero-sub {
+                font-size: 1rem;
+            }
+            .hero-highlights {
+                gap: 1rem;
+            }
+            .highlight-chip {
+                padding: 0.7rem 1rem;
+            }
+            .level-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .ac-title h2 {
+                font-size: 1.9rem;
+            }
+            .levels-section {
+                padding: 3rem 0;
+            }
         }
 
-        /* activity cards flex layout fix */
-        .level-card.visible[style*="display:flex"] {
-            flex-direction: row;
+        @media (max-width: 480px) {
+            .ac-hero {
+                padding: 80px 0 40px;
+            }
+            .ac-hero h1 {
+                font-size: 1.8rem;
+            }
+            .ac-hero .hero-sub {
+                font-size: 0.95rem;
+            }
+            .hero-highlights {
+                flex-direction: column;
+            }
+            .level-tab-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+            .level-card {
+                padding: 1.5rem 1.25rem;
+            }
+            .ac-title h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ===== SUBJECT DISTRIBUTION RESPONSIVE ===== */
+        .subject-distribution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .subject-distribution-left {
+            background: linear-gradient(135deg, #1F2A44 0%, #2d3f5a 100%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            color: #fff;
+            box-shadow: 0 10px 40px rgba(31,42,68,0.2);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .subject-distribution-left h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .subject-distribution-left h3 i {
+            margin-right: 10px;
+            color: #FF8C00;
+        }
+
+        .subject-distribution-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .subject-distribution-feature {
+            display: flex;
             gap: 1rem;
-            align-items: flex-start;
         }
-        .level-card.visible[style*="display:flex"] > div:last-child h3 {
-            margin-top: 0;
+
+        .subject-distribution-feature-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
         }
+
+        .subject-distribution-feature-icon.icon-1 {
+            background: rgba(255,140,0,0.2);
+            color: #FF8C00;
+        }
+
+        .subject-distribution-feature-icon.icon-2 {
+            background: rgba(59,130,246,0.2);
+            color: #3B82F6;
+        }
+
+        .subject-distribution-feature-icon.icon-3 {
+            background: rgba(168,85,247,0.2);
+            color: #9333ea;
+        }
+
+        .subject-distribution-feature h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .subject-distribution-feature p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .subject-distribution-left .btn {
+            margin-top: 2rem;
+            background: #FF8C00;
+            color: #000 !important;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            display: inline-block;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .subject-distribution-left .btn:hover {
+            background: #FFB347;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,140,0,0.4);
+        }
+
+        .subject-distribution-right {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .subject-distribution-table {
+            width: 100%;
+            border-collapse: collapse;
+            height: 100%;
+        }
+
+        .subject-distribution-table thead tr {
+            background: linear-gradient(90deg, #1F2A44, #3B82F6);
+        }
+
+        .subject-distribution-table th {
+            padding: 1.2rem;
+            color: #fff;
+            text-align: left;
+            font-weight: 800;
+            font-size: 0.95rem;
+        }
+
+        .subject-distribution-table tbody tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .subject-distribution-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .subject-distribution-table td {
+            padding: 1.2rem;
+            color: #64748B;
+            font-size: 0.9rem;
+        }
+
+        .subject-distribution-table td:first-child {
+            font-weight: 700;
+            color: #1F2A44;
+        }
+
+        .subject-distribution-table tbody tr:nth-child(odd) td:first-child {
+            background: rgba(255,140,0,0.05);
+        }
+
+        .subject-distribution-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .subject-stream-badge {
+            background: rgba(255,140,0,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            color: #FF8C00;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Tablet Responsive (768px) */
+        @media (max-width: 768px) {
+            .subject-distribution-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                align-items: stretch;
+            }
+
+            .subject-distribution-left {
+                padding: 2rem;
+                height: auto;
+            }
+
+            .subject-distribution-left h3 {
+                font-size: 1.3rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .subject-distribution-feature {
+                gap: 0.85rem;
+            }
+
+            .subject-distribution-feature-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+
+            .subject-distribution-feature h4 {
+                font-size: 0.95rem;
+            }
+
+            .subject-distribution-feature p {
+                font-size: 0.85rem;
+            }
+
+            .subject-distribution-features {
+                gap: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .subject-distribution-left .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+                margin-top: 1.5rem;
+            }
+
+            .subject-distribution-right {
+                overflow-x: auto;
+            }
+
+            .subject-distribution-table th,
+            .subject-distribution-table td {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .subject-distribution-table th {
+                font-size: 0.9rem;
+            }
+
+            .subject-stream-badge {
+                font-size: 0.8rem;
+                padding: 0.25rem 0.6rem;
+            }
+        }
+
+        /* Mobile Responsive (480px) */
+        @media (max-width: 480px) {
+            .subject-distribution-grid {
+                gap: 1.5rem;
+            }
+
+            .subject-distribution-left {
+                padding: 1.75rem;
+            }
+
+            .subject-distribution-left h3 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .subject-distribution-feature {
+                gap: 0.75rem;
+            }
+
+            .subject-distribution-feature-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .subject-distribution-feature h4 {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .subject-distribution-feature p {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+
+            .subject-distribution-features {
+                gap: 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .subject-distribution-left .btn {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.85rem;
+                margin-top: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .subject-distribution-right {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .subject-distribution-table {
+                font-size: 0.75rem;
+            }
+
+            .subject-distribution-table th,
+            .subject-distribution-table td {
+                padding: 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .subject-distribution-table th {
+                font-size: 0.85rem;
+            }
+
+            .subject-stream-badge {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.5rem;
+                display: block;
+                margin-bottom: 0.3rem;
+            }
+
+            .subject-distribution-table td:first-child {
+                min-width: 90px;
+            }
+        }
+    
     </style>
 </head>
 
 <body class="academics-page">
 
-    <!-- ==================== NAVBAR ==================== -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
@@ -727,15 +839,15 @@
         </div>
     </nav>
 
-    <!-- ==================== HERO ==================== -->
+    <!-- ===== HERO SECTION ===== -->
     <section class="ac-hero">
-        <div class="ac-hero-glow-bl"></div>
+        <div class="ac-hero-glow"></div>
         <div class="container">
             <div class="ac-hero-badge">
                 <i class="fas fa-graduation-cap"></i> Academic Excellence
             </div>
-            <h1>Nurturing <span>Academic</span><br>Excellence.</h1>
-            <p class="hero-sub">A structured, holistic curriculum designed to prepare students for modern challenges — combining strong academics with technology, Islamic values, and real-world skills.</p>
+            <h1>Nurturing <span>Academic</span> Excellence</h1>
+            <p class="hero-sub" style="color: #ffffff !important;">A comprehensive, well-structured curriculum combining strong academics with modern technology, Islamic education, and practical life skills.</p>
             <div class="hero-highlights">
                 <div class="highlight-chip">
                     <div class="chip-icon"><i class="fas fa-layer-group"></i></div>
@@ -747,133 +859,131 @@
                 <div class="highlight-chip">
                     <div class="chip-icon"><i class="fas fa-book-open"></i></div>
                     <div class="chip-text">
-                        <strong>12+ Core Subjects</strong>
-                        <span>Well-rounded syllabus</span>
+                        <strong>15+ Core Subjects</strong>
+                        <span>Holistic learning experience</span>
                     </div>
                 </div>
                 <div class="highlight-chip">
                     <div class="chip-icon"><i class="fas fa-laptop-code"></i></div>
                     <div class="chip-text">
-                        <strong>Tech + Islamic Focus</strong>
-                        <span>Our unique dual strength</span>
+                        <strong>Computer Core Subject</strong>
+                        <span>From Basics to Advanced</span>
                     </div>
                 </div>
                 <div class="highlight-chip">
-                    <div class="chip-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="chip-icon"><i class="fas fa-quran"></i></div>
                     <div class="chip-text">
-                        <strong>Result-Driven</strong>
-                        <span>Board exam preparation</span>
+                        <strong>Islamic Education</strong>
+                        <span>Character & Values</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== ACADEMIC LEVELS ==================== -->
+    <!-- ===== EDUCATIONAL LEVELS ===== -->
     <section class="levels-section" id="levels">
         <div class="container">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-layer-group"></i> Academic Levels</div>
+                <div class="eyebrow"><i class="fas fa-layer-group"></i> Comprehensive Curriculum</div>
                 <h2>Our <span>Educational</span> Levels</h2>
-                <p>Five tailored stages of learning — each designed around the developmental needs of your child, with separate programs for School and Academy.</p>
+                <p>Five tailored stages of learning, each designed around your child's developmental needs with dedicated programs for boys and girls.</p>
             </div>
 
             <!-- Tab Buttons -->
             <div class="level-tabs">
                 <button class="level-tab-btn active" data-level="all"><i class="fas fa-th"></i> All Levels</button>
                 <button class="level-tab-btn" data-level="playgroup"><i class="fas fa-child"></i> Play Group</button>
+                <button class="level-tab-btn" data-level="nursery"><i class="fas fa-apple"></i> Nursery/Prep</button>
                 <button class="level-tab-btn" data-level="primary"><i class="fas fa-pencil"></i> Primary</button>
                 <button class="level-tab-btn" data-level="middle"><i class="fas fa-book"></i> Middle</button>
                 <button class="level-tab-btn" data-level="secondary"><i class="fas fa-award"></i> Secondary</button>
-                <button class="level-tab-btn" data-level="higher"><i class="fas fa-graduation-cap"></i> Higher Sec</button>
             </div>
 
             <!-- Cards Grid -->
             <div class="level-cards-grid">
 
                 <!-- Play Group -->
-                <div class="level-card visible" data-group="playgroup">
+                <div class="level-card visible" data-group="playgroup" data-group="all">
                     <span class="card-level-badge">Level 01</span>
-                    <h3>Play Group &amp; Pre-School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size:0.6rem;"></i> Nursery – KG &nbsp;|&nbsp; Boys &amp; Girls</div>
-                    <p>A nurturing, play-based environment where young learners develop motor skills, social confidence, basic language, and a love of learning through creative exploration and structured activities.</p>
+                    <h3><i class="fas fa-child" style="margin-right: 8px; color: var(--ac-accent);"></i>Play Group</h3>
+                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Age 3-4 | Boys & Girls</div>
+                    <p>A nurturing, play-based environment where young learners develop foundational skills, social confidence, and a genuine love of learning through creative play and guided exploration.</p>
                     <div class="subject-chips">
-                        <span class="s-chip">ABCs &amp; Numbers</span>
-                        <span class="s-chip">Drawing &amp; Crafts</span>
-                        <span class="s-chip">Storytelling</span>
+                        <span class="s-chip">Numbers & Counting</span>
+                        <span class="s-chip">Alphabet Recognition</span>
+                        <span class="s-chip">Art & Crafts</span>
                         <span class="s-chip">Daily Duas</span>
                         <span class="s-chip">Motor Skills</span>
                     </div>
                     <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Primary School -->
-                <div class="level-card visible" data-group="primary">
+                <!-- Nursery & Prep -->
+                <div class="level-card visible" data-group="nursery" data-group="all">
                     <span class="card-level-badge">Level 02</span>
-                    <h3>Primary School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size:0.6rem;"></i> Grades 1–5 &nbsp;|&nbsp; Boys &amp; Girls (School &amp; Academy)</div>
-                    <p>Core academic foundation — strong literacy, numeracy, and science comprehension. Students begin structured computer lab sessions and Nazra Quran with Tajweed alongside their core subjects.</p>
+                    <h3><i class="fas fa-apple" style="margin-right: 8px; color: var(--ac-accent);"></i>Nursery & Prep</h3>
+                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> KG - Prep | Boys & Girls</div>
+                    <p>Building early literacy and numeracy skills with structured academics. Introduction to Islamic education through daily Duas and Quranic exposure, balanced with creative learning activities.</p>
+                    <div class="subject-chips">
+                        <span class="s-chip">English Basics</span>
+                        <span class="s-chip">Urdu Foundation</span>
+                        <span class="s-chip">Mathematics</span>
+                        <span class="s-chip">Islamic Stories</span>
+                        <span class="s-chip">Nazra Quran</span>
+                    </div>
+                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Primary School -->
+                <div class="level-card visible" data-group="primary" data-group="all">
+                    <span class="card-level-badge">Level 03</span>
+                    <h3><i class="fas fa-book" style="margin-right: 8px; color: var(--ac-accent);"></i>Primary School</h3>
+                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 1-5 | Boys & Girls</div>
+                    <p>Strong academic foundation in all core subjects. Students begin structured computer lab sessions and advanced Nazra Quran with Tajweed. Focus on critical thinking and practical application.</p>
                     <div class="subject-chips">
                         <span class="s-chip">English</span>
                         <span class="s-chip">Urdu</span>
                         <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">General Science</span>
+                        <span class="s-chip">Science</span>
                         <span class="s-chip">Islamiat</span>
                         <span class="s-chip">Nazra Quran</span>
-                        <span class="s-chip">Computer Basics</span>
+                        <span class="s-chip">Computer Education</span>
                     </div>
                     <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Middle School -->
-                <div class="level-card visible" data-group="middle">
-                    <span class="card-level-badge">Level 03</span>
-                    <h3>Middle School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size:0.6rem;"></i> Grades 6–8 &nbsp;|&nbsp; Girls Only (School) &nbsp;·&nbsp; Boys Only (Academy)</div>
-                    <p>Critical thinking deepens here. Students tackle advanced subjects including Computer (taught instead of Arabic). Tajweed and Islamic History studies continue alongside science and analytical subjects.</p>
+                <div class="level-card visible" data-group="middle" data-group="all">
+                    <span class="card-level-badge">Level 04</span>
+                    <h3><i class="fas fa-graduation-cap" style="margin-right: 8px; color: var(--ac-accent);"></i>Middle School</h3>
+                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 6-8 | Boys & Girls</div>
+                    <p>Advanced academics with Computer Science taught as a core subject (replacing Arabic). Students develop critical analysis skills and begin subject specialization while continuing Islamic and character education.</p>
                     <div class="subject-chips">
-                        <span class="s-chip">Physics &amp; Chemistry</span>
-                        <span class="s-chip">Algebra</span>
-                        <span class="s-chip">History</span>
-                        <span class="s-chip">Geography</span>
-                        <span class="s-chip">Computer (as subject)</span>
-                        <span class="s-chip">Tajweed</span>
+                        <span class="s-chip">English</span>
+                        <span class="s-chip">Urdu</span>
+                        <span class="s-chip">Mathematics</span>
+                        <span class="s-chip">Science</span>
+                        <span class="s-chip">Social Studies</span>
+                        <span class="s-chip">Computer Science</span>
                         <span class="s-chip">Islamiat</span>
                     </div>
                     <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <!-- Secondary / Matric -->
-                <div class="level-card visible" data-group="secondary">
-                    <span class="card-level-badge">Level 04</span>
-                    <h3>Secondary / Matric</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size:0.6rem;"></i> Grades 9–10 &nbsp;|&nbsp; Girls Only (School) &nbsp;·&nbsp; Boys Only (Academy)</div>
-                    <p>Board exam preparation with focused teaching and past paper practice. <strong style="color:var(--ac-orange);">Only Computer Science program</strong> is offered at Matric level — Arts and Biology programs are not available. Computer Science replaces traditional elective streams.</p>
+                <div class="level-card visible" data-group="secondary" data-group="all">
+                    <span class="card-level-badge">Level 05</span>
+                    <h3><i class="fas fa-medal" style="margin-right: 8px; color: var(--ac-accent);"></i>Secondary / Matric</h3>
+                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 9-10 | Boys & Girls</div>
+                    <p><strong>Computer Science Stream Only</strong> - No Arts or Biology streams offered. Intensive preparation for board exams with emphasis on Computer Science as the primary technical subject.</p>
                     <div class="subject-chips">
                         <span class="s-chip">English</span>
                         <span class="s-chip">Urdu</span>
                         <span class="s-chip">Mathematics</span>
                         <span class="s-chip">Physics</span>
                         <span class="s-chip">Chemistry</span>
-                        <span class="s-chip">Computer Science ✓</span>
-                        <span class="s-chip">Pakistan Studies</span>
-                        <span class="s-chip">Islamiat</span>
-                    </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Higher Secondary (Academy only) -->
-                <div class="level-card visible" data-group="higher">
-                    <span class="card-level-badge">Level 05</span>
-                    <h3>Higher Secondary</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size:0.6rem;"></i> Grades 11–12 &nbsp;|&nbsp; Boys Only (Academy)</div>
-                    <p>Available exclusively at NSS Academy for boys. Advanced-level subjects with dedicated mentoring, university preparation, and a strong emphasis on practical computer science and academic performance.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">Advanced Computer Science</span>
-                        <span class="s-chip">Physics</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
+                        <span class="s-chip">Computer Science</span>
                         <span class="s-chip">Islamiat</span>
                     </div>
                     <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
@@ -883,277 +993,1089 @@
         </div>
     </section>
 
-    <!-- ==================== CURRICULUM MATRIX BENTO ==================== -->
-    <section class="matrix-section" id="curriculum">
+
+
+    <!-- ===== PROGRAM SPECIALIZATION ===== -->
+    <section style="padding: 5rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
         <div class="container">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-table-cells-large"></i> Curriculum Matrix</div>
-                <h2>The Subject <span>Distribution</span></h2>
-                <p>A well-structured syllabus covering every dimension of modern education — academic, technological, and moral.</p>
+                <div class="eyebrow"><i class="fas fa-star"></i> Core Strengths</div>
+                <h2>Our <span>Specialized</span> Focus Areas</h2>
+                <p>Two pillars of excellence that define our educational philosophy and set us apart.</p>
             </div>
 
-            <div class="matrix-bento">
-
-                <!-- FEATURED: Core Academic Block -->
-                <div class="mb-box featured">
-                    <div class="mb-icon"><i class="fas fa-book-open"></i></div>
-                    <h3>Core Academic Subjects</h3>
-                    <p>Our academic stream covers all standard board subjects from Primary through Matric, with a strong focus on understanding, regular assessments, and board exam preparation. At Matric level, only the <strong style="color:var(--ac-orange);">Computer Science program</strong> is offered — Arts and Biology are not available.</p>
-                    <div class="mb-tags">
-                        <span class="mb-tag">English Language</span>
-                        <span class="mb-tag">Urdu</span>
-                        <span class="mb-tag">Mathematics</span>
-                        <span class="mb-tag">General Science</span>
-                        <span class="mb-tag">Physics</span>
-                        <span class="mb-tag">Chemistry</span>
-                        <span class="mb-tag">Social Studies</span>
-                        <span class="mb-tag">Pakistan Studies</span>
-                        <span class="mb-tag">Islamiat</span>
-                        <span class="mb-tag">Computer Science ✓ Matric</span>
+            <!-- Program 1: Computer Education -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: linear-gradient(135deg, rgba(255,140,0,0.08) 0%, rgba(255,140,0,0.02) 100%); border-radius: 24px; padding: 3.5rem; border: 1px solid rgba(255,140,0,0.15);" class="responsive-program-section program-section-wrapper">
+                <div>
+                    <div class="program-content-badge">
+                        <i class="fas fa-laptop-code"></i> Core Subject
                     </div>
+                    <h3 class="program-content-heading">
+                        <span style="color: #FF8C00;">Computer</span> Education
+                    </h3>
+                    <p class="program-content-text">Computer is taught as a <strong style="color: #1F2A44;">regular, mandatory subject</strong> at every grade level — not an optional add-on. Our 100% practical, hands-on approach focuses on real-world understanding and applicable skills.</p>
+                    <ul class="program-features-list">
+                        <li class="program-feature-item">
+                            <i class="fas fa-check-circle program-feature-icon"></i>
+                            <span><strong style="color: #1F2A44;">Grade-tailored curriculum</strong> — from basics to advanced programming</span>
+                        </li>
+                        <li class="program-feature-item">
+                            <i class="fas fa-check-circle program-feature-icon"></i>
+                            <span><strong style="color: #1F2A44;">Dedicated Computer Lab</strong> — with modern machines for hands-on sessions</span>
+                        </li>
+                        <li class="program-feature-item">
+                            <i class="fas fa-check-circle program-feature-icon"></i>
+                            <span><strong style="color: #1F2A44;">Board exam ready</strong> — intensive Computer Science preparation for Matric</span>
+                        </li>
+                    </ul>
+                    <a href="computer-education.html" class="program-cta-btn">Explore More <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <div class="program-image-wrapper">
+                    <img src="img/hero_slide_2.png" alt="Computer Education">
+                </div>
+            </div>
 
-                <!-- Computer Education -->
-                <div class="mb-box">
-                    <div class="mb-icon" style="background:rgba(255,140,0,0.1);border-color:rgba(255,140,0,0.2);color:var(--ac-orange);"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Computer Education</h3>
-                    <p>Taught as a <strong>regular subject</strong> (not a separate course) — practical, hands-on, and age-appropriate from KG to Grade 12. At Middle level, Computer replaces Arabic.</p>
-                    <div class="mb-tags">
-                        <span class="mb-tag">Basic to Advanced</span>
-                        <span class="mb-tag">Practical Learning</span>
-                        <span class="mb-tag">Coding &amp; Web Dev</span>
-                        <span class="mb-tag">Cyber Safety</span>
+            <!-- Program 2: Islamic Education -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: linear-gradient(135deg, rgba(147,51,234,0.08) 0%, rgba(147,51,234,0.02) 100%); border-radius: 24px; padding: 3.5rem; border: 1px solid rgba(147,51,234,0.15);" class="responsive-program-section program-section-wrapper islamic-program-section">
+                <div style="order: 2;">
+                    <div class="program-content-badge" style="background: rgba(147,51,234,0.15); border: 1px solid rgba(147,51,234,0.25); color: #9333ea;">
+                        <i class="fas fa-book-quran"></i> Character Building
                     </div>
-                    <a href="computer-education.html" class="card-cta" style="color:var(--ac-orange);margin-top:1rem;">Full Details <i class="fas fa-arrow-right"></i></a>
+                    <h3 class="program-content-heading">
+                        <span style="color: #9333ea;">Islamic</span> & Moral Education
+                    </h3>
+                    <p class="program-content-text">We don't just teach Islamiat as a subject — <strong style="color: #1F2A44;">Islamic values, character, and Quranic education are woven into every school day</strong>, shaping ethical, well-rounded individuals.</p>
+                    <ul class="program-features-list">
+                        <li class="program-feature-item">
+                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
+                            <span><strong style="color: #1F2A44;">Nazra Quran with Tajweed</strong> — by certified Huffaz instructors</span>
+                        </li>
+                        <li class="program-feature-item">
+                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
+                            <span><strong style="color: #1F2A44;">Character Report Cards</strong> — sent to parents each term for holistic development</span>
+                        </li>
+                        <li class="program-feature-item">
+                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
+                            <span><strong style="color: #1F2A44;">Akhlaqiat & Seerah</strong> — daily practical Islamic etiquette and Quranic teaching</span>
+                        </li>
+                    </ul>
+                    <a href="islamic-education.html" class="program-cta-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div style="order: 1;" class="program-image-wrapper">
+                    <img src="img/hero_slide_3.png" alt="Islamic Education">
+                </div>
+            </div>
+
+            <style>
+                /* Specialized Focus Areas - Base Styles */
+                .program-section-wrapper {
+                    margin-bottom: 5rem;
+                }
+
+                .program-content-badge {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: rgba(255,140,0,0.15);
+                    border: 1px solid rgba(255,140,0,0.25);
+                    color: #FF8C00;
+                    padding: 0.5rem 1.2rem;
+                    border-radius: 25px;
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin-bottom: 1.5rem;
+                }
+
+                .program-content-heading {
+                    font-size: 2rem;
+                    font-weight: 900;
+                    color: #1F2A44;
+                    margin-bottom: 1rem;
+                    line-height: 1.2;
+                }
+
+                .program-content-text {
+                    font-size: 1rem;
+                    color: #64748B;
+                    line-height: 1.8;
+                    margin-bottom: 1.5rem;
+                }
+
+                .program-features-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.8rem;
+                    margin-bottom: 2rem;
+                }
+
+                .program-feature-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 12px;
+                    color: #64748B;
+                }
+
+                .program-feature-icon {
+                    color: #FF8C00;
+                    margin-top: 3px;
+                    flex-shrink: 0;
+                    font-size: 0.9rem;
+                }
+
+                .program-cta-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    background: linear-gradient(135deg, #FF8C00, #FFB347);
+                    color: #000 !important;
+                    padding: 0.8rem 2rem;
+                    border-radius: 30px;
+                    font-weight: 700;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .program-cta-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(255,140,0,0.4);
+                }
+
+                .program-image-wrapper {
+                    width: 100%;
+                    height: 380px;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    box-shadow: 0 15px 40px rgba(255,140,0,0.2);
+                    transition: transform 0.3s ease;
+                }
+
+                .program-image-wrapper img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.3s ease;
+                }
+
+                .program-image-wrapper:hover img {
+                    transform: scale(1.03);
+                }
+
+                /* Islamic Education Section Overrides */
+                .islamic-program-section .program-content-badge {
+                    background: rgba(147,51,234,0.15);
+                    border: 1px solid rgba(147,51,234,0.25);
+                    color: #9333ea;
+                }
+
+                .islamic-program-section .program-cta-btn {
+                    background: linear-gradient(135deg, #9333ea, #c084fc);
+                    color: #fff !important;
+                }
+
+                .islamic-program-section .program-cta-btn:hover {
+                    box-shadow: 0 8px 20px rgba(147,51,234,0.4);
+                }
+
+                .islamic-program-section .program-image-wrapper {
+                    box-shadow: 0 15px 40px rgba(147,51,234,0.2);
+                }
+
+                .islamic-program-section .program-feature-icon {
+                    color: #9333ea;
+                }
+
+                /* Tablet Responsive (768px) */
+                @media (max-width: 768px) {
+                    .responsive-program-section {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                        padding: 2rem 1.5rem !important;
+                        margin-bottom: 3rem !important;
+                    }
+                    
+                    .responsive-program-section div:nth-child(2) {
+                        order: 1 !important;
+                    }
+                    
+                    .program-image-wrapper {
+                        height: 280px !important;
+                        margin-bottom: 1rem;
+                    }
+
+                    .program-content-heading {
+                        font-size: 1.6rem !important;
+                    }
+                    
+                    .program-content-text {
+                        font-size: 0.95rem !important;
+                    }
+                    
+                    .program-feature-item {
+                        font-size: 0.9rem !important;
+                    }
+                    
+                    .program-cta-btn {
+                        width: 100% !important;
+                        justify-content: center !important;
+                        padding: 0.8rem 1.5rem !important;
+                    }
+
+                    .program-features-list {
+                        margin-bottom: 1.5rem;
+                    }
+                }
+                
+                /* Mobile Responsive (480px) */
+                @media (max-width: 480px) {
+                    .responsive-program-section {
+                        padding: 1.5rem 1rem !important;
+                        border-radius: 16px !important;
+                        margin-bottom: 2.5rem !important;
+                    }
+
+                    .program-content-badge {
+                        font-size: 0.7rem !important;
+                        padding: 0.4rem 0.9rem !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    
+                    .program-content-heading {
+                        font-size: 1.3rem !important;
+                        margin-bottom: 0.8rem !important;
+                        line-height: 1.3;
+                    }
+                    
+                    .program-content-text {
+                        font-size: 0.88rem !important;
+                        margin-bottom: 1rem !important;
+                        line-height: 1.7;
+                    }
+                    
+                    .program-features-list {
+                        gap: 0.7rem !important;
+                        margin-bottom: 1.5rem !important;
+                    }
+                    
+                    .program-feature-item {
+                        gap: 8px !important;
+                        font-size: 0.85rem !important;
+                        line-height: 1.6;
+                    }
+
+                    .program-feature-icon {
+                        margin-top: 2px !important;
+                    }
+                    
+                    .program-image-wrapper {
+                        height: 220px !important;
+                        margin-bottom: 1rem;
+                    }
+                    
+                    .program-cta-btn {
+                        width: 100% !important;
+                        justify-content: center !important;
+                        padding: 0.7rem 1.25rem !important;
+                        font-size: 0.9rem !important;
+                    }
+                }
+
+                /* Extra Small Devices (320px) */
+                @media (max-width: 360px) {
+                    .responsive-program-section {
+                        padding: 1.25rem 0.75rem !important;
+                    }
+
+                    .program-content-heading {
+                        font-size: 1.15rem !important;
+                        margin-bottom: 0.6rem !important;
+                    }
+
+                    .program-content-text {
+                        font-size: 0.85rem !important;
+                        margin-bottom: 0.8rem !important;
+                    }
+
+                    .program-feature-item {
+                        font-size: 0.8rem !important;
+                        gap: 6px !important;
+                    }
+
+                    .program-image-wrapper {
+                        height: 180px !important;
+                    }
+
+                    .program-cta-btn {
+                        padding: 0.6rem 1rem !important;
+                        font-size: 0.85rem !important;
+                    }
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- ===== SUBJECT DISTRIBUTION MATRIX ===== -->
+    <section style="padding: 5rem 0; background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);">
+        <div class="container">
+            <div class="ac-title">
+                <div class="eyebrow"><i class="fas fa-book-open"></i> Curriculum Framework</div>
+                <h2>Subject <span>Distribution</span> Across Levels</h2>
+                <p>A comprehensive subject matrix showing how our curriculum evolves at each educational level, ensuring progressive skill development.</p>
+            </div>
+
+            <style>
+                /* Subject Distribution - Base Styles */
+                .subject-dist-wrapper {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 3rem;
+                    align-items: center;
+                    margin-top: 3rem;
+                }
+
+                .subject-dist-left {
+                    background: linear-gradient(135deg, #1F2A44 0%, #2d3f5a 100%);
+                    border-radius: 24px;
+                    padding: 2.5rem;
+                    color: #fff;
+                    box-shadow: 0 10px 40px rgba(31,42,68,0.2);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 100%;
+                }
+
+                .subject-dist-left h3 {
+                    font-size: 1.5rem;
+                    margin-bottom: 1.5rem;
+                    color: #fff;
+                    font-weight: 800;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                .subject-dist-left h3 i {
+                    color: #FF8C00;
+                }
+
+                .subject-dist-features {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                    margin-bottom: 2rem;
+                    flex: 1;
+                }
+
+                .subject-dist-feature {
+                    display: flex;
+                    gap: 1rem;
+                }
+
+                .subject-dist-feature-icon {
+                    flex-shrink: 0;
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.3rem;
+                }
+
+                .subject-dist-feature-icon.icon-1 {
+                    background: rgba(255,140,0,0.2);
+                    color: #FF8C00;
+                }
+
+                .subject-dist-feature-icon.icon-2 {
+                    background: rgba(59,130,246,0.2);
+                    color: #3B82F6;
+                }
+
+                .subject-dist-feature-icon.icon-3 {
+                    background: rgba(168,85,247,0.2);
+                    color: #9333ea;
+                }
+
+                .subject-dist-feature h4 {
+                    font-size: 1rem;
+                    font-weight: 800;
+                    margin-bottom: 0.5rem;
+                    color: #fff;
+                }
+
+                .subject-dist-feature p {
+                    font-size: 0.9rem;
+                    color: rgba(255,255,255,0.75);
+                    line-height: 1.6;
+                    margin: 0;
+                }
+
+                .subject-dist-left .btn {
+                    margin-top: 2rem;
+                    background: #FF8C00;
+                    color: #000 !important;
+                    font-weight: 700;
+                    padding: 0.8rem 2rem;
+                    display: inline-block;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                }
+
+                .subject-dist-left .btn:hover {
+                    background: #FFB347;
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 20px rgba(255,140,0,0.4);
+                }
+
+                .subject-dist-right {
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .subject-dist-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                .subject-dist-table thead tr {
+                    background: linear-gradient(90deg, #1F2A44, #3B82F6);
+                }
+
+                .subject-dist-table th {
+                    padding: 1.2rem;
+                    color: #fff;
+                    text-align: left;
+                    font-weight: 800;
+                    font-size: 0.95rem;
+                    white-space: nowrap;
+                }
+
+                .subject-dist-table tbody tr {
+                    border-bottom: 1px solid #eee;
+                }
+
+                .subject-dist-table tbody tr:last-child {
+                    border-bottom: none;
+                }
+
+                .subject-dist-table td {
+                    padding: 1.2rem;
+                    color: #64748B;
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                }
+
+                .subject-dist-table td:first-child {
+                    font-weight: 700;
+                    color: #1F2A44;
+                    min-width: 120px;
+                }
+
+                .subject-dist-table tbody tr:nth-child(odd) td:first-child {
+                    background: rgba(255,140,0,0.05);
+                }
+
+                .subject-dist-table tbody tr:nth-child(even) {
+                    background: #f8f9fa;
+                }
+
+                .subject-stream-badge {
+                    background: rgba(255,140,0,0.2);
+                    padding: 0.3rem 0.8rem;
+                    border-radius: 6px;
+                    color: #FF8C00;
+                    font-weight: 600;
+                    font-size: 0.85rem;
+                    display: inline-block;
+                    margin-bottom: 0.5rem;
+                }
+
+                /* Tablet Responsive (768px) */
+                @media (max-width: 768px) {
+                    .subject-dist-wrapper {
+                        grid-template-columns: 1fr;
+                        gap: 2rem;
+                        align-items: stretch;
+                    }
+
+                    .subject-dist-left {
+                        padding: 2rem;
+                        height: auto;
+                    }
+
+                    .subject-dist-left h3 {
+                        font-size: 1.3rem;
+                        margin-bottom: 1.25rem;
+                    }
+
+                    .subject-dist-feature {
+                        gap: 0.85rem;
+                    }
+
+                    .subject-dist-feature-icon {
+                        width: 44px;
+                        height: 44px;
+                        font-size: 1.1rem;
+                    }
+
+                    .subject-dist-feature h4 {
+                        font-size: 0.95rem;
+                    }
+
+                    .subject-dist-feature p {
+                        font-size: 0.85rem;
+                    }
+
+                    .subject-dist-features {
+                        gap: 1.25rem;
+                        margin-bottom: 1.5rem;
+                    }
+
+                    .subject-dist-left .btn {
+                        padding: 0.7rem 1.5rem;
+                        font-size: 0.9rem;
+                        margin-top: 1.5rem;
+                    }
+
+                    .subject-dist-right {
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                    }
+
+                    .subject-dist-table th,
+                    .subject-dist-table td {
+                        padding: 1rem;
+                        font-size: 0.85rem;
+                    }
+
+                    .subject-dist-table th {
+                        font-size: 0.9rem;
+                    }
+
+                    .subject-stream-badge {
+                        font-size: 0.8rem;
+                        padding: 0.25rem 0.6rem;
+                    }
+                }
+
+                /* Mobile Responsive (480px) */
+                @media (max-width: 480px) {
+                    .subject-dist-wrapper {
+                        gap: 1.5rem;
+                    }
+
+                    .subject-dist-left {
+                        padding: 1.75rem;
+                    }
+
+                    .subject-dist-left h3 {
+                        font-size: 1.1rem;
+                        margin-bottom: 1rem;
+                    }
+
+                    .subject-dist-feature {
+                        gap: 0.75rem;
+                    }
+
+                    .subject-dist-feature-icon {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 1rem;
+                        border-radius: 8px;
+                    }
+
+                    .subject-dist-feature h4 {
+                        font-size: 0.9rem;
+                        margin-bottom: 0.3rem;
+                    }
+
+                    .subject-dist-feature p {
+                        font-size: 0.8rem;
+                        line-height: 1.5;
+                    }
+
+                    .subject-dist-features {
+                        gap: 1rem;
+                        margin-bottom: 1.25rem;
+                    }
+
+                    .subject-dist-left .btn {
+                        padding: 0.6rem 1.25rem;
+                        font-size: 0.85rem;
+                        margin-top: 1rem;
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    .subject-dist-right {
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                    }
+
+                    .subject-dist-table {
+                        font-size: 0.75rem;
+                        min-width: 500px;
+                    }
+
+                    .subject-dist-table th,
+                    .subject-dist-table td {
+                        padding: 0.8rem;
+                        font-size: 0.8rem;
+                    }
+
+                    .subject-dist-table th {
+                        font-size: 0.85rem;
+                    }
+
+                    .subject-dist-table td:first-child {
+                        min-width: 100px;
+                        font-size: 0.8rem;
+                    }
+
+                    .subject-stream-badge {
+                        font-size: 0.75rem;
+                        padding: 0.2rem 0.5rem;
+                        display: block;
+                        margin-bottom: 0.3rem;
+                    }
+                }
+
+                /* Extra Small Devices (320px) */
+                @media (max-width: 360px) {
+                    .subject-dist-wrapper {
+                        gap: 1rem;
+                    }
+
+                    .subject-dist-left {
+                        padding: 1.5rem 1rem;
+                    }
+
+                    .subject-dist-left h3 {
+                        font-size: 1rem;
+                        margin-bottom: 0.85rem;
+                    }
+
+                    .subject-dist-feature-icon {
+                        width: 36px;
+                        height: 36px;
+                        font-size: 0.9rem;
+                    }
+
+                    .subject-dist-feature h4 {
+                        font-size: 0.85rem;
+                    }
+
+                    .subject-dist-feature p {
+                        font-size: 0.75rem;
+                        line-height: 1.4;
+                    }
+
+                    .subject-dist-features {
+                        gap: 0.9rem;
+                        margin-bottom: 1rem;
+                    }
+
+                    .subject-dist-left .btn {
+                        padding: 0.55rem 1rem;
+                        font-size: 0.8rem;
+                    }
+
+                    .subject-dist-table {
+                        min-width: 450px;
+                    }
+
+                    .subject-dist-table th,
+                    .subject-dist-table td {
+                        padding: 0.6rem;
+                        font-size: 0.75rem;
+                    }
+
+                    .subject-dist-table th {
+                        font-size: 0.8rem;
+                    }
+
+                    .subject-dist-table td:first-child {
+                        min-width: 80px;
+                        font-size: 0.75rem;
+                    }
+                }
+            </style>
+
+            <div class="subject-dist-wrapper">
+                <!-- LEFT SIDE: Key Features Card -->
+                <div class="subject-dist-left">
+                    <h3>
+                        <i class="fas fa-graduation-cap"></i>Curriculum Highlights
+                    </h3>
+                    
+                    <div class="subject-dist-features">
+                        <!-- Feature 1 -->
+                        <div class="subject-dist-feature">
+                            <div class="subject-dist-feature-icon icon-1">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4>Integrated Learning</h4>
+                                <p>Core academics integrated with Computer Education and Islamic values at every level.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="subject-dist-feature">
+                            <div class="subject-dist-feature-icon icon-2">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h4>Computer Core Subject</h4>
+                                <p>Not optional – Computer is mandatory from Play Group through Secondary. Practical, hands-on learning focused on real-world applications.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="subject-dist-feature">
+                            <div class="subject-dist-feature-icon icon-3">
+                                <i class="fas fa-book-quran"></i>
+                            </div>
+                            <div>
+                                <h4>Islamic Foundation</h4>
+                                <p>Daily Duas, Nazra Quran with Tajweed, and character building woven into every school day.</p>
+                            </div>
+                        </div>
+                      
+                    </div> 
+
+                    <a href="admissions.html" class="btn">Start Your Journey <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
                 </div>
 
-                <!-- Islamic Education -->
-                <div class="mb-box">
-                    <div class="mb-icon" style="background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2);color:#16a34a;"><i class="fas fa-book-quran"></i></div>
-                    <h3>Islamic Education</h3>
-                    <p>Nazra Quran with Tajweed, Islamiat, Akhlaqiat, and Islamic History — woven into every level as a core part of the curriculum.</p>
-                    <div class="mb-tags">
-                        <span class="mb-tag">Nazra &amp; Tajweed</span>
-                        <span class="mb-tag">Islamiat</span>
-                        <span class="mb-tag">Akhlaqiat</span>
-                        <span class="mb-tag">Islamic History</span>
-                    </div>
-                    <a href="islamic-education.html" class="card-cta" style="color:#16a34a;margin-top:1rem;">Full Details <i class="fas fa-arrow-right"></i></a>
+                <!-- RIGHT SIDE: Subject Matrix Table -->
+                <div class="subject-dist-right">
+                    <table class="subject-dist-table">
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Core Subjects</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Play Group</td>
+                                <td>ABCs, Numbers, Art, Motor Skills, Daily Duas</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td>Nursery/Prep</td>
+                                <td>English, Urdu, Math, Science Basics, Islamic Stories, Nazra Quran</td>
+                            </tr>
+                            <tr>
+                                <td>Primary (1-5)</td>
+                                <td>English, Urdu, Math, Science, Social Studies, Computer Basics, Islamiat, Tajweed</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td>Middle (6-8)</td>
+                                <td>English, Urdu, Math, Physics, Chemistry, Biology, History, Geography, Computer Science (Core), Islamiat</td>
+                            </tr>
+                            <tr>
+                                <td>Secondary (9-10)</td>
+                                <td><span class="subject-stream-badge">Computer Science Stream Only</span><span style="font-size: 0.85rem; margin-top: 0.5rem; display: block;">English, Urdu, Math, Physics, Chemistry, Computer Science, Islamiat</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <!-- Stat: Gender Policy -->
-                <div class="mb-box stat-box">
-                    <div class="mb-icon" style="background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.2);color:var(--ac-blue);"><i class="fas fa-school"></i></div>
-                    <div class="mb-stat-num" style="font-size:1.6rem;color:var(--ac-blue);">School</div>
-                    <div class="mb-stat-label">KG–5: Boys &amp; Girls<br>Grade 6–10: Girls Only</div>
-                </div>
-
-                <!-- Stat: Academy -->
-                <div class="mb-box stat-box">
-                    <div class="mb-icon" style="background:var(--ac-orange-soft);border-color:rgba(255,140,0,0.2);color:var(--ac-orange);"><i class="fas fa-building-columns"></i></div>
-                    <div class="mb-stat-num" style="font-size:1.6rem;color:var(--ac-orange);">Academy</div>
-                    <div class="mb-stat-label">KG–5: Boys &amp; Girls<br>Grade 6–12: Boys Only</div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ==================== ACADEMIC CALENDAR WIDGET ==================== -->
-    <section class="calendar-section" id="calendar">
+    <!-- ===== PROGRAM MATRIX ===== -->
+    <section class="bg-light" style="padding: 5rem 0;">
         <div class="container">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-calendar-days"></i> Academic Year</div>
-                <h2>Academic <span>Calendar</span> 2025–26</h2>
-                <p>All important dates — exams, results, vacations, and events — in one clean view.</p>
+                <div class="eyebrow"><i class="fas fa-table"></i> Quick Reference</div>
+                <h2>Academic Programs <span>Overview</span></h2>
+                <p>Quick reference showing our five educational levels and program structure.</p>
             </div>
 
-            <div class="calendar-widget">
-                <div class="cal-header">
-                    <h3><i class="fas fa-calendar-check" style="color:var(--ac-orange);margin-right:8px;"></i> Key Dates &amp; Events</h3>
-                    <div class="cal-filter-row">
-                        <button class="cal-filter-btn active" onclick="filterCal(this,'all')">All</button>
-                        <button class="cal-filter-btn" onclick="filterCal(this,'exam')">Exams</button>
-                        <button class="cal-filter-btn" onclick="filterCal(this,'result')">Results</button>
-                        <button class="cal-filter-btn" onclick="filterCal(this,'vacation')">Vacations</button>
-                        <button class="cal-filter-btn" onclick="filterCal(this,'event')">Events</button>
-                    </div>
-                </div>
+            <style>
+                /* Academic Programs Overview - Base Styles */
+                .programs-overview-wrapper {
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                }
 
-                <div class="cal-scroll-track" id="calScroll">
+                .programs-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    background: #fff;
+                    border-radius: 12px;
+                    overflow: hidden;
+                }
 
-                    <div class="cal-event-card" data-type="event">
-                        <div class="cal-event-badge badge-event"><i class="fas fa-flag"></i> New Session</div>
-                        <div class="cal-event-date">01</div>
-                        <div class="cal-event-month">Apr 2025</div>
-                        <div class="cal-event-title">New Academic Session Begins</div>
-                        <div class="cal-event-desc">Start of 2025–26 academic year for all classes</div>
-                    </div>
+                .programs-table thead tr {
+                    background: linear-gradient(90deg, #1F2A44, #3B82F6);
+                }
 
-                    <div class="cal-event-card" data-type="exam">
-                        <div class="cal-event-badge badge-exam"><i class="fas fa-pen"></i> Exam</div>
-                        <div class="cal-event-date">12</div>
-                        <div class="cal-event-month">May 2025</div>
-                        <div class="cal-event-title">First Monthly Test</div>
-                        <div class="cal-event-desc">All subjects — Classes 1 to 10</div>
-                    </div>
+                .programs-table th {
+                    padding: 1rem;
+                    color: #fff;
+                    text-align: left;
+                    font-weight: 700;
+                    font-size: 0.95rem;
+                    white-space: nowrap;
+                }
 
-                    <div class="cal-event-card" data-type="vacation">
-                        <div class="cal-event-badge badge-vacation"><i class="fas fa-umbrella-beach"></i> Vacation</div>
-                        <div class="cal-event-date">16</div>
-                        <div class="cal-event-month">Jun 2025</div>
-                        <div class="cal-event-title">Summer Vacation</div>
-                        <div class="cal-event-desc">June 16 – July 20, 2025</div>
-                    </div>
+                .programs-table tbody tr {
+                    border-bottom: 1px solid #eee;
+                }
 
-                    <div class="cal-event-card" data-type="exam">
-                        <div class="cal-event-badge badge-exam"><i class="fas fa-pen"></i> Mid-Term</div>
-                        <div class="cal-event-date">15</div>
-                        <div class="cal-event-month">Sep 2025</div>
-                        <div class="cal-event-title">Mid-Term Examinations</div>
-                        <div class="cal-event-desc">Week-long exams for all levels</div>
-                    </div>
+                .programs-table tbody tr:last-child {
+                    border-bottom: none;
+                }
 
-                    <div class="cal-event-card" data-type="result">
-                        <div class="cal-event-badge badge-result"><i class="fas fa-chart-line"></i> Result</div>
-                        <div class="cal-event-date">01</div>
-                        <div class="cal-event-month">Oct 2025</div>
-                        <div class="cal-event-title">Mid-Term Result Day</div>
-                        <div class="cal-event-desc">Parent-teacher meetings &amp; report cards</div>
-                    </div>
+                .programs-table td {
+                    padding: 1rem;
+                    font-size: 0.9rem;
+                    color: #64748B;
+                    line-height: 1.6;
+                }
 
-                    <div class="cal-event-card" data-type="event">
-                        <div class="cal-event-badge badge-event"><i class="fas fa-star"></i> Event</div>
-                        <div class="cal-event-date">10</div>
-                        <div class="cal-event-month">Nov 2025</div>
-                        <div class="cal-event-title">Annual Science &amp; Tech Fair</div>
-                        <div class="cal-event-desc">Students showcase coding &amp; science projects</div>
-                    </div>
+                .programs-table td:first-child {
+                    font-weight: 600;
+                    color: #1F2A44;
+                    min-width: 140px;
+                }
 
-                    <div class="cal-event-card" data-type="vacation">
-                        <div class="cal-event-badge badge-holiday"><i class="fas fa-moon"></i> Holiday</div>
-                        <div class="cal-event-date">20</div>
-                        <div class="cal-event-month">Dec 2025</div>
-                        <div class="cal-event-title">Winter Break</div>
-                        <div class="cal-event-desc">Dec 20 – Jan 5, 2026</div>
-                    </div>
+                .programs-table tbody tr:nth-child(odd) td:first-child {
+                    background: rgba(255,140,0,0.05);
+                }
 
-                    <div class="cal-event-card" data-type="exam">
-                        <div class="cal-event-badge badge-exam"><i class="fas fa-pen"></i> Final Exam</div>
-                        <div class="cal-event-date">02</div>
-                        <div class="cal-event-month">Feb 2026</div>
-                        <div class="cal-event-title">Annual Final Examinations</div>
-                        <div class="cal-event-desc">Board-pattern finals for all grades</div>
-                    </div>
+                .programs-table tbody tr:nth-child(even) {
+                    background: #f8f9fa;
+                }
 
-                    <div class="cal-event-card" data-type="result">
-                        <div class="cal-event-badge badge-result"><i class="fas fa-trophy"></i> Result</div>
-                        <div class="cal-event-date">15</div>
-                        <div class="cal-event-month">Mar 2026</div>
-                        <div class="cal-event-title">Annual Result &amp; Prize Day</div>
-                        <div class="cal-event-desc">Result declaration &amp; awards ceremony</div>
-                    </div>
+                /* Tablet Responsive (768px) */
+                @media (max-width: 768px) {
+                    .programs-overview-wrapper {
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                        border-radius: 10px;
+                    }
 
+                    .programs-table {
+                        border-radius: 10px;
+                        min-width: 100%;
+                    }
+
+                    .programs-table th,
+                    .programs-table td {
+                        padding: 0.9rem;
+                        font-size: 0.85rem;
+                    }
+
+                    .programs-table th {
+                        font-size: 0.9rem;
+                        font-weight: 700;
+                    }
+
+                    .programs-table td:first-child {
+                        min-width: 130px;
+                        font-weight: 600;
+                    }
+
+                    .programs-table td {
+                        line-height: 1.5;
+                    }
+                }
+
+                /* Mobile Responsive (480px) */
+                @media (max-width: 480px) {
+                    .programs-overview-wrapper {
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                        border-radius: 8px;
+                        padding: 0;
+                        margin: 0 -1rem;
+                    }
+
+                    .programs-table {
+                        min-width: 650px;
+                        border-radius: 0;
+                        font-size: 0.75rem;
+                    }
+
+                    .programs-table th,
+                    .programs-table td {
+                        padding: 0.8rem;
+                        font-size: 0.8rem;
+                    }
+
+                    .programs-table th {
+                        font-size: 0.85rem;
+                        font-weight: 700;
+                        padding: 0.85rem;
+                    }
+
+                    .programs-table td {
+                        color: #64748B;
+                        line-height: 1.6;
+                        word-break: break-word;
+                    }
+
+                    .programs-table td:first-child {
+                        font-weight: 600;
+                        color: #1F2A44;
+                        min-width: 100px;
+                        font-size: 0.8rem;
+                    }
+
+                    .programs-table tbody tr:nth-child(odd) td:first-child {
+                        background: rgba(255,140,0,0.05);
+                    }
+
+                    .programs-table tbody tr:nth-child(even) {
+                        background: #f8f9fa;
+                    }
+
+                    .programs-table tbody tr {
+                        border-bottom: 1px solid rgba(0,0,0,0.08);
+                    }
+                }
+
+                /* Extra Small Devices (320px) */
+                @media (max-width: 360px) {
+                    .programs-overview-wrapper {
+                        overflow-x: auto;
+                        -webkit-overflow-scrolling: touch;
+                        border-radius: 6px;
+                        margin: 0 -0.75rem;
+                    }
+
+                    .programs-table {
+                        min-width: 580px;
+                        border-radius: 0;
+                    }
+
+                    .programs-table thead tr {
+                        background: linear-gradient(90deg, #1F2A44, #3B82F6);
+                    }
+
+                    .programs-table th,
+                    .programs-table td {
+                        padding: 0.65rem;
+                        font-size: 0.75rem;
+                    }
+
+                    .programs-table th {
+                        font-size: 0.8rem;
+                        font-weight: 600;
+                        padding: 0.7rem;
+                        white-space: nowrap;
+                    }
+
+                    .programs-table td {
+                        color: #64748B;
+                        line-height: 1.5;
+                        word-break: break-word;
+                    }
+
+                    .programs-table td:first-child {
+                        font-weight: 600;
+                        color: #1F2A44;
+                        min-width: 90px;
+                        font-size: 0.75rem;
+                    }
+
+                    .programs-table tbody tr:nth-child(odd) td:first-child {
+                        background: rgba(255,140,0,0.05);
+                    }
+
+                    .programs-table tbody tr:nth-child(even) {
+                        background: #f8f9fa;
+                    }
+
+                    .programs-table tbody tr {
+                        border-bottom: 1px solid rgba(0,0,0,0.08);
+                    }
+                }
+            </style>
+
+            <div class="programs-overview-wrapper">
+                <table class="programs-table">
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Grade</th>
+                            <th>Age</th>
+                            <th>Program</th>
+                            <th>Special Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td>Play Group</td>
+                            <td>Pre-School</td>
+                            <td>3-4</td>
+                            <td>Boys & Girls</td>
+                            <td>Play-based learning, motor skills</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee; background: rgba(59,130,246,0.03);">
+                            <td>Nursery/Prep</td>
+                            <td>KG - Prep</td>
+                            <td>4-6</td>
+                            <td>Boys & Girls</td>
+                            <td>Early literacy, Nazra Quran intro</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td>Primary School</td>
+                            <td>Grades 1-5</td>
+                            <td>6-11</td>
+                            <td>Boys & Girls</td>
+                            <td>Core academics, Computer basics, Tajweed</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee; background: rgba(59,130,246,0.03);">
+                            <td>Middle School</td>
+                            <td>Grades 6-8</td>
+                            <td>11-14</td>
+                            <td>Boys & Girls</td>
+                            <td>Computer as core (replaces Arabic)</td>
+                        </tr>
+                        <tr>
+                            <td>Secondary/Matric</td>
+                            <td>Grades 9-10</td>
+                            <td>14-16</td>
+                            <td>Boys & Girls</td>
+                            <td><strong>Computer Science Only</strong> - Board exam prep</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADMISSION CTA ===== -->
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, #1F2A44 0%, #0f1d35 100%); border-radius: 24px; padding: 3rem; text-align: center; color: #fff;">
+                <h2 style="color: #fff; margin-bottom: 1rem;">Ready to Join Our Community?</h2>
+                <p style="color: rgba(255,255,255,0.75); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Admissions are open for 2025-26 across all levels. Enroll your child today and give them the gift of quality education combined with Islamic values and modern skills.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="admissions.html" class="btn btn-accent" style="color: #000 !important;">Apply Now</a>
+                    <a href="campus-facilities.html" class="btn btn-outline">Tour Campus</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== STUDENT ACTIVITIES ==================== -->
-    <section class="ac-white-bg" id="activities" style="padding:5rem 0;">
-        <div class="container">
-            <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-star"></i> Student Life</div>
-                <h2>Student <span>Activities</span></h2>
-                <p>Beyond academics — a vibrant school life that builds confidence, leadership, and community spirit.</p>
-            </div>
-            <div class="level-cards-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;">
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,140,0,0.1);border:1px solid rgba(255,140,0,0.2);display:flex;align-items:center;justify-content:center;color:var(--ac-orange);font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Daily Morning Assembly</h3>
-                        <p style="font-size:0.85rem;">Every school day begins with a structured morning assembly — duas, announcements, and motivational talks to set a positive tone.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);display:flex;align-items:center;justify-content:center;color:#16a34a;font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Naat &amp; Qirat Competitions</h3>
-                        <p style="font-size:0.85rem;">Students participate in beautiful recitation and Naat competitions that nurture love for Islam and public speaking confidence.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:var(--ac-blue-soft);border:1px solid var(--ac-border);display:flex;align-items:center;justify-content:center;color:var(--ac-blue);font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Speech Competitions</h3>
-                        <p style="font-size:0.85rem;">Inter-class and inter-school speech events in Urdu and English build oratory skills, critical thinking, and confidence.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,140,0,0.1);border:1px solid rgba(255,140,0,0.2);display:flex;align-items:center;justify-content:center;color:var(--ac-orange);font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-circle-question"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Quiz Competitions</h3>
-                        <p style="font-size:0.85rem;">Academic and Islamic quiz bowls that sharpen knowledge retention, quick thinking, and healthy competitive spirit.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;color:var(--ac-blue);font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Science Experiments</h3>
-                        <p style="font-size:0.85rem;">Hands-on lab experiments that make science real and exciting — students observe, test, and discover beyond the textbook.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.2);display:flex;align-items:center;justify-content:center;color:#9333ea;font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">National &amp; Religious Celebrations</h3>
-                        <p style="font-size:0.85rem;">Pakistan Day, Independence Day, Eid milads, and other events celebrated with programs that build national pride and Islamic identity.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,140,0,0.1);border:1px solid rgba(255,140,0,0.2);display:flex;align-items:center;justify-content:center;color:var(--ac-orange);font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Annual Prize Distribution</h3>
-                        <p style="font-size:0.85rem;">A grand ceremony at the end of each academic year celebrating top performers in academics, character, sports, and co-curriculars.</p>
-                    </div>
-                </div>
-
-                <div class="level-card visible" style="display:flex;">
-                    <div style="width:48px;height:48px;border-radius:12px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);display:flex;align-items:center;justify-content:center;color:#16a34a;font-size:1.2rem;margin-bottom:1rem;flex-shrink:0;">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div>
-                        <h3 style="font-size:1rem;margin-bottom:0.4rem;">Moral Training Programs</h3>
-                        <p style="font-size:0.85rem;">Dedicated sessions on Akhlaq, respect, honesty, and responsibility — shaping students into people of character, not just academics.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== FOOTER ==================== -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1161,7 +2083,7 @@
                     <div class="logo" style="margin-bottom: 1rem;">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education. Grades KG to 10.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Quick Links</h3>
@@ -1173,95 +2095,116 @@
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Special Focus</h3>
+                    <h3>Academic Programs</h3>
                     <ul class="footer-links">
+                        <li><a href="academics.html#levels">Educational Levels</a></li>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
-                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
-                        <li><a href="faculty.html">Our Faculty</a></li>
+                        <li><a href="campus-facilities.html">Our Facilities</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Us</h3>
                     <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="color: inherit; text-decoration: none;">Village 97 JB, Gojra</a>
+                        <li style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03281642297" style="color: inherit; text-decoration: none;">0328-1642297</a>
+                        <li style="display: flex; align-items: center; margin-bottom: 0.8rem;">
+                            <i class="fas fa-phone" style="margin-right: 10px;"></i> 
+                            <a href="tel:03281642297">0328-1642297</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.25rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03216892097" style="color: inherit; text-decoration: none;">0321-6892097</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-envelope" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="mailto:noshahischoolsystem@gmail.com" style="color: inherit; text-decoration: none;">noshahischoolsystem@gmail.com</a>
+                        <li style="display: flex; align-items: center;">
+                            <i class="fas fa-envelope" style="margin-right: 10px;"></i> 
+                            <a href="mailto:info@noshahi.edu.pk">info@noshahi.edu.pk</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <p>&copy; 2025 Noshahi School System. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
 
-    <!-- JS -->
-    <script src="js/main.js"></script>
+    <!-- ===== FLOATING WIDGETS ===== -->
+    <div class="floating-widgets">
+        <a href="https://wa.me/923281642297" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="scroll-top-btn" id="scrollTopBtn" title="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
 
     <script>
-        /* ── Level Tabs Filter ── */
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ===== MOBILE MENU TOGGLE =====
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== TAB FILTERING =====
         document.querySelectorAll('.level-tab-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
+            btn.addEventListener('click', function() {
+                const selectedLevel = this.getAttribute('data-level');
+                
+                // Update active button
                 document.querySelectorAll('.level-tab-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                const level = this.dataset.level;
+                
+                // Filter cards
                 document.querySelectorAll('.level-card').forEach(card => {
-                    if (level === 'all' || card.dataset.group === level) {
+                    card.classList.remove('visible');
+                    if (selectedLevel === 'all' || card.getAttribute('data-group') === selectedLevel) {
                         card.classList.add('visible');
-                        card.style.display = '';
-                    } else {
-                        card.classList.remove('visible');
-                        card.style.display = 'none';
                     }
                 });
             });
         });
 
-        /* ── Calendar Filter ── */
-        function filterCal(btn, type) {
-            document.querySelectorAll('.cal-filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.cal-event-card').forEach(card => {
-                if (type === 'all' || card.dataset.type === type) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
+        // ===== SCROLL TO TOP =====
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== MOBILE DROPDOWN TOGGLE =====
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.classList.toggle('open');
                 }
             });
-        }
+        });
     </script>
-
-    <!-- Floating Widgets -->
-    <div class="floating-widgets">
-        <a href="https://wa.me/923281642297" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <button id="scrollToTopBtn" class="scroll-top-btn" title="Scroll to Top">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-    </div>
 
 </body>
 </html>

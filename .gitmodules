@@ -1,0 +1,3 @@
+[submodule "noshahi-school-system"]
+	path = noshahi-school-system
+	url = https://github.com/noshahi-devs/noshahi-school-system.git

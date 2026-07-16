@@ -4,18 +4,1014 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noshahi School System</title>
+    <title>Admissions | Noshahi School System</title>
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
     <meta name="description"
-        content="Information about the admission process, eligibility, and fee structure at Noshahi School System.">
+        content="Join Noshahi School System. Learn about our admission process, eligibility criteria, required documents, and fee structure.">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           ADMISSIONS PAGE â€” PREMIUM DESIGN SYSTEM
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+        body.admissions-page {
+            background-color: #F5F7FA;
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+           NAVBAR STYLING FOR ADMISSIONS
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        .admissions-page .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .admissions-page .navbar .logo-text,
+        .admissions-page .navbar .nav-links a {
+            color: var(--primary-color) !important;
+        }
+
+        .admissions-page .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .admissions-page .dropdown-menu a,
+        .admissions-page .navbar.scrolled .dropdown-menu a {
+            color: #1F2A44 !important;
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+           HERO SECTION â€” PREMIUM HEADER
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        .admissions-hero {
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(135deg, #1F2A44 0%, #0f1820 50%, #2d3f5a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .admissions-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(31, 42, 68, 0.85) 0%, rgba(31, 42, 68, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .admissions-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            animation: zoomEffect 15s ease infinite;
+        }
+
+        .admissions-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 140, 0, 0.15) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .admissions-hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            animation: slideUp 0.8s ease-out;
+            text-align: center;
+        }
+
+        .admissions-hero-content .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #FFFFFF;
+            padding: 0.5rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .admissions-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            color: #FFFFFF;
+        }
+
+        .admissions-hero-content h1 span {
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admissions-hero-content p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.15rem;
+            margin: 0 auto;
+            max-width: 580px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        @keyframes zoomEffect {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+           ADMISSION PROCESS SECTION
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        .admission-process-section {
+            background: #fff;
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .admission-process-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: stretch;
+        }
+
+        .process-content h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .process-content h2 span {
+            color: var(--accent-color);
+        }
+
+        .process-content>p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInLeft 0.6s ease both;
+        }
+
+        .process-step:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .process-step:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .process-step:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .process-step:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #2d3f5a);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(31, 42, 68, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, var(--accent-color), #FFB347);
+            box-shadow: 0 12px 30px rgba(255, 140, 0, 0.25);
+        }
+
+        .step-content h4 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+           REQUIREMENTS CARD SECTION
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        .requirements-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(255, 140, 0, 0.04) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 24px rgba(31, 42, 68, 0.06);
+            transition: all 0.35s ease;
+            animation: slideInRight 0.6s ease;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .requirements-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(31, 42, 68, 0.1);
+            border-color: rgba(255, 140, 0, 0.3);
+        }
+
+        .requirements-card h3 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .requirements-card h3 i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .requirements-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #4B5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .requirements-list li::before {
+            content: 'âœ“';
+            color: var(--accent-color);
+            font-weight: 900;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .eligibility-section {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 2px solid rgba(255, 140, 0, 0.2);
+        }
+
+        .eligibility-item {
+            margin-bottom: 0.8rem;
+        }
+
+        .eligibility-item strong {
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        .eligibility-item p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin: 0.3rem 0 0;
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€          
+           GENERAL INFO & FORM SECTION â€” PREMIUM
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        .general-info-section {
+            background: linear-gradient(135deg, #F0F4FF 0%, #EEF2FF 40%, #F5F7FF 70%, #EBF0FF 100%);
+            border-top: 1px solid rgba(31, 42, 68, 0.08);
+            border-bottom: 1px solid rgba(31, 42, 68, 0.08);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .general-info-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .general-info-section::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .general-info-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .general-info-header .gi-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 140, 0, 0.12);
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            color: #FF8C00;
+            padding: 0.45rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .general-info-header h2 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .general-info-header h2 span {
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .general-info-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .general-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-cards-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.75rem 1.5rem;
+            margin-bottom: 0;
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 20px rgba(31, 42, 68, 0.07);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.06), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .info-card:hover::before {
+            left: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(31, 42, 68, 0.15);
+            border-color: rgba(255, 140, 0, 0.3);
+            border-left-color: #FF8C00;
+            background: #fff;
+        }
+
+        .info-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 140, 0, 0.05));
+            border: 1px solid rgba(255, 140, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.35s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card-icon i {
+            font-size: 1.4rem;
+            color: #FF8C00;
+            transition: all 0.35s ease;
+        }
+
+        .info-card:hover .info-card-icon {
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            border-color: transparent;
+            transform: scale(1.1) rotateZ(5deg);
+            box-shadow: 0 8px 24px rgba(255, 140, 0, 0.35);
+        }
+
+        .info-card:hover .info-card-icon i {
+            color: #fff;
+        }
+
+        .info-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card p {
+            color: #4B5563;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card p strong {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+           ADMISSION FORM SECTION â€” PREMIUM
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        .admission-form-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 40px rgba(31, 42, 68, 0.12);
+            border: 1px solid rgba(31, 42, 68, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admission-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF8C00, #FFB347, #FF8C00);
+        }
+
+        .admission-form-card h3 {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .admission-form-card h3 i {
+            color: #FF8C00;
+        }
+
+        .admission-form-card > p {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 0.8rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.65rem 0.9rem;
+            border: 2px solid rgba(31, 42, 68, 0.12);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            background-color: #F8FAFC;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #9CA3AF;
+        }
+
+        .form-group select {
+            color: var(--primary-color);
+        }
+
+        .form-group select option {
+            background: #ffffff;
+            color: var(--primary-color);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF8C00;
+            box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.15);
+            background-color: #FFFBF5;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .form-submit-btn {
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            color: #000;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 12px 30px rgba(255, 140, 0, 0.3);
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit-btn:hover {
+            background: linear-gradient(135deg, #FFB347, #FF8C00);
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(255, 140, 0, 0.45);
+            color: #000;
+        }
+
+        /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+           RESPONSIVE DESIGN
+        â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+        @media (max-width: 1024px) {
+
+            .admission-process-grid,
+            .general-info-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .admissions-hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .process-content h2 {
+                font-size: 2.2rem;
+            }
+
+            .general-info-header h2 {
+                font-size: 2.4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admissions-hero {
+                height: 45vh;
+                min-height: 300px;
+            }
+
+            .admissions-hero-content h1 {
+                font-size: 2.2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .admissions-hero-content p {
+                font-size: 1rem;
+            }
+
+            .admission-process-section {
+                padding: 4rem 0;
+            }
+
+            .general-info-section {
+                padding: 4rem 0;
+            }
+
+            .process-content h2 {
+                font-size: 1.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .general-info-header h2 {
+                font-size: 2rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .general-info-header p {
+                font-size: 0.95rem;
+            }
+
+            .general-info-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .process-step {
+                gap: 1.25rem;
+            }
+
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .step-content h4 {
+                font-size: 1rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .step-content p {
+                font-size: 0.85rem;
+            }
+
+            .requirements-card,
+            .admission-form-card {
+                padding: 2rem;
+            }
+
+            .requirements-card h3,
+            .admission-form-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .info-cards-wrapper {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.25rem;
+            }
+
+            .info-card {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .info-card-icon {
+                width: 46px;
+                height: 46px;
+                margin-bottom: 1rem;
+            }
+
+            .info-card-icon i {
+                font-size: 1.2rem;
+            }
+
+            .info-card h4 {
+                font-size: 1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .info-card p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .admissions-hero {
+                height: 40vh;
+                margin-top: 70px;
+            }
+
+            .admissions-hero-content .badge {
+                font-size: 0.7rem;
+                padding: 0.35rem 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .admissions-hero-content h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .admissions-hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .admission-process-section {
+                padding: 2.5rem 0;
+            }
+
+            .general-info-section {
+                padding: 3rem 0;
+            }
+
+            .general-info-header {
+                margin-bottom: 2rem;
+            }
+
+            .general-info-header .gi-badge {
+                font-size: 0.65rem;
+                padding: 0.35rem 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .general-info-header h2 {
+                font-size: 1.7rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .general-info-header p {
+                font-size: 0.85rem;
+            }
+
+            .process-content h2 {
+                font-size: 1.6rem;
+            }
+
+            .process-step {
+                gap: 1rem;
+            }
+
+            .step-number {
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
+            }
+
+            .step-content h4 {
+                font-size: 0.95rem;
+            }
+
+            .step-content p {
+                font-size: 0.8rem;
+            }
+
+            .requirements-card,
+            .admission-form-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+
+            .requirements-card h3 {
+                font-size: 1.05rem;
+                margin-bottom: 1.1rem;
+            }
+
+            .requirements-list li {
+                font-size: 0.85rem;
+            }
+
+            .info-cards-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .info-card {
+                padding: 1.5rem 1.25rem;
+                border-radius: 16px;
+            }
+
+            .info-card-icon {
+                width: 42px;
+                height: 42px;
+                border-radius: 12px;
+                margin-bottom: 0.85rem;
+            }
+
+            .info-card-icon i {
+                font-size: 1.1rem;
+            }
+
+            .info-card h4 {
+                font-size: 0.95rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .info-card p {
+                font-size: 0.8rem;
+                line-height: 1.65;
+            }
+
+            .admission-form-card {
+                padding: 1.5rem;
+            }
+
+            .admission-form-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.7rem 0.9rem;
+                font-size: 0.85rem;
+                border-radius: 10px;
+            }
+
+            .form-submit-btn {
+                padding: 0.85rem 2rem;
+                font-size: 0.85rem;
+                letter-spacing: 0.8px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .general-info-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .general-info-header p {
+                font-size: 0.8rem;
+            }
+
+            .info-card {
+                padding: 1.25rem 1rem;
+                border-radius: 14px;
+            }
+
+            .info-card-icon {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                margin-bottom: 0.75rem;
+            }
+
+            .info-card-icon i {
+                font-size: 1rem;
+            }
+
+            .info-card h4 {
+                font-size: 0.9rem;
+            }
+
+            .info-card p {
+                font-size: 0.78rem;
+            }
+
+            .admission-form-card {
+                padding: 1.25rem 1rem;
+                border-radius: 18px;
+            }
+
+            .admission-form-card h3 {
+                font-size: 1.05rem;
+            }
+
+            .form-group label {
+                font-size: 0.72rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.65rem 0.8rem;
+                font-size: 0.82rem;
+            }
+
+            .form-submit-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 
-<body>
+<body class="admissions-page">
+
 
     <!-- Navbar -->
     <nav class="navbar scrolled">
@@ -31,7 +1027,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
@@ -39,7 +1035,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
@@ -47,204 +1043,323 @@
                     </ul>
                 </li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent" style="background-color: #e67e00;">Apply
-                        Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
-        <div class="page-header-content">
-            <h1>Admissions</h1>
-            <p>Join the Noshahi Family</p>
+    <!-- Premium Hero Section -->
+    <header class="admissions-hero">
+        <img src="img/page_header.png" alt="Header Background" class="admissions-hero-bg">
+        <div class="admissions-hero-overlay"></div>
+        <div class="container admissions-hero-content">
+            <div class="badge">
+                <i class="fas fa-graduation-cap"></i> Join Our Community
+            </div>
+            <h1>Start Your <span>Journey</span><br>With Noshahi</h1>
+            <p>A Seamless Admission Process Designed For Your Family's Peace of Mind</p>
         </div>
     </header>
 
-    <!-- Admission Process -->
-    <section id="process">
+    <!-- Admission Process Section -->
+    <section class="admission-process-section">
         <div class="container">
-            <div class="grid-2">
-                <div class="img-text-content">
-                    <h2>Admission Process</h2>
+            <div class="admission-process-grid">
+                <div class="process-content">
+                    <h2>Admission <span>Process</span></h2>
                     <p>We welcome students who are eager to learn and grow in a balanced environment of modern
-                        technology and Islamic values.</p>
-                    <div style="margin-top: 2rem;">
-                        <div style="display: flex; margin-bottom: 1.5rem;">
-                            <div
-                                style="background-color: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1rem; flex-shrink: 0;">
-                                1</div>
-                            <div>
-                                <h4 style="margin-bottom: 0.5rem;">Registration</h4>
-                                <p style="font-size: 0.9rem;">Obtain and submit the registration form from the campus
-                                    admission office.</p>
+                        technology and Islamic values. Our streamlined admission process ensures your family feels
+                        welcome every step of the way.</p>
+
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4><i class="fas fa-clipboard"></i> Registration</h4>
+                                <p>Obtain and submit the registration form from our campus admission office. Provide
+                                    basic student and parent information.</p>
                             </div>
                         </div>
-                        <div style="display: flex; margin-bottom: 1.5rem;">
-                            <div
-                                style="background-color: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1rem; flex-shrink: 0;">
-                                2</div>
-                            <div>
-                                <h4 style="margin-bottom: 0.5rem;">Assessment</h4>
-                                <p style="font-size: 0.9rem;">The student will undergo a basic assessment test (for
-                                    primary and above) or an interview (for pre-school).</p>
+
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4><i class="fas fa-graduation-cap"></i> Assessment</h4>
+                                <p>The student undergoes a basic assessment test (Primary & above) or a friendly
+                                    interview (Pre-school). This helps us understand learning needs.</p>
                             </div>
                         </div>
-                        <div style="display: flex; margin-bottom: 1.5rem;">
-                            <div
-                                style="background-color: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1rem; flex-shrink: 0;">
-                                3</div>
-                            <div>
-                                <h4 style="margin-bottom: 0.5rem;">Parent Interview</h4>
-                                <p style="font-size: 0.9rem;">A brief meeting with the parents to align on educational
-                                    goals and values.</p>
+
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4><i class="fas fa-handshake"></i> Parent Interview</h4>
+                                <p>A brief meeting with parents to align on educational goals, values, and discuss any
+                                    questions about school policies.</p>
                             </div>
                         </div>
-                        <div style="display: flex;">
-                            <div
-                                style="background-color: var(--primary-color); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1rem; flex-shrink: 0;">
-                                4</div>
-                            <div>
-                                <h4 style="margin-bottom: 0.5rem;">Fee Submission</h4>
-                                <p style="font-size: 0.9rem;">Upon clearance, submit the required documents and
-                                    admission fee to secure the seat.</p>
+
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4><i class="fas fa-check-circle"></i> Fee Submission</h4>
+                                <p>Upon clearance, submit required documents and admission fee to secure your child's
+                                    seat for the academic year.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card bg-light">
-                    <h3>Required Documents</h3>
-                    <ul class="feature-list">
-                        <li>Completed Admission Form</li>
+                <div class="requirements-card">
+                    <h3><i class="fas fa-file-contract"></i> Required Documents</h3>
+                    <ul class="requirements-list">
+                        <li>Completed Admission Form (provided by school)</li>
                         <li>4 Passport Size Photographs of the Student</li>
                         <li>Copy of Student's B-Form / Birth Certificate</li>
                         <li>Copy of Parents' / Guardian's CNIC</li>
-                        <li>School Leaving Certificate (if applicable)</li>
+                        <li>School Leaving Certificate (if from another school)</li>
                         <li>Previous Result Card (if applicable)</li>
+                        <li>Medical/Health Certificate (optional)</li>
                     </ul>
 
-                    <h3 style="margin-top: 2rem;">Eligibility Criteria</h3>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Play Group:</strong> 3+ Years</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Nursery:</strong> 4+ Years</p>
-                    <p style="font-size: 0.9rem; margin-bottom: 0.5rem;"><strong>Prep:</strong> 5+ Years</p>
-                    <p style="font-size: 0.9rem;">For higher classes, age should correspond appropriately with passing
-                        the previous grade.</p>
+                    <div class="eligibility-section">
+                        <h3 style="font-size: 1.2rem; color: var(--primary-color); margin-bottom: 1rem;"><i
+                                class="fas fa-info-circle" style="color: var(--accent-color); margin-right: 8px;"></i>
+                            Eligibility Criteria</h3>
+
+                        <div class="eligibility-item">
+                            <strong><i class="fas fa-circle-dot"
+                                    style="color: var(--accent-color); margin-right: 8px; font-size: 0.6rem;"></i> Play
+                                Group:</strong>
+                            <p>3+ Years (as of July 2026)</p>
+                        </div>
+
+                        <div class="eligibility-item">
+                            <strong><i class="fas fa-circle-dot"
+                                    style="color: var(--accent-color); margin-right: 8px; font-size: 0.6rem;"></i>
+                                Nursery:</strong>
+                            <p>4+ Years (as of July 2026)</p>
+                        </div>
+
+                        <div class="eligibility-item">
+                            <strong><i class="fas fa-circle-dot"
+                                    style="color: var(--accent-color); margin-right: 8px; font-size: 0.6rem;"></i>
+                                Prep:</strong>
+                            <p>5+ Years (as of July 2026)</p>
+                        </div>
+
+                        <div class="eligibility-item">
+                            <strong><i class="fas fa-circle-dot"
+                                    style="color: var(--accent-color); margin-right: 8px; font-size: 0.6rem;"></i>
+                                Higher Classes:</strong>
+                            <p>Age must correspond appropriately with passing previous grade</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Info & FAQ -->
-    <section class="bg-light" id="info">
+    <!-- General Information & Form Section -->
+    <section class="general-info-section">
         <div class="container">
-            <div class="grid-2">
-                <div>
-                    <h2>General Information</h2>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;"><i
-                                class="fas fa-money-bill-wave"></i> Fee Information</h4>
-                        <p>Our fee structure is designed to be affordable while maintaining high standards. Please visit
-                            the admission office for the detailed fee chart.</p>
-                    </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;"><i class="fas fa-tshirt"></i>
-                            Uniform</h4>
-                        <p>Specific uniforms are designated for summer and winter. Details and vendors will be provided
-                            upon admission confirmation.</p>
-                    </div>
-                    <div>
-                        <h4 style="color: var(--accent-color); margin-bottom: 0.5rem;"><i class="fas fa-clock"></i>
-                            School Timings</h4>
-                        <p>Monday - Thursday: 8:00 AM - 1:30 PM<br>Friday: 8:00 AM - 12:00 PM</p>
+            <!-- Premium Section Header -->
+            <div class="general-info-header">
+                <div class="gi-badge">
+                    <i class="fas fa-info-circle"></i> Essential Details
+                </div>
+                <h2>General <span>Information</span></h2>
+                <p>Everything you need to know about fees, uniforms, timings, and transportation â€” all in one place</p>
+            </div>
+
+            <div class="general-info-grid">
+                <div class="info-content">
+                    <div class="info-cards-wrapper">
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h4>Fee Information</h4>
+                            <p>Affordable monthly fees covering tuition &amp; activities. Detailed fee charts available at our admission office.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <h4>Uniforms</h4>
+                            <p>Summer &amp; winter uniforms required. Full details and vendor info provided upon admission.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4>School Timings</h4>
+                            <p><strong>Mon–Thu:</strong> 8:00 AM – 1:30 PM &nbsp;|&nbsp; <strong>Fri:</strong> 8:00 AM – 12:00 PM &nbsp;|&nbsp; <strong>Sat:</strong> Closed</p>
+                        </div>
+
+                        <div class="info-card">
+                            <div class="info-card-icon">
+                                <i class="fas fa-bus"></i>
+                            </div>
+                            <h4>Transportation</h4>
+                            <p>Bus service available on selected routes. Charges discussed separately at the time of admission.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <h3>Admission Inquiry Form</h3>
-                    <form style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
-                        <input type="text" placeholder="Parent/Guardian Name"
-                            style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;" required>
-                        <input type="text" placeholder="Student Name"
-                            style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;" required>
-                        <input type="tel" placeholder="Phone Number"
-                            style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px;" required>
-                        <select style="padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; background: white;"
-                            required>
-                            <option value="">Select Grade Applying For</option>
-                            <option value="playgroup">Play Group</option>
-                            <option value="primary">Primary</option>
-                            <option value="middle">Middle</option>
-                            <option value="secondary">Secondary</option>
-                        </select>
-                        <button type="button" class="btn btn-primary">Submit Inquiry</button>
+                <div class="admission-form-card">
+                    <h3><i class="fas fa-wpforms" style="margin-right: 8px; color: var(--accent-color);"></i> Admission
+                        Inquiry Form</h3>
+                    <p>Fill out this form and we'll get back to you within 24 hours with next steps and additional
+                        information.</p>
+
+                    <form id="admissionForm" style="display: flex; flex-direction: column; gap: 0;">
+                        <div class="form-group">
+                            <label for="parent_name">Parent / Guardian Name <span
+                                    style="color: var(--accent-color);">*</span></label>
+                            <input type="text" id="parent_name" name="parent_name"
+                                placeholder="Enter parent or guardian full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="student_name">Student Name <span
+                                    style="color: var(--accent-color);">*</span></label>
+                            <input type="text" id="student_name" name="student_name"
+                                placeholder="Enter student full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address <span style="color: var(--accent-color);">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span style="color: var(--accent-color);">*</span></label>
+                            <input type="tel" id="phone" name="phone"
+                                placeholder="Enter contact number (e.g., 03XX-XXXXXXX)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="grade">Applying For Grade <span
+                                    style="color: var(--accent-color);">*</span></label>
+                            <select id="grade" name="grade" required>
+                                <option value="">-- Select Grade --</option>
+                                <option value="playgroup">Play Group (3+ Years)</option>
+                                <option value="nursery">Nursery (4+ Years)</option>
+                                <option value="prep">Prep (5+ Years)</option>
+                                <option value="class1">Class 1</option>
+                                <option value="class2">Class 2</option>
+                                <option value="class3">Class 3</option>
+                                <option value="class4">Class 4</option>
+                                <option value="class5">Class 5</option>
+                                <option value="class6">Class 6</option>
+                                <option value="class7">Class 7</option>
+                                <option value="class8">Class 8</option>
+                                <option value="class9">Class 9 (Matric)</option>
+                                <option value="class10">Class 10 (Matric)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message / Questions</label>
+                            <textarea id="message" name="message"
+                                placeholder="Any specific questions or information you'd like to know?"></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit-btn">
+                            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Submit Inquiry
+                        </button>
                     </form>
+
+                    <script>
+                        document.getElementById('admissionForm').addEventListener('submit', function (e) {
+                            e.preventDefault();
+                            alert('Thank you for your inquiry! We will contact you shortly.');
+                            this.reset();
+                        });
+                    </script>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1rem;">
+            <div class="footer-main">
+                <!-- Brand & Intro -->
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer
+                        education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+
+                <!-- Quick Links -->
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Special Focus</h3>
-                    <ul class="footer-links">
+
+                <!-- Programs -->
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Our Faculty</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="color: inherit; text-decoration: none;">Village 97 JB, Gojra</a>
+
+                <!-- Contact Info -->
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97
+                                JB, Gojra, Pakistan</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03281642297" style="color: inherit; text-decoration: none;">0328-1642297</a>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="phone-group">
+                                <a href="tel:03281642297">0328-1642297</a>
+                                <a href="tel:03216892097">0321-6892097</a>
+                            </div>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.25rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03216892097" style="color: inherit; text-decoration: none;">0321-6892097</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-envelope" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="mailto:noshahischoolsystem@gmail.com" style="color: inherit; text-decoration: none;">noshahischoolsystem@gmail.com</a>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            <div class="footer-divider"></div>
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>

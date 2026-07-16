@@ -26,13 +26,17 @@
         }
 
         .academics-page .navbar {
-            background-color: transparent;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .academics-page .navbar .logo-text,
         .academics-page .navbar .nav-links a,
         .academics-page .navbar .mobile-toggle {
-            color: #fff !important;
+            color: var(--ac-primary) !important;
         }
 
         .academics-page .navbar.scrolled {
@@ -67,11 +71,16 @@
 
         /* ===== HERO SECTION ===== */
         .ac-hero {
-            min-height: 100vh;
+            min-height: auto;
             background: linear-gradient(135deg, #060d1a 0%, #0f1d35 50%, #1a2a4a 100%);
+            background-image: 
+                linear-gradient(135deg, rgba(10, 26, 46, 0.75) 0%, rgba(31, 42, 68, 0.75) 100%),
+                url('img/school banner.png');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
-            padding: 120px 0 80px;
+            padding: 40px 0 30px;
             position: relative;
             overflow: hidden;
             margin-top: 0;
@@ -127,11 +136,11 @@
         }
 
         .ac-hero h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
             color: #fff;
             line-height: 1.12;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             max-width: 720px;
             animation: slideInUp 0.8s ease 0.3s both;
         }
@@ -141,11 +150,11 @@
         }
 
         .ac-hero .hero-sub {
-            font-size: 1.15rem;
+            font-size: 1rem;
             color: rgba(255,255,255,0.65);
             max-width: 580px;
-            line-height: 1.7;
-            margin-bottom: 3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
             animation: slideInUp 0.8s ease 0.4s both;
         }
 
@@ -160,7 +169,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255,255,255,0.06);
+            background: #0B1F35;
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 14px;
             padding: 0.85rem 1.25rem;
@@ -216,6 +225,9 @@
         }
 
         .ac-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             margin-bottom: 3.5rem;
         }
@@ -255,7 +267,7 @@
             width: 56px;
             height: 3px;
             border-radius: 2px;
-            background: linear-gradient(90deg, var(--ac-accent), var(--ac-blue));
+            background: var(--ac-accent);
         }
 
         .ac-title h2 span {
@@ -346,8 +358,9 @@
 
         .level-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(26,42,74,0.1);
-            border-color: rgba(59,130,246,0.25);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+            border-color: #1e3a8a;
+            background: linear-gradient(135deg, var(--ac-white) 0%, rgba(30,58,138,0.03) 100%);
         }
 
         .level-card .card-level-badge {
@@ -430,7 +443,11 @@
                 font-size: 2.8rem;
             }
             .level-cards-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+            /* Override inline grid to 2 columns on tablet */
+            div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
         }
 
@@ -451,7 +468,11 @@
                 padding: 0.7rem 1rem;
             }
             .level-cards-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* Override inline grid to 2 columns on tablet */
+            div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
             .ac-title h2 {
                 font-size: 1.9rem;
@@ -805,7 +826,7 @@
 <body class="academics-page">
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="navbar">
+    <nav class="navbar scrolled">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
@@ -818,7 +839,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html" class="active">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html" class="active">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html" class="active">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
@@ -826,7 +847,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
@@ -885,108 +906,98 @@
     <section class="levels-section" id="levels">
         <div class="container">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-layer-group"></i> Comprehensive Curriculum</div>
-                <h2>Our <span>Educational</span> Levels</h2>
-                <p>Five tailored stages of learning, each designed around your child's developmental needs with dedicated programs for boys and girls.</p>
+                <div class="eyebrow"><i class="fas fa-layer-group"></i> Six Complete Levels</div>
+                <h2>Our <span>Educational</span> Programs</h2>
+                <p>From playful beginnings to advanced studies - each level carefully designed for your child's age and learning style. We have 6 different programs including separate Nursery and Prep classes.</p>
             </div>
 
-            <!-- Tab Buttons -->
-            <div class="level-tabs">
-                <button class="level-tab-btn active" data-level="all"><i class="fas fa-th"></i> All Levels</button>
-                <button class="level-tab-btn" data-level="playgroup"><i class="fas fa-child"></i> Play Group</button>
-                <button class="level-tab-btn" data-level="nursery"><i class="fas fa-apple"></i> Nursery/Prep</button>
-                <button class="level-tab-btn" data-level="primary"><i class="fas fa-pencil"></i> Primary</button>
-                <button class="level-tab-btn" data-level="middle"><i class="fas fa-book"></i> Middle</button>
-                <button class="level-tab-btn" data-level="secondary"><i class="fas fa-award"></i> Secondary</button>
-            </div>
 
-            <!-- Cards Grid -->
-            <div class="level-cards-grid">
 
-                <!-- Play Group -->
-                <div class="level-card visible" data-group="playgroup" data-group="all">
-                    <span class="card-level-badge">Level 01</span>
-                    <h3><i class="fas fa-child" style="margin-right: 8px; color: var(--ac-accent);"></i>Play Group</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Age 3-4 | Boys & Girls</div>
-                    <p>A nurturing, play-based environment where young learners develop foundational skills, social confidence, and a genuine love of learning through creative play and guided exploration.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">Numbers & Counting</span>
-                        <span class="s-chip">Alphabet Recognition</span>
-                        <span class="s-chip">Art & Crafts</span>
-                        <span class="s-chip">Daily Duas</span>
-                        <span class="s-chip">Motor Skills</span>
+            <!-- 6-Card Grid Layout -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+
+                <!-- Card 1: Play Group -->
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
+                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 01</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-child" style="color: #FF8C00;"></i> Play Group</h3>
+                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Age 3-4 | Boys & Girls</div>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">A nurturing, play-based environment where young learners develop foundational skills and social confidence.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Numbers</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Alphabet</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Art & Crafts</span>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Nursery & Prep -->
-                <div class="level-card visible" data-group="nursery" data-group="all">
-                    <span class="card-level-badge">Level 02</span>
-                    <h3><i class="fas fa-apple" style="margin-right: 8px; color: var(--ac-accent);"></i>Nursery & Prep</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> KG - Prep | Boys & Girls</div>
-                    <p>Building early literacy and numeracy skills with structured academics. Introduction to Islamic education through daily Duas and Quranic exposure, balanced with creative learning activities.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English Basics</span>
-                        <span class="s-chip">Urdu Foundation</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Islamic Stories</span>
-                        <span class="s-chip">Nazra Quran</span>
+                <!-- Card 2: Nursery -->
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
+                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 02</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-leaf" style="color: #FF8C00;"></i> Nursery</h3>
+                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Age 4-5 | Boys & Girls</div>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Building early literacy and numeracy skills with structured academics and Islamic foundations.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">English</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Urdu</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Math</span>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Primary School -->
-                <div class="level-card visible" data-group="primary" data-group="all">
-                    <span class="card-level-badge">Level 03</span>
-                    <h3><i class="fas fa-book" style="margin-right: 8px; color: var(--ac-accent);"></i>Primary School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 1-5 | Boys & Girls</div>
-                    <p>Strong academic foundation in all core subjects. Students begin structured computer lab sessions and advanced Nazra Quran with Tajweed. Focus on critical thinking and practical application.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Science</span>
-                        <span class="s-chip">Islamiat</span>
-                        <span class="s-chip">Nazra Quran</span>
-                        <span class="s-chip">Computer Education</span>
+                <!-- Card 3: Prep -->
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
+                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 03</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-apple" style="color: #FF8C00;"></i> Prep</h3>
+                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Age 5-6 | Boys & Girls</div>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Transition to formal education with structured learning, Quranic recitation, and critical thinking development.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Reading</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Writing</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Quran</span>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Middle School -->
-                <div class="level-card visible" data-group="middle" data-group="all">
-                    <span class="card-level-badge">Level 04</span>
-                    <h3><i class="fas fa-graduation-cap" style="margin-right: 8px; color: var(--ac-accent);"></i>Middle School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 6-8 | Boys & Girls</div>
-                    <p>Advanced academics with Computer Science taught as a core subject (replacing Arabic). Students develop critical analysis skills and begin subject specialization while continuing Islamic and character education.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Science</span>
-                        <span class="s-chip">Social Studies</span>
-                        <span class="s-chip">Computer Science</span>
-                        <span class="s-chip">Islamiat</span>
+                <!-- Card 4: Primary -->
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
+                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 04</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-book-open" style="color: #FF8C00;"></i> Primary</h3>
+                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Grades 1-5 | Boys & Girls</div>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Strong academic foundation across all subjects with computer lab sessions and advanced Quranic studies.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Science</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Computer</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Islamic</span>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <!-- Secondary / Matric -->
-                <div class="level-card visible" data-group="secondary" data-group="all">
-                    <span class="card-level-badge">Level 05</span>
-                    <h3><i class="fas fa-medal" style="margin-right: 8px; color: var(--ac-accent);"></i>Secondary / Matric</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 9-10 | Boys & Girls</div>
-                    <p><strong>Computer Science Stream Only</strong> - No Arts or Biology streams offered. Intensive preparation for board exams with emphasis on Computer Science as the primary technical subject.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Physics</span>
-                        <span class="s-chip">Chemistry</span>
-                        <span class="s-chip">Computer Science</span>
-                        <span class="s-chip">Islamiat</span>
+                <!-- Card 5: Middle -->
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
+                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 05</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-book" style="color: #FF8C00;"></i> Middle</h3>
+                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Grades 6-8 | Boys & Girls</div>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Advanced academics with Computer Science as core subject. Subject specialization and critical analysis skills development.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Comp Sci</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Social Studies</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Science</span>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 6: Secondary -->
+                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
+                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 06</div>
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-award" style="color: #FF8C00;"></i> Secondary</h3>
+                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Grades 9-10 | Boys & Girls</div>
+                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Intensive board exam preparation with Computer Science stream specialization. Advanced technical and academic excellence.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Physics</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Chemistry</span>
+                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Comp Sci</span>
+                    </div>
+                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
 
             </div>
@@ -1004,67 +1015,305 @@
                 <p>Two pillars of excellence that define our educational philosophy and set us apart.</p>
             </div>
 
-            <!-- Program 1: Computer Education -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: linear-gradient(135deg, rgba(255,140,0,0.08) 0%, rgba(255,140,0,0.02) 100%); border-radius: 24px; padding: 3.5rem; border: 1px solid rgba(255,140,0,0.15);" class="responsive-program-section program-section-wrapper">
-                <div>
-                    <div class="program-content-badge">
-                        <i class="fas fa-laptop-code"></i> Core Subject
+            <!-- Program 1: Computer Education - REDESIGNED -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; background: linear-gradient(135deg, rgba(255,140,0,0.06) 0%, rgba(255,140,0,0.01) 100%); border-radius: 24px; padding: 4rem; border: 1px solid rgba(255,140,0,0.12); margin-bottom: 3rem;" class="responsive-program-section computer-ed-wrapper">
+                
+                <!-- LEFT SIDE: Content (45%) -->
+                <div class="computer-ed-left">
+                    <!-- Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,122,0,0.15); border: 1px solid rgba(255,122,0,0.3); padding: 0.5rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem; font-size: 0.85rem; font-weight: 600; color: #FF7A00;">
+                        <i class="fas fa-laptop-code"></i> CORE SUBJECT
                     </div>
-                    <h3 class="program-content-heading">
-                        <span style="color: #FF8C00;">Computer</span> Education
-                    </h3>
-                    <p class="program-content-text">Computer is taught as a <strong style="color: #1F2A44;">regular, mandatory subject</strong> at every grade level — not an optional add-on. Our 100% practical, hands-on approach focuses on real-world understanding and applicable skills.</p>
-                    <ul class="program-features-list">
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon"></i>
-                            <span><strong style="color: #1F2A44;">Grade-tailored curriculum</strong> — from basics to advanced programming</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon"></i>
-                            <span><strong style="color: #1F2A44;">Dedicated Computer Lab</strong> — with modern machines for hands-on sessions</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon"></i>
-                            <span><strong style="color: #1F2A44;">Board exam ready</strong> — intensive Computer Science preparation for Matric</span>
-                        </li>
-                    </ul>
-                    <a href="computer-education.html" class="program-cta-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+
+                    <!-- Heading with color split -->
+                    <h2 style="font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        <span style="color: #FF7A00;">Computer</span>
+                        <br>
+                        <span style="color: #0B2D6B;">Learning</span>
+                    </h2>
+
+                    <!-- Description (3-4 lines) -->
+                    <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 2rem; font-weight: 500;">
+                        Computer is a main subject like Math. We teach hands-on skills and real programs from early grades.
+                    </p>
+
+                    <!-- Features List (Without Cards) -->
+                    <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Hands-On Learning</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn by doing real work on computers</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Modern Lab</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">New computers and latest tools</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Good Teachers</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Trained and skilled instructors</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Ready for Future</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Exam ready and career prepared</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two CTA Buttons -->
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="computer-education.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #FF7A00, #FF8C00); color: white; padding: 0.9rem 2rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255,122,0,0.3); border: none; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(255,122,0,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(255,122,0,0.3)';">
+                            Explore Program <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="admissions.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: transparent; color: #0B2D6B; padding: 0.9rem 2rem; border: 2px solid #0B2D6B; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(11,45,107,0.1)';" onmouseout="this.style.background='transparent';">
+                            Enroll Now <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="program-image-wrapper">
-                    <img src="img/hero_slide_2.png" alt="Computer Education">
+
+                <!-- RIGHT SIDE: Image & Stats (55%) -->
+                <div class="computer-ed-right" style="position: relative;">
+                    <!-- Large Rounded Image with Glow -->
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; inset: -20px; background: radial-gradient(circle, rgba(255,122,0,0.25) 0%, transparent 70%); border-radius: 24px; filter: blur(30px); z-index: -1;"></div>
+                        <img src="img/computer-lab.png" alt="Computer Education Lab" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(255,122,0,0.2), 0 0 40px rgba(255,122,0,0.15); display: block; border: 2px solid rgba(255,122,0,0.1);">
+                    </div>
+
+                    <!-- Floating Statistic Cards -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Stat Card 1 -->
+                        <div style="background: linear-gradient(135deg, rgba(255,122,0,0.1) 0%, rgba(255,122,0,0.02) 100%); border: 1px solid rgba(255,122,0,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(255,122,0,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #FF7A00; margin-bottom: 0.5rem;">100%</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">Hands-On Practice</p>
+                        </div>
+
+                        <!-- Stat Card 2 -->
+                        <div style="background: linear-gradient(135deg, rgba(11,45,107,0.1) 0%, rgba(11,45,107,0.02) 100%); border: 1px solid rgba(11,45,107,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(11,45,107,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0B2D6B; margin-bottom: 0.5rem;">Grade 1-10</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">All Levels Covered</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Program 2: Islamic Education -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: linear-gradient(135deg, rgba(147,51,234,0.08) 0%, rgba(147,51,234,0.02) 100%); border-radius: 24px; padding: 3.5rem; border: 1px solid rgba(147,51,234,0.15);" class="responsive-program-section program-section-wrapper islamic-program-section">
-                <div style="order: 2;">
-                    <div class="program-content-badge" style="background: rgba(147,51,234,0.15); border: 1px solid rgba(147,51,234,0.25); color: #9333ea;">
-                        <i class="fas fa-book-quran"></i> Character Building
+            <style>
+                /* Computer Education Responsive Design */
+                @media (max-width: 1200px) {
+                    .computer-ed-wrapper {
+                        grid-template-columns: 1fr 1fr !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.8rem !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .computer-ed-wrapper {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                        padding: 2.5rem !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.5rem !important;
+                    }
+                    .computer-ed-left {
+                        order: 1 !important;
+                    }
+                    .computer-ed-right {
+                        order: 2 !important;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .computer-ed-wrapper {
+                        padding: 1.75rem !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.3rem !important;
+                    }
+                    .computer-ed-left > div:nth-child(3) {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .computer-ed-left > div:last-of-type {
+                        flex-direction: column !important;
+                        gap: 1rem !important;
+                    }
+                    .computer-ed-left > div:last-of-type a {
+                        width: 100% !important;
+                        justify-content: center !important;
+                    }
+                }
+            </style>
+
+            <!-- Program 2: Islamic & Moral Education - REDESIGNED -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; background: linear-gradient(135deg, rgba(147,51,234,0.06) 0%, rgba(147,51,234,0.01) 100%); border-radius: 24px; padding: 4rem; border: 1px solid rgba(147,51,234,0.12); margin-top: 5rem;" class="responsive-program-section islamic-ed-wrapper">
+                
+                <!-- LEFT SIDE: Content (50%) -->
+                <div class="islamic-ed-left" style="order: 2;">
+                    <!-- Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(147,51,234,0.15); border: 1px solid rgba(147,51,234,0.3); padding: 0.5rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem; font-size: 0.85rem; font-weight: 600; color: #9333ea;">
+                        <i class="fas fa-book-quran"></i> CHARACTER BUILDING
                     </div>
-                    <h3 class="program-content-heading">
-                        <span style="color: #9333ea;">Islamic</span> & Moral Education
-                    </h3>
-                    <p class="program-content-text">We don't just teach Islamiat as a subject — <strong style="color: #1F2A44;">Islamic values, character, and Quranic education are woven into every school day</strong>, shaping ethical, well-rounded individuals.</p>
-                    <ul class="program-features-list">
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
-                            <span><strong style="color: #1F2A44;">Nazra Quran with Tajweed</strong> — by certified Huffaz instructors</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
-                            <span><strong style="color: #1F2A44;">Character Report Cards</strong> — sent to parents each term for holistic development</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
-                            <span><strong style="color: #1F2A44;">Akhlaqiat & Seerah</strong> — daily practical Islamic etiquette and Quranic teaching</span>
-                        </li>
-                    </ul>
-                    <a href="islamic-education.html" class="program-cta-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+
+                    <!-- Heading with color split -->
+                    <h2 style="font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        <span style="color: #9333ea;">Islamic</span>
+                        <br>
+                        <span style="color: #0B2D6B;">Education</span>
+                    </h2>
+
+                    <!-- Description (3-4 lines) -->
+                    <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 2rem; font-weight: 500;">
+                        Islamic values and Quran learning are part of every day at school. We teach good character, Islamic studies, and Quranic education together.
+                    </p>
+
+                    <!-- Features List (Without Cards) -->
+                    <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Quran Learning</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn Quran with proper recitation from trained teachers</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Good Character</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn good behavior and Islamic manners every day</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Islamic Studies</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn about Islam, Hadith, and Islamic history</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 0.95rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Reports for Parents</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Get regular character reports to see your child's growth</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two CTA Buttons -->
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="islamic-education.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #9333ea, #a855f7); color: white; padding: 0.9rem 2rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(147,51,234,0.3); border: none; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(147,51,234,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(147,51,234,0.3)';">
+                            Explore Program <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="admissions.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: transparent; color: #0B2D6B; padding: 0.9rem 2rem; border: 2px solid #0B2D6B; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(11,45,107,0.1)';" onmouseout="this.style.background='transparent';">
+                            Enroll Now <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div style="order: 1;" class="program-image-wrapper">
-                    <img src="img/hero_slide_3.png" alt="Islamic Education">
+
+                <!-- RIGHT SIDE: Image & Stats (50%) -->
+                <div class="islamic-ed-right" style="position: relative; order: 1;">
+                    <!-- Large Rounded Image with Glow -->
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; inset: -20px; background: radial-gradient(circle, rgba(147,51,234,0.25) 0%, transparent 70%); border-radius: 24px; filter: blur(30px); z-index: -1;"></div>
+                        <img src="img/Islamic study.png" alt="Islamic Education" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(147,51,234,0.2), 0 0 40px rgba(147,51,234,0.15); display: block; border: 2px solid rgba(147,51,234,0.1);">
+                    </div>
+
+                    <!-- Floating Statistic Cards -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Stat Card 1 -->
+                        <div style="background: linear-gradient(135deg, rgba(147,51,234,0.1) 0%, rgba(147,51,234,0.02) 100%); border: 1px solid rgba(147,51,234,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(147,51,234,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #9333ea; margin-bottom: 0.5rem;">Daily</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">Quran Class</p>
+                        </div>
+
+                        <!-- Stat Card 2 -->
+                        <div style="background: linear-gradient(135deg, rgba(11,45,107,0.1) 0%, rgba(11,45,107,0.02) 100%); border: 1px solid rgba(11,45,107,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(11,45,107,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0B2D6B; margin-bottom: 0.5rem;">Grade 1-10</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">All Levels Covered</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <style>
+                /* Islamic Education Responsive Design */
+                @media (max-width: 1200px) {
+                    .islamic-ed-wrapper {
+                        grid-template-columns: 1fr 1fr !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.8rem !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .islamic-ed-wrapper {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                        padding: 2.5rem !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.5rem !important;
+                    }
+                    .islamic-ed-left {
+                        order: 1 !important;
+                    }
+                    .islamic-ed-right {
+                        order: 2 !important;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .islamic-ed-wrapper {
+                        padding: 1.75rem !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.3rem !important;
+                    }
+                    .islamic-ed-left > div:nth-child(3) {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .islamic-ed-left > div:last-of-type {
+                        flex-direction: column !important;
+                        gap: 1rem !important;
+                    }
+                    .islamic-ed-left > div:last-of-type a {
+                        width: 100% !important;
+                        justify-content: center !important;
+                    }
+                }
+            </style>
 
             <style>
                 /* Specialized Focus Areas - Base Styles */
@@ -1089,18 +1338,18 @@
                 }
 
                 .program-content-heading {
-                    font-size: 2rem;
+                    font-size: 2.3rem;
                     font-weight: 900;
                     color: #1F2A44;
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.25rem;
                     line-height: 1.2;
                 }
 
                 .program-content-text {
-                    font-size: 1rem;
+                    font-size: 1.05rem;
                     color: #64748B;
-                    line-height: 1.8;
-                    margin-bottom: 1.5rem;
+                    line-height: 1.85;
+                    margin-bottom: 1.75rem;
                 }
 
                 .program-features-list {
@@ -1146,7 +1395,7 @@
 
                 .program-image-wrapper {
                     width: 100%;
-                    height: 380px;
+                    height: 450px;
                     border-radius: 20px;
                     overflow: hidden;
                     box-shadow: 0 15px 40px rgba(255,140,0,0.2);
@@ -1319,7 +1568,7 @@
 
     <!-- ===== SUBJECT DISTRIBUTION MATRIX ===== -->
     <section style="padding: 5rem 0; background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);">
-        <div class="container">
+        <div class="container" style="max-width: 1400px;">
             <div class="ac-title">
                 <div class="eyebrow"><i class="fas fa-book-open"></i> Curriculum Framework</div>
                 <h2>Subject <span>Distribution</span> Across Levels</h2>
@@ -1331,8 +1580,8 @@
                 .subject-dist-wrapper {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 3rem;
-                    align-items: center;
+                    gap: 4rem;
+                    align-items: stretch;
                     margin-top: 3rem;
                 }
 
@@ -1365,14 +1614,22 @@
                 .subject-dist-features {
                     display: flex;
                     flex-direction: column;
-                    gap: 1.5rem;
+                    gap: 1rem;
                     margin-bottom: 2rem;
                     flex: 1;
                 }
 
                 .subject-dist-feature {
                     display: flex;
-                    gap: 1rem;
+                    gap: 1.2rem;
+                    padding: 0.75rem 1rem;
+                    border-radius: 12px;
+                    transition: all 0.3s ease;
+                }
+
+                .subject-dist-feature:hover {
+                    background: rgba(255, 255, 255, 0.08);
+                    transform: translateX(8px);
                 }
 
                 .subject-dist-feature-icon {
@@ -1384,6 +1641,12 @@
                     align-items: center;
                     justify-content: center;
                     font-size: 1.3rem;
+                    transition: all 0.3s ease;
+                }
+
+                .subject-dist-feature:hover .subject-dist-feature-icon {
+                    transform: scale(1.1);
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
                 }
 
                 .subject-dist-feature-icon.icon-1 {
@@ -1425,6 +1688,7 @@
                     border-radius: 8px;
                     text-decoration: none;
                     transition: all 0.3s ease;
+                    text-align: center;
                 }
 
                 .subject-dist-left .btn:hover {
@@ -1795,12 +2059,12 @@
 
     <!-- ===== PROGRAM MATRIX ===== -->
     <section class="bg-light" style="padding: 5rem 0;">
-        <div class="container">
-            <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-table"></i> Quick Reference</div>
+        <div class="container" style="max-width: 1400px;">
+            <div class="ac-title" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <div class="eyebrow" style="margin-bottom: 0.85rem;"><i class="fas fa-table"></i> Quick Reference</div>
                 <h2>Academic Programs <span>Overview</span></h2>
                 <p>Quick reference showing our five educational levels and program structure.</p>
-            </div>
+            </div>            
 
             <style>
                 /* Academic Programs Overview - Base Styles */
@@ -2076,53 +2340,79 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer>
+        <!-- Premium Footer -->
+    <footer class="premium-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1rem;">
+            <div class="footer-main">
+                <!-- Brand & Intro -->
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education. Grades KG to 10.</p>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+
+                <!-- Quick Links -->
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Academic Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="academics.html#levels">Educational Levels</a></li>
+
+                <!-- Programs -->
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
-                        <li><a href="campus-facilities.html">Our Facilities</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Our Faculty</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; margin-bottom: 0.8rem;">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra</a>
+
+                <!-- Contact Info -->
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-bottom: 0.8rem;">
-                            <i class="fas fa-phone" style="margin-right: 10px;"></i> 
-                            <a href="tel:03281642297">0328-1642297</a>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="phone-group">
+                                <a href="tel:03281642297">0328-1642297</a>
+                                <a href="tel:03216892097">0321-6892097</a>
+                            </div>
                         </li>
-                        <li style="display: flex; align-items: center;">
-                            <i class="fas fa-envelope" style="margin-right: 10px;"></i> 
-                            <a href="mailto:info@noshahi.edu.pk">info@noshahi.edu.pk</a>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
+            
+            <div class="footer-divider"></div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Noshahi School System. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a></p>
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>

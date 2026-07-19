@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,23 +26,28 @@
         }
 
         .academics-page .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            background-color: var(--primary-color);
         }
 
         .academics-page .navbar .logo-text,
-        .academics-page .navbar .nav-links a,
+        .academics-page .navbar .nav-links > li > a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
         .academics-page .navbar .mobile-toggle {
-            color: var(--ac-primary) !important;
+            color: #fff !important;
+        }
+
+        .academics-page .navbar .nav-links a.btn {
+            color: #fff !important;
         }
 
         .academics-page .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
 
         .academics-page .navbar.scrolled .logo-text,
@@ -50,8 +55,12 @@
             color: var(--ac-primary) !important;
         }
 
-        .academics-page .navbar .nav-links a.btn {
-            color: #000 !important;
+        .academics-page .navbar.scrolled .nav-links a.btn {
+            color: #fff !important;
+        }
+
+        .academics-page .navbar.scrolled .mobile-toggle {
+            color: var(--ac-primary) !important;
         }
 
         .academics-page .navbar.scrolled .nav-links a.btn {
@@ -74,7 +83,7 @@
             min-height: auto;
             background: linear-gradient(135deg, #060d1a 0%, #0f1d35 50%, #1a2a4a 100%);
             background-image: 
-                linear-gradient(135deg, rgba(10, 26, 46, 0.75) 0%, rgba(31, 42, 68, 0.75) 100%),
+                linear-gradient(135deg, rgba(10, 25, 70, 0.75) 0%, rgba(15, 35, 80, 0.60) 100%),
                 url('img/school banner.png');
             background-size: cover;
             background-position: center;
@@ -259,15 +268,7 @@
         }
 
         .ac-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 56px;
-            height: 3px;
-            border-radius: 2px;
-            background: var(--ac-accent);
+            display: none;
         }
 
         .ac-title h2 span {
@@ -279,6 +280,10 @@
             font-size: 1rem;
             max-width: 560px;
             margin: 0 auto;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* Tab Buttons */
@@ -819,6 +824,758 @@
                 min-width: 90px;
             }
         }
+
+        /* ===== PROGRAMS SECTION STYLES ===== */
+        .programs-section {
+            background: linear-gradient(180deg, var(--ac-bg) 0%, #ffffff 100%);
+            padding: 4rem 0;
+            min-height: auto;
+        }
+
+        .programs-section .container {
+            padding: 0 1rem;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            padding: 0 0.5rem;
+        }
+
+        .program-card {
+            background: var(--ac-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(31, 42, 68, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(31, 42, 68, 0.05);
+            position: relative;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ac-accent), rgba(255, 140, 0, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .program-card:hover::before {
+            opacity: 1;
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(31, 42, 68, 0.18);
+            border-color: rgba(31, 42, 68, 0.1);
+        }
+
+        .program-header {
+            padding: 1.25rem 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            min-height: 90px;
+            position: relative;
+            overflow: hidden;
+            background-size: 100% 100%;
+            background-position: center;
+            box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .program-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover .program-icon {
+            transform: scale(1.12);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .program-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(31, 42, 68, 0.1), transparent);
+        }
+
+        .program-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge.age {
+            background: rgba(59, 130, 246, 0.12);
+            color: #3B82F6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .badge.coed {
+            background: rgba(31, 42, 68, 0.08);
+            color: var(--ac-primary);
+            border: 1px solid rgba(31, 42, 68, 0.15);
+        }
+
+        .program-desc {
+            font-size: 0.95rem;
+            color: var(--ac-muted);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .program-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .program-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--ac-text);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 0.35rem 0;
+        }
+
+        .program-features li:hover {
+            transform: translateX(4px);
+            color: var(--ac-accent);
+        }
+
+        .program-features i {
+            color: #10B981;
+            font-size: 1rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.3));
+        }
+
+        /* ===== ADDITIONAL PROGRAMS SECTION ===== */
+        .additional-programs {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 2px solid rgba(31, 42, 68, 0.08);
+        }
+
+        .additional-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .additional-title h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--ac-text);
+            margin-bottom: 0.75rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .additional-title h2::after {
+            display: none;
+        }
+
+        .additional-title .section-subtitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(255,140,0,0.12) 0%, rgba(255,140,0,0.05) 100%);
+            border: 1.5px solid rgba(255,140,0,0.3);
+            color: var(--ac-accent);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .additional-title h2 span {
+            color: var(--ac-accent);
+        }
+
+        .additional-title p {
+            color: var(--ac-muted);
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .specialized-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 0.5rem;
+        }
+
+        .specialized-card {
+            background: var(--ac-white);
+            border: 2px solid rgba(31, 42, 68, 0.08);
+            border-radius: 20px;
+            padding: 1.25rem 1.5rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .specialized-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ac-accent), rgba(255, 140, 0, 0.3));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .specialized-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 30px 30px 0 0;
+            border-color: rgba(255, 140, 0, 0.08) transparent transparent transparent;
+            transition: all 0.3s ease;
+        }
+
+        .specialized-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(31, 42, 68, 0.15);
+            border-color: var(--ac-accent);
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 140, 0, 0.02) 100%);
+        }
+
+        .specialized-card:hover::after {
+            border-color: rgba(255, 140, 0, 0.15) transparent transparent transparent;
+        }
+
+        .spec-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .specialized-card:hover .spec-icon {
+            transform: scale(1.15) rotateY(10deg);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .specialized-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--ac-text);
+            margin-bottom: 0.35rem;
+        }
+
+        .spec-intro {
+            font-size: 0.85rem;
+            color: var(--ac-accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-details {
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-details > p {
+            font-size: 0.85rem;
+            color: var(--ac-muted);
+            line-height: 1.55;
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .spec-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+            color: var(--ac-text);
+            padding-left: 0;
+            position: relative;
+            transition: all 0.2s ease;
+            padding: 0.25rem 0;
+        }
+
+        .spec-list li:hover {
+            transform: translateX(3px);
+            color: var(--ac-accent);
+        }
+
+        .spec-list li::before {
+            content: '▸';
+            color: var(--ac-accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 1px 2px rgba(255, 140, 0, 0.3));
+            transition: all 0.2s ease;
+        }
+
+        .spec-list li:hover::before {
+            transform: translateX(2px);
+        }
+
+        .spec-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--ac-blue);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spec-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(59, 130, 246, 0.1);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .spec-link:hover {
+            gap: 0.9rem;
+            color: var(--ac-accent);
+            padding: 0.5rem 1.25rem;
+        }
+
+        .spec-link:hover::before {
+            width: 100%;
+        }
+
+        .spec-link i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .spec-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* ===== RESPONSIVE PROGRAMS SECTION ===== */
+        @media (max-width: 1440px) {
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .programs-section .container {
+                padding: 0 1rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+
+            .program-header {
+                padding: 1.75rem;
+                min-height: 130px;
+            }
+
+            .program-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+
+            .program-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .specialized-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
+                max-width: 100%;
+            }
+
+            .specialized-card {
+                padding: 1.4rem 1.6rem;
+            }
+
+            .spec-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 0.85rem;
+            }
+
+            .specialized-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .spec-intro {
+                font-size: 0.8rem;
+                margin-bottom: 0.65rem;
+            }
+
+            .spec-details > p {
+                font-size: 0.8rem;
+                margin-bottom: 0.65rem;
+            }
+
+            .spec-list {
+                gap: 0.35rem;
+            }
+
+            .spec-list li {
+                font-size: 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .additional-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .programs-section {
+                padding: 3rem 0;
+            }
+
+            .programs-section .container {
+                padding: 0 0.75rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                margin-top: 2.5rem;
+                padding: 0 0.25rem;
+            }
+
+            .program-header {
+                padding: 1.5rem;
+                min-height: auto;
+                gap: 1.25rem;
+            }
+
+            .program-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 1.6rem;
+            }
+
+            .program-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .program-body {
+                padding: 1.5rem;
+            }
+
+            .program-desc {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            .program-features li {
+                font-size: 0.85rem;
+                gap: 0.6rem;
+            }
+
+            .additional-programs {
+                margin-top: 2.5rem;
+                padding-top: 2rem;
+            }
+
+            .additional-title {
+                margin-bottom: 2rem;
+            }
+
+            .additional-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .specialized-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                max-width: 100%;
+                padding: 0 0.25rem;
+            }
+
+            .specialized-card {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .spec-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .specialized-card h3 {
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .spec-intro {
+                font-size: 0.8rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .spec-details > p {
+                font-size: 0.8rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .spec-list {
+                gap: 0.3rem;
+            }
+
+            .spec-list li {
+                font-size: 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .spec-link {
+                font-size: 0.85rem;
+                margin-top: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .programs-section {
+                padding: 2.5rem 0;
+            }
+
+            .programs-section .container {
+                padding: 0 0.5rem;
+            }
+
+            .ac-title p {
+                font-size: 0.95rem;
+            }
+
+            .program-header {
+                padding: 1.25rem;
+                gap: 1rem;
+                min-height: auto;
+                flex-wrap: wrap;
+            }
+
+            .program-header h3 {
+                font-size: 1.1rem;
+                width: 100%;
+                order: 2;
+                margin-top: -0.5rem;
+            }
+
+            .program-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4rem;
+                order: 1;
+            }
+
+            .program-body {
+                padding: 1.25rem;
+            }
+
+            .program-meta {
+                margin-bottom: 1rem;
+            }
+
+            .badge {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.65rem;
+            }
+
+            .program-desc {
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .program-features li {
+                font-size: 0.8rem;
+                gap: 0.5rem;
+            }
+
+            .additional-programs {
+                margin-top: 2.5rem;
+                padding-top: 2rem;
+            }
+
+            .additional-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .specialized-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .specialized-card {
+                padding: 1.1rem 1.4rem;
+            }
+
+            .spec-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin-bottom: 0.7rem;
+            }
+
+            .specialized-card h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .spec-intro {
+                font-size: 0.75rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .spec-details > p {
+                font-size: 0.75rem;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+            }
+
+            .spec-list {
+                gap: 0.25rem;
+            }
+
+            .spec-list li {
+                font-size: 0.7rem;
+                gap: 0.45rem;
+            }
+
+            .spec-link {
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
+        }
     
     </style>
 </head>
@@ -826,7 +1583,7 @@
 <body class="academics-page">
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="navbar scrolled">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
@@ -854,8 +1611,9 @@
                         <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
@@ -902,106 +1660,211 @@
         </div>
     </section>
 
-    <!-- ===== EDUCATIONAL LEVELS ===== -->
-    <section class="levels-section" id="levels">
+    <!-- ===== EDUCATIONAL PROGRAMS SECTION ===== -->
+    <section class="programs-section" id="programs">
         <div class="container">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-layer-group"></i> Six Complete Levels</div>
+                <div class="eyebrow"><i class="fas fa-graduation-cap"></i> Comprehensive Education</div>
                 <h2>Our <span>Educational</span> Programs</h2>
-                <p>From playful beginnings to advanced studies - each level carefully designed for your child's age and learning style. We have 6 different programs including separate Nursery and Prep classes.</p>
+                <p>We offer comprehensive educational programs from Play Group to Higher Secondary, with special focus on Computer Education and Islamic & Moral Education. Each level is designed for your child's age and development.</p>
             </div>
 
-
-
-            <!-- 6-Card Grid Layout -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
-
-                <!-- Card 1: Play Group -->
-                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
-                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 01</div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-child" style="color: #FF8C00;"></i> Play Group</h3>
-                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Age 3-4 | Boys & Girls</div>
-                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">A nurturing, play-based environment where young learners develop foundational skills and social confidence.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Numbers</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Alphabet</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Art & Crafts</span>
+            <!-- Programs Grid -->
+            <div class="programs-grid">
+                
+                <!-- Program 1: Play Group -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #FF8C00, #FFB347);">
+                        <div class="program-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Play Group</h3>
                     </div>
-                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Age 3-4</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">A nurturing, play-based environment where young learners develop social skills, creativity, and early learning foundations through interactive activities and games.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Creative Learning through Play</li>
+                            <li><i class="fas fa-check-circle"></i> Social Development</li>
+                            <li><i class="fas fa-check-circle"></i> Basic Literacy & Numeracy</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Card 2: Nursery -->
-                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
-                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 02</div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-leaf" style="color: #FF8C00;"></i> Nursery</h3>
-                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Age 4-5 | Boys & Girls</div>
-                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Building early literacy and numeracy skills with structured academics and Islamic foundations.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">English</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Urdu</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Math</span>
+                <!-- Program 2: Nursery -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">
+                        <div class="program-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Nursery</h3>
                     </div>
-                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Age 4-5</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Building foundations of learning with structured play and academic preparation. Focus on language development, early mathematics, and kindergarten readiness.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Language Development</li>
+                            <li><i class="fas fa-check-circle"></i> Early Mathematics</li>
+                            <li><i class="fas fa-check-circle"></i> Kindergarten Preparation</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Card 3: Prep -->
-                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
-                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 03</div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-apple" style="color: #FF8C00;"></i> Prep</h3>
-                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Age 5-6 | Boys & Girls</div>
-                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Transition to formal education with structured learning, Quranic recitation, and critical thinking development.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Reading</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Writing</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Quran</span>
+                <!-- Program 3: Prep -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">
+                        <div class="program-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Prep</h3>
                     </div>
-                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Age 5-6</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Primary preparation with emphasis on reading, writing, and arithmetic. Introduction to structured academics while maintaining age-appropriate play-based learning.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Reading & Writing</li>
+                            <li><i class="fas fa-check-circle"></i> Mathematics Fundamentals</li>
+                            <li><i class="fas fa-check-circle"></i> School Readiness Skills</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Card 4: Primary -->
-                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
-                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 04</div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-book-open" style="color: #FF8C00;"></i> Primary</h3>
-                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Grades 1-5 | Boys & Girls</div>
-                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Strong academic foundation across all subjects with computer lab sessions and advanced Quranic studies.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Science</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Computer</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Islamic</span>
+                <!-- Program 4: Primary -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #10B981, #34D399);">
+                        <div class="program-icon">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                        <h3>Primary</h3>
                     </div>
-                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Classes 1-5</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Solid academic foundation across languages, mathematics, sciences, and social studies. Includes introduction to computer skills and Islamic education.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Core Academic Subjects</li>
+                            <li><i class="fas fa-check-circle"></i> Computer Basics</li>
+                            <li><i class="fas fa-check-circle"></i> Life Skills Development</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Card 5: Middle -->
-                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
-                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 05</div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-book" style="color: #FF8C00;"></i> Middle</h3>
-                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Grades 6-8 | Boys & Girls</div>
-                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Advanced academics with Computer Science as core subject. Subject specialization and critical analysis skills development.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Comp Sci</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Social Studies</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Science</span>
+                <!-- Program 5: Middle -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">
+                        <div class="program-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>Middle School</h3>
                     </div>
-                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Classes 6-8</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Enhanced academics with deeper exploration of sciences and mathematics. Strengthened computer education including MS Office applications. Character development programs.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Advanced Sciences & Math</li>
+                            <li><i class="fas fa-check-circle"></i> Computer Applications</li>
+                            <li><i class="fas fa-check-circle"></i> Islamic & Moral Education</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Card 6: Secondary -->
-                <div style="background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 140, 0, 0.05) 100%); border: 1.5px solid #FF8C00; border-radius: 20px; padding: 2rem; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 50px rgba(255, 140, 0, 0.2)'; this.style.borderColor='#FF8C00';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''; this.style.borderColor='#FF8C00';">
-                    <div style="background: #FF8C00; color: white; display: inline-block; padding: 0.35rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.25rem;">LEVEL 06</div>
-                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #1F2A44; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-award" style="color: #FF8C00;"></i> Secondary</h3>
-                    <div style="font-size: 0.85rem; color: #FF8C00; font-weight: 600; margin-bottom: 1rem;">Grades 9-10 | Boys & Girls</div>
-                    <p style="font-size: 0.9rem; color: #64748B; line-height: 1.6; margin-bottom: 1.25rem;">Intensive board exam preparation with Computer Science stream specialization. Advanced technical and academic excellence.</p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Physics</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Chemistry</span>
-                        <span style="background: #F5F7FA; border: 1px solid rgba(31, 42, 68, 0.1); color: #1F2A44; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600;">Comp Sci</span>
+                <!-- Program 6: Secondary -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #EF4444, #F87171);">
+                        <div class="program-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Secondary (Matric)</h3>
                     </div>
-                    <a href="admissions.html" style="color: #FF8C00; text-decoration: none; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">Enroll Now <i class="fas fa-arrow-right"></i></a>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Classes 9-10</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Comprehensive curriculum leading to Board Examinations. Subject specialization with choice of streams. Advanced computer education and career guidance.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Board Examination Prep</li>
+                            <li><i class="fas fa-check-circle"></i> Science/Commerce Streams</li>
+                            <li><i class="fas fa-check-circle"></i> Career Guidance</li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
+
+            <!-- Additional Programs Section -->
+            <div class="additional-programs">
+                <div class="additional-title">
+                    <div class="section-subtitle"><i class="fas fa-star"></i> Beyond Curriculum</div>
+                    <h2>Specialized <span>Programs</span></h2>
+                    <p>Beyond our regular curriculum, we offer specialized educational tracks to develop specific skills and knowledge areas</p>
+                </div>
+
+                <div class="specialized-grid">
+                    
+                    <!-- Computer Education -->
+                    <div class="specialized-card">
+                        <div class="spec-icon" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Computer Education</h3>
+                        <p class="spec-intro">Technology training from early classes onwards</p>
+                        <div class="spec-details">
+                            <p>We introduce computer education from the early classes so that students become familiar with technology from a young age. Our comprehensive computer program includes:</p>
+                            <ul class="spec-list">
+                                <li>Basic Computer Skills & Fundamentals</li>
+                                <li>Typing and Keyboard Proficiency</li>
+                                <li>Microsoft Word - Document Creation & Formatting</li>
+                                <li>Microsoft PowerPoint - Presentation Skills</li>
+                                <li>Essential Digital Skills</li>
+                                <li>Internet & Email Management</li>
+                                <li>Programming Basics (Advanced Classes)</li>
+                            </ul>
+                        </div>
+                        <a href="computer-education.html" class="spec-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Islamic & Moral Education -->
+                    <div class="specialized-card">
+                        <div class="spec-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <h3>Islamic & Moral Education</h3>
+                        <p class="spec-intro">Character development and Islamic values</p>
+                        <div class="spec-details">
+                            <p>We believe in holistic development that includes Islamic teachings and moral values:</p>
+                            <ul class="spec-list">
+                                <li>Quranic Studies & Tajweed</li>
+                                <li>Islamic History & Civilization</li>
+                                <li>Character Development Programs</li>
+                                <li>Moral Ethics & Values</li>
+                                <li>Hafiz Program (Optional)</li>
+                                <li>Islamic Jurisprudence Basics</li>
+                                <li>Community Service Activities</li>
+                            </ul>
+                        </div>
+                        <a href="islamic-education.html" class="spec-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+  
     </section>
 
 
@@ -1246,7 +2109,7 @@
                     <!-- Large Rounded Image with Glow -->
                     <div style="position: relative; margin-bottom: 2rem;">
                         <div style="position: absolute; inset: -20px; background: radial-gradient(circle, rgba(147,51,234,0.25) 0%, transparent 70%); border-radius: 24px; filter: blur(30px); z-index: -1;"></div>
-                        <img src="img/Islamic study.png" alt="Islamic Education" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(147,51,234,0.2), 0 0 40px rgba(147,51,234,0.15); display: block; border: 2px solid rgba(147,51,234,0.1);">
+                        <img src="img/Islamic study.png" alt="Islamic Education" style="width: 100%; height: 400px; object-fit: contain; border-radius: 20px; box-shadow: 0 20px 50px rgba(147,51,234,0.2), 0 0 40px rgba(147,51,234,0.15); display: block; background: transparent;">
                     </div>
 
                     <!-- Floating Statistic Cards -->
@@ -2332,7 +3195,7 @@
                 <h2 style="color: #fff; margin-bottom: 1rem;">Ready to Join Our Community?</h2>
                 <p style="color: rgba(255,255,255,0.75); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Admissions are open for 2025-26 across all levels. Enroll your child today and give them the gift of quality education combined with Islamic values and modern skills.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="admissions.html" class="btn btn-accent" style="color: #000 !important;">Apply Now</a>
+                    <a href="admissions.html" class="btn btn-accent" style="color: #FFFFFF !important;">Apply Now</a>
                     <a href="campus-facilities.html" class="btn btn-outline">Tour Campus</a>
                 </div>
             </div>

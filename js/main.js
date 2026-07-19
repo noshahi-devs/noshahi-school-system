@@ -21,12 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navLinks.classList.contains('active')) {
           icon.classList.remove('fa-bars');
           icon.classList.add('fa-times');
-          mobileToggle.style.color = 'var(--primary-color)';
           document.body.style.overflow = 'hidden';
         } else {
           icon.classList.remove('fa-times');
           icon.classList.add('fa-bars');
-          mobileToggle.style.removeProperty('color');
           document.body.style.removeProperty('overflow');
         }
       }

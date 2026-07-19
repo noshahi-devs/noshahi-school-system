@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noshahi School System - Student Activities</title>
+    <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
+    <meta name="description" content="Discover student life at Noshahi School System - competitions, celebrations, science projects, character building, and more.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --nave: #0B2E6F;
+            --orange: #F7941D;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FC;
+            --text-dark: #2D3748;
+            --border: #E6EAF2;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+        .dropdown-menu a { color: #1F2A44 !important; }
+        .navbar.scrolled .dropdown-menu a { color: #1F2A44 !important; }
+        .dropdown-menu a:hover { color: var(--orange) !important; }
+
+        /* ═══ HERO ═══ */
+        .act-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .act-hero-bg {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .act-hero-overlay {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(160deg, rgba(11,46,111,0.88) 0%, rgba(6,20,48,0.80) 100%);
+        }
+        .act-hero-content {
+            position: relative; z-index: 2;
+            text-align: center;
+            max-width: 850px;
+            padding: 0 2rem;
+        }
+        .act-hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(247,148,29,0.15);
+            border: 1px solid rgba(247,148,29,0.4);
+            color: var(--orange);
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.78rem; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .act-hero h1 {
+            font-size: 4rem; font-weight: 800;
+            color: var(--white);
+            line-height: 1.12; margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+        }
+        .act-hero h1 span { color: var(--orange); }
+        .act-hero p {
+            font-size: 1.25rem; color: rgba(255,255,255,0.8);
+            line-height: 1.8; margin-bottom: 2.5rem;
+            max-width: 650px; margin-left: auto; margin-right: auto;
+        }
+        .act-hero-btns {
+            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+        }
+        .act-btn {
+            padding: 0.9rem 2.2rem; border-radius: 50px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none;
+            transition: all 0.35s ease; display: inline-flex;
+            align-items: center; gap: 8px; border: none; cursor: pointer;
+        }
+        .act-btn.primary {
+            background: var(--orange); color: var(--white);
+            box-shadow: 0 8px 30px rgba(247,148,29,0.35);
+        }
+        .act-btn.primary:hover {
+            background: #e5850f; transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(247,148,29,0.45);
+        }
+        .act-btn.outline {
+            background: transparent; color: var(--white);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+        .act-btn.outline:hover {
+            background: var(--white); color: var(--nave); border-color: var(--white);
+        }
+        .act-btn.orange-outline {
+            background: transparent; color: var(--orange);
+            border: 2px solid var(--orange);
+        }
+        .act-btn.orange-outline:hover {
+            background: var(--orange); color: var(--white);
+        }
+        .act-scroll {
+            position: absolute; bottom: 2rem; left: 50%;
+            transform: translateX(-50%); z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 8px; color: rgba(255,255,255,0.5);
+            font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .act-scroll .mouse {
+            width: 24px; height: 38px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 12px; position: relative;
+        }
+        .act-scroll .mouse::after {
+            content: ''; width: 4px; height: 8px;
+            background: var(--orange); border-radius: 2px;
+            position: absolute; top: 6px; left: 50%;
+            transform: translateX(-50%);
+            animation: scrollWh 1.8s ease infinite;
+        }
+        @keyframes scrollWh {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+        }
+
+        /* ═══ LEARNING BEYOND BOOKS ═══ */
+        .act-intro {
+            padding: 7rem 2rem 5rem;
+            background: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .act-intro-bg {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem; font-weight: 900;
+            color: rgba(11,46,111,0.03);
+            letter-spacing: 15px; text-transform: uppercase;
+            white-space: nowrap; pointer-events: none; user-select: none;
+        }
+        .act-intro blockquote {
+            font-size: 1.5rem; font-weight: 300; font-style: italic;
+            color: var(--nave); max-width: 750px; margin: 0 auto;
+            line-height: 1.8; position: relative; z-index: 1;
+            border-left: 4px solid var(--orange);
+            padding-left: 2rem; text-align: left;
+        }
+        .act-intro blockquote span { color: var(--orange); font-weight: 600; font-style: normal; }
+
+        /* ═══ SECTION BASE ═══ */
+        .act-section { padding: 6rem 2rem; position: relative; overflow: hidden; }
+        .act-section-inner { max-width: 1200px; margin: 0 auto; }
+        .act-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(247,148,29,0.08);
+            border: 1px solid rgba(247,148,29,0.2);
+            color: var(--orange); padding: 0.4rem 1rem;
+            border-radius: 50px;             font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+        .act-split {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center;
+        }
+        .act-split.reverse { direction: rtl; }
+        .act-split.reverse > * { direction: ltr; }
+        .act-img-wrap {
+            border-radius: 40px; overflow: hidden; position: relative;
+            box-shadow: 0 25px 60px rgba(11,46,111,0.12);
+        }
+        .act-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block; transition: transform 0.7s ease;
+        }
+        .act-img-wrap:hover img { transform: scale(1.04); }
+        .act-img-badge {
+            position: absolute; bottom: 1.5rem; left: 1.5rem;
+            background: var(--orange); color: var(--white);
+            padding: 0.5rem 1.2rem; border-radius: 50px;
+            font-size: 0.78rem; font-weight: 700;
+            display: flex; align-items: center; gap: 6px;
+            box-shadow: 0 6px 20px rgba(247,148,29,0.4);
+        }
+        .act-num {
+            font-size: 4rem; font-weight: 900;
+            color: rgba(11,46,111,0.06);
+            line-height: 1; margin-bottom: 0.5rem;
+        }
+        .act-text h2 {
+            font-size: 2.8rem; font-weight: 700;
+            color: var(--nave); line-height: 1.2;
+            margin-bottom: 1rem; letter-spacing: -0.5px;
+        }
+        .act-text h2 span { color: var(--orange); }
+        .act-text > p {
+            font-size: 1.1rem; color: #556070;
+            line-height: 1.8; margin-bottom: 1.5rem;
+        }
+        .act-divider {
+            width: 50px; height: 3px;
+            background: var(--orange); border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+        .act-features {
+            display: flex; flex-wrap: wrap; gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .act-feat {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(247,148,29,0.06);
+            border: 1px solid rgba(247,148,29,0.15);
+            padding: 0.5rem 1rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 500; color: var(--text-dark);
+        }
+        .act-feat i { color: var(--orange); font-size: 0.75rem; }
+
+        /* ═══ ACADEMIC JOURNEY - FULL WIDTH ALTERNATING ═══ */
+        .act-journey-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 500px;
+        }
+        .act-journey-item.reverse { direction: rtl; }
+        .act-journey-item.reverse > * { direction: ltr; }
+        .act-journey-img {
+            position: relative; overflow: hidden;
+        }
+        .act-journey-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        .act-journey-item:hover .act-journey-img img { transform: scale(1.04); }
+        .act-journey-content {
+            display: flex; flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+        }
+        .act-journey-content .act-num {
+            font-size: 5rem; margin-bottom: 0;
+        }
+        .act-journey-content h3 {
+            font-size: 2.2rem; font-weight: 700;
+            color: var(--nave); margin: 0.5rem 0 1rem;
+        }
+        .act-journey-content h3 span { color: var(--orange); }
+        .act-journey-content p {
+            font-size: 1rem; color: #556070;
+            line-height: 1.8; margin-bottom: 1.5rem;
+        }
+
+        /* ═══ RELIGIOUS ACTIVITIES ═══ */
+        .act-religious {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            color: var(--white);
+            position: relative;
+        }
+        .act-religious::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='rgba(247,148,29,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .act-religious .act-text h2 { color: var(--white); }
+        .act-religious .act-text > p { color: rgba(255,255,255,0.7); }
+        .act-religious .act-label {
+            background: rgba(247,148,29,0.15);
+            border-color: rgba(247,148,29,0.35);
+        }
+        .act-religious-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem; margin-top: 3rem;
+        }
+        .act-rel-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px; padding: 2rem;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+        .act-rel-card:hover {
+            background: rgba(247,148,29,0.1);
+            border-color: rgba(247,148,29,0.3);
+            transform: translateY(-5px);
+        }
+        .act-rel-card i {
+            font-size: 2rem; color: var(--orange);
+            margin-bottom: 1rem;
+        }
+        .act-rel-card h4 {
+            font-size: 1rem; font-weight: 700;
+            color: var(--white); margin-bottom: 0.5rem;
+        }
+        .act-rel-card p {
+            font-size: 0.85rem; color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* ═══ SCIENCE & INNOVATION ═══ */
+        .act-science-wrap {
+            position: relative; border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(11,46,111,0.12);
+        }
+        .act-science-wrap img {
+            width: 100%; height: 500px;
+            object-fit: cover; display: block;
+        }
+        .act-science-float {
+            position: absolute; bottom: 2rem; right: 2rem;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 2rem; border-radius: 24px;
+            max-width: 380px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        .act-science-float h3 {
+            font-size: 1rem; font-weight: 700;
+            color: var(--nave); margin-bottom: 0.8rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .act-science-float h3 span {
+            background: var(--orange); color: var(--white);
+            padding: 0.2rem 0.6rem; border-radius: 6px;
+            font-size: 0.7rem; letter-spacing: 1px;
+        }
+        .act-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .act-tag {
+            background: rgba(11,46,111,0.06); color: var(--nave);
+            padding: 0.4rem 1rem; border-radius: 50px;
+            font-size: 0.8rem; font-weight: 600;
+        }
+
+        /* ═══ NATIONAL DAYS ═══ */
+        .act-national {
+            background: var(--light-bg);
+        }
+        .act-national-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem; margin-top: 2rem;
+        }
+        .act-national-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px; overflow: hidden;
+            transition: all 0.35s ease;
+        }
+        .act-national-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11,46,111,0.08);
+            border-color: var(--orange);
+        }
+        .act-national-card img {
+            width: 100%; height: 180px;
+            object-fit: cover;
+        }
+        .act-national-card .card-body {
+            padding: 1.5rem;
+        }
+        .act-national-card h4 {
+            font-size: 1rem; font-weight: 700;
+            color: var(--nave); margin-bottom: 0.4rem;
+        }
+        .act-national-card p {
+            font-size: 0.85rem; color: #556070;
+            line-height: 1.6;
+        }
+
+        /* ═══ CHARACTER BUILDING ═══ */
+        .act-char-split {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: start;
+        }
+        .act-timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .act-timeline::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--border);
+            border-radius: 2px;
+        }
+        .act-timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .act-timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem; top: 0.3rem;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--orange);
+            z-index: 1;
+            margin-left: -5.5px;
+        }
+        .act-timeline-item h4 {
+            font-size: 1.1rem; font-weight: 700;
+            color: var(--nave); margin-bottom: 0.3rem;
+        }
+        .act-timeline-item p {
+            font-size: 0.9rem; color: #556070;
+            line-height: 1.6;
+        }
+
+        /* ═══ PRIZE DISTRIBUTION ═══ */
+        .act-prize {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .act-prize::before {
+            content: '';
+            position: absolute;
+            top: -200px; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(247,148,29,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: spotlight 4s ease-in-out infinite alternate;
+        }
+        @keyframes spotlight {
+            0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+        .act-prize .act-text h2 { color: var(--white); }
+        .act-prize .act-text > p { color: rgba(255,255,255,0.7); }
+        .act-prize .act-label {
+            background: rgba(247,148,29,0.15);
+            border-color: rgba(247,148,29,0.35);
+        }
+
+        /* ═══ PARENTS TRUST ═══ */
+        .act-trust {
+            background: var(--light-bg);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+        .act-trust blockquote {
+            font-size: 1.6rem; font-weight: 300; font-style: italic;
+            color: var(--nave); max-width: 750px;
+            margin: 0 auto; line-height: 1.8;
+            border-left: 4px solid var(--orange);
+            padding-left: 2rem; text-align: left;
+        }
+        .act-trust blockquote span { color: var(--orange); font-weight: 600; font-style: normal; }
+
+        /* ═══ CTA ═══ */
+        .act-cta {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 6rem 2rem; text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .act-cta-circle {
+            position: absolute; border-radius: 50%;
+            background: rgba(247,148,29,0.06);
+            pointer-events: none;
+        }
+        .act-cta-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; left: -60px; }
+        .act-cta-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; right: -30px; }
+        .act-cta-circle:nth-child(3) { width: 150px; height: 150px; top: 30%; right: 10%; }
+        .act-cta-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .act-cta h2 {
+            font-size: 2.6rem; font-weight: 700;
+            color: var(--white); line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .act-cta p {
+            font-size: 1.05rem; color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem; line-height: 1.8;
+        }
+        .act-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* ═══ REVEAL ANIMATIONS ═══ */
+        .act-reveal {
+            opacity: 0; transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .act-reveal.revealed { opacity: 1; transform: translateY(0); }
+        .act-reveal-left {
+            opacity: 0; transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .act-reveal-left.revealed { opacity: 1; transform: translateX(0); }
+        .act-reveal-right {
+            opacity: 0; transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .act-reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 1024px) {
+            .act-split, .act-char-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .act-split.reverse, .act-journey-item.reverse { direction: ltr; }
+            .act-journey-item { grid-template-columns: 1fr; min-height: auto; }
+            .act-journey-img { height: 350px; }
+            .act-journey-content { padding: 2rem; }
+            .act-religious-grid { grid-template-columns: 1fr 1fr; }
+            .act-national-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .act-hero h1 { font-size: 2.2rem; }
+            .act-hero p { font-size: 1.05rem; }
+            .act-text h2 { font-size: 2.2rem; }
+            .act-religious-grid { grid-template-columns: 1fr; }
+            .act-national-grid { grid-template-columns: 1fr; }
+            .act-intro-bg { font-size: 5rem; }
+            .act-intro blockquote, .act-trust blockquote { font-size: 1.3rem; }
+            .act-cta h2 { font-size: 1.8rem; }
+            .act-science-float {
+                position: relative; bottom: auto; right: auto;
+                max-width: 100%; margin-top: 1.5rem;
+                border-radius: 16px;
+            }
+            .act-science-wrap img { height: 300px; }
+        }
+        @media (max-width: 480px) {
+            .act-hero h1 { font-size: 1.9rem; }
+            .act-hero-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                <span class="logo-text">Noshahi School System</span>
+            </a>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academics Overview</a></li>
+                        <li><a href="computer-education.html">Computer Ed</a></li>
+                        <li><a href="islamic-education.html">Islamic Ed</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                    </ul>
+                </li>
+                <li><a href="student-activities.html" class="active">Activities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="act-hero">
+        <img src="img/school banner.png" alt="Student Activities" class="act-hero-bg">
+        <div class="act-hero-overlay"></div>
+        <div class="act-hero-content act-reveal">
+            <div class="act-hero-badge"><i class="fas fa-star"></i> Student Life</div>
+            <h1>Inspiring Every Student <span>Beyond the Classroom</span></h1>
+            <p>At Noshahi School System, we build confidence, values, creativity, and leadership through meaningful competitions, celebrations, and character-building programs.</p>
+            <div class="act-hero-btns">
+                <a href="#learning" class="act-btn primary"><i class="fas fa-compass"></i> Explore Activities</a>
+                <a href="#gallery" class="act-btn outline"><i class="fas fa-images"></i> View Gallery</a>
+            </div>
+        </div>
+        <div class="act-scroll">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ═══ LEARNING BEYOND BOOKS ═══ -->
+    <section class="act-intro" id="learning">
+        <div class="act-intro-bg">ACTIVITIES</div>
+        <div class="act-reveal">
+            <blockquote>
+                "Education is not only about knowledge — it is about <span>confidence</span>, <span>character</span>, <span>faith</span>, <span>creativity</span> and <span>leadership</span>."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ═══ ACADEMIC EXCELLENCE JOURNEY ═══ -->
+    <section class="act-section" id="academic">
+        <div class="act-section-inner">
+            <div class="act-reveal" style="text-align:center; margin-bottom:3rem;">
+                <div class="act-label"><i class="fas fa-trophy"></i> Academic Excellence</div>
+                <h2 style="font-size:2.8rem; font-weight:700; color:var(--nave);">Academic Excellence <span style="color:var(--orange);">Journey</span></h2>
+            </div>
+        </div>
+
+        <!-- 01 - Speech Competition -->
+        <div class="act-journey-item">
+            <div class="act-journey-img act-reveal-left">
+                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop" alt="Speech Competition">
+            </div>
+            <div class="act-journey-content act-reveal-right">
+                <div class="act-num">01</div>
+                <div class="act-divider"></div>
+                <h3>Speech <span>Competition</span></h3>
+                <p>Students develop public speaking skills, confidence, and the ability to express their ideas clearly. Our speech competitions help children find their voice and speak with conviction.</p>
+                <div class="act-features">
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Public Speaking</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Confidence Building</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Stage Performance</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 02 - Quiz Competition -->
+        <div class="act-journey-item reverse">
+            <div class="act-journey-img act-reveal-right">
+                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" alt="Quiz Competition">
+            </div>
+            <div class="act-journey-content act-reveal-left">
+                <div class="act-num">02</div>
+                <div class="act-divider"></div>
+                <h3>Quiz <span>Competition</span></h3>
+                <p>Our quiz competitions test students' knowledge across subjects and encourage healthy competition. Students learn to think fast, work under pressure, and expand their general knowledge.</p>
+                <div class="act-features">
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Quick Thinking</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Team Work</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> General Knowledge</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 03 - Essay Writing -->
+        <div class="act-journey-item">
+            <div class="act-journey-img act-reveal-left">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800&auto=format&fit=crop" alt="Essay Writing">
+            </div>
+            <div class="act-journey-content act-reveal-right">
+                <div class="act-num">03</div>
+                <div class="act-divider"></div>
+                <h3>Essay Writing <span>Competition</span></h3>
+                <p>Essay writing competitions help students express their thoughts on paper with clarity and creativity. Students learn to organize ideas, use proper language, and develop strong writing skills.</p>
+                <div class="act-features">
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Creative Writing</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Expression Skills</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Critical Thinking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ RELIGIOUS ACTIVITIES ═══ -->
+    <section class="act-section act-religious" id="religious">
+        <div class="act-section-inner">
+            <div class="act-reveal">
+                <div class="act-label"><i class="fas fa-mosque"></i> Islamic Activities</div>
+                <div class="act-text">
+                    <h2>Religious Activities & <span>Moral Values</span></h2>
+                    <p>We nurture strong Islamic values through various religious competitions and activities that help students develop a deep connection with their faith.</p>
+                </div>
+            </div>
+            <div class="act-religious-grid act-reveal">
+                <div class="act-rel-card">
+                    <i class="fas fa-microphone-lines"></i>
+                    <h4>Naat Competition</h4>
+                    <p>Students recite beautiful Naats to express their love for Prophet Muhammad (PBUH) and develop a connection with Islamic traditions.</p>
+                </div>
+                <div class="act-rel-card">
+                    <i class="fas fa-quran"></i>
+                    <h4>Qirat Competition</h4>
+                    <p>Students showcase their beautiful recitation of the Holy Quran with proper Tajweed, encouraged by our certified Quran teachers.</p>
+                </div>
+                <div class="act-rel-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Islamic Quiz</h4>
+                    <p>Students test their knowledge of Islamic history, Quran, Hadith, and important events through engaging quiz competitions.</p>
+                </div>
+                <div class="act-rel-card">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Moral Education</h4>
+                    <p>We teach honesty, respect, kindness, and discipline through daily moral lessons and character-building programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SCIENCE & INNOVATION ═══ -->
+    <section class="act-section" id="science" style="background: var(--light-bg);">
+        <div class="act-section-inner">
+            <div class="act-reveal" style="text-align:center; margin-bottom:2.5rem;">
+                <div class="act-label"><i class="fas fa-flask"></i> Science & Innovation</div>
+                <h2 style="font-size:2.8rem; font-weight:700; color:var(--nave);">Curiosity Creates <span style="color:var(--orange);">Innovation</span></h2>
+            </div>
+            <div class="act-science-wrap act-reveal">
+                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200&auto=format&fit=crop" alt="Science Exhibition">
+                <div class="act-science-float">
+                    <h3><i class="fas fa-microscope" style="color:var(--orange);"></i> SCIENCE EXHIBITION <span>PREMIUM</span></h3>
+                    <div class="act-tags">
+                        <div class="act-tag">Science Projects</div>
+                        <div class="act-tag">Innovation</div>
+                        <div class="act-tag">Exhibition</div>
+                    </div>
+                </div>
+            </div>
+            <div class="act-reveal" style="margin-top:3rem; text-align:center;">
+                <p style="font-size:1.1rem; color:#556070; max-width:700px; margin:0 auto; line-height:1.8;">
+                    Our science projects and exhibitions give students a hands-on experience of learning. They build models, conduct experiments, and present their discoveries with confidence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ NATIONAL DAY CELEBRATIONS ═══ -->
+    <section class="act-section act-national" id="national">
+        <div class="act-section-inner">
+            <div class="act-reveal" style="text-align:center; margin-bottom:2rem;">
+                <div class="act-label"><i class="fas fa-flag"></i> National Celebrations</div>
+                <h2 style="font-size:2.8rem; font-weight:700; color:var(--nave);">National Day <span style="color:var(--orange);">Celebrations</span></h2>
+                <p style="max-width:650px; margin:0 auto; color:#556070; line-height:1.8;">We celebrate Pakistan's important national days with great enthusiasm to build patriotism and awareness among students.</p>
+            </div>
+            <div class="act-national-grid act-reveal">
+                <div class="act-national-card">
+                    <img src="https://images.unsplash.com/photo-1566378246598-5b0dd735c373?q=80&w=500&auto=format&fit=crop" alt="Independence Day">
+                    <div class="card-body">
+                        <h4>Independence Day</h4>
+                        <p>We celebrate 14th August with flag hoisting, national songs, and patriotic speeches by students.</p>
+                    </div>
+                </div>
+                <div class="act-national-card">
+                    <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=500&auto=format&fit=crop" alt="Pakistan Day">
+                    <div class="card-body">
+                        <h4>Pakistan Day</h4>
+                        <p>23rd March is celebrated with special assemblies, tableaux, and speeches highlighting Pakistan's history.</p>
+                    </div>
+                </div>
+                <div class="act-national-card">
+                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=500&auto=format&fit=crop" alt="Iqbal Day">
+                    <div class="card-body">
+                        <h4>Iqbal Day</h4>
+                        <p>Students honor Allama Iqbal through poetry recitations, speeches, and essays about his vision for Pakistan.</p>
+                    </div>
+                </div>
+                <div class="act-national-card">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=500&auto=format&fit=crop" alt="Quaid-e-Azam Day">
+                    <div class="card-body">
+                        <h4>Quaid-e-Azam Day</h4>
+                        <p>We celebrate 25th December with special events remembering the founder of Pakistan, Muhammad Ali Jinnah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CHARACTER BUILDING ═══ -->
+    <section class="act-section" id="character">
+        <div class="act-section-inner">
+            <div class="act-char-split">
+                <div class="act-reveal-left">
+                    <div class="act-label"><i class="fas fa-heart"></i> Character Building</div>
+                    <div class="act-text">
+                        <h2>Character Before <span>Success</span></h2>
+                        <div class="act-divider"></div>
+                        <p>We believe that strong character is the foundation of true success. Our character-building programs help students develop values that guide them throughout their lives.</p>
+                        <p>Every activity at Noshahi School System is designed to build not just academic excellence, but also moral strength, discipline, and leadership qualities.</p>
+                    </div>
+                </div>
+                <div class="act-reveal-right">
+                    <div class="act-timeline">
+                        <div class="act-timeline-item">
+                            <h4>Respect</h4>
+                            <p>Teaching students to respect teachers, parents, peers, and themselves.</p>
+                        </div>
+                        <div class="act-timeline-item">
+                            <h4>Discipline</h4>
+                            <p>Building self-discipline and orderliness in daily routines and studies.</p>
+                        </div>
+                        <div class="act-timeline-item">
+                            <h4>Responsibility</h4>
+                            <p>Encouraging students to take ownership of their actions and duties.</p>
+                        </div>
+                        <div class="act-timeline-item">
+                            <h4>Honesty</h4>
+                            <p>The value of truthfulness in academics and personal life.</p>
+                        </div>
+                        <div class="act-timeline-item">
+                            <h4>Leadership</h4>
+                            <p>Developing confident leaders who can guide and inspire others.</p>
+                        </div>
+                        <div class="act-timeline-item">
+                            <h4>Teamwork</h4>
+                            <p>Learning to work together and achieve common goals as a team.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ANNUAL PRIZE DISTRIBUTION ═══ -->
+    <section class="act-section act-prize" id="prize">
+        <div class="act-section-inner">
+            <div class="act-split">
+                <div class="act-reveal-left">
+                    <div class="act-img-wrap" style="height:420px;">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop" alt="Prize Distribution" style="height:100%;">
+                        <div class="act-img-badge"><i class="fas fa-trophy"></i> Achievement</div>
+                    </div>
+                </div>
+                <div class="act-reveal-right">
+                    <div class="act-label"><i class="fas fa-award"></i> Prize Distribution</div>
+                    <div class="act-text">
+                        <h2>Celebrating <span>Achievement</span> & Excellence</h2>
+                        <div class="act-divider" style="background:var(--orange);"></div>
+                        <p>Our Annual Prize Distribution ceremony celebrates the hard work, dedication, and achievements of our students. We recognize excellence in academics, activities, and character.</p>
+                        <p>Every student who strives to do their best is celebrated at Noshahi School System.</p>
+                    </div>
+                    <div class="act-features">
+                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2);"><i class="fas fa-trophy"></i> Academic Awards</div>
+                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2);"><i class="fas fa-medal"></i> Activity Awards</div>
+                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2);"><i class="fas fa-star"></i> Character Awards</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PARENTS TRUST ═══ -->
+    <section class="act-trust" id="trust">
+        <div class="act-reveal">
+            <div class="act-label" style="margin:0 auto 1.5rem;"><i class="fas fa-heart"></i> Parents Trust</div>
+            <blockquote>
+                "Noshahi School System develops students holistically — academically, morally, spiritually, and creatively. We are proud to see our children grow into <span>responsible</span> and <span>confident</span> individuals."
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="act-cta">
+        <div class="act-cta-circle"></div>
+        <div class="act-cta-circle"></div>
+        <div class="act-cta-circle"></div>
+        <div class="act-cta-content act-reveal">
+            <h2>Discover a School Where Learning Never Stops</h2>
+            <p>Give your child an environment where academic excellence, Islamic values, creativity, and character building come together for a brighter future.</p>
+            <div class="act-cta-btns">
+                <a href="admissions.html" class="act-btn primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+                <a href="contact.html" class="act-btn outline">Contact Us <i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
+                        <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
+                    </div>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
+                        <li><a href="computer-education.html">Computer Education</a></li>
+                        <li><a href="islamic-education.html">Islamic Education</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="student-activities.html">Student Activities</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i><a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a></li>
+                        <li><i class="fas fa-phone-alt"></i><div class="phone-group"><a href="tel:03281642297">0328-1642297</a><a href="tel:03216892097">0321-6892097</a></div></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        (function() {
+            var reveals = document.querySelectorAll('.act-reveal, .act-reveal-left, .act-reveal-right');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            reveals.forEach(function(el) { observer.observe(el); });
+        })();
+    </script>
+
+    <div class="floating-widgets">
+        <a href="https://wa.me/923281642297" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="scrollToTopBtn" class="scroll-top-btn" title="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+</body>
+
+</html>

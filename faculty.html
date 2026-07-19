@@ -1,19 +1,321 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noshahi School System</title>
-    <!-- Favicon -->
+    <title>Our Faculty | Noshahi School System</title>
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
-    <meta name="description"
-        content="Meet the highly qualified and experienced teaching staff at Noshahi School System.">
-    <!-- Font Awesome -->
+    <meta name="description" content="Meet the highly qualified and experienced teaching staff at Noshahi School System.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style
-    <nav class="navbar scrolled">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dropdown-menu a { color: #1F2A44 !important; }
+        .navbar.scrolled .dropdown-menu a { color: #1F2A44 !important; }
+        .dropdown-menu a:hover { color: #FF8C00 !important; }
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 5rem 0 3rem;
+            background: var(--bg-color);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .leader-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(31,42,68,0.06);
+            box-shadow: 0 4px 20px rgba(31,42,68,0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF8C00, rgba(255,140,0,0.2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .leader-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(31,42,68,0.12);
+        }
+
+        .leader-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leader-avatar.blue {
+            background: linear-gradient(135deg, rgba(31,42,68,0.1), rgba(31,42,68,0.04));
+            color: var(--primary-color);
+            border: 3px solid rgba(31,42,68,0.08);
+        }
+
+        .leader-avatar.orange {
+            background: linear-gradient(135deg, rgba(255,140,0,0.12), rgba(255,140,0,0.04));
+            color: var(--accent-color);
+            border: 3px solid rgba(255,140,0,0.15);
+        }
+
+        .leader-card:hover .leader-avatar {
+            transform: scale(1.05);
+        }
+
+        .leader-card:hover .leader-avatar.blue {
+            background: linear-gradient(135deg, var(--primary-color), #2d3a5c);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .leader-card:hover .leader-avatar.orange {
+            background: linear-gradient(135deg, var(--accent-color), #FFB347);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .leader-card h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leader-role {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leader-card p:last-child {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Department Cards */
+        .dept-section {
+            padding: 4rem 0 5rem;
+            background: var(--bg-light);
+        }
+
+        .dept-section .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .dept-subtitle {
+            text-align: center;
+            max-width: 800px;
+            margin: -1.5rem auto 3rem auto;
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .dept-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(31,42,68,0.06);
+            box-shadow: 0 4px 16px rgba(31,42,68,0.04);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .dept-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .dept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(31,42,68,0.1);
+        }
+
+        .dept-card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1.25rem;
+            transition: all 0.35s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dept-card:nth-child(1) .dept-card-icon { background: rgba(31,42,68,0.1); color: var(--primary-color); }
+        .dept-card:nth-child(2) .dept-card-icon { background: rgba(255,140,0,0.1); color: var(--accent-color); }
+        .dept-card:nth-child(3) .dept-card-icon { background: rgba(59,130,246,0.1); color: #3B82F6; }
+        .dept-card:nth-child(4) .dept-card-icon { background: rgba(139,92,246,0.1); color: #8B5CF6; }
+        .dept-card:nth-child(5) .dept-card-icon { background: rgba(16,185,129,0.1); color: #10B981; }
+        .dept-card:nth-child(6) .dept-card-icon { background: rgba(236,72,153,0.1); color: #EC4899; }
+
+        .dept-card:nth-child(1)::before { background: linear-gradient(90deg, var(--primary-color), rgba(31,42,68,0.2)); }
+        .dept-card:nth-child(2)::before { background: linear-gradient(90deg, var(--accent-color), rgba(255,140,0,0.2)); }
+        .dept-card:nth-child(3)::before { background: linear-gradient(90deg, #3B82F6, rgba(59,130,246,0.2)); }
+        .dept-card:nth-child(4)::before { background: linear-gradient(90deg, #8B5CF6, rgba(139,92,246,0.2)); }
+        .dept-card:nth-child(5)::before { background: linear-gradient(90deg, #10B981, rgba(16,185,129,0.2)); }
+        .dept-card:nth-child(6)::before { background: linear-gradient(90deg, #EC4899, rgba(236,72,153,0.2)); }
+
+        .dept-card:hover .dept-card-icon {
+            transform: scale(1.1) rotateZ(5deg);
+        }
+
+        .dept-card:nth-child(1):hover .dept-card-icon { background: linear-gradient(135deg, var(--primary-color), #2d3a5c); color: #fff; }
+        .dept-card:nth-child(2):hover .dept-card-icon { background: linear-gradient(135deg, var(--accent-color), #FFB347); color: #fff; }
+        .dept-card:nth-child(3):hover .dept-card-icon { background: linear-gradient(135deg, #3B82F6, #60A5FA); color: #fff; }
+        .dept-card:nth-child(4):hover .dept-card-icon { background: linear-gradient(135deg, #8B5CF6, #A78BFA); color: #fff; }
+        .dept-card:nth-child(5):hover .dept-card-icon { background: linear-gradient(135deg, #10B981, #34D399); color: #fff; }
+        .dept-card:nth-child(6):hover .dept-card-icon { background: linear-gradient(135deg, #EC4899, #F472B6); color: #fff; }
+
+        .dept-card .highlight-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dept-card:nth-child(4) .highlight-tag,
+        .dept-card:nth-child(5) .highlight-tag {
+            background: rgba(255,140,0,0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(255,140,0,0.2);
+        }
+
+        .dept-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dept-card p {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .dept-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .leadership-section { padding: 3rem 0 2rem; }
+            .dept-section { padding: 3rem 0 4rem; }
+
+            .leader-avatar {
+                width: 110px;
+                height: 110px;
+                font-size: 2.8rem;
+            }
+
+            .leader-card { padding: 2rem 1.5rem; }
+
+            .dept-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .dept-card {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
@@ -41,8 +343,9 @@
                         <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
@@ -57,97 +360,104 @@
     </header>
 
     <!-- Leadership -->
-    <section id="leadership">
+    <section class="leadership-section" id="leadership">
         <div class="container">
             <div class="section-title">
                 <h2>Leadership</h2>
             </div>
-            <div class="grid-2" style="max-width: 900px; margin: 0 auto;">
-                <div class="card" style="text-align: center;">
-                    <div
-                        style="background-color: #ddd; width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem auto; display:flex; align-items:center; justify-content:center; color: #777;">
-                        <i class="fas fa-user-tie" style="font-size: 4rem;"></i>
+            <div class="leadership-grid">
+                <div class="leader-card">
+                    <div class="leader-avatar blue">
+                        <i class="fas fa-user-tie"></i>
                     </div>
                     <h3>Principal Name</h3>
-                    <p style="color: var(--accent-color); font-weight: bold;">Principal</p>
-                    <p>Over 20 years of experience in educational leadership, shaping the academic and moral landscape
-                        of the institution.</p>
+                    <div class="leader-role">Principal</div>
+                    <p>Over 20 years of experience in educational leadership, shaping the academic and moral landscape of the institution.</p>
                 </div>
-                <div class="card" style="text-align: center;">
-                    <div
-                        style="background-color: #ddd; width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem auto; display:flex; align-items:center; justify-content:center; color: #777;">
-                        <i class="fas fa-user" style="font-size: 4rem;"></i>
+                <div class="leader-card">
+                    <div class="leader-avatar orange">
+                        <i class="fas fa-user"></i>
                     </div>
                     <h3>Vice Principal Name</h3>
-                    <p style="color: var(--accent-color); font-weight: bold;">Vice Principal</p>
-                    <p>Dedicated to maintaining high academic standards and fostering a positive environment for both
-                        staff and students.</p>
+                    <div class="leader-role">Vice Principal</div>
+                    <p>Dedicated to maintaining high academic standards and fostering a positive environment for both staff and students.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Teachers Grid -->
-    <section class="bg-light" id="teachers">
+    <!-- Teaching Staff -->
+    <section class="dept-section" id="teachers">
         <div class="container">
             <div class="section-title">
-                <h2>Teaching Staff</h2>
+                <h2>Teaching <span>Staff</span></h2>
             </div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;">Our faculty consists of highly
-                qualified, experienced, and passionate educators. They undergo regular training to stay updated with
-                modern teaching methodologies.</p>
+            <p class="dept-subtitle">Our faculty consists of highly qualified, experienced, and passionate educators. They undergo regular training to stay updated with modern teaching methods.</p>
 
-            <div class="grid-3">
-                <!-- Academic Teachers -->
-                <div class="card" style="text-align: center;">
-                    <i class="fas fa-chalkboard-teacher card-icon"></i>
+            <div class="dept-grid">
+                <div class="dept-card">
+                    <div class="dept-card-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
                     <h3>Science Department</h3>
-                    <p>MSc. qualified educators with extensive practical lab experience to make science engaging.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <i class="fas fa-calculator card-icon"></i>
-                    <h3>Mathematics Department</h3>
-                    <p>Experts in building strong numerical and logical foundations for students.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <i class="fas fa-language card-icon"></i>
-                    <h3>Languages (English/Urdu)</h3>
-                    <p>Specialists focused on enhancing reading, writing, and communication skills.</p>
+                    <p>MSc. qualified educators with practical lab experience to make science fun and easy to understand.</p>
                 </div>
 
-                <!-- Special Focus Teachers -->
-                <div class="card" style="text-align: center; border: 2px solid var(--accent-color);">
-                    <i class="fas fa-laptop-code card-icon"></i>
+                <div class="dept-card">
+                    <div class="dept-card-icon">
+                        <i class="fas fa-square-root-variable"></i>
+                    </div>
+                    <h3>Mathematics Department</h3>
+                    <p>Experts in building strong number and logic skills for students at every level.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-card-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Languages (English/Urdu)</h3>
+                    <p>Focused on improving reading, writing, and speaking skills in both English and Urdu.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="highlight-tag"><i class="fas fa-star" style="margin-right: 4px;"></i>Special Focus</div>
+                    <div class="dept-card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
                     <h3>Computer IT Instructors</h3>
-                    <p>Professionals with degrees in Computer Science, training students in coding and modern software.
-                    </p>
+                    <p>Computer Science professionals training students in coding and modern software skills.</p>
                 </div>
-                <div class="card" style="text-align: center; border: 2px solid var(--accent-color);">
-                    <i class="fas fa-book-quran card-icon"></i>
+
+                <div class="dept-card">
+                    <div class="highlight-tag"><i class="fas fa-star" style="margin-right: 4px;"></i>Special Focus</div>
+                    <div class="dept-card-icon">
+                        <i class="fas fa-book-quran"></i>
+                    </div>
                     <h3>Islamic Studies / Qari</h3>
-                    <p>Certified scholars and Qaris dedicated to teaching Tajweed, Hifz, and Islamic morals.</p>
+                    <p>Certified scholars and Qaris teaching Tajweed, Hifz, and good Islamic values.</p>
                 </div>
-                <div class="card" style="text-align: center;">
-                    <i class="fas fa-child card-icon"></i>
+
+                <div class="dept-card">
+                    <div class="dept-card-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
                     <h3>Early Years Educators</h3>
-                    <p>Trained in child psychology and early development to give the best start to our youngest
-                        learners.</p>
+                    <p>Trained in child development to give the best start to our youngest learners.</p>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Premium Footer -->
+    <!-- Premium Footer -->
     <footer class="premium-footer">
         <div class="container">
             <div class="footer-main">
-                <!-- Brand & Intro -->
                 <div class="footer-col brand-col">
                     <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                         <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <p class="footer-desc">Helping children learn with modern studies, computer skills, and strong Islamic values.</p>
                     <div class="social-links">
                         <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
@@ -156,7 +466,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
                 <div class="footer-col links-col">
                     <h3>Explore</h3>
                     <ul>
@@ -167,7 +476,6 @@
                     </ul>
                 </div>
 
-                <!-- Programs -->
                 <div class="footer-col links-col">
                     <h3>Our Programs</h3>
                     <ul>
@@ -178,7 +486,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
                 <div class="footer-col contact-col">
                     <h3>Get in Touch</h3>
                     <ul class="contact-list">
@@ -200,9 +507,9 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-divider"></div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
                 <div class="footer-bottom-links">
@@ -214,9 +521,7 @@
         </div>
     </footer>
 
-    <!-- Custom JS -->
     <script src="js/main.js"></script>
-    <!-- Floating Widgets -->
     <div class="floating-widgets">
         <a href="https://wa.me/923281642297" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>

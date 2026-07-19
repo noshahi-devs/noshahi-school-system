@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,20 +26,37 @@
            NAVBAR STYLING FOR ADMISSIONS
         â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         .admissions-page .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            background-color: var(--primary-color);
         }
 
         .admissions-page .navbar .logo-text,
-        .admissions-page .navbar .nav-links a {
-            color: var(--primary-color) !important;
+        .admissions-page .navbar .nav-links > li > a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .admissions-page .navbar .mobile-toggle {
+            color: #fff !important;
         }
 
         .admissions-page .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .admissions-page .navbar.scrolled .logo-text,
+        .admissions-page .navbar.scrolled .nav-links a {
+            color: var(--primary-color) !important;
+        }
+
+        .admissions-page .navbar.scrolled .nav-links a.btn {
+            color: #fff !important;
+        }
+
+        .admissions-page .navbar.scrolled .mobile-toggle {
+            color: var(--primary-color) !important;
         }
 
         .admissions-page .dropdown-menu a,
@@ -53,13 +70,11 @@
         .admissions-hero {
             height: 50vh;
             min-height: 400px;
-            background: linear-gradient(135deg, #1F2A44 0%, #0f1820 50%, #2d3f5a 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
-            margin-top: 80px;
             overflow: hidden;
             margin-bottom: 0;
         }
@@ -71,7 +86,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(31, 42, 68, 0.85) 0%, rgba(31, 42, 68, 0.7) 100%);
+            background: linear-gradient(135deg, rgba(31, 42, 68, 0.80) 0%, rgba(15, 24, 32, 0.70) 100%);
             z-index: 1;
         }
 
@@ -92,7 +107,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 140, 0, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(10, 25, 70, 0.20) 0%, transparent 50%);
             z-index: 1;
         }
 
@@ -349,11 +364,13 @@
         }
 
         .requirements-list li::before {
-            content: 'âœ“';
-            color: var(--accent-color);
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
             font-weight: 900;
-            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-size: 0.85rem;
             flex-shrink: 0;
+            margin-top: 3px;
         }
 
         .eligibility-section {
@@ -381,10 +398,8 @@
            GENERAL INFO & FORM SECTION â€” PREMIUM
         â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
         .general-info-section {
-            background: linear-gradient(135deg, #F0F4FF 0%, #EEF2FF 40%, #F5F7FF 70%, #EBF0FF 100%);
-            border-top: 1px solid rgba(31, 42, 68, 0.08);
-            border-bottom: 1px solid rgba(31, 42, 68, 0.08);
-            padding: 6rem 0;
+            background: linear-gradient(170deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%);
+            padding: 5rem 0 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -463,7 +478,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
-            align-items: start;
+            align-items: stretch;
             position: relative;
             z-index: 2;
         }
@@ -478,12 +493,9 @@
             background: #ffffff;
             border-radius: 20px;
             padding: 1.75rem 1.5rem;
-            margin-bottom: 0;
-            border: 1px solid rgba(31, 42, 68, 0.08);
-            border-left: 4px solid var(--primary-color);
+            border: 1px solid rgba(31,42,68,0.06);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 4px 20px rgba(31, 42, 68, 0.07);
-            height: 100%;
+            box-shadow: 0 2px 12px rgba(31,42,68,0.04);
             position: relative;
             overflow: hidden;
         }
@@ -492,11 +504,13 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.06), transparent);
-            transition: left 0.6s ease;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF8C00, rgba(255,140,0,0.2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
         .info-card:hover::before {
@@ -504,19 +518,19 @@
         }
 
         .info-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(31, 42, 68, 0.15);
-            border-color: rgba(255, 140, 0, 0.3);
-            border-left-color: #FF8C00;
-            background: #fff;
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(31,42,68,0.1);
+            border-color: rgba(255,140,0,0.2);
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
         }
 
         .info-card-icon {
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
             border-radius: 14px;
-            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 140, 0, 0.05));
-            border: 1px solid rgba(255, 140, 0, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -526,35 +540,43 @@
             z-index: 1;
         }
 
+        .info-card-icon.orange { background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.2); }
+        .info-card-icon.blue { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); }
+        .info-card-icon.green { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); }
+        .info-card-icon.purple { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); }
+
         .info-card-icon i {
-            font-size: 1.4rem;
-            color: #FF8C00;
-            transition: all 0.35s ease;
+            font-size: 1.25rem;
         }
+
+        .info-card-icon.orange i { color: #FF8C00; }
+        .info-card-icon.blue i { color: #3B82F6; }
+        .info-card-icon.green i { color: #10B981; }
+        .info-card-icon.purple i { color: #8B5CF6; }
 
         .info-card:hover .info-card-icon {
-            background: linear-gradient(135deg, #FF8C00, #FFB347);
-            border-color: transparent;
             transform: scale(1.1) rotateZ(5deg);
-            box-shadow: 0 8px 24px rgba(255, 140, 0, 0.35);
         }
 
-        .info-card:hover .info-card-icon i {
-            color: #fff;
-        }
+        .info-card:hover .info-card-icon.orange { background: linear-gradient(135deg, #FF8C00, #FFB347); border-color: transparent; }
+        .info-card:hover .info-card-icon.blue { background: linear-gradient(135deg, #3B82F6, #60A5FA); border-color: transparent; }
+        .info-card:hover .info-card-icon.green { background: linear-gradient(135deg, #10B981, #34D399); border-color: transparent; }
+        .info-card:hover .info-card-icon.purple { background: linear-gradient(135deg, #8B5CF6, #A78BFA); border-color: transparent; }
+
+        .info-card:hover .info-card-icon i { color: #fff; }
 
         .info-card h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            color: #1e293b;
+            margin-bottom: 0.4rem;
             position: relative;
             z-index: 1;
         }
 
         .info-card p {
-            color: #4B5563;
-            font-size: 0.85rem;
+            color: #64748b;
+            font-size: 0.83rem;
             line-height: 1.6;
             margin: 0;
             position: relative;
@@ -562,8 +584,46 @@
         }
 
         .info-card p strong {
-            color: var(--accent-color);
+            color: #FF8C00;
             font-weight: 700;
+        }
+
+        .info-card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card-list li {
+            font-size: 0.78rem;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.5;
+        }
+
+        .info-card-list li i {
+            font-size: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        .info-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-cards-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1.25rem;
+            flex-grow: 1;
         }
 
         /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -572,11 +632,14 @@
         .admission-form-card {
             background: #ffffff;
             border-radius: 24px;
-            padding: 2rem;
-            box-shadow: 0 8px 40px rgba(31, 42, 68, 0.12);
-            border: 1px solid rgba(31, 42, 68, 0.08);
+            padding: 2.5rem;
+            box-shadow: 0 8px 40px rgba(31,42,68,0.06);
+            border: 1px solid rgba(31,42,68,0.06);
             position: relative;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .admission-form-card::before {
@@ -585,14 +648,14 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #FF8C00, #FFB347, #FF8C00);
+            height: 4px;
+            background: linear-gradient(90deg, #FF8C00, #3B82F6, #8B5CF6);
         }
 
         .admission-form-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-weight: 900;
-            color: var(--primary-color);
+            color: #1e293b;
             margin-bottom: 0.25rem;
         }
 
@@ -601,51 +664,66 @@
         }
 
         .admission-form-card > p {
-            color: var(--text-light);
-            font-size: 0.8rem;
-            margin-bottom: 1.2rem;
+            color: #94a3b8;
+            font-size: 0.88rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
-            margin-bottom: 0.8rem;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
-            font-size: 0.7rem;
+            display: block;
+            font-size: 0.82rem;
             font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.3rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #334155;
+            margin-bottom: 0.35rem;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            padding: 0.65rem 0.9rem;
-            border: 2px solid rgba(31, 42, 68, 0.12);
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1.5px solid #e2e8f0;
             border-radius: 12px;
             font-family: inherit;
-            font-size: 0.85rem;
-            color: var(--primary-color);
+            font-size: 0.88rem;
+            color: #1e293b;
+            background: #f8fafc;
             transition: all 0.3s ease;
-            background-color: #F8FAFC;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #FF8C00;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(255,140,0,0.1);
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: #9CA3AF;
+            color: #94a3b8;
         }
 
         .form-group select {
-            color: var(--primary-color);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
         }
 
         .form-group select option {
             background: #ffffff;
-            color: var(--primary-color);
+            color: #1e293b;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
         }
 
         .form-group input:focus,
@@ -663,27 +741,27 @@
         }
 
         .form-submit-btn {
-            background: linear-gradient(135deg, #FF8C00, #FFB347);
-            color: #000;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 30px;
-            font-weight: 800;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            box-shadow: 0 12px 30px rgba(255, 140, 0, 0.3);
             width: 100%;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             margin-top: 0.5rem;
+            font-family: inherit;
         }
 
         .form-submit-btn:hover {
-            background: linear-gradient(135deg, #FFB347, #FF8C00);
-            transform: translateY(-3px);
-            box-shadow: 0 18px 45px rgba(255, 140, 0, 0.45);
-            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255,140,0,0.3);
         }
 
         /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -730,7 +808,7 @@
             }
 
             .general-info-section {
-                padding: 4rem 0;
+                padding: 3.5rem 0 2.5rem;
             }
 
             .process-content h2 {
@@ -739,7 +817,7 @@
             }
 
             .general-info-header h2 {
-                font-size: 2rem;
+                font-size: 1.9rem;
                 margin-bottom: 0.8rem;
             }
 
@@ -1014,7 +1092,7 @@
 
 
     <!-- Navbar -->
-    <nav class="navbar scrolled">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
@@ -1042,22 +1120,23 @@
                         <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Premium Hero Section -->
     <header class="admissions-hero">
-        <img src="img/page_header.png" alt="Header Background" class="admissions-hero-bg">
+        <img src="img/school banner.png" alt="Noshahi School Campus" class="admissions-hero-bg">
         <div class="admissions-hero-overlay"></div>
         <div class="container admissions-hero-content">
             <div class="badge">
                 <i class="fas fa-graduation-cap"></i> Join Our Community
             </div>
             <h1>Start Your <span>Journey</span><br>With Noshahi</h1>
-            <p>A Seamless Admission Process Designed For Your Family's Peace of Mind</p>
+            <p>A Simple and Easy Admission Process for Your Child</p>
         </div>
     </header>
 
@@ -1067,17 +1146,14 @@
             <div class="admission-process-grid">
                 <div class="process-content">
                     <h2>Admission <span>Process</span></h2>
-                    <p>We welcome students who are eager to learn and grow in a balanced environment of modern
-                        technology and Islamic values. Our streamlined admission process ensures your family feels
-                        welcome every step of the way.</p>
+                    <p>We welcome students who want to learn and grow in a safe place where modern education and Islamic values go hand in hand. Our admission process is simple and easy — your family will feel right at home from the very start.</p>
 
                     <div class="process-steps">
                         <div class="process-step">
                             <div class="step-number">1</div>
                             <div class="step-content">
                                 <h4><i class="fas fa-clipboard"></i> Registration</h4>
-                                <p>Obtain and submit the registration form from our campus admission office. Provide
-                                    basic student and parent information.</p>
+                                <p>Get the registration form from our school office. Fill it with your child's and your basic details.</p>
                             </div>
                         </div>
 
@@ -1085,8 +1161,7 @@
                             <div class="step-number">2</div>
                             <div class="step-content">
                                 <h4><i class="fas fa-graduation-cap"></i> Assessment</h4>
-                                <p>The student undergoes a basic assessment test (Primary & above) or a friendly
-                                    interview (Pre-school). This helps us understand learning needs.</p>
+                                <p>Your child will take a simple test (Primary class and above) or have a friendly talk with the teacher (Pre-school). This helps us know your child better.</p>
                             </div>
                         </div>
 
@@ -1094,8 +1169,7 @@
                             <div class="step-number">3</div>
                             <div class="step-content">
                                 <h4><i class="fas fa-handshake"></i> Parent Interview</h4>
-                                <p>A brief meeting with parents to align on educational goals, values, and discuss any
-                                    questions about school policies.</p>
+                                <p>A short meeting with you to talk about your child's education, our school rules, and answer any questions you may have.</p>
                             </div>
                         </div>
 
@@ -1103,8 +1177,7 @@
                             <div class="step-number">4</div>
                             <div class="step-content">
                                 <h4><i class="fas fa-check-circle"></i> Fee Submission</h4>
-                                <p>Upon clearance, submit required documents and admission fee to secure your child's
-                                    seat for the academic year.</p>
+                                <p>After everything is done, submit the required documents and admission fee to book your child's seat for this year.</p>
                             </div>
                         </div>
                     </div>
@@ -1152,7 +1225,7 @@
                             <strong><i class="fas fa-circle-dot"
                                     style="color: var(--accent-color); margin-right: 8px; font-size: 0.6rem;"></i>
                                 Higher Classes:</strong>
-                            <p>Age must correspond appropriately with passing previous grade</p>
+                            <p>Age should match the class based on last school result</p>
                         </div>
                     </div>
                 </div>
@@ -1169,42 +1242,58 @@
                     <i class="fas fa-info-circle"></i> Essential Details
                 </div>
                 <h2>General <span>Information</span></h2>
-                <p>Everything you need to know about fees, uniforms, timings, and transportation â€” all in one place</p>
+                <p>Everything you need to know about fees, uniforms, timings, and transport &mdash;  all in one place</p>
             </div>
 
             <div class="general-info-grid">
                 <div class="info-content">
                     <div class="info-cards-wrapper">
                         <div class="info-card">
-                            <div class="info-card-icon">
+                            <div class="info-card-icon orange">
                                 <i class="fas fa-money-bill-wave"></i>
                             </div>
                             <h4>Fee Information</h4>
-                            <p>Affordable monthly fees covering tuition &amp; activities. Detailed fee charts available at our admission office.</p>
+                            <p>Low monthly fees that cover study and activities. Full fee details given at our office.</p>
+                            <ul class="info-card-list">
+                                <li><i class="fas fa-check-circle" style="color: #FF8C00;"></i> Monthly fee due by 10th of each month</li>
+                                <li><i class="fas fa-check-circle" style="color: #FF8C00;"></i>Sibling discount available for 2nd child</li>
+                            </ul>
                         </div>
 
                         <div class="info-card">
-                            <div class="info-card-icon">
+                            <div class="info-card-icon blue">
                                 <i class="fas fa-tshirt"></i>
                             </div>
                             <h4>Uniforms</h4>
-                            <p>Summer &amp; winter uniforms required. Full details and vendor info provided upon admission.</p>
+                            <p>Both summer and winter uniforms are needed. Shop details given when your child joins.</p>
+                            <ul class="info-card-list">
+                                <li><i class="fas fa-check-circle" style="color: #2563EB;"></i>Available at designated shops near school</li>
+                                <li><i class="fas fa-check-circle" style="color: #2563EB;"></i> PE uniform for sports activities</li>
+                            </ul>
                         </div>
 
                         <div class="info-card">
-                            <div class="info-card-icon">
+                            <div class="info-card-icon green">
                                 <i class="fas fa-clock"></i>
                             </div>
                             <h4>School Timings</h4>
-                            <p><strong>Mon–Thu:</strong> 8:00 AM – 1:30 PM &nbsp;|&nbsp; <strong>Fri:</strong> 8:00 AM – 12:00 PM &nbsp;|&nbsp; <strong>Sat:</strong> Closed</p>
+                            <p><strong>Mon-Thu:</strong> 8:00 AM - 1:30 PM | <strong>Fri:</strong> 8:00 AM - 12:00 PM</p>
+                            <ul class="info-card-list">
+                                <li><i class="fas fa-check-circle" style="color: #16A34A;"></i> Gate opens at 7:30 AM sharp</li>
+                                <li><i class="fas fa-check-circle" style="color: #16A34A;"></i> Assembly starts at 7:50 AM</li>
+                            </ul>
                         </div>
 
                         <div class="info-card">
-                            <div class="info-card-icon">
+                            <div class="info-card-icon purple">
                                 <i class="fas fa-bus"></i>
                             </div>
                             <h4>Transportation</h4>
-                            <p>Bus service available on selected routes. Charges discussed separately at the time of admission.</p>
+                            <p>Bus service is available on many routes. Charges are shared when you apply.</p>
+                            <ul class="info-card-list">
+                                <li><i class="fas fa-check-circle" style="color: #9333EA;"></i> Covers major areas of the city</li>
+                                <li><i class="fas fa-check-circle" style="color: #9333EA;"></i> GPS tracked for parent peace of mind</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1212,10 +1301,9 @@
                 <div class="admission-form-card">
                     <h3><i class="fas fa-wpforms" style="margin-right: 8px; color: var(--accent-color);"></i> Admission
                         Inquiry Form</h3>
-                    <p>Fill out this form and we'll get back to you within 24 hours with next steps and additional
-                        information.</p>
+                    <p>Fill out this form and we will call you back within 24 hours with more details.</p>
 
-                    <form id="admissionForm" style="display: flex; flex-direction: column; gap: 0;">
+                    <form id="admissionForm" style="display: flex; flex-direction: column; gap: 0; flex-grow: 1;">
                         <div class="form-group">
                             <label for="parent_name">Parent / Guardian Name <span
                                     style="color: var(--accent-color);">*</span></label>
@@ -1268,7 +1356,7 @@
                                 placeholder="Any specific questions or information you'd like to know?"></textarea>
                         </div>
 
-                        <button type="submit" class="form-submit-btn">
+                        <button type="submit" class="form-submit-btn" style="margin-top: auto;">
                             <i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Submit Inquiry
                         </button>
                     </form>
@@ -1295,8 +1383,7 @@
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                         <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer
-                        education, and strong Islamic values.</p>
+                    <p class="footer-desc">Helping children learn with modern studies, computer skills, and strong Islamic values.</p>
                     <div class="social-links">
                         <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>

@@ -485,20 +485,6 @@
             z-index: -1;
         }
 
-        /* Top accent line */
-        .ce-hl-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--ce-secondary);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-            z-index: 2;
-        }
-
         .ce-hl-card:hover {
             transform: translateY(-8px);
             border-color: var(--ce-secondary);
@@ -507,10 +493,6 @@
 
         .ce-hl-card:hover::before {
             height: 100%;
-        }
-
-        .ce-hl-card:hover::after {
-            transform: scaleX(1);
         }
 
         .ce-hl-icon {

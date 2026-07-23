@@ -1029,8 +1029,19 @@
         .ce-cta-btns {
             display: flex;
             gap: 1rem;
-            justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .ce-cta-btns .ce-btn-outline {
+            background: var(--ce-primary);
+            border: 2px solid rgba(255,255,255,0.5);
+            color: #fff;
+        }
+
+        .ce-cta-btns .ce-btn-outline:hover {
+            background: var(--ce-secondary);
+            border-color: var(--ce-secondary);
+            color: #fff;
         }
 
         .ce-cta-trust {

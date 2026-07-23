@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Auto Active Nav Link ──
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const allNavLinks = document.querySelectorAll('.nav-links a');
+
+  // Remove all existing active classes
+  allNavLinks.forEach(link => link.classList.remove('active'));
+
+  // Find and activate matching link(s)
+  allNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const hrefPage = href.split('/').pop().split('?')[0].split('#')[0];
+    if (hrefPage === currentPage) {
+      link.classList.add('active');
+
+      // If it's a dropdown child, also activate parent
+      const parentDropdown = link.closest('.dropdown');
+      if (parentDropdown) {
+        const parentLink = parentDropdown.querySelector(':scope > a');
+        if (parentLink) parentLink.classList.add('active');
+      }
+    }
+  });
+
   // Sticky Navbar
   const navbar = document.querySelector('.navbar');
   const mobileToggle = document.querySelector('.mobile-toggle');

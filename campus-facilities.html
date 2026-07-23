@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noshahi School System - Campus Facilities</title>
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
-    <meta name="description" content="Discover our safe, modern campus facilities including smart classrooms, computer lab, science lab, Nazra Quran, solar power, and more.">
+    <meta name="description" content="Discover our safe, modern campus facilities including smart classrooms, computer lab, Nazra Quran, solar power, and more.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
@@ -485,7 +485,7 @@
         .fac-text h2 span { color: var(--orange); }
 
         .fac-text > p {
-            font-size: 1.1rem;
+            font-size: 0.92rem;
             color: #556070;
             line-height: 1.8;
             margin-bottom: 2rem;
@@ -542,67 +542,6 @@
         .fac-btn.outline-orange:hover {
             background: var(--orange);
             color: var(--white);
-        }
-
-        /* ═══════════════════════════════════════════
-           SCIENCE LAB - FLOATING CONTENT
-        ═══════════════════════════════════════════ */
-        .fac-science-wrap {
-            position: relative;
-            border-radius: 40px;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(11,46,111,0.12);
-        }
-
-        .fac-science-wrap img {
-            width: 100%; height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .fac-science-float {
-            position: absolute;
-            bottom: 2rem; right: 2rem;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            padding: 2rem;
-            border-radius: 24px;
-            max-width: 380px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .fac-science-float h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--nave);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .fac-science-float h3 span {
-            background: var(--orange);
-            color: var(--white);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-        }
-
-        .fac-science-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .fac-science-tag {
-            background: rgba(11,46,111,0.06);
-            color: var(--nave);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
         }
 
         /* ═══════════════════════════════════════════
@@ -675,13 +614,13 @@
         .fac-solar-card i { font-size: 2.2rem; color: var(--orange); margin-bottom: 1rem; }
 
         .fac-solar-card h4 {
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--nave);
             margin-bottom: 0.4rem;
         }
 
-        .fac-solar-card p { font-size: 0.85rem; color: #556070; line-height: 1.6; }
+        .fac-solar-card p { font-size: 0.92rem; color: #556070; line-height: 1.6; }
 
         /* ═══════════════════════════════════════════
            TRANSPORT - TIMELINE
@@ -768,13 +707,13 @@
         .fac-transport-card i { font-size: 2rem; color: var(--orange); margin-bottom: 1rem; }
 
         .fac-transport-card h4 {
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--nave);
             margin-bottom: 0.4rem;
         }
 
-        .fac-transport-card p { font-size: 0.85rem; color: #556070; line-height: 1.6; }
+        .fac-transport-card p { font-size: 0.92rem; color: #556070; line-height: 1.6; }
 
         /* ═══════════════════════════════════════════
            WATER & HYGIENE - HALF/HALF
@@ -788,8 +727,8 @@
             box-shadow: 0 25px 60px rgba(11,46,111,0.08);
         }
 
-        .fac-health-img { position: relative; min-height: 500px; }
-        .fac-health-img img { width: 100%; height: 100%; object-fit: cover; }
+        .fac-health-img { position: relative; min-height: 500px; border-radius: 24px; overflow: hidden; }
+        .fac-health-img img, .fac-health-img svg { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         .fac-health-content {
             background: var(--nave);
@@ -863,13 +802,13 @@
         .fac-secure-card i { font-size: 2rem; color: var(--orange); margin-bottom: 1rem; }
 
         .fac-secure-card h4 {
-            font-size: 1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--nave);
             margin-bottom: 0.4rem;
         }
 
-        .fac-secure-card p { font-size: 0.85rem; color: #556070; line-height: 1.6; }
+        .fac-secure-card p { font-size: 0.92rem; color: #556070; line-height: 1.6; }
 
         /* ═══════════════════════════════════════════
            STATISTICS
@@ -1202,8 +1141,6 @@
             .fac-solar-highlights { grid-template-columns: 1fr; }
             .fac-secure-grid { grid-template-columns: 1fr; }
             .fac-stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .fac-science-float { position: relative; bottom: auto; right: auto; max-width: 100%; margin-top: 1.5rem; border-radius: 16px; }
-            .fac-science-wrap img { height: 300px; }
             .fac-intro-bg-text { font-size: 5rem; }
             .fac-health-content { padding: 2rem; }
         }
@@ -1330,11 +1267,10 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html" class="active">Facilities <i class="fas fa-chevron-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
                 <li><a href="student-activities.html">Activities</a></li>
@@ -1351,15 +1287,11 @@
         <div class="fac-hero-content">
             <div class="fac-hero-badge"><i class="fas fa-building-columns"></i> Campus Facilities</div>
             <h1>World-Class <span>Campus</span> Built for Learning</h1>
-            <p>From smart computer labs to science laboratories, solar-powered classrooms to safe transport — explore the facilities that make Noshahi a place where students thrive.</p>
+            <p>From smart computer labs to solar-powered classrooms and safe transport — explore the facilities that make Noshahi a place where students thrive.</p>
             <div class="fac-hero-btns">
-                <a href="#science-lab" class="fac-hero-btn primary">Explore Facilities <i class="fas fa-arrow-down"></i></a>
+                <a href="#computer-courses" class="fac-hero-btn primary">Explore Facilities <i class="fas fa-arrow-down"></i></a>
                 <a href="admissions.html" class="fac-hero-btn outline">Enroll Now</a>
             </div>
-        </div>
-        <div class="fac-scroll-indicator">
-            <div class="mouse"></div>
-            <span>Scroll</span>
         </div>
     </section>
 
@@ -1418,38 +1350,9 @@
     </section>
 
     <!-- ════════════════════════════════════════════
-         04 - SCIENCE LABORATORY
+         04 - NAZRA QURAN WITH TAJWEED
     ════════════════════════════════════════════ -->
-    <section class="fac-section" id="science-lab" data-nav="4" style="background: var(--light-bg);">
-        <div class="fac-section-inner">
-            <div class="fac-reveal">
-                <div style="text-align:center;">
-                    <div class="fac-section-label"><i class="fas fa-flask"></i> Science Lab</div>
-                    <div class="fac-text" style="text-align:center; margin-bottom:2.5rem;">
-                        <h2>Hands-On <span>Science</span> Laboratory</h2>
-                        <p style="max-width:650px; margin:0 auto;">A fully equipped science lab where students explore Chemistry, Physics, and Biology through practical experiments that bring textbooks to life.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="fac-science-wrap fac-reveal">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1200&auto=format&fit=crop" alt="Science Lab">
-                <div class="fac-science-float">
-                    <h3><i class="fas fa-microscope" style="color:var(--orange);"></i> SCIENCE LAB <span>PREMIUM</span></h3>
-                    <div class="fac-science-tags">
-                        <div class="fac-science-tag">Chemistry</div>
-                        <div class="fac-science-tag">Physics</div>
-                        <div class="fac-science-tag">Biology</div>
-                        <div class="fac-science-tag">Practical Experiments</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════
-         05 - NAZRA QURAN WITH TAJWEED
-    ════════════════════════════════════════════ -->
-    <section class="fac-section fac-quran" id="quran" data-nav="5">
+    <section class="fac-section fac-quran" id="quran" data-nav="4">
         <div class="fac-section-inner">
             <div class="fac-split">
                 <div class="fac-reveal-left">
@@ -1479,7 +1382,7 @@
     <!-- ════════════════════════════════════════════
          06 - SOLAR POWER SYSTEM
     ════════════════════════════════════════════ -->
-    <section class="fac-section fac-solar" id="solar" data-nav="6">
+    <section class="fac-section fac-solar" id="solar" data-nav="5">
         <div class="fac-section-inner">
             <div class="fac-split reverse">
                 <div class="fac-reveal-right">
@@ -1520,7 +1423,7 @@
     <!-- ════════════════════════════════════════════
          07 - TRANSPORT SERVICE
     ════════════════════════════════════════════ -->
-    <section class="fac-section" id="transport" data-nav="7">
+    <section class="fac-section" id="transport" data-nav="6">
         <div class="fac-section-inner">
             <div class="fac-reveal">
                 <div style="text-align:center;">
@@ -1577,7 +1480,7 @@
     <!-- ════════════════════════════════════════════
          08 - CLEAN DRINKING WATER & HYGIENE
     ════════════════════════════════════════════ -->
-    <section class="fac-section" id="water" data-nav="8">
+    <section class="fac-section" id="water" data-nav="7">
         <div class="fac-section-inner">
             <div class="fac-reveal">
                 <div style="text-align:center; margin-bottom:3rem;">
@@ -1589,7 +1492,70 @@
             </div>
             <div class="fac-health-grid fac-reveal">
                 <div class="fac-health-img">
-                    <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?q=80&w=800&auto=format&fit=crop" alt="Clean Drinking Water">
+                    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+                        <defs>
+                            <linearGradient id="waterGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="waterGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.1" />
+                            </linearGradient>
+                            <linearGradient id="tapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#94a3b8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#64748b;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="softShadow">
+                                <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0284c7" flood-opacity="0.15"/>
+                            </filter>
+                        </defs>
+                        <!-- Background -->
+                        <rect width="400" height="500" rx="0" fill="#f0f9ff"/>
+                        <!-- Decorative circles -->
+                        <circle cx="320" cy="80" r="60" fill="#38bdf8" opacity="0.08"/>
+                        <circle cx="80" cy="420" r="80" fill="#0ea5e9" opacity="0.06"/>
+                        <circle cx="350" cy="380" r="40" fill="#38bdf8" opacity="0.1"/>
+                        <!-- Water Tank / Dispenser Body -->
+                        <rect x="140" y="160" width="120" height="180" rx="16" fill="url(#waterGrad1)" filter="url(#softShadow)"/>
+                        <rect x="148" y="168" width="104" height="50" rx="10" fill="rgba(255,255,255,0.2)"/>
+                        <!-- Water Level Lines -->
+                        <line x1="160" y1="240" x2="240" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4"/>
+                        <line x1="160" y1="260" x2="240" y2="260" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4"/>
+                        <line x1="160" y1="280" x2="240" y2="280" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4"/>
+                        <!-- Water Wave Inside -->
+                        <path d="M148,300 Q175,285 200,300 Q225,315 252,300 L252,336 Q252,340 248,340 L152,340 Q148,340 148,336 Z" fill="rgba(255,255,255,0.25)"/>
+                        <!-- Tap/Faucet -->
+                        <rect x="185" y="340" width="30" height="20" rx="4" fill="url(#tapGrad)"/>
+                        <rect x="190" y="360" width="20" height="8" rx="3" fill="#64748b"/>
+                        <!-- Water Drops from tap -->
+                        <ellipse cx="200" cy="385" rx="6" ry="8" fill="#38bdf8" opacity="0.7"/>
+                        <ellipse cx="200" cy="405" rx="4" ry="6" fill="#38bdf8" opacity="0.5"/>
+                        <ellipse cx="200" cy="420" rx="3" ry="4" fill="#38bdf8" opacity="0.3"/>
+                        <!-- Cup/Glass -->
+                        <path d="M175,410 L180,450 Q180,458 200,458 Q220,458 220,450 L225,410 Z" fill="rgba(255,255,255,0.9)" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <path d="M180,425 Q200,418 220,425 L220,450 Q220,456 200,456 Q180,456 180,450 Z" fill="#38bdf8" opacity="0.4"/>
+                        <!-- Decorative big drop -->
+                        <path d="M300,120 Q300,90 320,70 Q340,90 340,120 Q340,150 320,170 Q300,150 300,120 Z" fill="#38bdf8" opacity="0.15"/>
+                        <!-- Small floating drops -->
+                        <circle cx="100" cy="150" r="8" fill="#38bdf8" opacity="0.15"/>
+                        <circle cx="310" cy="280" r="5" fill="#0ea5e9" opacity="0.12"/>
+                        <circle cx="90" cy="300" r="6" fill="#38bdf8" opacity="0.1"/>
+                        <!-- Sparkle / Clean icon -->
+                        <g transform="translate(290,200)" opacity="0.2">
+                            <path d="M0,-12 L3,-4 L12,0 L3,4 L0,12 L-3,4 L-12,0 L-3,-4 Z" fill="#0ea5e9"/>
+                        </g>
+                        <g transform="translate(110,220) scale(0.7)" opacity="0.15">
+                            <path d="M0,-12 L3,-4 L12,0 L3,4 L0,12 L-3,4 L-12,0 L-3,-4 Z" fill="#38bdf8"/>
+                        </g>
+                        <!-- Shield / Hygiene Badge -->
+                        <g transform="translate(200,115)">
+                            <path d="M0,-28 Q-30,-20 -30,10 Q-30,35 0,45 Q30,35 30,10 Q30,-20 0,-28 Z" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+                            <path d="M0,-22 Q-24,-15 -24,8 Q-24,28 0,36 Q24,28 24,8 Q24,-15 0,-22 Z" fill="#f0f9ff"/>
+                            <text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#0ea5e9">H₂O</text>
+                            <path d="M-8,14 L-2,14 L2,8 L6,14 L12,14" stroke="#0ea5e9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        </g>
+                    </svg>
                 </div>
                 <div class="fac-health-content">
                     <h2>Your Child's Health & Hygiene Matter Most</h2>
@@ -1608,7 +1574,7 @@
     <!-- ════════════════════════════════════════════
          09 - SECURE, DISCIPLINED & PEACEFUL CAMPUS
     ════════════════════════════════════════════ -->
-    <section class="fac-section fac-secure" id="campus" data-nav="9">
+    <section class="fac-section fac-secure" id="campus" data-nav="8">
         <div class="fac-section-inner">
             <div class="fac-reveal" style="text-align:center; margin-bottom:2rem;">
                 <div class="fac-section-label"><i class="fas fa-shield-halved"></i> Secure Campus</div>
@@ -1684,7 +1650,7 @@
             <div class="fac-reveal" style="text-align:center; max-width:800px; margin:0 auto;">
                 <div class="fac-section-label"><i class="fas fa-handshake"></i> Our Commitment</div>
                 <h2 style="font-size:2.8rem; font-weight:700; color:var(--nave); margin-bottom:1.5rem;">We Are Committed to <span style="color:var(--orange);">Every Student</span></h2>
-                <p style="font-size:1.1rem; color:#556070; line-height:1.9;">Noshahi School System is dedicated to the academic, moral, and personal development of every student. We provide the facilities, teachers, and environment your child needs to become a successful and responsible human being.</p>
+                <p style="font-size:0.92rem; color:#556070; line-height:1.9;">Noshahi School System is dedicated to the academic, moral, and personal development of every student. We provide the facilities, teachers, and environment your child needs to become a successful and responsible human being.</p>
             </div>
         </div>
     </section>

@@ -127,7 +127,7 @@
            1. HERO
         ============================================= */
         .isl-hero {
-            background-color: var(--pure-white);
+            background-color: #EFF6FF;
             padding: 140px 0 80px;
             position: relative;
             overflow: hidden;
@@ -183,7 +183,7 @@
         }
 
         .isl-hero-left h1 {
-            font-size: 3.2rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--deep-blue);
             line-height: 1.18;
@@ -268,38 +268,13 @@
             overflow: hidden;
         }
 
-        .portrait-placeholder {
-            background: linear-gradient(135deg, #ddeeff 0%, #eef4fb 50%, #fef3e2 100%);
-            border-radius: 24px;
+        .portrait-img {
+            width: 100%;
             height: 480px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
+            object-fit: cover;
+            border-radius: 24px;
             border: 2px solid rgba(74,144,217,0.15);
             box-shadow: 0 20px 60px rgba(15,31,61,0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* decorative circles inside portrait */
-        .portrait-placeholder::before {
-            content: '';
-            position: absolute;
-            top: -40px; right: -40px;
-            width: 200px; height: 200px;
-            border-radius: 50%;
-            background: rgba(232,148,26,0.07);
-        }
-
-        .portrait-placeholder::after {
-            content: '';
-            position: absolute;
-            bottom: -30px; left: -30px;
-            width: 160px; height: 160px;
-            border-radius: 50%;
-            background: rgba(74,144,217,0.08);
         }
 
         .portrait-icon-wrap {
@@ -1020,7 +995,7 @@
         @media (max-width: 640px) {
             .isl-hero { padding: 80px 0 35px; }
             .isl-hero-left .badge-pill { font-size: 0.72rem; padding: 0.35rem 0.85rem; }
-            .isl-hero-left h1 { font-size: 1.75rem; word-break: break-word; }
+            .isl-hero-left h1 { font-size: 1.55rem; word-break: break-word; }
             .isl-hero-left .sub-heading { font-size: 0.95rem; }
             .isl-hero-left p { font-size: 0.9rem; line-height: 1.6; }
             .isl-hero-btns { flex-direction: column; gap: 0.75rem; }
@@ -1091,11 +1066,11 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html" class="active">Academics <i class="fas fa-chevron-down"></i></a>
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
-                        <li><a href="islamic-education.html" class="active">Islamic Ed</a></li>
+                        <li><a href="islamic-education.html">Islamic Ed</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -1103,7 +1078,6 @@
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
                 <li><a href="student-activities.html">Activities</a></li>
@@ -1122,9 +1096,9 @@
                 <div class="badge-pill">
                     <i class="fas fa-mosque"></i> Islamic Education
                 </div>
-                <h1>Growing Good Hearts,<br><span>Building Strong Character.</span></h1>
+                <h1><span>Faith &amp; Character</span><br>Building Strong Minds</h1>
                 <p class="sub-heading">"Where Islamic values lead to a bright future."</p>
-                <p>At Noshahi School System, we believe a truly educated child is one whose mind, heart, and good habits are all developed together. Our Islamic Education is part of every day — not just a separate class, but a way of life.</p>
+                <p>At Noshahi School System, Islamic Education is part of every day — nurturing mind, heart, and character through Quran, Tarbiat, and daily values.</p>
                 <div class="isl-hero-btns">
                     <a href="#pillars" class="btn-isl-primary">
                         <i class="fas fa-book-open-reader"></i> Explore Our Curriculum
@@ -1138,12 +1112,7 @@
             <!-- RIGHT: Portrait Frame -->
             <div class="isl-hero-right">
                 <div class="portrait-frame">
-                    <div class="portrait-placeholder">
-                        <div class="portrait-icon-wrap">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <span class="placeholder-label">Student Portrait Photo</span>
-                    </div>
+                    <img src="img/Islamic study.png" alt="Islamic Education" class="portrait-img">
                     <!-- floating badge 1 -->
                     <div class="portrait-badge">
                         <div class="badge-icon"><i class="fas fa-star"></i></div>

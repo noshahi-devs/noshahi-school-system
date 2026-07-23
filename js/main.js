@@ -15,18 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu Toggle
   if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        if (navLinks.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-          document.body.style.overflow = 'hidden';
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-          document.body.style.removeProperty('overflow');
-        }
+      if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.removeProperty('overflow');
       }
     });
   }
@@ -39,12 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Close mobile menu if open
       if (navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
+        mobileToggle.classList.remove('active');
         document.body.style.removeProperty('overflow');
-        if (mobileToggle.querySelector('i')) {
-          mobileToggle.querySelector('i').classList.remove('fa-times');
-          mobileToggle.querySelector('i').classList.add('fa-bars');
-        }
-        mobileToggle.style.removeProperty('color');
       }
 
       const target = document.querySelector(this.getAttribute('href'));

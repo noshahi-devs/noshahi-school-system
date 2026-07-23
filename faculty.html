@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -321,8 +321,10 @@
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                 <span class="logo-text">Noshahi School System</span>
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -354,33 +356,77 @@
     <header class="page-header">
         <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
         <div class="page-header-content">
-            <h1>Our Faculty</h1>
+            <h1>Our Faculty &amp; Leadership</h1>
             <p>Guiding the Next Generation</p>
         </div>
     </header>
 
-    <!-- Leadership -->
-    <section class="leadership-section" id="leadership">
-        <div class="container">
-            <div class="section-title">
-                <h2>Leadership</h2>
-            </div>
-            <div class="leadership-grid">
-                <div class="leader-card">
-                    <div class="leader-avatar blue">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Principal Name</h3>
-                    <div class="leader-role">Principal</div>
-                    <p>Over 20 years of experience in educational leadership, shaping the academic and moral landscape of the institution.</p>
+    <!-- Leadership Section — Executive Management -->
+    <section class="leadership-section" id="leadership" style="padding: 4rem 0; background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);">
+        <div class="container" style="max-width: 1300px;">
+            <div class="section-title" style="margin-bottom: 3rem; text-align: center;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); color: #FF8C00; padding: 0.35rem 1.1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <i class="fas fa-user-tie"></i> School Leadership
                 </div>
-                <div class="leader-card">
-                    <div class="leader-avatar orange">
-                        <i class="fas fa-user"></i>
+                <h2 style="font-size: 2.6rem; font-weight: 900; color: #1F2A44;">Executive <span style="color: #FF8C00;">Leadership</span></h2>
+                <p style="color: #64748B; font-size: 1rem; max-width: 650px; margin: 0.5rem auto 0;">Meet the visionary leaders guiding Noshahi School System</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+                <!-- Director Card -->
+                <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(255,140,0,0.25); box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #FF8C00, #FFA733);"></div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                            <div style="width: 65px; height: 65px; border-radius: 50%; background: #1F2A44; display: flex; align-items: center; justify-content: center; color: #FF8C00; font-size: 1.8rem; flex-shrink: 0; border: 2px solid #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span style="background: rgba(255, 140, 0, 0.12); color: #FF8C00; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 20px; text-transform: uppercase;">Director</span>
+                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #1F2A44; margin: 0.2rem 0 0;">Adeel Noshahi</h3>
+                                <p style="color: #64748B; font-size: 0.85rem; margin: 0;">Director, Noshahi School System</p>
+                            </div>
+                        </div>
+                        <div style="background: #F8FAFC; border-left: 3px solid #FF8C00; padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; margin-bottom: 1.25rem;">
+                            <p style="color: #334155; font-size: 0.9rem; line-height: 1.65; font-style: italic; margin-bottom: 0.5rem;">
+                                "At Noshahi School System, we are committed to transforming education by integrating technology, business, and practical learning into everyday experiences through our <strong>'Learn to Earn'</strong> philosophy."
+                            </p>
+                        </div>
                     </div>
-                    <h3>Vice Principal Name</h3>
-                    <div class="leader-role">Vice Principal</div>
-                    <p>Dedicated to maintaining high academic standards and fostering a positive environment for both staff and students.</p>
+                    <div style="padding-top: 0.75rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Contact Director:</span>
+                        <a href="tel:03281642297" style="display: inline-flex; align-items: center; gap: 6px; background: #1F2A44; color: #FFF; font-weight: 700; font-size: 0.85rem; padding: 0.45rem 1rem; border-radius: 25px; text-decoration: none;">
+                            <i class="fas fa-phone-alt" style="color: #FF8C00;"></i> 0328-1642297
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Principal Card -->
+                <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(59, 130, 246, 0.25); box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #3B82F6, #60A5FA);"></div>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                            <div style="width: 65px; height: 65px; border-radius: 50%; background: #1F2A44; display: flex; align-items: center; justify-content: center; color: #3B82F6; font-size: 1.8rem; flex-shrink: 0; border: 2px solid #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div>
+                                <span style="background: rgba(59, 130, 246, 0.12); color: #3B82F6; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 20px; text-transform: uppercase;">Principal</span>
+                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #1F2A44; margin: 0.2rem 0 0;">Aqeel Noshahi</h3>
+                                <p style="color: #64748B; font-size: 0.85rem; margin: 0;">Principal, Noshahi School System</p>
+                            </div>
+                        </div>
+                        <div style="background: #F8FAFC; border-left: 3px solid #3B82F6; padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; margin-bottom: 1.25rem;">
+                            <p style="color: #334155; font-size: 0.9rem; line-height: 1.65; font-style: italic; margin-bottom: 0.5rem;">
+                                "Our priority is to provide a safe, disciplined, and inspiring learning environment where every student can thrive. We value strong values, modern teaching methods, and transparent parent communication."
+                            </p>
+                        </div>
+                    </div>
+                    <div style="padding-top: 0.75rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Contact Principal:</span>
+                        <a href="tel:03216892097" style="display: inline-flex; align-items: center; gap: 6px; background: #1F2A44; color: #FFF; font-weight: 700; font-size: 0.85rem; padding: 0.45rem 1rem; border-radius: 25px; text-decoration: none;">
+                            <i class="fas fa-phone-alt" style="color: #3B82F6;"></i> 0321-6892097
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -395,30 +441,6 @@
             <p class="dept-subtitle">Our faculty consists of highly qualified, experienced, and passionate educators. They undergo regular training to stay updated with modern teaching methods.</p>
 
             <div class="dept-grid">
-                <div class="dept-card">
-                    <div class="dept-card-icon">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Science Department</h3>
-                    <p>MSc. qualified educators with practical lab experience to make science fun and easy to understand.</p>
-                </div>
-
-                <div class="dept-card">
-                    <div class="dept-card-icon">
-                        <i class="fas fa-square-root-variable"></i>
-                    </div>
-                    <h3>Mathematics Department</h3>
-                    <p>Experts in building strong number and logic skills for students at every level.</p>
-                </div>
-
-                <div class="dept-card">
-                    <div class="dept-card-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3>Languages (English/Urdu)</h3>
-                    <p>Focused on improving reading, writing, and speaking skills in both English and Urdu.</p>
-                </div>
-
                 <div class="dept-card">
                     <div class="highlight-tag"><i class="fas fa-star" style="margin-right: 4px;"></i>Special Focus</div>
                     <div class="dept-card-icon">

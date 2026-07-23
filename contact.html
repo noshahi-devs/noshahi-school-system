@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,6 +13,201 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ═══════════════════════════════════════════
+           CONTACT HERO — FULL-VIEWPORT PREMIUM
+        ═══════════════════════════════════════════ */
+        .contact-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .contact-hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            animation: zoomEffect 18s ease infinite;
+        }
+
+        @keyframes zoomEffect {
+            0%   { transform: scale(1); }
+            50%  { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(160deg, rgba(11,46,111,0.88) 0%, rgba(6,20,48,0.80) 100%);
+            z-index: 1;
+        }
+
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 850px;
+            padding: 0 2rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .contact-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(247,148,29,0.15);
+            border: 1px solid rgba(247,148,29,0.4);
+            color: #FF8C00;
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            line-height: 1.12;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact-hero h1 span {
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.95rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.35s ease;
+        }
+
+        .contact-hero-btn.primary {
+            background: linear-gradient(135deg, #FF8C00, #FFB347);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(247,148,29,0.35);
+        }
+
+        .contact-hero-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(247,148,29,0.45);
+        }
+
+        .contact-hero-btn.outline {
+            border: 2px solid rgba(255,255,255,0.5);
+            color: #fff;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(6px);
+        }
+
+        .contact-hero-btn.outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .contact-hero-scroll {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-hero-scroll .mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid rgba(255,255,255,0.35);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .contact-hero-scroll .mouse::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: #FF8C00;
+            border-radius: 3px;
+            animation: scrollMouse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes scrollMouse {
+            0%   { opacity: 1; top: 6px; }
+            100% { opacity: 0; top: 22px; }
+        }
+
+        /* Responsive hero */
+        @media (max-width: 768px) {
+            .contact-hero { min-height: 350px; }
+            .contact-hero h1 { font-size: 2.4rem; }
+            .contact-hero p { font-size: 1.05rem; }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero { min-height: 300px; }
+            .contact-hero h1 { font-size: 1.9rem; }
+            .contact-hero-btns { flex-direction: column; align-items: center; }
+            .contact-hero-btn { width: 100%; justify-content: center; }
+        }
+    </style>
 </head>
 
 <body>
@@ -52,14 +247,24 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
-        <div class="page-header-content">
-            <h1>Contact Us</h1>
-            <p>We'd Love to Hear From You</p>
+    <!-- Premium Hero Section -->
+    <section class="contact-hero">
+        <img src="img/school banner.png" alt="Noshahi School Campus" class="contact-hero-bg">
+        <div class="contact-hero-overlay"></div>
+        <div class="contact-hero-content">
+            <div class="contact-hero-badge"><i class="fas fa-headset"></i> We're Here to Help</div>
+            <h1>Get In Touch <span>With Us</span></h1>
+            <p>Have questions about admissions, programs, or campus life? Our team is always happy to help. Reach out to us anytime — we'd love to hear from you.</p>
+            <div class="contact-hero-btns">
+                <a href="tel:+923216892097" class="contact-hero-btn primary"><i class="fas fa-phone-alt"></i> Call Now</a>
+                <a href="https://wa.me/923216892097" target="_blank" class="contact-hero-btn outline"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
+            </div>
         </div>
-    </header>
+        <div class="contact-hero-scroll">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
 
     <!-- Contact Information & Form -->
     <style>
@@ -396,23 +601,23 @@
                         <!-- Phone -->
                         <div class="touch-info-card">
                             <div class="touch-info-icon blue"><i class="fas fa-phone"></i></div>
-                            <h4>Call Us</h4>
-                            <a href="tel:03281642297">0328-1642297</a><br>
-                            <a href="tel:03216892097">0321-6892097</a>
+                            <h4>Call Us & WhatsApp</h4>
+                            <a href="tel:+923216892097">+92 321 6892097</a><br>
+                            <a href="https://wa.me/923216892097" target="_blank" style="color: #25D366; font-weight:600; display: inline-block; margin-top: 5px;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
                         </div>
 
                         <!-- Email -->
                         <div class="touch-info-card">
                             <div class="touch-info-icon green"><i class="fas fa-envelope"></i></div>
                             <h4>Email Us</h4>
-                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
+                            <a href="mailto:info@noshahischoolsystem.com">info@noshahischoolsystem.com</a>
                         </div>
 
                         <!-- Hours -->
                         <div class="touch-info-card">
                             <div class="touch-info-icon purple"><i class="fas fa-clock"></i></div>
-                            <h4>Working Hours</h4>
-                            <p>Mon - Thu: 8AM - 2PM<br>Fri: 8AM - 12:30PM</p>
+                            <h4>School Timings</h4>
+                            <p style="font-size: 0.8rem; line-height: 1.6;"><strong>Summer:</strong><br>School: 7:30 AM – 1:00 PM<br>Academy: 4:00 PM – 7:00 PM<br><strong>Winter:</strong><br>School: 8:30 AM – 2:00 PM<br>Academy: 3:30 PM – 7:00 PM</p>
                         </div>
                     </div>
                 </div>
@@ -518,7 +723,7 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.25rem;">Contact Us</p>
-                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">0328-1642297 | 0321-6892097</p>
+                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">+92 321 6892097</p>
                 </div>
 
                 <!-- Stat 3 -->
@@ -528,8 +733,8 @@
                     <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(34,197,94,0.1); margin: 0 auto 0.75rem; display: flex; align-items: center; justify-content: center; color: #22C55E; font-size: 1.3rem;">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.25rem;">Business Hours</p>
-                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;">Mon-Thu: 8AM-2PM | Fri: 8AM-12:30PM</p>
+                    <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.25rem;">School Timings</p>
+                    <p style="color: var(--text-light); font-size: 0.85rem; margin: 0;"><strong>Summer:</strong> 7:30 AM – 1:00 PM<br><strong>Winter:</strong> 8:30 AM – 2:00 PM</p>
                 </div>
             </div>
         </div>
@@ -594,13 +799,12 @@
                         <li>
                             <i class="fas fa-phone-alt"></i>
                             <div class="phone-group">
-                                <a href="tel:03281642297">0328-1642297</a>
-                                <a href="tel:03216892097">0321-6892097</a>
+                                <a href="tel:+923216892097">+92 321 6892097</a>
                             </div>
                         </li>
                         <li>
                             <i class="fas fa-envelope"></i>
-                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
+                            <a href="mailto:info@noshahischoolsystem.com">info@noshahischoolsystem.com</a>
                         </li>
                     </ul>
                 </div>

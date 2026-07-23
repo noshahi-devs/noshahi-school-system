@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,8 +23,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; color: var(--text-dark); overflow-x: hidden; }
 
-        .dropdown-menu a { color: #1F2A44 !important; }
-        .navbar.scrolled .dropdown-menu a { color: #1F2A44 !important; }
+        .dropdown-menu a { color: #FFFFFF !important; }
+        .navbar.scrolled .dropdown-menu a { color: #FFFFFF !important; }
         .dropdown-menu a:hover { color: var(--orange) !important; }
 
         /* ═══════════════════════════════════════════
@@ -32,8 +32,9 @@
         ═══════════════════════════════════════════ */
         .fac-hero {
             position: relative;
-            height: 100vh;
-            min-height: 600px;
+            height: auto;
+            min-height: 0;
+            padding: 7rem 2rem 4rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -82,12 +83,12 @@
         }
 
         .fac-hero h1 {
-            font-size: 4rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--white);
-            line-height: 1.12;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
         }
 
         .fac-hero h1 span { color: var(--orange); }
@@ -148,42 +149,157 @@
         }
 
         .fac-scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
+            display: none;
+        }
+
+        /* ═══════════════════════════════════════════
+           COMPUTER COURSES SECTION
+        ═══════════════════════════════════════════ */
+        .fac-computer-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
-            gap: 8px;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        .fac-scroll-indicator .mouse {
-            width: 24px; height: 38px;
-            border: 2px solid rgba(255,255,255,0.4);
-            border-radius: 12px;
+        .fac-computer-img {
+            border-radius: 40px;
+            overflow: hidden;
             position: relative;
+            box-shadow: 0 25px 60px rgba(11,46,111,0.12);
         }
 
-        .fac-scroll-indicator .mouse::after {
-            content: '';
-            width: 4px; height: 8px;
-            background: var(--orange);
-            border-radius: 2px;
+        .fac-computer-img img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .fac-computer-img:hover img {
+            transform: scale(1.04);
+        }
+
+        .fac-computer-img .fac-img-badge {
             position: absolute;
-            top: 6px; left: 50%;
-            transform: translateX(-50%);
-            animation: scrollWheel 1.8s ease infinite;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 6px 20px rgba(247,148,29,0.4);
         }
 
-        @keyframes scrollWheel {
-            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-            100% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+        .fac-computer-courses {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .fac-computer-course {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.6rem 0.9rem;
+            background: rgba(255,140,0,0.06);
+            border: 1px solid rgba(255,140,0,0.12);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .fac-computer-course:hover {
+            background: rgba(255,140,0,0.12);
+            border-color: rgba(255,140,0,0.3);
+            transform: translateX(4px);
+        }
+
+        .fac-computer-course i {
+            color: var(--orange);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .fac-computer-levels {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .fac-computer-level {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .fac-computer-level:hover {
+            border-color: var(--orange);
+            box-shadow: 0 6px 20px rgba(247,148,29,0.12);
+            transform: translateY(-3px);
+        }
+
+        .fac-computer-level .level-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 0.6rem;
+            background: rgba(255,140,0,0.1);
+            color: var(--orange);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .fac-computer-level h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--nave);
+            margin-bottom: 0.2rem;
+        }
+
+        .fac-computer-level p {
+            font-size: 0.72rem;
+            color: #8896A7;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .fac-computer-wrap {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .fac-computer-img img {
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .fac-computer-courses {
+                grid-template-columns: 1fr;
+            }
+            .fac-computer-levels {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .fac-computer-img img {
+                height: 280px;
+            }
         }
 
         /* ═══════════════════════════════════════════
@@ -296,11 +412,11 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(247,148,29,0.08);
-            border: 1px solid rgba(247,148,29,0.2);
-            color: var(--orange);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
+            background: rgba(255,140,0,0.1);
+            border: 1px solid rgba(255,140,0,0.25);
+            color: #FF8C00;
+            padding: 0.4rem 1.25rem;
+            border-radius: 30px;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 1.5px;
@@ -879,6 +995,202 @@
         }
 
         @media (max-width: 768px) {
+            .fac-hero { padding: 5rem 1.5rem 3rem; }
+            .fac-hero h1 { font-size: 2.2rem; }
+            .fac-hero p { font-size: 1rem; }
+            .fac-text h2 { font-size: 2.2rem; }
+            .fac-features { grid-template-columns: 1fr; }
+            .fac-transport-timeline { flex-wrap: wrap; gap: 0.5rem; }
+            .fac-timeline-connector { width: 40px; }
+.fac-health-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fac-health-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .fac-health-item:hover {
+            background: rgba(247,148,29,0.1);
+            border-color: rgba(247,148,29,0.25);
+        }
+
+        .fac-health-item i { color: var(--orange); font-size: 1.1rem; width: 22px; text-align: center; }
+        .fac-health-item span { font-size: 0.92rem; font-weight: 500; color: var(--white); }
+
+        /* ═══════════════════════════════════════════
+           SECURE CAMPUS
+        ═══════════════════════════════════════════ */
+        .fac-secure {
+            background: var(--light-bg);
+        }
+
+        .fac-secure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fac-secure-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .fac-secure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11,46,111,0.08);
+            border-color: var(--orange);
+        }
+
+        .fac-secure-card i { font-size: 2rem; color: var(--orange); margin-bottom: 1rem; }
+
+        .fac-secure-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--nave);
+            margin-bottom: 0.4rem;
+        }
+
+        .fac-secure-card p { font-size: 0.85rem; color: #556070; line-height: 1.6; }
+
+        /* ═══════════════════════════════════════════
+           STATISTICS
+        ═══════════════════════════════════════════ */
+        .fac-stats {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 5rem 2rem;
+        }
+
+        .fac-stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .fac-stat-item { padding: 1.5rem; }
+
+        .fac-stat-num {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .fac-stat-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ═══════════════════════════════════════════
+           CTA
+        ═══════════════════════════════════════════ */
+        .fac-cta {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fac-cta-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(247,148,29,0.06);
+            pointer-events: none;
+        }
+
+        .fac-cta-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; left: -60px; }
+        .fac-cta-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; right: -30px; }
+        .fac-cta-circle:nth-child(3) { width: 150px; height: 150px; top: 30%; right: 10%; }
+
+        .fac-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .fac-cta h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .fac-cta p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .fac-cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ═══════════════════════════════════════════
+           REVEAL ANIMATIONS
+        ═══════════════════════════════════════════ */
+        .fac-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+        .fac-reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal-left.revealed { opacity: 1; transform: translateX(0); }
+
+        .fac-reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .fac-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .fac-split.reverse { direction: ltr; }
+            .fac-health-grid { grid-template-columns: 1fr; }
+            .fac-health-img { min-height: 350px; }
+            .fac-solar-highlights { grid-template-columns: 1fr 1fr; }
+            .fac-secure-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
             .fac-hero h1 { font-size: 2.2rem; }
             .fac-hero p { font-size: 1.05rem; }
             .fac-text h2 { font-size: 2.2rem; }
@@ -897,9 +1209,97 @@
         }
 
         @media (max-width: 480px) {
+            .fac-hero { padding: 4rem 1.25rem 2.5rem; }
             .fac-hero h1 { font-size: 1.9rem; }
             .fac-hero-btns { flex-direction: column; align-items: center; }
             .fac-stat-num { font-size: 2.5rem; }
+        }
+
+        /* ═══════════════════════════════════════════
+           FOOTER RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 992px) {
+            .premium-footer .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .premium-footer {
+                padding: 3.5rem 0 1.5rem;
+            }
+            .premium-footer .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+            .footer-desc {
+                text-align: center;
+                max-width: 100%;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .footer-col.links-col,
+            .footer-col.contact-col {
+                text-align: center;
+            }
+            .footer-col.links-col ul,
+            .footer-col.contact-col .contact-list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .footer-col.contact-col .contact-list li {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.3rem;
+            }
+            .footer-col.contact-col .contact-list li i {
+                margin-right: 0;
+            }
+            .footer-col.contact-col .phone-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-footer {
+                padding: 2.5rem 0 1.25rem;
+            }
+            .footer-logo .logo-text {
+                font-size: 1.15rem;
+            }
+            .footer-logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .footer-col h3 {
+                font-size: 1rem;
+            }
+            .footer-col p,
+            .footer-col a,
+            .footer-col li {
+                font-size: 0.82rem;
+            }
+            .social-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -913,14 +1313,16 @@
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                 <span class="logo-text">Noshahi School System</span>
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
@@ -928,9 +1330,9 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html" class="active">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html" class="active">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="campus-facilities.html" class="active">Campus Facilities</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                     </ul>
@@ -942,19 +1344,17 @@
         </div>
     </nav>
 
-    <!-- ════════════════════════════════════════════
-         HERO SECTION
-    ════════════════════════════════════════════ -->
-    <section class="fac-hero">
-        <img src="img/school banner.png" alt="Campus" class="fac-hero-video">
+    <!-- Hero Section -->
+    <section class="fac-hero" id="home">
+        <img src="img/hero_banner.png" alt="Noshahi Campus" class="fac-hero-video" onerror="this.src='img/school banner.png'">
         <div class="fac-hero-overlay"></div>
-        <div class="fac-hero-content fac-reveal">
-            <div class="fac-hero-badge"><i class="fas fa-star"></i> World-Class Facilities</div>
-            <h1>A Safe, Modern & <span>Student-Friendly</span> Learning Environment</h1>
-            <p>Noshahi School System offers everything your child needs to learn, grow, and succeed — from bright classrooms and modern labs to solar power and safe transport.</p>
+        <div class="fac-hero-content">
+            <div class="fac-hero-badge"><i class="fas fa-building-columns"></i> Campus Facilities</div>
+            <h1>World-Class <span>Campus</span> Built for Learning</h1>
+            <p>From smart computer labs to science laboratories, solar-powered classrooms to safe transport — explore the facilities that make Noshahi a place where students thrive.</p>
             <div class="fac-hero-btns">
-                <a href="contact.html" class="fac-hero-btn primary"><i class="fas fa-calendar-check"></i> Visit Our Campus</a>
-                <a href="#classrooms" class="fac-hero-btn outline"><i class="fas fa-compass"></i> Explore Facilities</a>
+                <a href="#science-lab" class="fac-hero-btn primary">Explore Facilities <i class="fas fa-arrow-down"></i></a>
+                <a href="admissions.html" class="fac-hero-btn outline">Enroll Now</a>
             </div>
         </div>
         <div class="fac-scroll-indicator">
@@ -964,120 +1364,54 @@
     </section>
 
     <!-- ════════════════════════════════════════════
-         INTRODUCTION
+         03 - COMPUTER COURSES
     ════════════════════════════════════════════ -->
-    <section class="fac-intro">
-        <div class="fac-intro-bg-text">FACILITIES</div>
-        <div class="fac-reveal">
-            <p>Noshahi School System provides a safe, modern, and student-friendly learning environment. We are committed to the academic, moral, and personal development of every student through world-class facilities and dedicated care.</p>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════
-         INTERACTIVE SIDE NAVIGATION
-    ════════════════════════════════════════════ -->
-    <div class="fac-nav-wrapper" id="facSideNav">
-        <div class="fac-nav-line"></div>
-        <div class="fac-nav-progress" id="facNavProgress"></div>
-        <div class="fac-nav-item active" data-target="classrooms">01</div>
-        <div class="fac-nav-item" data-target="teachers">02</div>
-        <div class="fac-nav-item" data-target="computer-lab">03</div>
-        <div class="fac-nav-item" data-target="science-lab">04</div>
-        <div class="fac-nav-item" data-target="quran">05</div>
-        <div class="fac-nav-item" data-target="solar">06</div>
-        <div class="fac-nav-item" data-target="transport">07</div>
-        <div class="fac-nav-item" data-target="water">08</div>
-        <div class="fac-nav-item" data-target="campus">09</div>
-    </div>
-
-    <!-- ════════════════════════════════════════════
-         01 - BRIGHT, CLEAN & SPACIOUS CLASSROOMS
-    ════════════════════════════════════════════ -->
-    <section class="fac-section" id="classrooms" data-nav="1">
+    <section class="fac-section" id="computer-courses" data-nav="3" style="background: var(--white);">
         <div class="fac-section-inner">
-            <div class="fac-split">
+            <div class="fac-computer-wrap">
+                <!-- Image Side -->
                 <div class="fac-reveal-left">
-                    <div class="fac-img-wrap" style="height:420px;">
-                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" alt="Classrooms">
-                        <div class="fac-img-badge"><i class="fas fa-sun"></i> Bright & Clean</div>
+                    <div class="fac-computer-img">
+                        <img src="img/computer-lab.png" alt="Computer Lab" onerror="this.src='img/about-coputer.png'">
+                        <div class="fac-img-badge"><i class="fas fa-laptop-code"></i> Computer Education</div>
                     </div>
                 </div>
-                <div class="fac-reveal-right">
-                    <div class="fac-num">01</div>
-                    <div class="fac-section-label"><i class="fas fa-school"></i> Classrooms</div>
-                    <div class="fac-text">
-                        <h2>Bright, Clean & <span>Spacious</span> Classrooms</h2>
-                        <p>Our classrooms are designed to give students a comfortable and focused learning space. Every room is bright, clean, well-ventilated, and spacious enough for students to learn without any distractions.</p>
-                        <div class="fac-features">
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Well-Lit Rooms</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Clean Environment</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Spacious Layout</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Comfortable Seating</div>
-                        </div>
-                        <a href="contact.html" class="fac-btn orange">Visit Campus <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════
-         02 - QUALIFIED TEACHERS
-    ════════════════════════════════════════════ -->
-    <section class="fac-section" id="teachers" data-nav="2" style="background: var(--light-bg);">
-        <div class="fac-section-inner">
-            <div class="fac-split reverse">
-                <div class="fac-reveal-right">
-                    <div class="fac-img-wrap" style="height:420px;">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Qualified Teachers">
-                        <div class="fac-img-badge"><i class="fas fa-chalkboard-user"></i> Dedicated Faculty</div>
-                    </div>
-                </div>
-                <div class="fac-reveal-left">
-                    <div class="fac-num">02</div>
-                    <div class="fac-section-label"><i class="fas fa-user-graduate"></i> Teachers</div>
-                    <div class="fac-text">
-                        <h2>Qualified, Experienced & <span>Dedicated</span> Teachers</h2>
-                        <p>Our teachers are not just educators — they are mentors who genuinely care about every student. With years of experience and proper qualifications, they help each child reach their full potential.</p>
-                        <div class="fac-features">
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Highly Qualified</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Years of Experience</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Student-Focused</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Caring Mentors</div>
-                        </div>
-                        <a href="faculty.html" class="fac-btn orange">Meet Our Teachers <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════
-         03 - COMPUTER LABORATORY
-    ════════════════════════════════════════════ -->
-    <section class="fac-section" id="computer-lab" data-nav="3">
-        <div class="fac-section-inner">
-            <div class="fac-split">
-                <div class="fac-reveal-left">
-                    <div class="fac-img-wrap" style="height:420px;">
-                        <img src="img/computer-lab.png" alt="Computer Lab">
-                        <div class="fac-img-badge"><i class="fas fa-laptop-code"></i> Modern Lab</div>
-                    </div>
-                </div>
+                <!-- Content Side -->
                 <div class="fac-reveal-right">
                     <div class="fac-num">03</div>
-                    <div class="fac-section-label"><i class="fas fa-laptop-code"></i> Computer Lab</div>
+                    <div class="fac-section-label"><i class="fas fa-laptop-code"></i> Computer Courses</div>
                     <div class="fac-text">
-                        <h2>Modern <span>Computer</span> Laboratory</h2>
-                        <p>Our computer lab is equipped with modern systems and all the tools students need to learn digital skills, coding, and technology. Students get hands-on experience with the latest equipment.</p>
-                        <div class="fac-features">
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Modern Systems</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Internet Access</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Coding Practice</div>
-                            <div class="fac-feature-item"><i class="fas fa-check-circle"></i> Digital Learning</div>
-                        </div>
-                        <a href="computer-education.html" class="fac-btn orange">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <h2>Computer Education at <span>Every Level</span></h2>
+                        <p>Not just a subject — Computer Education is a core part of our curriculum from Play Group to Matric. Students learn practical, real-world skills that prepare them for the future.</p>
                     </div>
+                    <!-- Course List -->
+                    <div class="fac-computer-courses">
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Basic Computer Skills</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> MS Office & Typing</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Internet & Research</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Programming Basics</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Graphic Design Intro</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Digital Literacy</div>
+                    </div>
+                    <!-- Level Cards -->
+                    <div class="fac-computer-levels">
+                        <div class="fac-computer-level">
+                            <div class="level-icon"><i class="fas fa-child"></i></div>
+                            <h4>KG – Grade 5</h4>
+                            <p>Basics & Digital Literacy</p>
+                        </div>
+                        <div class="fac-computer-level">
+                            <div class="level-icon"><i class="fas fa-laptop"></i></div>
+                            <h4>Grade 6 – 8</h4>
+                            <p>MS Office & Internet</p>
+                        </div>
+                        <div class="fac-computer-level">
+                            <div class="level-icon"><i class="fas fa-code"></i></div>
+                            <h4>Grade 9 – 10</h4>
+                            <p>Programming & Design</p>
+                        </div>
+                    </div>
+                    <a href="computer-education.html" class="fac-btn orange">Explore Computer Ed <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

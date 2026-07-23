@@ -1083,23 +1083,23 @@
             .ce-benefits { padding-top: 1.5rem; }
 
             .ce-hero {
-                padding: 90px 0 2rem;
+                padding: 80px 0 1.5rem;
+                min-height: auto;
             }
 
             .ce-hero .container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2.5rem;
+                gap: 1.25rem;
             }
 
-            .ce-hero h1 { font-size: 2.2rem; }
-            .ce-hero > .container > p { margin: 0 auto 1.5rem; max-width: 100%; }
-            .ce-hero-btns { justify-content: center; }
-            .ce-hero-right { order: -1; }
-            .ce-hero-img-frame { max-width: 400px; margin: 0 auto; }
-            .ce-hero-fbadge { left: 10px; bottom: -10px; }
-            .ce-hero-fbadge-2 { right: 10px; top: -10px; }
-            .ce-hero-stats { justify-content: center; }
+            .ce-hero h1 { font-size: 1.85rem; margin-bottom: 0.5rem; }
+            .ce-hero-sub { font-size: 0.9rem; margin-bottom: 0.5rem; }
+            .ce-hero > .container > p { font-size: 0.88rem; margin: 0 auto 1rem; max-width: 100%; line-height: 1.6; }
+            .ce-hero-btns { justify-content: center; gap: 0.75rem; }
+            .ce-hero-right { display: none; }
+            .ce-hero-stats { justify-content: center; gap: 1rem; flex-wrap: wrap; }
+            .ce-hero-stat span { font-size: 0.72rem; }
             .ce-float-icon { display: none; }
             .ce-hero-img-ring { display: none; }
 
@@ -1139,10 +1139,11 @@
         }
 
         @media (max-width: 480px) {
-            .ce-hero h1 { font-size: 1.75rem; }
-            .ce-hero > .container > p { font-size: 0.9rem; }
-            .ce-hero-btns { flex-direction: column; align-items: center; gap: 0.75rem; }
-            .ce-hero-btns a { width: 100%; max-width: 280px; justify-content: center; text-align: center; }
+            .ce-hero { padding: 70px 0 1rem; }
+            .ce-hero h1 { font-size: 1.55rem; }
+            .ce-hero > .container > p { font-size: 0.82rem; }
+            .ce-hero-btns { flex-direction: column; align-items: center; gap: 0.6rem; }
+            .ce-hero-btns a { width: 100%; max-width: 260px; justify-content: center; }
             .ce-hero-fbadge, .ce-hero-fbadge-2 { display: none; }
 
             .ce-highlights-grid { grid-template-columns: 1fr; }

@@ -1,610 +1,1051 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Education | Noshahi School System</title>
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
-    <meta name="description" content="Discover our specialized Computer Education program focusing on coding, AI, robotics, and digital literacy.">
-    <!-- Font Awesome -->
+    <meta name="description" content="Discover our specialized Computer Education program focusing on coding, digital literacy, and modern computer skills from KG to Grade 12.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* =============================================
-           COMPUTER ED PAGE — DARK TECH THEME
-        ============================================= */
+        /* ═══════════════════════════════════════
+           COMPUTER ED — PREMIUM DESIGN
+        ═══════════════════════════════════════ */
         :root {
-            --tech-bg: #0B0F19;
-            --tech-surface: #131929;
-            --tech-card: #161D2F;
-            --tech-border: rgba(56, 139, 253, 0.25);
-            --electric-blue: #3B82F6;
-            --blue-glow: rgba(59, 130, 246, 0.15);
-            --orange: #FF8C00;
-            --orange-glow: rgba(255, 140, 0, 0.2);
-            --white: #FFFFFF;
-            --white-dim: rgba(255, 255, 255, 0.7);
-            --white-dimmer: rgba(255, 255, 255, 0.4);
+            --ce-primary: #0B2E63;
+            --ce-primary-dark: #071E42;
+            --ce-primary-light: #123D7A;
+            --ce-secondary: #F7931E;
+            --ce-secondary-light: #FFAB4D;
+            --ce-white: #FFFFFF;
+            --ce-gray: #F8FAFC;
+            --ce-text: #1E293B;
+            --ce-text-light: #64748B;
+            --ce-text-dim: #94A3B8;
+            --ce-border: rgba(11,46,99,0.08);
+            --ce-shadow: 0 4px 24px rgba(11,46,99,0.06);
+            --ce-shadow-lg: 0 12px 40px rgba(11,46,99,0.1);
+            --ce-radius: 20px;
+            --ce-radius-sm: 14px;
+            --ce-radius-xs: 10px;
+            --font: 'Poppins', sans-serif;
         }
 
-        /* Override body bg for this page */
-        body.tech-page {
-            background-color: var(--tech-bg);
+        body.ce-page {
+            font-family: var(--font);
+            background: var(--ce-white);
+            color: var(--ce-text);
+            overflow-x: hidden;
         }
+
+        body.ce-page *:not(i):not(.fas):not(.fab):not(.far):not([class*="fa-"]) { font-family: var(--font); }
+        body.ce-page i, body.ce-page [class*="fa-"] { font-family: "Font Awesome 6 Free" !important; font-weight: 900; }
+        body.ce-page .fab, body.ce-page i.fab { font-family: "Font Awesome 6 Brands" !important; font-weight: 400 !important; }
 
         /* ── HERO SECTION ── */
-        .tech-hero {
-            min-height: 100vh;
-            background-color: var(--tech-bg);
-            display: flex;
+        .ce-hero {
+            position: relative;
+            background: #f0f4f8;
+            padding: 110px 0 40px;
+            overflow: hidden;
+        }
+
+        .ce-hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -120px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(11,46,99,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ce-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(247,147,30,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .ce-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
             position: relative;
-            overflow: hidden;
-            padding: 120px 0 80px;
-        }
-
-        /* animated grid background */
-        .tech-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
-            background-size: 60px 60px;
-            z-index: 0;
-        }
-
-        /* radial glow top-right */
-        .tech-hero::after {
-            content: '';
-            position: absolute;
-            top: -200px;
-            right: -200px;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .tech-hero .container {
-            position: relative;
             z-index: 1;
+        }
+
+        .ce-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(247,147,30,0.08);
+            border: 1px solid rgba(247,147,30,0.2);
+            color: var(--ce-secondary);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 0.8s ease 0.2s both;
+        }
+
+        .ce-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--ce-primary);
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+            animation: fadeUp 0.8s ease 0.35s both;
+        }
+
+        .ce-hero h1 span { color: var(--ce-secondary); }
+
+        .ce-hero-sub {
+            font-size: 0.95rem;
+            color: var(--ce-primary-light);
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.3px;
+            animation: fadeUp 0.8s ease 0.45s both;
+        }
+
+        .ce-hero > .container > p {
+            font-size: 0.88rem;
+            color: var(--ce-text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 460px;
+            animation: fadeUp 0.8s ease 0.5s both;
+        }
+
+        .ce-hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            animation: fadeUp 0.8s ease 0.65s both;
+        }
+
+        /* Hero Right — Image Frame */
+        .ce-hero-right {
+            position: relative;
+            animation: fadeUp 1s ease 0.4s both;
+        }
+
+        .ce-hero-img-frame {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .ce-hero-img {
+            width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+            box-shadow: 0 30px 60px rgba(11,46,99,0.15);
+            border: 2px solid rgba(11,46,99,0.06);
+        }
+
+        /* Floating badge 1 */
+        .ce-hero-fbadge {
+            position: absolute;
+            bottom: -16px;
+            left: -16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--ce-white);
+            padding: 0.75rem 1.1rem;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(11,46,99,0.12);
+            border: 1px solid rgba(11,46,99,0.06);
+            animation: fadeUp 1s ease 0.8s both;
+        }
+
+        .ce-hero-fbadge .fbadge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--ce-primary), var(--ce-primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .ce-hero-fbadge .fbadge-text strong {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--ce-primary);
+        }
+
+        .ce-hero-fbadge .fbadge-text span {
+            font-size: 0.72rem;
+            color: var(--ce-text-light);
+        }
+
+        /* Floating badge 2 */
+        .ce-hero-fbadge-2 {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--ce-white);
+            padding: 0.75rem 1.1rem;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(11,46,99,0.12);
+            border: 1px solid rgba(11,46,99,0.06);
+            animation: fadeUp 1s ease 1s both;
+        }
+
+        .ce-hero-fbadge-2 .fbadge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--ce-secondary), var(--ce-secondary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .ce-hero-fbadge-2 .fbadge-text strong {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--ce-primary);
+        }
+
+        .ce-hero-fbadge-2 .fbadge-text span {
+            font-size: 0.72rem;
+            color: var(--ce-text-light);
+        }
+
+        /* Hero Stats — glassmorphism bar */
+        .ce-hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s ease 0.8s both;
+        }
+
+        .ce-hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ce-hero-stat i {
+            color: var(--ce-secondary);
+            font-size: 0.85rem;
+        }
+
+        .ce-hero-stat span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ce-text-light);
+        }
+
+        .ce-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--ce-secondary);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(247,147,30,0.3);
+        }
+
+        .ce-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(247,147,30,0.4);
+            color: #fff;
+        }
+
+        .ce-btn-primary i { transition: transform 0.3s ease; }
+        .ce-btn-primary:hover i { transform: translateX(4px); }
+
+        .ce-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 2px solid var(--ce-primary);
+            color: var(--ce-primary);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .ce-btn-outline:hover {
+            background: var(--ce-primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Nav dots */
+        .ce-hero-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .ce-hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ce-hero-dot.active {
+            background: var(--ce-secondary);
+            width: 28px;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeLeft {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ── SECTION COMMON ── */
+        .ce-section { padding: 6rem 0; }
+
+        /* Tighter spacing between specific sections */
+        .ce-why { padding-bottom: 2rem; }
+        #ce-lab { padding-top: 2rem; padding-bottom: 2rem; }
+        #ce-highlights { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .ce-journey { padding-top: 0.5rem; padding-bottom: 2rem; }
+        .ce-benefits { padding-top: 2rem; }
+
+        .ce-section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .ce-section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(11,46,99,0.06);
+            border: 1px solid rgba(11,46,99,0.1);
+            color: var(--ce-primary);
+            padding: 0.4rem 1.15rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .ce-section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--ce-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .ce-section-title span { color: var(--ce-secondary); }
+
+        .ce-section-desc {
+            font-size: 1rem;
+            color: var(--ce-text-light);
+            line-height: 1.75;
+        }
+
+        /* ── WHY COMPUTER ED ── */
+        .ce-why { background: var(--ce-gray); }
+
+        .ce-why-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
 
-        .hero-left .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(59,130,246,0.1);
-            border: 1px solid var(--tech-border);
-            color: var(--electric-blue);
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-left h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--white);
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-left h1 span {
-            color: var(--orange);
-        }
-
-        .hero-left p {
-            font-size: 1.1rem;
-            color: var(--white-dim);
-            line-height: 1.75;
-            margin-bottom: 2rem;
-            max-width: 480px;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--orange);
-            color: #fff;
-            padding: 1rem 2.2rem;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .hero-cta:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(255,140,0,0.4);
-            color: #fff;
-        }
-
-        .hero-cta i {
-            transition: transform 0.3s ease;
-        }
-
-        .hero-cta:hover i {
-            transform: translateX(4px);
-        }
-
-        /* ── LAPTOP GRAPHIC ── */
-        .hero-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .laptop-graphic {
-            position: relative;
+        .ce-why-img {
             width: 100%;
-            max-width: 500px;
+            border-radius: var(--ce-radius);
+            box-shadow: var(--ce-shadow-lg);
+            aspect-ratio: 4/3;
+            object-fit: cover;
         }
 
-        .laptop-body {
-            background: #0d1117;
-            border: 2px solid rgba(59,130,246,0.4);
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 0 60px rgba(59,130,246,0.15), 0 0 30px rgba(255,140,0,0.08);
-            position: relative;
-        }
-
-        .laptop-topbar {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .win-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .win-red   { background: #FF5F57; box-shadow: 0 0 6px #FF5F57; }
-        .win-yellow { background: #FFBD2E; box-shadow: 0 0 6px #FFBD2E; }
-        .win-orange { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
-
-        .laptop-topbar span {
-            margin-left: auto;
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.3);
-            font-family: monospace;
-        }
-
-        .code-lines {
-            font-family: 'Courier New', monospace;
-            font-size: 0.82rem;
-            line-height: 1.8;
-        }
-
-        .code-line {
-            display: flex;
-            gap: 12px;
-        }
-
-        .ln { color: rgba(255,255,255,0.2); min-width: 18px; text-align: right; }
-        .kw { color: #FF7B72; }
-        .fn { color: #79C0FF; }
-        .str { color: #A5D6FF; }
-        .cm { color: #8B949E; }
-        .op { color: #FF8C00; }
-        .tx { color: #E6EDF3; }
-
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 14px;
-            background: var(--orange);
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
-        /* floating orange orbs around laptop */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(18px);
-            opacity: 0.5;
-            animation: floatOrb 4s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 80px; height: 80px;
-            background: var(--orange);
-            top: -30px; right: -20px;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 50px; height: 50px;
-            background: var(--electric-blue);
-            bottom: 20px; left: -25px;
-            animation-delay: 1.5s;
-        }
-
-        .orb-3 {
-            width: 35px; height: 35px;
-            background: var(--orange);
-            bottom: -10px; right: 40px;
-            animation-delay: 0.8s;
-        }
-
-        @keyframes floatOrb {
-            0%,100% { transform: translateY(0) scale(1); }
-            50%      { transform: translateY(-15px) scale(1.1); }
-        }
-
-        /* floating tags */
-        .float-tag {
-            position: absolute;
-            background: rgba(255,140,0,0.12);
-            border: 1px solid rgba(255,140,0,0.3);
-            color: var(--orange);
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            animation: floatOrb 3.5s ease-in-out infinite;
-            white-space: nowrap;
-        }
-
-        .float-tag-1 { top: 10px; left: -100px; animation-delay: 0.3s; }
-        .float-tag-2 { bottom: 60px; right: -90px; animation-delay: 1.2s; }
-
-        /* ── BENTO GRID (Skills Matrix) ── */
-        .bento-section {
-            background-color: var(--tech-bg);
-            padding: 5rem 0;
-        }
-
-        .bento-section .section-title h2 {
-            color: var(--white);
-        }
-
-        .bento-section .section-title h2::after {
-            background-color: var(--orange);
-        }
-
-        .bento-section .section-title p {
-            color: var(--white-dim);
-        }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .bento-box {
-            background: rgba(22, 29, 47, 0.7);
-            border: 1px solid var(--tech-border);
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bento-box::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(59,130,246,0.07) 0%, transparent 60%);
-            pointer-events: none;
-        }
-
-        .bento-box:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255,140,0,0.4);
-            box-shadow: 0 20px 50px rgba(255,140,0,0.08);
-        }
-
-        .bento-icon {
+        .ce-why-content h2 {
             font-size: 2rem;
-            color: var(--orange);
-            background: rgba(255,140,0,0.1);
-            border: 1px solid rgba(255,140,0,0.25);
-            width: 64px;
-            height: 64px;
-            border-radius: 14px;
+            font-weight: 700;
+            color: var(--ce-primary);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .ce-why-content h2 span { color: var(--ce-secondary); }
+
+        .ce-why-content p {
+            color: var(--ce-text-light);
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .ce-why-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .ce-why-feat {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
+            gap: 0.6rem;
+            padding: 0.6rem 0.85rem;
+            border-radius: var(--ce-radius-xs);
+            background: var(--ce-white);
+            border: 1px solid var(--ce-border);
             transition: all 0.3s ease;
         }
 
-        .bento-box:hover .bento-icon {
-            background: var(--orange);
-            color: #fff;
-            box-shadow: 0 8px 20px rgba(255,140,0,0.3);
+        .ce-why-feat:hover {
+            border-color: rgba(247,147,30,0.3);
+            box-shadow: 0 4px 12px rgba(247,147,30,0.08);
+            transform: translateY(-2px);
         }
 
-        .bento-box h3 {
-            color: var(--white);
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .bento-box p {
-            color: var(--white-dim);
-            font-size: 0.92rem;
-            line-height: 1.65;
-            margin-bottom: 1.25rem;
-        }
-
-        .bento-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .bento-tag {
-            background: rgba(59,130,246,0.1);
-            border: 1px solid rgba(59,130,246,0.2);
-            color: #93C5FD;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-        }
-
-        /* ── LIVE CODE WIDGET ── */
-        .live-code-section {
-            background: linear-gradient(180deg, var(--tech-bg) 0%, #0e1525 100%);
-            padding: 5rem 0;
-            overflow: hidden;
-        }
-
-        .live-code-section .section-title h2 { color: var(--white); }
-        .live-code-section .section-title h2::after { background-color: var(--orange); }
-        .live-code-section .section-title p { color: var(--white-dim); }
-
-        .live-code-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .code-editor-card {
-            background: #0d1117;
-            border: 1px solid rgba(59,130,246,0.3);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 40px rgba(59,130,246,0.08);
-        }
-
-        .editor-titlebar {
-            background: #161b22;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .editor-titlebar .win-dot { width: 13px; height: 13px; }
-
-        .editor-title-text {
-            margin-left: 10px;
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.35);
-            font-family: monospace;
-        }
-
-        .editor-body {
-            padding: 1.5rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 2;
-            min-height: 280px;
-        }
-
-        /* live code preview box */
-        .code-preview-right h3 {
-            color: var(--white);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .code-preview-right p {
-            color: var(--white-dim);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .preview-output {
-            background: rgba(22,29,47,0.8);
-            border: 1px solid var(--tech-border);
-            border-radius: 14px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .preview-output-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--electric-blue);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .html-preview-box {
-            background: #fff;
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            font-family: sans-serif;
-        }
-
-        .html-preview-box h2 {
-            color: #0B0F19;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .html-preview-box p {
-            color: #444;
-            font-size: 0.85rem;
-            margin: 0;
-        }
-
-        .preview-btn-demo {
-            display: inline-block;
-            background: #FF8C00;
-            color: #fff;
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
+        .ce-why-feat i {
+            color: var(--ce-secondary);
             font-size: 0.8rem;
-            font-weight: 700;
-            margin-top: 0.6rem;
-            cursor: default;
+            flex-shrink: 0;
         }
 
-        .stat-row {
-            display: flex;
+        .ce-why-feat span {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ce-text);
+        }
+
+        /* ── LEARNING HIGHLIGHTS ── */
+        .ce-highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            flex-wrap: wrap;
         }
 
-        .stat-item {
+        .ce-hl-card {
+            background: var(--ce-white);
+            border: 2px solid rgba(247,147,30,0.25);
+            border-radius: var(--ce-radius);
+            padding: 2.5rem 2rem;
             text-align: center;
-        }
-
-        .stat-item .stat-num {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--orange);
-            line-height: 1;
-        }
-
-        .stat-item .stat-label {
-            font-size: 0.78rem;
-            color: var(--white-dimmer);
-            margin-top: 0.25rem;
-        }
-
-        /* ── CONVERSION BLOCK ── */
-        .conversion-section {
-            background-color: var(--tech-bg);
-            padding: 5rem 0 6rem;
-        }
-
-        .conversion-card {
-            background: linear-gradient(135deg, #131929 0%, #0e1525 100%);
-            border: 1px solid rgba(255,140,0,0.2);
-            border-radius: 24px;
-            padding: 4rem 3rem;
-            text-align: center;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 80px rgba(255,140,0,0.05);
+            z-index: 1;
         }
 
-        .conversion-card::before {
+        /* Background fill — animates bottom to top */
+        .ce-hl-card::before {
             content: '';
             position: absolute;
-            top: -100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0%;
+            background: var(--ce-primary);
+            transition: height 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+        }
+
+        .ce-hl-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--ce-secondary);
+            box-shadow: 0 20px 50px rgba(11,46,99,0.25);
+        }
+
+        .ce-hl-card:hover::before {
+            height: 100%;
+        }
+
+        .ce-hl-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(247,147,30,0.1), rgba(247,147,30,0.03));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.6rem;
+            color: var(--ce-secondary);
+            transition: all 0.35s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-hl-card:hover .ce-hl-icon {
+            background: var(--ce-secondary);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(247,147,30,0.35);
+            transform: scale(1.1);
+        }
+
+        .ce-hl-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--ce-primary);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+            transition: color 0.35s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-hl-card:hover h3 { color: #fff; }
+
+        .ce-hl-card p {
+            font-size: 0.9rem;
+            color: var(--ce-text-light);
+            line-height: 1.7;
+            margin: 0;
+            transition: color 0.35s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-hl-card:hover p { color: rgba(255,255,255,0.75); }
+
+        /* ── LEARNING JOURNEY (Alternating Cards) ── */
+        .ce-journey {
+            background: var(--ce-gray);
+        }
+
+        .ce-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Center vertical line */
+        .ce-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,140,0,0.07) 0%, transparent 65%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--ce-primary), var(--ce-secondary));
+            border-radius: 3px;
+        }
+
+        .ce-timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .ce-timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ce-timeline-item:nth-child(even).visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ce-timeline-item:last-child { margin-bottom: 0; }
+
+        /* Odd items — card on LEFT */
+        .ce-timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: calc(50% + 24px);
+        }
+
+        /* Even items — card on RIGHT */
+        .ce-timeline-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: calc(50% + 24px);
+        }
+
+        .ce-tl-card {
+            background: var(--ce-white);
+            border: 1.5px solid rgba(11,46,99,0.08);
+            border-radius: 18px;
+            padding: 1.75rem 1.75rem;
+            width: 100%;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 2px 12px rgba(11,46,99,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top-left corner diagonal wipe */
+        .ce-tl-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 0%;
+            background: linear-gradient(135deg, rgba(247,147,30,0.08) 0%, rgba(11,46,99,0.04) 100%);
+            transition: width 0.45s ease, height 0.45s ease;
+            z-index: 0;
+        }
+
+        /* Left accent bar */
+        .ce-tl-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--ce-secondary);
+            transition: width 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 1;
+            border-radius: 16px 0 0 16px;
+        }
+
+        .ce-tl-card:hover {
+            transform: translateX(6px);
+            border-color: var(--ce-secondary);
+            box-shadow: -4px 4px 20px rgba(247,147,30,0.12), 0 8px 24px rgba(11,46,99,0.08);
+        }
+
+        .ce-tl-card:hover::before { width: 100%; height: 100%; }
+        .ce-tl-card:hover::after { width: 4px; }
+
+        .ce-tl-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 0.65rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-tl-card-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #fff;
+            transition: all 0.35s ease;
+        }
+
+        .ce-timeline-item:nth-child(1) .ce-tl-card-icon { background: linear-gradient(135deg, #0B2E63, #1a4a8a); }
+        .ce-timeline-item:nth-child(2) .ce-tl-card-icon { background: linear-gradient(135deg, #F7931E, #FFAB4D); }
+        .ce-timeline-item:nth-child(3) .ce-tl-card-icon { background: linear-gradient(135deg, #0B2E63, #1a4a8a); }
+        .ce-timeline-item:nth-child(4) .ce-tl-card-icon { background: linear-gradient(135deg, #F7931E, #FFAB4D); }
+        .ce-timeline-item:nth-child(5) .ce-tl-card-icon { background: linear-gradient(135deg, #0B2E63, #1a4a8a); }
+        .ce-timeline-item:nth-child(6) .ce-tl-card-icon { background: linear-gradient(135deg, #F7931E, #FFAB4D); }
+
+        .ce-tl-card:hover .ce-tl-card-icon {
+            transform: scale(1.15) rotate(-5deg);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        .ce-tl-step {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(11,46,99,0.06);
+            color: var(--ce-primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: background 0.3s ease, color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-tl-card:hover .ce-tl-step {
+            background: rgba(247,147,30,0.15);
+            color: var(--ce-secondary);
+        }
+
+        .ce-tl-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--ce-primary);
+            margin-bottom: 0.4rem;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-tl-card:hover h3 { color: var(--ce-primary); }
+
+        .ce-tl-card p {
+            font-size: 0.88rem;
+            color: var(--ce-text-light);
+            line-height: 1.65;
+            margin: 0;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-tl-card:hover p { color: var(--ce-text); }
+
+        /* Center dot */
+        .ce-tl-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--ce-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.85rem;
+            box-shadow: 0 0 0 5px var(--ce-gray), 0 0 0 7px rgba(247,147,30,0.2);
+            z-index: 3;
+            transition: all 0.3s ease;
+        }
+
+        .ce-timeline-item:hover .ce-tl-dot {
+            transform: translateX(-50%) scale(1.2);
+            box-shadow: 0 0 0 5px var(--ce-gray), 0 0 0 7px rgba(247,147,30,0.4), 0 0 20px rgba(247,147,30,0.2);
+        }
+
+        /* ── MODERN COMPUTER LAB ── */
+        .ce-lab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ce-lab-reversed .ce-lab-content { order: -1; }
+
+        .ce-lab-img-wrap {
+            position: relative;
+        }
+
+        .ce-lab-img {
+            width: 100%;
+            border-radius: var(--ce-radius);
+            box-shadow: var(--ce-shadow-lg);
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .ce-lab-badge {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background: var(--ce-secondary);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: var(--ce-radius-sm);
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 8px 24px rgba(247,147,30,0.3);
+        }
+
+        .ce-lab-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--ce-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .ce-lab-content h2 span { color: var(--ce-secondary); }
+
+        .ce-lab-content > p {
+            color: var(--ce-text-light);
+            font-size: 1rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .ce-lab-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-bottom: 2rem;
+        }
+
+        .ce-lab-feat {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--ce-radius-sm);
+            background: var(--ce-gray);
+            border: 1px solid var(--ce-border);
+            transition: all 0.3s ease;
+        }
+
+        .ce-lab-feat:hover {
+            background: var(--ce-white);
+            border-color: rgba(247,147,30,0.2);
+            transform: translateX(6px);
+        }
+
+        .ce-lab-feat-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(247,147,30,0.15), rgba(247,147,30,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ce-secondary);
+            font-size: 0.85rem;
+        }
+
+        .ce-lab-feat span {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--ce-text);
+        }
+
+        /* ── BENEFITS ── */
+        .ce-benefits { background: var(--ce-gray); }
+
+        .ce-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .ce-benefit-card {
+            background: var(--ce-white);
+            border: 1.5px solid rgba(11,46,99,0.08);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+
+        /* Glowing top edge on hover */
+        .ce-benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--ce-secondary), var(--ce-primary), var(--ce-secondary), transparent);
+            border-radius: 0 0 4px 4px;
+            transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 3;
+        }
+
+        /* Subtle gradient bg on hover */
+        .ce-benefit-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(11,46,99,0.02) 0%, rgba(247,147,30,0.04) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .ce-benefit-card:hover {
+            transform: translateY(-6px) rotateX(4deg) rotateY(-2deg);
+            border-color: rgba(247,147,30,0.3);
+            box-shadow:
+                0 20px 40px rgba(11,46,99,0.1),
+                0 0 0 1px rgba(247,147,30,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+
+        .ce-benefit-card:hover::before { width: 60%; }
+        .ce-benefit-card:hover::after { opacity: 1; }
+
+        .ce-benefit-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(247,147,30,0.1), rgba(247,147,30,0.03));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.1rem;
+            font-size: 1.2rem;
+            color: var(--ce-secondary);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-benefit-card:hover .ce-benefit-icon {
+            background: var(--ce-secondary);
+            color: #fff;
+            transform: translateZ(10px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(247,147,30,0.3);
+        }
+
+        .ce-benefit-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ce-primary);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-benefit-card:hover h3 { color: var(--ce-primary); transform: translateZ(5px); }
+
+        .ce-benefit-card p {
+            font-size: 0.85rem;
+            color: var(--ce-text-light);
+            line-height: 1.6;
+            margin: 0;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ce-benefit-card:hover p { color: var(--ce-text); }
+
+        /* ── CTA SECTION ── */
+        .ce-cta {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ce-cta-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,140,0,0.06);
             pointer-events: none;
         }
 
-        .conversion-card .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--orange);
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.25rem;
+        .ce-cta-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; left: -60px; }
+        .ce-cta-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; right: -30px; }
+        .ce-cta-circle:nth-child(3) { width: 150px; height: 150px; top: 30%; right: 10%; }
+
+        .ce-cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .conversion-card h2 {
-            color: var(--white);
-            font-size: 2.75rem;
-            font-weight: 800;
+        .ce-cta h2 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
-            margin-bottom: 1.25rem;
         }
 
-        .conversion-card h2 span {
-            color: var(--orange);
-        }
+        .ce-cta h2 span { color: #FF8C00; }
 
-        .conversion-card p {
-            color: var(--white-dim);
+        .ce-cta p {
             font-size: 1.05rem;
-            max-width: 520px;
+            color: rgba(255,255,255,0.7);
+            max-width: 100%;
             margin: 0 auto 2.5rem;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
-        .conversion-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--orange);
+        .ce-cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ce-cta .ce-btn-primary {
+            background: #FF8C00;
             color: #fff;
-            padding: 1.1rem 2.5rem;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255,140,0,0.3);
         }
 
-        .conversion-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 16px 40px rgba(255,140,0,0.4);
+        .ce-cta .ce-btn-primary:hover {
+            background: #e5850f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgba(255,140,0,0.4);
+        }
+
+        .ce-cta .ce-btn-outline {
+            background: transparent;
+            color: #FF8C00;
+            border: 2px solid #FF8C00;
+        }
+
+        .ce-cta .ce-btn-outline:hover {
+            background: #FF8C00;
             color: #fff;
         }
 
-        .conversion-btn i {
-            transition: transform 0.3s ease;
-        }
-
-        .conversion-btn:hover i {
-            transform: translateX(4px);
-        }
-
-        /* trust badges row */
-        .trust-row {
+        .ce-cta-trust {
             display: flex;
             justify-content: center;
             gap: 2.5rem;
@@ -612,354 +1053,546 @@
             flex-wrap: wrap;
         }
 
-        .trust-item {
+        .ce-cta-trust-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: var(--white-dimmer);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.5);
         }
 
-        .trust-item i {
-            color: var(--electric-blue);
-            font-size: 1rem;
+        .ce-cta-trust-item i {
+            color: #FF8C00;
+            font-size: 0.9rem;
         }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 992px) {
-            .tech-hero .container { grid-template-columns: 1fr; text-align: center; }
-            .hero-left p { max-width: 100%; }
-            .hero-left h1 { font-size: 2.6rem; }
-            .float-tag-1, .float-tag-2 { display: none; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .live-code-wrapper { grid-template-columns: 1fr; }
-            .conversion-card h2 { font-size: 2rem; }
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 1024px) {
+            .ce-hero .container { gap: 3rem; }
+            .ce-hero h1 { font-size: 2.5rem; }
+            .ce-highlights-grid { grid-template-columns: repeat(2, 1fr); }
+            .ce-benefits-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        @media (max-width: 600px) {
-            .hero-left h1 { font-size: 2rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .stat-row { justify-content: center; }
+        @media (max-width: 768px) {
+            .ce-section { padding: 4rem 0; }
+            .ce-why { padding-bottom: 1.5rem; }
+            #ce-lab { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+            #ce-highlights { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+            .ce-journey { padding-top: 0.5rem; padding-bottom: 1.5rem; }
+            .ce-benefits { padding-top: 1.5rem; }
+
+            .ce-hero {
+                padding: 80px 0 1.5rem;
+                min-height: auto;
+            }
+
+            .ce-hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.25rem;
+            }
+
+            .ce-hero h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+            .ce-hero-sub { font-size: 0.9rem; margin-bottom: 0.5rem; }
+            .ce-hero > .container > p { font-size: 0.88rem; margin: 0 auto 1rem; max-width: 100%; line-height: 1.6; }
+            .ce-hero-btns { justify-content: center; gap: 0.75rem; }
+            .ce-hero-right { display: none; }
+            .ce-hero-stats { justify-content: center; gap: 1rem; flex-wrap: wrap; }
+            .ce-hero-stat span { font-size: 0.72rem; }
+            .ce-float-icon { display: none; }
+            .ce-hero-img-ring { display: none; }
+
+            .ce-why-grid,
+            .ce-lab-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            .ce-why-content { order: -1; text-align: center; }
+            .ce-why-features { max-width: 400px; margin: 0 auto; }
+
+            .ce-highlights-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .ce-benefits-grid { grid-template-columns: 1fr; }
+
+            .ce-timeline::before { left: 20px; }
+
+            .ce-timeline-item,
+            .ce-timeline-item:nth-child(odd),
+            .ce-timeline-item:nth-child(even) {
+                padding-left: 55px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .ce-tl-dot {
+                left: 20px;
+                transform: none;
+                width: 34px;
+                height: 34px;
+                font-size: 0.75rem;
+            }
+
+            .ce-timeline-item:hover .ce-tl-dot {
+                transform: scale(1.15);
+            }
+
+            .ce-section-title { font-size: 2rem; }
+            .ce-cta { padding: 4rem 1.5rem; }
+            .ce-cta h2 { font-size: 2rem; }
+            .ce-cta p { font-size: 0.95rem; margin-bottom: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .ce-hero { padding: 70px 0 1rem; }
+            .ce-hero h1 { font-size: 1.6rem; }
+            .ce-hero > .container > p { font-size: 0.82rem; }
+            .ce-hero-btns { flex-direction: column; align-items: center; gap: 0.6rem; }
+            .ce-hero-btns a { width: 100%; max-width: 260px; justify-content: center; }
+            .ce-hero-fbadge, .ce-hero-fbadge-2 { display: none; }
+
+            .ce-highlights-grid { grid-template-columns: 1fr; }
+            .ce-hl-card { padding: 1.5rem; }
+
+            .ce-section-title { font-size: 1.65rem; }
+            .ce-why-content h2,
+            .ce-lab-content h2 { font-size: 1.75rem; }
+
+            .ce-cta { padding: 3rem 1rem; }
+            .ce-cta h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+            .ce-cta p { font-size: 0.88rem; margin-bottom: 1.5rem; }
+            .ce-cta-btns { flex-direction: column; align-items: center; gap: 0.75rem; }
+            .ce-cta-btns a { width: 100%; max-width: 280px; justify-content: center; }
+            .ce-cta-trust { flex-direction: column; align-items: center; gap: 0.75rem; }
+
+            .floating-widgets { bottom: 16px; right: 16px; gap: 10px; }
+            .whatsapp-btn, .scroll-top-btn { width: 40px; height: 40px; font-size: 1.15rem; }
+
+            .nav-links { flex-direction: column; gap: 0; }
+            .dropdown-menu { padding-left: 1rem; }
+            .dropdown.open .dropdown-menu { display: flex; flex-direction: column; }
+            .mobile-toggle { display: flex; }
         }
     </style>
 </head>
+<body class="ce-page">
 
-<body class="tech-page">
-
-    <!-- ==================== NAVBAR ==================== -->
-    <nav class="navbar scrolled">
+    <!-- ════════════════════ NAVBAR ════════════════════ -->
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                 <span class="logo-text">Noshahi School System</span>
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html" class="active">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html">Academics Overview</a></li>
-                        <li><a href="computer-education.html" class="active">Computer Ed</a></li>
+                        <li><a href="computer-education.html">Computer Ed</a></li>
                         <li><a href="islamic-education.html">Islamic Ed</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="tech-hero">
+    <main class="page-content">
+
+    <!-- ════════════════════ HERO ════════════════════ -->
+    <section class="ce-hero">
         <div class="container">
+
             <!-- LEFT: Text -->
-            <div class="hero-left">
-                <div class="badge">
-                    <i class="fas fa-microchip"></i> NSS Tech Lab
+            <div class="ce-hero-left">
+                <div class="ce-hero-badge">
+                    <i class="fas fa-laptop-code"></i> Computer Education
                 </div>
-                <h1>Coding the <span>Leaders</span><br>of Tomorrow.</h1>
-                <p>We go beyond textbooks — our students build real projects, write actual code, and experience the future of technology hands-on, from day one.</p>
-                <a href="#tech-lab-tour" class="hero-cta">
-                    Explore Our Tech Lab <i class="fas fa-arrow-right"></i>
-                </a>
+                <h1><span>Digital Skills</span> for the Future</h1>
+                <p class="ce-hero-sub">"Where technology meets learning."</p>
+                <p>At Noshahi School System, Computer Education begins from the early grades, helping students build confidence in technology through practical learning, digital literacy, and modern computer skills.</p>
+                <div class="ce-hero-btns">
+                    <a href="#ce-highlights" class="ce-btn-primary">
+                        <i class="fas fa-arrow-right"></i> Explore Program
+                    </a>
+                    <a href="admissions.html" class="ce-btn-outline">
+                        <i class="fas fa-paper-plane"></i> Apply Now
+                    </a>
+                </div>
+                <div class="ce-hero-stats">
+                    <div class="ce-hero-stat"><i class="fas fa-check-circle"></i><span>Practical Training</span></div>
+                    <div class="ce-hero-stat"><i class="fas fa-check-circle"></i><span>Modern Computer Lab</span></div>
+                    <div class="ce-hero-stat"><i class="fas fa-check-circle"></i><span>Future Ready Students</span></div>
+                </div>
             </div>
 
-            <!-- RIGHT: Laptop Graphic -->
-            <div class="hero-right">
-                <div class="laptop-graphic">
-                    <div class="orb orb-1"></div>
-                    <div class="orb orb-2"></div>
-                    <div class="orb orb-3"></div>
-                    <span class="float-tag float-tag-1"><i class="fas fa-bolt"></i> Live Coding</span>
-                    <span class="float-tag float-tag-2"><i class="fas fa-robot"></i> AI Projects</span>
-                    <div class="laptop-body">
-                        <div class="laptop-topbar">
-                            <span class="win-dot win-red"></span>
-                            <span class="win-dot win-yellow"></span>
-                            <span class="win-dot win-orange"></span>
-                            <span>student_project.py</span>
-                        </div>
-                        <div class="code-lines">
-                            <div class="code-line"><span class="ln">1</span><span class="cm"># NSS Tech Lab — Student Project</span></div>
-                            <div class="code-line"><span class="ln">2</span><span class="kw">def</span> <span class="fn">greet_student</span><span class="tx">(name):</span></div>
-                            <div class="code-line"><span class="ln">3</span><span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;message = </span><span class="str">"Hello, "</span><span class="tx"> + name</span></div>
-                            <div class="code-line"><span class="ln">4</span><span class="tx">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="kw">return</span><span class="tx"> message</span></div>
-                            <div class="code-line"><span class="ln">5</span>&nbsp;</div>
-                            <div class="code-line"><span class="ln">6</span><span class="fn">student</span><span class="tx"> = </span><span class="str">"Ahmed"</span></div>
-                            <div class="code-line"><span class="ln">7</span><span class="op">print</span><span class="tx">(greet_student(student))</span></div>
-                            <div class="code-line"><span class="ln">8</span>&nbsp;</div>
-                            <div class="code-line"><span class="ln">9</span><span class="cm"># Output:</span><span class="tx"> </span><span class="str">"Hello, Ahmed"</span><span class="typing-cursor"></span></div>
+            <!-- RIGHT: Image Frame -->
+            <div class="ce-hero-right">
+                <div class="ce-hero-img-frame">
+                    <img src="img/computer-lab.png" alt="Students learning in a modern computer laboratory" class="ce-hero-img">
+                    <!-- Floating badge 1 -->
+                    <div class="ce-hero-fbadge">
+                        <div class="fbadge-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="fbadge-text">
+                            <strong>Hands-On Learning</strong>
+                            <span>Practical Computer Skills</span>
                         </div>
                     </div>
+                    <!-- Floating badge 2 -->
+                    <div class="ce-hero-fbadge-2">
+                        <div class="fbadge-icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="fbadge-text">
+                            <strong>Safe &amp; Supervised</strong>
+                            <span>Modern Computer Lab</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════════════════════ LEARNING HIGHLIGHTS ════════════════════ -->
+    <section class="ce-section" id="ce-highlights">
+        <div class="container">
+            <div class="ce-section-header">
+                <div class="ce-section-badge"><i class="fas fa-star"></i> Learning Highlights</div>
+                <h2 class="ce-section-title">What Your Child Will <span>Learn</span></h2>
+                <p class="ce-section-desc">Your child will learn real computer skills that help them in school and in life — step by step, at their own pace.</p>
+            </div>
+
+            <div class="ce-highlights-grid">
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-child"></i></div>
+                    <h3>Early Start with Computers</h3>
+                    <p>Your child starts learning computers from a young age, so they get comfortable with technology early on.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-desktop"></i></div>
+                    <h3>Hands-On Practice in Lab</h3>
+                    <p>Every class includes real practice on computers — your child learns by doing, not just watching.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-microchip"></i></div>
+                    <h3>Computer Basics</h3>
+                    <p>Your child will learn how computers work — what's inside, how to use them, and how to stay safe online.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-file-word"></i></div>
+                    <h3>Microsoft Word</h3>
+                    <p>Your child will learn to write, edit, and print documents — a skill they'll use throughout school and beyond.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-file-powerpoint"></i></div>
+                    <h3>Microsoft PowerPoint</h3>
+                    <p>Your child will create colorful presentations with pictures and animations — great for school projects.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-table"></i></div>
+                    <h3>Microsoft Excel</h3>
+                    <p>Your child will learn to organize data, use formulas, and create charts — essential skills for school and work.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-keyboard"></i></div>
+                    <h3>Typing Skills</h3>
+                    <p>Regular typing practice helps your child type faster and more accurately — a skill they'll use every day.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-wifi"></i></div>
+                    <h3>Safe Internet Use</h3>
+                    <p>Your child will learn how to use the internet safely and responsibly — knowing what's right and what to avoid.</p>
+                </div>
+                <div class="ce-hl-card">
+                    <div class="ce-hl-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Ready for the Future</h3>
+                    <p>These computer skills prepare your child for higher studies and future careers in a digital world.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== SKILLS MATRIX BENTO GRID ==================== -->
-    <section class="bento-section">
+    <!-- ════════════════════ WHY COMPUTER ED ════════════════════ -->
+    <section class="ce-section ce-why" id="ce-why">
+
+    <!-- ════════════════════ LEARNING JOURNEY ════════════════════ -->
+    <section class="ce-section ce-journey">
         <div class="container">
-            <div class="section-title">
-                <h2>The Skills Matrix</h2>
-                <p style="color:var(--white-dim); margin-top:0.5rem;">Four core pillars of our computer education curriculum — practical, modern, and future-ready.</p>
+            <div class="ce-section-header">
+                <div class="ce-section-badge"><i class="fas fa-route"></i> Learning Journey</div>
+                <h2 class="ce-section-title">Student Learning <span>Path</span></h2>
+                <p class="ce-section-desc">A progressive roadmap designed to take students from basics to advanced digital skills step by step.</p>
             </div>
 
-            <div class="bento-grid">
-                <!-- Box 1 -->
-                <div class="bento-box">
-                    <div class="bento-icon">
-                        <i class="fas fa-terminal"></i>
+            <div class="ce-timeline">
+                <div class="ce-timeline-item">
+                    <div class="ce-tl-card">
+                        <div class="ce-tl-card-header">
+                            <div class="ce-tl-card-icon"><i class="fas fa-laptop"></i></div>
+                            <div class="ce-tl-step"><i class="fas fa-flag"></i> Step 01</div>
+                        </div>
+                        <h3>Computer Basics</h3>
+                        <p>Understanding computer hardware, software, and operating systems — the foundation of digital literacy.</p>
                     </div>
-                    <h3>Coding &amp; Logic Building</h3>
-                    <p>Students learn computational thinking from scratch — starting with visual block-based coding and progressing to Python and JavaScript. Real problems, real solutions.</p>
-                    <div class="bento-tags">
-                        <span class="bento-tag">Python</span>
-                        <span class="bento-tag">Scratch</span>
-                        <span class="bento-tag">Logic Trees</span>
-                        <span class="bento-tag">Algorithms</span>
-                    </div>
+                    <div class="ce-tl-dot"><i class="fas fa-laptop"></i></div>
                 </div>
 
-                <!-- Box 2 -->
-                <div class="bento-box">
-                    <div class="bento-icon">
-                        <i class="fas fa-robot"></i>
+                <div class="ce-timeline-item">
+                    <div class="ce-tl-card">
+                        <div class="ce-tl-card-header">
+                            <div class="ce-tl-card-icon"><i class="fas fa-keyboard"></i></div>
+                            <div class="ce-tl-step"><i class="fas fa-flag"></i> Step 02</div>
+                        </div>
+                        <h3>Typing Skills</h3>
+                        <p>Building speed and accuracy through regular typing practice and keyboard familiarity exercises.</p>
                     </div>
-                    <h3>Robotics &amp; AI Basics</h3>
-                    <p>Hands-on experiments with robotics kits and AI concepts. Students understand how machines "think," opening doors to engineering and data science careers.</p>
-                    <div class="bento-tags">
-                        <span class="bento-tag">AI Awareness</span>
-                        <span class="bento-tag">Robotics Kits</span>
-                        <span class="bento-tag">Automation</span>
-                        <span class="bento-tag">Problem Solving</span>
-                    </div>
+                    <div class="ce-tl-dot"><i class="fas fa-keyboard"></i></div>
                 </div>
 
-                <!-- Box 3 -->
-                <div class="bento-box">
-                    <div class="bento-icon">
-                        <i class="fas fa-code"></i>
+                <div class="ce-timeline-item">
+                    <div class="ce-tl-card">
+                        <div class="ce-tl-card-header">
+                            <div class="ce-tl-card-icon"><i class="fas fa-file-word"></i></div>
+                            <div class="ce-tl-step"><i class="fas fa-flag"></i> Step 03</div>
+                        </div>
+                        <h3>MS Word</h3>
+                        <p>Document creation, editing, formatting, page layout, and printing skills for academic and personal use.</p>
                     </div>
-                    <h3>Web Development &amp; Design</h3>
-                    <p>From writing their first HTML tag to styling a full page — students build real websites and learn UI fundamentals that matter in every modern profession.</p>
-                    <div class="bento-tags">
-                        <span class="bento-tag">HTML</span>
-                        <span class="bento-tag">CSS</span>
-                        <span class="bento-tag">UI Design</span>
-                        <span class="bento-tag">Projects</span>
-                    </div>
+                    <div class="ce-tl-dot"><i class="fas fa-file-word"></i></div>
                 </div>
 
-                <!-- Box 4 -->
-                <div class="bento-box">
-                    <div class="bento-icon">
-                        <i class="fas fa-shield-halved"></i>
+                <div class="ce-timeline-item">
+                    <div class="ce-tl-card">
+                        <div class="ce-tl-card-header">
+                            <div class="ce-tl-card-icon"><i class="fas fa-file-powerpoint"></i></div>
+                            <div class="ce-tl-step"><i class="fas fa-flag"></i> Step 04</div>
+                        </div>
+                        <h3>MS PowerPoint</h3>
+                        <p>Creating engaging presentations with slides, images, animations, and visual storytelling.</p>
                     </div>
-                    <h3>Cyber Safety for Kids</h3>
-                    <p>Parents can relax — we teach children how to stay safe online. Topics include digital footprints, safe browsing, password hygiene, and responsible social media use.</p>
-                    <div class="bento-tags">
-                        <span class="bento-tag">Safe Browsing</span>
-                        <span class="bento-tag">Privacy</span>
-                        <span class="bento-tag">Digital Etiquette</span>
-                        <span class="bento-tag">Passwords</span>
+                    <div class="ce-tl-dot"><i class="fas fa-file-powerpoint"></i></div>
+                </div>
+
+                <div class="ce-timeline-item">
+                    <div class="ce-tl-card">
+                        <div class="ce-tl-card-header">
+                            <div class="ce-tl-card-icon"><i class="fas fa-wifi"></i></div>
+                            <div class="ce-tl-step"><i class="fas fa-flag"></i> Step 05</div>
+                        </div>
+                        <h3>Digital Skills</h3>
+                        <p>Internet safety, email communication, cloud tools, and responsible technology usage for modern life.</p>
                     </div>
+                    <div class="ce-tl-dot"><i class="fas fa-wifi"></i></div>
+                </div>
+
+                <div class="ce-timeline-item">
+                    <div class="ce-tl-card">
+                        <div class="ce-tl-card-header">
+                            <div class="ce-tl-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="ce-tl-step"><i class="fas fa-flag"></i> Step 06</div>
+                        </div>
+                        <h3>Future Ready</h3>
+                        <p>Advanced digital skills, project-based learning, and preparation for higher education and careers.</p>
+                    </div>
+                    <div class="ce-tl-dot"><i class="fas fa-graduation-cap"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== LIVE CODE PREVIEW WIDGET ==================== -->
-    <section class="live-code-section">
+    <!-- ════════════════════ BENEFITS ════════════════════ -->
+    <section class="ce-section ce-benefits">
         <div class="container">
-            <div class="section-title">
-                <h2>The Live Code Experience</h2>
-                <p style="color:var(--white-dim); margin-top:0.5rem;">Watch what our students actually build — not rote memorization, but real creation.</p>
+            <div class="ce-section-header">
+                <div class="ce-section-badge"><i class="fas fa-award"></i> Benefits</div>
+                <h2 class="ce-section-title">Why Computer Education <span>Matters</span></h2>
+                <p class="ce-section-desc">Computer education builds essential skills that go far beyond the classroom — shaping confident, capable, and future-ready students.</p>
             </div>
 
-            <div class="live-code-wrapper">
-                <!-- Left: Code Editor Card -->
-                <div class="code-editor-card">
-                    <div class="editor-titlebar">
-                        <span class="win-dot win-red"></span>
-                        <span class="win-dot win-yellow"></span>
-                        <span class="win-dot win-orange"></span>
-                        <span class="editor-title-text">index.html — NSS Student Project</span>
-                    </div>
-                    <div class="editor-body">
-                        <div class="code-line"><span class="cm">&lt;!-- Student's First Webpage --&gt;</span></div>
-                        <div class="code-line"><span class="kw">&lt;!DOCTYPE</span> <span class="fn">html</span><span class="kw">&gt;</span></div>
-                        <div class="code-line"><span class="kw">&lt;html&gt;</span></div>
-                        <div class="code-line"><span class="kw">&lt;head&gt;</span></div>
-                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;title&gt;</span><span class="str">My NSS Project</span><span class="kw">&lt;/title&gt;</span></div>
-                        <div class="code-line"><span class="kw">&lt;/head&gt;</span></div>
-                        <div class="code-line"><span class="kw">&lt;body&gt;</span></div>
-                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;h2&gt;</span><span class="str">Hello, World!</span><span class="kw">&lt;/h2&gt;</span></div>
-                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;p&gt;</span><span class="str">I built this at NSS Tech Lab.</span><span class="kw">&lt;/p&gt;</span></div>
-                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;button</span> <span class="fn">style=</span><span class="str">"background:orange"</span><span class="kw">&gt;</span></div>
-                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">Click Me!</span></div>
-                        <div class="code-line">&nbsp;&nbsp;<span class="kw">&lt;/button&gt;</span></div>
-                        <div class="code-line"><span class="kw">&lt;/body&gt;</span><span class="typing-cursor"></span></div>
-                    </div>
+            <div class="ce-benefits-grid">
+                <div class="ce-benefit-card">
+                    <div class="ce-benefit-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Digital Literacy</h3>
+                    <p>Students develop confidence using technology in everyday life, making them comfortable in the digital world.</p>
                 </div>
-
-                <!-- Right: Explanation + Preview -->
-                <div class="code-preview-right">
-                    <h3>Practical.<br>Not Just Theory.</h3>
-                    <p>Every class ends with students running their own code and seeing it come to life. This is the live output of the code on the left — a webpage created by a student in their very first month.</p>
-
-                    <div class="preview-output">
-                        <div class="preview-output-label"><i class="fas fa-play-circle"></i> &nbsp;Live Output Preview</div>
-                        <div class="html-preview-box">
-                            <h2>Hello, World!</h2>
-                            <p>I built this at NSS Tech Lab.</p>
-                            <span class="preview-btn-demo">Click Me!</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-row">
-                        <div class="stat-item">
-                            <div class="stat-num">3+</div>
-                            <div class="stat-label">Projects Per Term</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-num">1:1</div>
-                            <div class="stat-label">Student / PC Ratio</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-num">100%</div>
-                            <div class="stat-label">Hands-On Learning</div>
-                        </div>
-                    </div>
+                <div class="ce-benefit-card">
+                    <div class="ce-benefit-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Creative Thinking</h3>
+                    <p>Technology encourages creativity and innovation, allowing students to express ideas in new ways.</p>
+                </div>
+                <div class="ce-benefit-card">
+                    <div class="ce-benefit-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <h3>Problem Solving</h3>
+                    <p>Students strengthen logical reasoning and analytical skills through coding and computational thinking.</p>
+                </div>
+                <div class="ce-benefit-card">
+                    <div class="ce-benefit-icon"><i class="fas fa-hands"></i></div>
+                    <h3>Practical Learning</h3>
+                    <p>Learning becomes more engaging through real computer practice, not just textbook theory.</p>
+                </div>
+                <div class="ce-benefit-card">
+                    <div class="ce-benefit-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Communication Skills</h3>
+                    <p>Students improve presentation and digital communication abilities for the modern workplace.</p>
+                </div>
+                <div class="ce-benefit-card">
+                    <div class="ce-benefit-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Career Readiness</h3>
+                    <p>Technology education prepares students for future academic and professional success in any field.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== CONVERSION BLOCK ==================== -->
-    <section class="conversion-section" id="tech-lab-tour">
+    <!-- ════════════════════ CTA ════════════════════ -->
+    <section class="ce-cta">
+        <div class="ce-cta-circle"></div>
+        <div class="ce-cta-circle"></div>
+        <div class="ce-cta-circle"></div>
         <div class="container">
-            <div class="conversion-card">
-                <div class="eyebrow">
-                    <i class="fas fa-flask"></i> Free Lab Tour
+            <div class="ce-cta-content">
+                <h2>Give Your Child the <span>Skills for Tomorrow</span></h2>
+                <p>Join Noshahi School System and help your child build a strong digital foundation through practical Computer Education and modern learning methods.</p>
+                <div class="ce-cta-btns">
+                    <a href="admissions.html" class="ce-btn-primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="ce-btn-outline">Contact Us</a>
                 </div>
-                <h2>Want to see our<br>students <span>in action?</span></h2>
-                <p>Book a free guided tour of our Tech Lab and watch our students code, create, and collaborate in real time. It takes just 30 minutes — and it'll change how you think about your child's education.</p>
-                <a href="contact.html" class="conversion-btn">
-                    Book a Free Tech Lab Tour <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="trust-row">
-                    <div class="trust-item">
-                        <i class="fas fa-check-circle"></i> No Obligation
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-clock"></i> 30-Minute Tour
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-calendar-check"></i> Flexible Timing
-                    </div>
+                <div class="ce-cta-trust">
+                    <div class="ce-cta-trust-item"><i class="fas fa-check-circle"></i> KG to Grade 12</div>
+                    <div class="ce-cta-trust-item"><i class="fas fa-check-circle"></i> Practical Training</div>
+                    <div class="ce-cta-trust-item"><i class="fas fa-check-circle"></i> Qualified Teachers</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
+    </main>
+
+    <!-- ════════════════════ FOOTER ════════════════════ -->
+    <footer class="premium-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1rem;">
+            <div class="footer-main">
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <p class="footer-desc">Helping children learn with modern studies, computer skills, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Special Focus</h3>
-                    <ul class="footer-links">
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Our Faculty</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="color: inherit; text-decoration: none;">Village 97 JB, Gojra</a>
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03281642297" style="color: inherit; text-decoration: none;">0328-1642297</a>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="phone-group">
+                                <a href="tel:03281642297">0328-1642297</a>
+                                <a href="https://wa.me/923216892097" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>0321-6892097</a>
+                            </div>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.25rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03216892097" style="color: inherit; text-decoration: none;">0321-6892097</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-envelope" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="mailto:noshahischoolsystem@gmail.com" style="color: inherit; text-decoration: none;">noshahischoolsystem@gmail.com</a>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-divider"></div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- JS -->
     <script src="js/main.js"></script>
+    <script>
+    (function(){
+        /* Timeline scroll reveal */
+        const items = document.querySelectorAll('.ce-timeline-item');
+        if (items.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, i * 120);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            items.forEach(item => observer.observe(item));
+        }
+
+        /* Section fade-in on scroll */
+        const sections = document.querySelectorAll('.ce-section');
+        if (sections.length > 0) {
+            const secObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        secObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(sec => {
+                sec.style.opacity = '0';
+                sec.style.transform = 'translateY(30px)';
+                sec.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+                secObserver.observe(sec);
+            });
+        }
+    })();
+    </script>
 
     <!-- Floating Widgets -->
     <div class="floating-widgets">

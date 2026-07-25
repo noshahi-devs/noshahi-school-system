@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Auto Active Nav Link ──
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  const allNavLinks = document.querySelectorAll('.nav-links a');
+
+  // Remove all existing active classes
+  allNavLinks.forEach(link => link.classList.remove('active'));
+
+  // Find and activate matching link(s)
+  allNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const hrefPage = href.split('/').pop().split('?')[0].split('#')[0];
+    if (hrefPage === currentPage) {
+      link.classList.add('active');
+
+      // If it's a dropdown child, also activate parent
+      const parentDropdown = link.closest('.dropdown');
+      if (parentDropdown) {
+        const parentLink = parentDropdown.querySelector(':scope > a');
+        if (parentLink) parentLink.classList.add('active');
+      }
+    }
+  });
+
   // Sticky Navbar
   const navbar = document.querySelector('.navbar');
   const mobileToggle = document.querySelector('.mobile-toggle');
@@ -15,20 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Menu Toggle
   if (mobileToggle) {
     mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        if (navLinks.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-          mobileToggle.style.color = 'var(--primary-color)';
-          document.body.style.overflow = 'hidden';
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-          mobileToggle.style.removeProperty('color');
-          document.body.style.removeProperty('overflow');
-        }
+      if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.removeProperty('overflow');
       }
     });
   }
@@ -41,12 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Close mobile menu if open
       if (navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
+        mobileToggle.classList.remove('active');
         document.body.style.removeProperty('overflow');
-        if (mobileToggle.querySelector('i')) {
-          mobileToggle.querySelector('i').classList.remove('fa-times');
-          mobileToggle.querySelector('i').classList.add('fa-bars');
-        }
-        mobileToggle.style.removeProperty('color');
       }
 
       const target = document.querySelector(this.getAttribute('href'));

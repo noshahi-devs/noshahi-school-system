@@ -26,38 +26,48 @@
         }
 
         .academics-page .navbar {
-            background-color: transparent;
+            background-color: var(--primary-color);
         }
 
         .academics-page .navbar .logo-text,
-        .academics-page .navbar .nav-links a,
+        .academics-page .navbar .nav-links > li > a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
         .academics-page .navbar .mobile-toggle {
             color: #fff !important;
         }
 
+        .academics-page .navbar .nav-links a.btn {
+            color: #fff !important;
+        }
+
         .academics-page .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(31, 42, 68, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .academics-page .navbar.scrolled .logo-text,
         .academics-page .navbar.scrolled .nav-links a {
-            color: var(--ac-primary) !important;
-        }
-
-        .academics-page .navbar .nav-links a.btn {
-            color: #000 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
         }
 
         .academics-page .navbar.scrolled .nav-links a.btn {
-            color: #000 !important;
+            color: #fff !important;
         }
 
-        /* Dropdown menu links - black color */
+        .academics-page .navbar.scrolled .mobile-toggle {
+            color: #fff !important;
+            border-color: var(--accent-color) !important;
+        }
+
+        /* Dropdown menu links - white color */
         .academics-page .dropdown-menu a,
         .academics-page .navbar.scrolled .dropdown-menu a {
-            color: #1F2A44 !important;
+            color: #FFFFFF !important;
         }
 
         .academics-page .dropdown-menu a:hover,
@@ -67,11 +77,16 @@
 
         /* ===== HERO SECTION ===== */
         .ac-hero {
-            min-height: 100vh;
+            min-height: auto;
             background: linear-gradient(135deg, #060d1a 0%, #0f1d35 50%, #1a2a4a 100%);
+            background-image: 
+                linear-gradient(135deg, rgba(10, 25, 70, 0.75) 0%, rgba(15, 35, 80, 0.60) 100%),
+                url('img/school banner.png');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
-            padding: 120px 0 80px;
+            padding: 40px 0 30px;
             position: relative;
             overflow: hidden;
             margin-top: 0;
@@ -128,10 +143,10 @@
 
         .ac-hero h1 {
             font-size: 4rem;
-            font-weight: 800;
+            font-weight: 700;
             color: #fff;
             line-height: 1.12;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             max-width: 720px;
             animation: slideInUp 0.8s ease 0.3s both;
         }
@@ -141,11 +156,11 @@
         }
 
         .ac-hero .hero-sub {
-            font-size: 1.15rem;
+            font-size: 1rem;
             color: rgba(255,255,255,0.65);
             max-width: 580px;
-            line-height: 1.7;
-            margin-bottom: 3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
             animation: slideInUp 0.8s ease 0.4s both;
         }
 
@@ -160,7 +175,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255,255,255,0.06);
+            background: #0B1F35;
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 14px;
             padding: 0.85rem 1.25rem;
@@ -169,9 +184,9 @@
         }
 
         .highlight-chip:hover {
-            background: rgba(255,140,0,0.1);
-            border-color: rgba(255,140,0,0.25);
-            transform: translateY(-3px);
+            background: #0B1F35;
+            border-color: rgba(255,255,255,0.1);
+            transform: none;
         }
 
         .highlight-chip .chip-icon {
@@ -216,6 +231,9 @@
         }
 
         .ac-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
             margin-bottom: 3.5rem;
         }
@@ -238,7 +256,7 @@
 
         .ac-title h2 {
             font-size: 2.4rem;
-            font-weight: 800;
+            font-weight: 500;
             color: var(--ac-text);
             margin-bottom: 0.75rem;
             position: relative;
@@ -247,15 +265,7 @@
         }
 
         .ac-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 56px;
-            height: 3px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, var(--ac-accent), var(--ac-blue));
+            display: none;
         }
 
         .ac-title h2 span {
@@ -267,6 +277,10 @@
             font-size: 1rem;
             max-width: 560px;
             margin: 0 auto;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         /* Tab Buttons */
@@ -346,8 +360,9 @@
 
         .level-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(26,42,74,0.1);
-            border-color: rgba(59,130,246,0.25);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+            border-color: #1e3a8a;
+            background: linear-gradient(135deg, var(--ac-white) 0%, rgba(30,58,138,0.03) 100%);
         }
 
         .level-card .card-level-badge {
@@ -366,7 +381,7 @@
 
         .level-card h3 {
             font-size: 1.2rem;
-            font-weight: 800;
+            font-weight: 500;
             color: var(--ac-text);
             margin-bottom: 0.3rem;
         }
@@ -430,7 +445,11 @@
                 font-size: 2.8rem;
             }
             .level-cards-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+            /* Override inline grid to 2 columns on tablet */
+            div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
         }
 
@@ -445,13 +464,14 @@
                 font-size: 1rem;
             }
             .hero-highlights {
-                gap: 1rem;
-            }
-            .highlight-chip {
-                padding: 0.7rem 1rem;
+                display: none !important;
             }
             .level-cards-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* Override inline grid to 2 columns on tablet */
+            div[style*="grid-template-columns: repeat(3"] {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
             .ac-title h2 {
                 font-size: 1.9rem;
@@ -472,7 +492,7 @@
                 font-size: 0.95rem;
             }
             .hero-highlights {
-                flex-direction: column;
+                display: none !important;
             }
             .level-tab-btn {
                 padding: 0.5rem 1rem;
@@ -486,316 +506,873 @@
             }
         }
 
-        /* ===== SUBJECT DISTRIBUTION RESPONSIVE ===== */
-        .subject-distribution-grid {
+        /* ===== PROGRAMS SECTION STYLES ===== */
+        .programs-section {
+            background: linear-gradient(180deg, var(--ac-bg) 0%, #ffffff 100%);
+            padding: 4rem 0;
+            min-height: auto;
+        }
+
+        .programs-section .container {
+            padding: 0 1rem;
+        }
+
+        .programs-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
+            padding: 0 0.5rem;
         }
 
-        .subject-distribution-left {
-            background: linear-gradient(135deg, #1F2A44 0%, #2d3f5a 100%);
-            border-radius: 24px;
-            padding: 2.5rem;
-            color: #fff;
-            box-shadow: 0 10px 40px rgba(31,42,68,0.2);
-            height: 100%;
+        .program-card {
+            background: var(--ac-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(31, 42, 68, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            border: 1px solid rgba(31, 42, 68, 0.05);
+            position: relative;
         }
 
-        .subject-distribution-left h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ac-accent), rgba(255, 140, 0, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .program-card:hover::before {
+            opacity: 1;
+        }
+
+        .program-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(31, 42, 68, 0.18);
+            border-color: rgba(31, 42, 68, 0.1);
+        }
+
+        .program-header {
+            padding: 1.25rem 1.5rem;
             color: #fff;
-            font-weight: 800;
-        }
-
-        .subject-distribution-left h3 i {
-            margin-right: 10px;
-            color: #FF8C00;
-        }
-
-        .subject-distribution-features {
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            align-items: center;
+            gap: 1.25rem;
+            min-height: 90px;
+            position: relative;
+            overflow: hidden;
+            background-size: 100% 100%;
+            background-position: center;
+            box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .subject-distribution-feature {
+        .program-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .program-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
             display: flex;
-            gap: 1rem;
-        }
-
-        .subject-distribution-feature-icon {
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
             flex-shrink: 0;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover .program-icon {
+            transform: scale(1.12);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #fff;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .program-body {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .program-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(31, 42, 68, 0.1), transparent);
+        }
+
+        .program-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .badge.age {
+            background: rgba(59, 130, 246, 0.12);
+            color: #3B82F6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .badge.coed {
+            background: rgba(31, 42, 68, 0.08);
+            color: var(--ac-primary);
+            border: 1px solid rgba(31, 42, 68, 0.15);
+        }
+
+        .program-desc {
+            font-size: 0.95rem;
+            color: var(--ac-muted);
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .program-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .program-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--ac-text);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 0.35rem 0;
+        }
+
+        .program-features li:hover {
+            transform: translateX(4px);
+            color: var(--ac-accent);
+        }
+
+        .program-features i {
+            color: #10B981;
+            font-size: 1rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 4px rgba(16, 185, 129, 0.3));
+        }
+
+        /* ===== ADDITIONAL PROGRAMS SECTION ===== */
+        .additional-programs {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid rgba(31, 42, 68, 0.08);
+        }
+
+        .additional-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .additional-title h2 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: var(--ac-text);
+            margin-bottom: 0.75rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .additional-title h2::after {
+            display: none;
+        }
+
+        .additional-title .section-subtitle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(255,140,0,0.12) 0%, rgba(255,140,0,0.05) 100%);
+            border: 1.5px solid rgba(255,140,0,0.3);
+            color: var(--ac-accent);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .additional-title h2 span {
+            color: var(--ac-accent);
+        }
+
+        .additional-title p {
+            color: var(--ac-muted);
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .specialized-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 0.5rem;
+        }
+
+        .specialized-card {
+            background: var(--ac-white);
+            border: 2px solid rgba(31, 42, 68, 0.08);
+            border-radius: 20px;
+            padding: 1.25rem 1.5rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .specialized-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ac-accent), rgba(255, 140, 0, 0.3));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .specialized-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 30px 30px 0 0;
+            border-color: rgba(255, 140, 0, 0.08) transparent transparent transparent;
+            transition: all 0.3s ease;
+        }
+
+        .specialized-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(31, 42, 68, 0.15);
+            border-color: var(--ac-accent);
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 140, 0, 0.02) 100%);
+        }
+
+        .specialized-card:hover::after {
+            border-color: rgba(255, 140, 0, 0.15) transparent transparent transparent;
+        }
+
+        .spec-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
-        }
-
-        .subject-distribution-feature-icon.icon-1 {
-            background: rgba(255,140,0,0.2);
-            color: #FF8C00;
-        }
-
-        .subject-distribution-feature-icon.icon-2 {
-            background: rgba(59,130,246,0.2);
-            color: #3B82F6;
-        }
-
-        .subject-distribution-feature-icon.icon-3 {
-            background: rgba(168,85,247,0.2);
-            color: #9333ea;
-        }
-
-        .subject-distribution-feature h4 {
-            font-size: 1rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .subject-distribution-feature p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .subject-distribution-left .btn {
-            margin-top: 2rem;
-            background: #FF8C00;
-            color: #000 !important;
-            font-weight: 700;
-            padding: 0.8rem 2rem;
-            display: inline-block;
-            border-radius: 8px;
-            text-decoration: none;
+            margin-bottom: 0.75rem;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
         }
 
-        .subject-distribution-left .btn:hover {
-            background: #FFB347;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255,140,0,0.4);
+        .specialized-card:hover .spec-icon {
+            transform: scale(1.15) rotateY(10deg);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .subject-distribution-right {
-            overflow-x: auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        .specialized-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--ac-text);
+            margin-bottom: 0.35rem;
+        }
+
+        .spec-intro {
+            font-size: 0.85rem;
+            color: var(--ac-accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-details {
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-details > p {
+            font-size: 0.85rem;
+            color: var(--ac-muted);
+            line-height: 1.55;
+            margin-bottom: 0.75rem;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
+            gap: 0.4rem;
         }
 
-        .subject-distribution-table {
-            width: 100%;
-            border-collapse: collapse;
-            height: 100%;
+        .spec-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+            color: var(--ac-text);
+            padding-left: 0;
+            position: relative;
+            transition: all 0.2s ease;
+            padding: 0.25rem 0;
         }
 
-        .subject-distribution-table thead tr {
-            background: linear-gradient(90deg, #1F2A44, #3B82F6);
+        .spec-list li:hover {
+            transform: translateX(3px);
+            color: var(--ac-accent);
         }
 
-        .subject-distribution-table th {
-            padding: 1.2rem;
-            color: #fff;
-            text-align: left;
-            font-weight: 800;
-            font-size: 0.95rem;
+        .spec-list li::before {
+            content: '▸';
+            color: var(--ac-accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 1px 2px rgba(255, 140, 0, 0.3));
+            transition: all 0.2s ease;
         }
 
-        .subject-distribution-table tbody tr {
-            border-bottom: 1px solid #eee;
+        .spec-list li:hover::before {
+            transform: translateX(2px);
         }
 
-        .subject-distribution-table tbody tr:last-child {
-            border-bottom: none;
-        }
-
-        .subject-distribution-table td {
-            padding: 1.2rem;
-            color: #64748B;
-            font-size: 0.9rem;
-        }
-
-        .subject-distribution-table td:first-child {
+        .spec-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--ac-blue);
             font-weight: 700;
-            color: #1F2A44;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
         }
 
-        .subject-distribution-table tbody tr:nth-child(odd) td:first-child {
-            background: rgba(255,140,0,0.05);
+        .spec-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(59, 130, 246, 0.1);
+            transition: width 0.3s ease;
+            z-index: -1;
         }
 
-        .subject-distribution-table tbody tr:nth-child(even) {
-            background: #f8f9fa;
+        .spec-link:hover {
+            gap: 0.9rem;
+            color: var(--ac-accent);
+            padding: 0.5rem 1.25rem;
         }
 
-        .subject-stream-badge {
-            background: rgba(255,140,0,0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            color: #FF8C00;
-            font-weight: 600;
-            font-size: 0.85rem;
+        .spec-link:hover::before {
+            width: 100%;
         }
 
-        /* Tablet Responsive (768px) */
-        @media (max-width: 768px) {
-            .subject-distribution-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                align-items: stretch;
-            }
+        .spec-link i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
 
-            .subject-distribution-left {
-                padding: 2rem;
-                height: auto;
-            }
+        .spec-link:hover i {
+            transform: translateX(3px);
+        }
 
-            .subject-distribution-left h3 {
-                font-size: 1.3rem;
-                margin-bottom: 1.25rem;
-            }
-
-            .subject-distribution-feature {
-                gap: 0.85rem;
-            }
-
-            .subject-distribution-feature-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-            }
-
-            .subject-distribution-feature h4 {
-                font-size: 0.95rem;
-            }
-
-            .subject-distribution-feature p {
-                font-size: 0.85rem;
-            }
-
-            .subject-distribution-features {
-                gap: 1.25rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .subject-distribution-left .btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-                margin-top: 1.5rem;
-            }
-
-            .subject-distribution-right {
-                overflow-x: auto;
-            }
-
-            .subject-distribution-table th,
-            .subject-distribution-table td {
-                padding: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .subject-distribution-table th {
-                font-size: 0.9rem;
-            }
-
-            .subject-stream-badge {
-                font-size: 0.8rem;
-                padding: 0.25rem 0.6rem;
+        /* ===== RESPONSIVE PROGRAMS SECTION ===== */
+        @media (max-width: 1440px) {
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Mobile Responsive (480px) */
-        @media (max-width: 480px) {
-            .subject-distribution-grid {
+        @media (max-width: 1024px) {
+            .programs-section .container {
+                padding: 0 1rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
+                padding: 0 0.5rem;
             }
 
-            .subject-distribution-left {
+            .program-header {
                 padding: 1.75rem;
+                min-height: 130px;
             }
 
-            .subject-distribution-left h3 {
+            .program-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+
+            .program-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .specialized-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
+                max-width: 100%;
+            }
+
+            .specialized-card {
+                padding: 1.4rem 1.6rem;
+            }
+
+            .spec-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 0.85rem;
+            }
+
+            .specialized-card h3 {
                 font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .spec-intro {
+                font-size: 0.8rem;
+                margin-bottom: 0.65rem;
+            }
+
+            .spec-details > p {
+                font-size: 0.8rem;
+                margin-bottom: 0.65rem;
+            }
+
+            .spec-list {
+                gap: 0.35rem;
+            }
+
+            .spec-list li {
+                font-size: 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .additional-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .programs-section {
+                padding: 3rem 0;
+            }
+
+            .programs-section .container {
+                padding: 0 0.75rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                margin-top: 2.5rem;
+                padding: 0 0.25rem;
+            }
+
+            .program-header {
+                padding: 1.5rem;
+                min-height: auto;
+                gap: 1.25rem;
+            }
+
+            .program-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 1.6rem;
+            }
+
+            .program-header h3 {
+                font-size: 1.2rem;
+            }
+
+            .program-body {
+                padding: 1.5rem;
+            }
+
+            .program-desc {
+                font-size: 0.9rem;
                 margin-bottom: 1rem;
             }
 
-            .subject-distribution-feature {
-                gap: 0.75rem;
+            .program-features li {
+                font-size: 0.85rem;
+                gap: 0.6rem;
             }
 
-            .subject-distribution-feature-icon {
-                width: 40px;
-                height: 40px;
+            .additional-programs {
+                margin-top: 2.5rem;
+                padding-top: 2rem;
+            }
+
+            .additional-title {
+                margin-bottom: 2rem;
+            }
+
+            .additional-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .specialized-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                max-width: 100%;
+                padding: 0 0.25rem;
+            }
+
+            .specialized-card {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .spec-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .specialized-card h3 {
                 font-size: 1rem;
-                border-radius: 8px;
+                margin-bottom: 0.25rem;
             }
 
-            .subject-distribution-feature h4 {
-                font-size: 0.9rem;
-                margin-bottom: 0.3rem;
-            }
-
-            .subject-distribution-feature p {
+            .spec-intro {
                 font-size: 0.8rem;
-                line-height: 1.5;
+                margin-bottom: 0.6rem;
             }
 
-            .subject-distribution-features {
+            .spec-details > p {
+                font-size: 0.8rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .spec-list {
+                gap: 0.3rem;
+            }
+
+            .spec-list li {
+                font-size: 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .spec-link {
+                font-size: 0.85rem;
+                margin-top: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .programs-section {
+                padding: 2.5rem 0;
+            }
+
+            .programs-section .container {
+                padding: 0 0.5rem;
+            }
+
+            .ac-title p {
+                font-size: 0.95rem;
+            }
+
+            .program-header {
+                padding: 1.25rem;
                 gap: 1rem;
-                margin-bottom: 1.25rem;
+                min-height: auto;
+                flex-wrap: wrap;
             }
 
-            .subject-distribution-left .btn {
-                padding: 0.6rem 1.25rem;
-                font-size: 0.85rem;
-                margin-top: 1rem;
+            .program-header h3 {
+                font-size: 1.1rem;
                 width: 100%;
-                text-align: center;
+                order: 2;
+                margin-top: -0.5rem;
             }
 
-            .subject-distribution-right {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+            .program-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4rem;
+                order: 1;
             }
 
-            .subject-distribution-table {
-                font-size: 0.75rem;
+            .program-body {
+                padding: 1.25rem;
             }
 
-            .subject-distribution-table th,
-            .subject-distribution-table td {
-                padding: 0.8rem;
-                font-size: 0.8rem;
+            .program-meta {
+                margin-bottom: 1rem;
             }
 
-            .subject-distribution-table th {
+            .badge {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.65rem;
+            }
+
+            .program-desc {
                 font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
             }
 
-            .subject-stream-badge {
+            .program-features li {
+                font-size: 0.8rem;
+                gap: 0.5rem;
+            }
+
+            .additional-programs {
+                margin-top: 2.5rem;
+                padding-top: 2rem;
+            }
+
+            .additional-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .specialized-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .specialized-card {
+                padding: 1.1rem 1.4rem;
+            }
+
+            .spec-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin-bottom: 0.7rem;
+            }
+
+            .specialized-card h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .spec-intro {
                 font-size: 0.75rem;
-                padding: 0.2rem 0.5rem;
-                display: block;
-                margin-bottom: 0.3rem;
+                margin-bottom: 0.5rem;
             }
 
-            .subject-distribution-table td:first-child {
-                min-width: 90px;
+            .spec-details > p {
+                font-size: 0.75rem;
+                line-height: 1.5;
+                margin-bottom: 0.5rem;
+            }
+
+            .spec-list {
+                gap: 0.25rem;
+            }
+
+            .spec-list li {
+                font-size: 0.7rem;
+                gap: 0.45rem;
+            }
+
+            .spec-link {
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* ===== CTA SECTION ===== */
+        .ac-cta {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ac-cta-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,140,0,0.06);
+            pointer-events: none;
+        }
+
+        .ac-cta-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; left: -60px; }
+        .ac-cta-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; right: -30px; }
+        .ac-cta-circle:nth-child(3) { width: 150px; height: 150px; top: 30%; right: 10%; }
+
+        .ac-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .ac-cta h2 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .ac-cta p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .ac-cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ac-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.35s ease;
+        }
+
+        .ac-btn.orange {
+            background: #FF8C00;
+            color: #fff;
+            box-shadow: 0 6px 25px rgba(255,140,0,0.3);
+        }
+
+        .ac-btn.orange:hover {
+            background: #e5850f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgba(255,140,0,0.4);
+        }
+
+        .ac-btn.outline-orange {
+            background: transparent;
+            color: #FF8C00;
+            border: 2px solid #FF8C00;
+        }
+
+        .ac-btn.outline-orange:hover {
+            background: #FF8C00;
+            color: #fff;
+        }
+
+        /* CTA Responsive */
+        @media (max-width: 768px) {
+            .ac-cta {
+                padding: 4rem 1.5rem;
+            }
+            .ac-cta h2 {
+                font-size: 2rem;
+            }
+            .ac-cta p {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ac-cta {
+                padding: 3rem 1rem;
+            }
+            .ac-cta h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+            .ac-cta p {
+                font-size: 0.88rem;
+                margin-bottom: 1.5rem;
+            }
+            .ac-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
             }
         }
     
@@ -812,13 +1389,15 @@
                 <span class="logo-text">Noshahi School System</span>
             </a>
             <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html" class="active">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html" class="active">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html" class="active">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
@@ -826,15 +1405,15 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
@@ -881,116 +1460,211 @@
         </div>
     </section>
 
-    <!-- ===== EDUCATIONAL LEVELS ===== -->
-    <section class="levels-section" id="levels">
+    <!-- ===== EDUCATIONAL PROGRAMS SECTION ===== -->
+    <section class="programs-section" id="programs">
         <div class="container">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-layer-group"></i> Comprehensive Curriculum</div>
-                <h2>Our <span>Educational</span> Levels</h2>
-                <p>Five tailored stages of learning, each designed around your child's developmental needs with dedicated programs for boys and girls.</p>
+                <div class="eyebrow"><i class="fas fa-graduation-cap"></i> Comprehensive Education</div>
+                <h2>Our <span>Educational</span> Programs</h2>
+                <p>We offer comprehensive educational programs from Play Group to Higher Secondary, with special focus on Computer Education and Islamic & Moral Education. Each level is designed for your child's age and development.</p>
             </div>
 
-            <!-- Tab Buttons -->
-            <div class="level-tabs">
-                <button class="level-tab-btn active" data-level="all"><i class="fas fa-th"></i> All Levels</button>
-                <button class="level-tab-btn" data-level="playgroup"><i class="fas fa-child"></i> Play Group</button>
-                <button class="level-tab-btn" data-level="nursery"><i class="fas fa-apple"></i> Nursery/Prep</button>
-                <button class="level-tab-btn" data-level="primary"><i class="fas fa-pencil"></i> Primary</button>
-                <button class="level-tab-btn" data-level="middle"><i class="fas fa-book"></i> Middle</button>
-                <button class="level-tab-btn" data-level="secondary"><i class="fas fa-award"></i> Secondary</button>
+            <!-- Programs Grid -->
+            <div class="programs-grid">
+                
+                <!-- Program 1: Play Group -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #FF8C00, #FFB347);">
+                        <div class="program-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Play Group</h3>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Age 3-4</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">A nurturing, play-based environment where young learners develop social skills, creativity, and early learning foundations through interactive activities and games.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Creative Learning through Play</li>
+                            <li><i class="fas fa-check-circle"></i> Social Development</li>
+                            <li><i class="fas fa-check-circle"></i> Basic Literacy & Numeracy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Program 2: Nursery -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #3B82F6, #60A5FA);">
+                        <div class="program-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Nursery</h3>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Age 4-5</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Building foundations of learning with structured play and academic preparation. Focus on language development, early mathematics, and kindergarten readiness.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Language Development</li>
+                            <li><i class="fas fa-check-circle"></i> Early Mathematics</li>
+                            <li><i class="fas fa-check-circle"></i> Kindergarten Preparation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Program 3: Prep -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #8B5CF6, #A78BFA);">
+                        <div class="program-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Prep</h3>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Age 5-6</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Primary preparation with emphasis on reading, writing, and arithmetic. Introduction to structured academics while maintaining age-appropriate play-based learning.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Reading & Writing</li>
+                            <li><i class="fas fa-check-circle"></i> Mathematics Fundamentals</li>
+                            <li><i class="fas fa-check-circle"></i> School Readiness Skills</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Program 4: Primary -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #10B981, #34D399);">
+                        <div class="program-icon">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                        <h3>Primary</h3>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Classes 1-5</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Solid academic foundation across languages, mathematics, sciences, and social studies. Includes introduction to computer skills and Islamic education.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Core Academic Subjects</li>
+                            <li><i class="fas fa-check-circle"></i> Computer Basics</li>
+                            <li><i class="fas fa-check-circle"></i> Life Skills Development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Program 5: Middle -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #F59E0B, #FBBF24);">
+                        <div class="program-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>Middle School</h3>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Classes 6-8</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Enhanced academics with deeper exploration of sciences and mathematics. Strengthened computer education including MS Office applications. Character development programs.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Advanced Sciences & Math</li>
+                            <li><i class="fas fa-check-circle"></i> Computer Applications</li>
+                            <li><i class="fas fa-check-circle"></i> Islamic & Moral Education</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Program 6: Secondary -->
+                <div class="program-card">
+                    <div class="program-header" style="background: linear-gradient(135deg, #EF4444, #F87171);">
+                        <div class="program-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Secondary (Matric)</h3>
+                    </div>
+                    <div class="program-body">
+                        <div class="program-meta">
+                            <span class="badge age">Classes 9-10</span>
+                            <span class="badge coed">Boys & Girls</span>
+                        </div>
+                        <p class="program-desc">Comprehensive curriculum leading to Board Examinations. Subject specialization with choice of streams. Advanced computer education and career guidance.</p>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Board Examination Prep</li>
+                            <li><i class="fas fa-check-circle"></i> Science/Commerce Streams</li>
+                            <li><i class="fas fa-check-circle"></i> Career Guidance</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Cards Grid -->
-            <div class="level-cards-grid">
-
-                <!-- Play Group -->
-                <div class="level-card visible" data-group="playgroup" data-group="all">
-                    <span class="card-level-badge">Level 01</span>
-                    <h3><i class="fas fa-child" style="margin-right: 8px; color: var(--ac-accent);"></i>Play Group</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Age 3-4 | Boys & Girls</div>
-                    <p>A nurturing, play-based environment where young learners develop foundational skills, social confidence, and a genuine love of learning through creative play and guided exploration.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">Numbers & Counting</span>
-                        <span class="s-chip">Alphabet Recognition</span>
-                        <span class="s-chip">Art & Crafts</span>
-                        <span class="s-chip">Daily Duas</span>
-                        <span class="s-chip">Motor Skills</span>
-                    </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
+            <!-- Additional Programs Section -->
+            <div class="additional-programs">
+                <div class="additional-title">
+                    <div class="section-subtitle"><i class="fas fa-star"></i> Beyond Curriculum</div>
+                    <h2>Specialized <span>Programs</span></h2>
+                    <p>Beyond our regular curriculum, we offer specialized educational tracks to develop specific skills and knowledge areas</p>
                 </div>
 
-                <!-- Nursery & Prep -->
-                <div class="level-card visible" data-group="nursery" data-group="all">
-                    <span class="card-level-badge">Level 02</span>
-                    <h3><i class="fas fa-apple" style="margin-right: 8px; color: var(--ac-accent);"></i>Nursery & Prep</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> KG - Prep | Boys & Girls</div>
-                    <p>Building early literacy and numeracy skills with structured academics. Introduction to Islamic education through daily Duas and Quranic exposure, balanced with creative learning activities.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English Basics</span>
-                        <span class="s-chip">Urdu Foundation</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Islamic Stories</span>
-                        <span class="s-chip">Nazra Quran</span>
+                <div class="specialized-grid">
+                    
+                    <!-- Computer Education -->
+                    <div class="specialized-card">
+                        <div class="spec-icon" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05));">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Computer Education</h3>
+                        <p class="spec-intro">Technology training from early classes onwards</p>
+                        <div class="spec-details">
+                            <p>We introduce computer education from the early classes so that students become familiar with technology from a young age. Our comprehensive computer program includes:</p>
+                            <ul class="spec-list">
+                                <li>Basic Computer Skills & Fundamentals</li>
+                                <li>Typing and Keyboard Proficiency</li>
+                                <li>Microsoft Word - Document Creation & Formatting</li>
+                                <li>Microsoft PowerPoint - Presentation Skills</li>
+                                <li>Essential Digital Skills</li>
+                                <li>Internet & Email Management</li>
+                                <li>Programming Basics (Advanced Classes)</li>
+                            </ul>
+                        </div>
+                        <a href="computer-education.html" class="spec-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
-                </div>
 
-                <!-- Primary School -->
-                <div class="level-card visible" data-group="primary" data-group="all">
-                    <span class="card-level-badge">Level 03</span>
-                    <h3><i class="fas fa-book" style="margin-right: 8px; color: var(--ac-accent);"></i>Primary School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 1-5 | Boys & Girls</div>
-                    <p>Strong academic foundation in all core subjects. Students begin structured computer lab sessions and advanced Nazra Quran with Tajweed. Focus on critical thinking and practical application.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Science</span>
-                        <span class="s-chip">Islamiat</span>
-                        <span class="s-chip">Nazra Quran</span>
-                        <span class="s-chip">Computer Education</span>
+                    <!-- Islamic & Moral Education -->
+                    <div class="specialized-card">
+                        <div class="spec-icon" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(168, 85, 247, 0.05));">
+                            <i class="fas fa-quran"></i>
+                        </div>
+                        <h3>Islamic & Moral Education</h3>
+                        <p class="spec-intro">Character development and Islamic values</p>
+                        <div class="spec-details">
+                            <p>We believe in holistic development that includes Islamic teachings and moral values:</p>
+                            <ul class="spec-list">
+                                <li>Quranic Studies & Tajweed</li>
+                                <li>Islamic History & Civilization</li>
+                                <li>Character Development Programs</li>
+                                <li>Moral Ethics & Values</li>
+                                <li>Hafiz Program (Optional)</li>
+                                <li>Islamic Jurisprudence Basics</li>
+                                <li>Community Service Activities</li>
+                            </ul>
+                        </div>
+                        <a href="islamic-education.html" class="spec-link">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
-                </div>
 
-                <!-- Middle School -->
-                <div class="level-card visible" data-group="middle" data-group="all">
-                    <span class="card-level-badge">Level 04</span>
-                    <h3><i class="fas fa-graduation-cap" style="margin-right: 8px; color: var(--ac-accent);"></i>Middle School</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 6-8 | Boys & Girls</div>
-                    <p>Advanced academics with Computer Science taught as a core subject (replacing Arabic). Students develop critical analysis skills and begin subject specialization while continuing Islamic and character education.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Science</span>
-                        <span class="s-chip">Social Studies</span>
-                        <span class="s-chip">Computer Science</span>
-                        <span class="s-chip">Islamiat</span>
-                    </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <!-- Secondary / Matric -->
-                <div class="level-card visible" data-group="secondary" data-group="all">
-                    <span class="card-level-badge">Level 05</span>
-                    <h3><i class="fas fa-medal" style="margin-right: 8px; color: var(--ac-accent);"></i>Secondary / Matric</h3>
-                    <div class="grade-range"><i class="fas fa-circle-dot" style="font-size: 0.6rem;"></i> Grades 9-10 | Boys & Girls</div>
-                    <p><strong>Computer Science Stream Only</strong> - No Arts or Biology streams offered. Intensive preparation for board exams with emphasis on Computer Science as the primary technical subject.</p>
-                    <div class="subject-chips">
-                        <span class="s-chip">English</span>
-                        <span class="s-chip">Urdu</span>
-                        <span class="s-chip">Mathematics</span>
-                        <span class="s-chip">Physics</span>
-                        <span class="s-chip">Chemistry</span>
-                        <span class="s-chip">Computer Science</span>
-                        <span class="s-chip">Islamiat</span>
-                    </div>
-                    <a href="admissions.html" class="card-cta">Enroll Now <i class="fas fa-arrow-right"></i></a>
-                </div>
-
             </div>
+
         </div>
+  
     </section>
 
 
@@ -1004,67 +1678,429 @@
                 <p>Two pillars of excellence that define our educational philosophy and set us apart.</p>
             </div>
 
-            <!-- Program 1: Computer Education -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: linear-gradient(135deg, rgba(255,140,0,0.08) 0%, rgba(255,140,0,0.02) 100%); border-radius: 24px; padding: 3.5rem; border: 1px solid rgba(255,140,0,0.15);" class="responsive-program-section program-section-wrapper">
-                <div>
-                    <div class="program-content-badge">
-                        <i class="fas fa-laptop-code"></i> Core Subject
+            <!-- Program 1: Computer Education - REDESIGNED -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; background: linear-gradient(135deg, rgba(255,140,0,0.06) 0%, rgba(255,140,0,0.01) 100%); border-radius: 24px; padding: 4rem; border: 1px solid rgba(255,140,0,0.12); margin-bottom: 3rem;" class="responsive-program-section computer-ed-wrapper">
+                
+                <!-- LEFT SIDE: Content (45%) -->
+                <div class="computer-ed-left">
+                    <!-- Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,122,0,0.15); border: 1px solid rgba(255,122,0,0.3); padding: 0.5rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem; font-size: 0.85rem; font-weight: 600; color: #FF7A00;">
+                        <i class="fas fa-laptop-code"></i> CORE SUBJECT
                     </div>
-                    <h3 class="program-content-heading">
-                        <span style="color: #FF8C00;">Computer</span> Education
-                    </h3>
-                    <p class="program-content-text">Computer is taught as a <strong style="color: #1F2A44;">regular, mandatory subject</strong> at every grade level — not an optional add-on. Our 100% practical, hands-on approach focuses on real-world understanding and applicable skills.</p>
-                    <ul class="program-features-list">
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon"></i>
-                            <span><strong style="color: #1F2A44;">Grade-tailored curriculum</strong> — from basics to advanced programming</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon"></i>
-                            <span><strong style="color: #1F2A44;">Dedicated Computer Lab</strong> — with modern machines for hands-on sessions</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon"></i>
-                            <span><strong style="color: #1F2A44;">Board exam ready</strong> — intensive Computer Science preparation for Matric</span>
-                        </li>
-                    </ul>
-                    <a href="computer-education.html" class="program-cta-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+
+                    <!-- Heading with color split -->
+                    <h2 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        <span style="color: #FF7A00;">Computer</span>
+                        <br>
+                        <span style="color: #0B2D6B;">Learning</span>
+                    </h2>
+
+                    <!-- Description (3-4 lines) -->
+                    <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 2rem; font-weight: 500;">
+                        Computer is a main subject like Math. We teach hands-on skills and real programs from early grades.
+                    </p>
+
+                    <!-- Features List (Without Cards) -->
+                    <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Hands-On Learning</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn by doing real work on computers</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Modern Lab</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">New computers and latest tools</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Good Teachers</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Trained and skilled instructors</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #FF7A00; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Ready for Future</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Exam ready and career prepared</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two CTA Buttons -->
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="computer-education.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #FF7A00, #FF8C00); color: white; padding: 0.9rem 2rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(255,122,0,0.3); border: none; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(255,122,0,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(255,122,0,0.3)';">
+                            Explore Program <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="admissions.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: transparent; color: #0B2D6B; padding: 0.9rem 2rem; border: 2px solid #0B2D6B; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(11,45,107,0.1)';" onmouseout="this.style.background='transparent';">
+                            Enroll Now <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="program-image-wrapper">
-                    <img src="img/hero_slide_2.png" alt="Computer Education">
+
+                <!-- RIGHT SIDE: Image & Stats (55%) -->
+                <div class="computer-ed-right" style="position: relative;">
+                    <!-- Large Rounded Image with Glow -->
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; inset: -20px; background: radial-gradient(circle, rgba(255,122,0,0.25) 0%, transparent 70%); border-radius: 24px; filter: blur(30px); z-index: -1;"></div>
+                        <img src="img/computer-lab.png" alt="Computer Education Lab" style="width: 100%; height: 400px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 50px rgba(255,122,0,0.2), 0 0 40px rgba(255,122,0,0.15); display: block; border: 2px solid rgba(255,122,0,0.1);">
+                    </div>
+
+                    <!-- Floating Statistic Cards -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Stat Card 1 -->
+                        <div style="background: linear-gradient(135deg, rgba(255,122,0,0.1) 0%, rgba(255,122,0,0.02) 100%); border: 1px solid rgba(255,122,0,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(255,122,0,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #FF7A00; margin-bottom: 0.5rem;">100%</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">Hands-On Practice</p>
+                        </div>
+
+                        <!-- Stat Card 2 -->
+                        <div style="background: linear-gradient(135deg, rgba(11,45,107,0.1) 0%, rgba(11,45,107,0.02) 100%); border: 1px solid rgba(11,45,107,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(11,45,107,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0B2D6B; margin-bottom: 0.5rem;">Grade 1-10</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">All Levels Covered</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Program 2: Islamic Education -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: linear-gradient(135deg, rgba(147,51,234,0.08) 0%, rgba(147,51,234,0.02) 100%); border-radius: 24px; padding: 3.5rem; border: 1px solid rgba(147,51,234,0.15);" class="responsive-program-section program-section-wrapper islamic-program-section">
-                <div style="order: 2;">
-                    <div class="program-content-badge" style="background: rgba(147,51,234,0.15); border: 1px solid rgba(147,51,234,0.25); color: #9333ea;">
-                        <i class="fas fa-book-quran"></i> Character Building
+            <style>
+                /* Computer Education Responsive Design */
+                @media (max-width: 1200px) {
+                    .computer-ed-wrapper {
+                        grid-template-columns: 1fr 1fr !important;
+                        padding: 3rem !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.8rem !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .computer-ed-wrapper {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                        padding: 2rem !important;
+                        margin-top: 2rem !important;
+                    }
+                    .computer-ed-left {
+                        order: 1 !important;
+                    }
+                    .computer-ed-right {
+                        order: 2 !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.5rem !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    .computer-ed-left p {
+                        font-size: 0.9rem !important;
+                        line-height: 1.6 !important;
+                        margin-bottom: 1.25rem !important;
+                    }
+                    .computer-ed-right img {
+                        height: 250px !important;
+                    }
+                    .computer-ed-right > div:last-child {
+                        grid-template-columns: 1fr 1fr !important;
+                        gap: 1rem !important;
+                    }
+                    .computer-ed-right > div:last-child > div {
+                        padding: 1rem !important;
+                    }
+                    .computer-ed-right > div:last-child > div > div:first-child {
+                        font-size: 1.5rem !important;
+                        margin-bottom: 0.3rem !important;
+                    }
+                    .computer-ed-right > div:last-child > div > p {
+                        font-size: 0.78rem !important;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .computer-ed-wrapper {
+                        padding: 1.5rem !important;
+                        border-radius: 16px !important;
+                        margin-bottom: 2rem !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.3rem !important;
+                    }
+                    .computer-ed-left > div:first-child {
+                        font-size: 0.75rem !important;
+                        padding: 0.4rem 0.9rem !important;
+                    }
+                    .computer-ed-right img {
+                        height: 200px !important;
+                        border-radius: 14px !important;
+                    }
+                    .computer-ed-right > div:last-child {
+                        grid-template-columns: 1fr !important;
+                        gap: 0.75rem !important;
+                    }
+                    .computer-ed-left > div:last-of-type {
+                        flex-direction: column !important;
+                        gap: 0.75rem !important;
+                    }
+                    .computer-ed-left > div:last-of-type a {
+                        width: 100% !important;
+                        justify-content: center !important;
+                        padding: 0.75rem 1.5rem !important;
+                        font-size: 0.85rem !important;
+                    }
+                    .computer-ed-left > div:nth-of-type(3) > div {
+                        gap: 0.6rem !important;
+                    }
+                    .computer-ed-left > div:nth-of-type(3) > div > div:first-child {
+                        font-size: 1.2rem !important;
+                    }
+                    .computer-ed-left > div:nth-of-type(3) > div > div:last-child h4 {
+                        font-size: 0.85rem !important;
+                    }
+                    .computer-ed-left > div:nth-of-type(3) > div > div:last-child p {
+                        font-size: 0.8rem !important;
+                    }
+                }
+
+                @media (max-width: 360px) {
+                    .computer-ed-wrapper {
+                        padding: 1.2rem !important;
+                    }
+                    .computer-ed-left h2 {
+                        font-size: 1.2rem !important;
+                    }
+                    .computer-ed-right img {
+                        height: 170px !important;
+                    }
+                }
+            </style>
+
+            <!-- Program 2: Islamic & Moral Education - REDESIGNED -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; background: linear-gradient(135deg, rgba(147,51,234,0.06) 0%, rgba(147,51,234,0.01) 100%); border-radius: 24px; padding: 4rem; border: 1px solid rgba(147,51,234,0.12); margin-top: 5rem;" class="responsive-program-section islamic-ed-wrapper">
+                
+                <!-- LEFT SIDE: Content (50%) -->
+                <div class="islamic-ed-left" style="order: 2;">
+                    <!-- Badge -->
+                    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(147,51,234,0.15); border: 1px solid rgba(147,51,234,0.3); padding: 0.5rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem; font-size: 0.85rem; font-weight: 600; color: #9333ea;">
+                        <i class="fas fa-book-quran"></i> CHARACTER BUILDING
                     </div>
-                    <h3 class="program-content-heading">
-                        <span style="color: #9333ea;">Islamic</span> & Moral Education
-                    </h3>
-                    <p class="program-content-text">We don't just teach Islamiat as a subject — <strong style="color: #1F2A44;">Islamic values, character, and Quranic education are woven into every school day</strong>, shaping ethical, well-rounded individuals.</p>
-                    <ul class="program-features-list">
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
-                            <span><strong style="color: #1F2A44;">Nazra Quran with Tajweed</strong> — by certified Huffaz instructors</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
-                            <span><strong style="color: #1F2A44;">Character Report Cards</strong> — sent to parents each term for holistic development</span>
-                        </li>
-                        <li class="program-feature-item">
-                            <i class="fas fa-check-circle program-feature-icon" style="color: #9333ea;"></i>
-                            <span><strong style="color: #1F2A44;">Akhlaqiat & Seerah</strong> — daily practical Islamic etiquette and Quranic teaching</span>
-                        </li>
-                    </ul>
-                    <a href="islamic-education.html" class="program-cta-btn">Explore More <i class="fas fa-arrow-right"></i></a>
+
+                    <!-- Heading with color split -->
+                    <h2 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif;">
+                        <span style="color: #9333ea;">Islamic</span>
+                        <br>
+                        <span style="color: #0B2D6B;">Education</span>
+                    </h2>
+
+                    <!-- Description (3-4 lines) -->
+                    <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 2rem; font-weight: 500;">
+                        Islamic values and Quran learning are part of every day at school. We teach good character, Islamic studies, and Quranic education together.
+                    </p>
+
+                    <!-- Features List (Without Cards) -->
+                    <div style="display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem;">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Quran Learning</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn Quran with proper recitation from trained teachers</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Good Character</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn good behavior and Islamic manners every day</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Islamic Studies</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Learn about Islam, Hadith, and Islamic history</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <div style="font-size: 1.5rem; color: #9333ea; flex-shrink: 0; margin-top: 0.2rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.25rem;">Reports for Parents</h4>
+                                <p style="font-size: 0.9rem; color: #64748B; line-height: 1.5;">Get regular character reports to see your child's growth</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two CTA Buttons -->
+                    <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="islamic-education.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, #9333ea, #a855f7); color: white; padding: 0.9rem 2rem; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(147,51,234,0.3); border: none; cursor: pointer;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(147,51,234,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(147,51,234,0.3)';">
+                            Explore Program <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="admissions.html" style="display: inline-flex; align-items: center; gap: 0.75rem; background: transparent; color: #0B2D6B; padding: 0.9rem 2rem; border: 2px solid #0B2D6B; border-radius: 12px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(11,45,107,0.1)';" onmouseout="this.style.background='transparent';">
+                            Enroll Now <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
                 </div>
-                <div style="order: 1;" class="program-image-wrapper">
-                    <img src="img/hero_slide_3.png" alt="Islamic Education">
+
+                <!-- RIGHT SIDE: Image & Stats (50%) -->
+                <div class="islamic-ed-right" style="position: relative; order: 1;">
+                    <!-- Large Rounded Image with Glow -->
+                    <div style="position: relative; margin-bottom: 2rem;">
+                        <div style="position: absolute; inset: -20px; background: radial-gradient(circle, rgba(147,51,234,0.25) 0%, transparent 70%); border-radius: 24px; filter: blur(30px); z-index: -1;"></div>
+                        <img src="img/Islamic study.png" alt="Islamic Education" style="width: 100%; height: 400px; object-fit: contain; border-radius: 20px; box-shadow: 0 20px 50px rgba(147,51,234,0.2), 0 0 40px rgba(147,51,234,0.15); display: block; background: transparent;">
+                    </div>
+
+                    <!-- Floating Statistic Cards -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Stat Card 1 -->
+                        <div style="background: linear-gradient(135deg, rgba(147,51,234,0.1) 0%, rgba(147,51,234,0.02) 100%); border: 1px solid rgba(147,51,234,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(147,51,234,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #9333ea; margin-bottom: 0.5rem;">Daily</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">Quran Class</p>
+                        </div>
+
+                        <!-- Stat Card 2 -->
+                        <div style="background: linear-gradient(135deg, rgba(11,45,107,0.1) 0%, rgba(11,45,107,0.02) 100%); border: 1px solid rgba(11,45,107,0.2); border-radius: 16px; padding: 1.5rem; text-align: center; box-shadow: 0 8px 24px rgba(11,45,107,0.1); backdrop-filter: blur(10px);">
+                            <div style="font-size: 2rem; font-weight: 800; color: #0B2D6B; margin-bottom: 0.5rem;">Grade 1-10</div>
+                            <p style="font-size: 0.85rem; color: #4b5563; font-weight: 600;">All Levels Covered</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <style>
+                /* Islamic Education Responsive Design */
+                @media (max-width: 1200px) {
+                    .islamic-ed-wrapper {
+                        grid-template-columns: 1fr 1fr !important;
+                        padding: 3rem !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.8rem !important;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .islamic-ed-wrapper {
+                        grid-template-columns: 1fr !important;
+                        gap: 2rem !important;
+                        padding: 2rem !important;
+                        margin-top: 2rem !important;
+                    }
+                    .islamic-ed-left {
+                        order: 1 !important;
+                    }
+                    .islamic-ed-right {
+                        order: 2 !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.5rem !important;
+                        margin-bottom: 1rem !important;
+                    }
+                    .islamic-ed-left p {
+                        font-size: 0.9rem !important;
+                        line-height: 1.6 !important;
+                        margin-bottom: 1.25rem !important;
+                    }
+                    .islamic-ed-right img {
+                        height: 250px !important;
+                    }
+                    .islamic-ed-right > div:last-child {
+                        grid-template-columns: 1fr 1fr !important;
+                        gap: 1rem !important;
+                    }
+                    .islamic-ed-right > div:last-child > div {
+                        padding: 1rem !important;
+                    }
+                    .islamic-ed-right > div:last-child > div > div:first-child {
+                        font-size: 1.5rem !important;
+                        margin-bottom: 0.3rem !important;
+                    }
+                    .islamic-ed-right > div:last-child > div > p {
+                        font-size: 0.78rem !important;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .islamic-ed-wrapper {
+                        padding: 1.5rem !important;
+                        border-radius: 16px !important;
+                        margin-top: 1.5rem !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.3rem !important;
+                    }
+                    .islamic-ed-left > div:first-child {
+                        font-size: 0.75rem !important;
+                        padding: 0.4rem 0.9rem !important;
+                    }
+                    .islamic-ed-right img {
+                        height: 200px !important;
+                        border-radius: 14px !important;
+                    }
+                    .islamic-ed-right > div:last-child {
+                        grid-template-columns: 1fr !important;
+                        gap: 0.75rem !important;
+                    }
+                    .islamic-ed-left > div:last-of-type {
+                        flex-direction: column !important;
+                        gap: 0.75rem !important;
+                    }
+                    .islamic-ed-left > div:last-of-type a {
+                        width: 100% !important;
+                        justify-content: center !important;
+                        padding: 0.75rem 1.5rem !important;
+                        font-size: 0.85rem !important;
+                    }
+                    .islamic-ed-left > div:nth-of-type(3) > div {
+                        gap: 0.6rem !important;
+                    }
+                    .islamic-ed-left > div:nth-of-type(3) > div > div:first-child {
+                        font-size: 1.2rem !important;
+                    }
+                    .islamic-ed-left > div:nth-of-type(3) > div > div:last-child h4 {
+                        font-size: 0.85rem !important;
+                    }
+                    .islamic-ed-left > div:nth-of-type(3) > div > div:last-child p {
+                        font-size: 0.8rem !important;
+                    }
+                }
+
+                @media (max-width: 360px) {
+                    .islamic-ed-wrapper {
+                        padding: 1.2rem !important;
+                    }
+                    .islamic-ed-left h2 {
+                        font-size: 1.2rem !important;
+                    }
+                    .islamic-ed-right img {
+                        height: 170px !important;
+                    }
+                }
+            </style>
 
             <style>
                 /* Specialized Focus Areas - Base Styles */
@@ -1089,18 +2125,18 @@
                 }
 
                 .program-content-heading {
-                    font-size: 2rem;
+                    font-size: 2.3rem;
                     font-weight: 900;
                     color: #1F2A44;
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.25rem;
                     line-height: 1.2;
                 }
 
                 .program-content-text {
-                    font-size: 1rem;
+                    font-size: 1.05rem;
                     color: #64748B;
-                    line-height: 1.8;
-                    margin-bottom: 1.5rem;
+                    line-height: 1.85;
+                    margin-bottom: 1.75rem;
                 }
 
                 .program-features-list {
@@ -1146,7 +2182,7 @@
 
                 .program-image-wrapper {
                     width: 100%;
-                    height: 380px;
+                    height: 450px;
                     border-radius: 20px;
                     overflow: hidden;
                     box-shadow: 0 15px 40px rgba(255,140,0,0.2);
@@ -1317,812 +2353,1118 @@
         </div>
     </section>
 
-    <!-- ===== SUBJECT DISTRIBUTION MATRIX ===== -->
-    <section style="padding: 5rem 0; background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);">
-        <div class="container">
+    <!-- ===== SUBJECT DISTRIBUTION ACROSS LEVELS ===== -->
+    <section class="sd-section">
+        <div class="sd-bg-shapes">
+            <div class="sd-shape sd-shape-1"></div>
+            <div class="sd-shape sd-shape-2"></div>
+            <div class="sd-shape sd-shape-3"></div>
+        </div>
+        <div class="container" style="max-width: 1400px; position: relative; z-index: 2;">
             <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-book-open"></i> Curriculum Framework</div>
+                <div class="eyebrow"><i class="fas fa-layer-group"></i> Curriculum Framework</div>
                 <h2>Subject <span>Distribution</span> Across Levels</h2>
                 <p>A comprehensive subject matrix showing how our curriculum evolves at each educational level, ensuring progressive skill development.</p>
             </div>
 
-            <style>
-                /* Subject Distribution - Base Styles */
-                .subject-dist-wrapper {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 3rem;
-                    align-items: center;
-                    margin-top: 3rem;
-                }
-
-                .subject-dist-left {
-                    background: linear-gradient(135deg, #1F2A44 0%, #2d3f5a 100%);
-                    border-radius: 24px;
-                    padding: 2.5rem;
-                    color: #fff;
-                    box-shadow: 0 10px 40px rgba(31,42,68,0.2);
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    height: 100%;
-                }
-
-                .subject-dist-left h3 {
-                    font-size: 1.5rem;
-                    margin-bottom: 1.5rem;
-                    color: #fff;
-                    font-weight: 800;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-
-                .subject-dist-left h3 i {
-                    color: #FF8C00;
-                }
-
-                .subject-dist-features {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1.5rem;
-                    margin-bottom: 2rem;
-                    flex: 1;
-                }
-
-                .subject-dist-feature {
-                    display: flex;
-                    gap: 1rem;
-                }
-
-                .subject-dist-feature-icon {
-                    flex-shrink: 0;
-                    width: 48px;
-                    height: 48px;
-                    border-radius: 12px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 1.3rem;
-                }
-
-                .subject-dist-feature-icon.icon-1 {
-                    background: rgba(255,140,0,0.2);
-                    color: #FF8C00;
-                }
-
-                .subject-dist-feature-icon.icon-2 {
-                    background: rgba(59,130,246,0.2);
-                    color: #3B82F6;
-                }
-
-                .subject-dist-feature-icon.icon-3 {
-                    background: rgba(168,85,247,0.2);
-                    color: #9333ea;
-                }
-
-                .subject-dist-feature h4 {
-                    font-size: 1rem;
-                    font-weight: 800;
-                    margin-bottom: 0.5rem;
-                    color: #fff;
-                }
-
-                .subject-dist-feature p {
-                    font-size: 0.9rem;
-                    color: rgba(255,255,255,0.75);
-                    line-height: 1.6;
-                    margin: 0;
-                }
-
-                .subject-dist-left .btn {
-                    margin-top: 2rem;
-                    background: #FF8C00;
-                    color: #000 !important;
-                    font-weight: 700;
-                    padding: 0.8rem 2rem;
-                    display: inline-block;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    transition: all 0.3s ease;
-                }
-
-                .subject-dist-left .btn:hover {
-                    background: #FFB347;
-                    transform: translateY(-2px);
-                    box-shadow: 0 8px 20px rgba(255,140,0,0.4);
-                }
-
-                .subject-dist-right {
-                    background: #fff;
-                    border-radius: 12px;
-                    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-                    overflow-x: auto;
-                    -webkit-overflow-scrolling: touch;
-                }
-
-                .subject-dist-table {
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-
-                .subject-dist-table thead tr {
-                    background: linear-gradient(90deg, #1F2A44, #3B82F6);
-                }
-
-                .subject-dist-table th {
-                    padding: 1.2rem;
-                    color: #fff;
-                    text-align: left;
-                    font-weight: 800;
-                    font-size: 0.95rem;
-                    white-space: nowrap;
-                }
-
-                .subject-dist-table tbody tr {
-                    border-bottom: 1px solid #eee;
-                }
-
-                .subject-dist-table tbody tr:last-child {
-                    border-bottom: none;
-                }
-
-                .subject-dist-table td {
-                    padding: 1.2rem;
-                    color: #64748B;
-                    font-size: 0.9rem;
-                    line-height: 1.6;
-                }
-
-                .subject-dist-table td:first-child {
-                    font-weight: 700;
-                    color: #1F2A44;
-                    min-width: 120px;
-                }
-
-                .subject-dist-table tbody tr:nth-child(odd) td:first-child {
-                    background: rgba(255,140,0,0.05);
-                }
-
-                .subject-dist-table tbody tr:nth-child(even) {
-                    background: #f8f9fa;
-                }
-
-                .subject-stream-badge {
-                    background: rgba(255,140,0,0.2);
-                    padding: 0.3rem 0.8rem;
-                    border-radius: 6px;
-                    color: #FF8C00;
-                    font-weight: 600;
-                    font-size: 0.85rem;
-                    display: inline-block;
-                    margin-bottom: 0.5rem;
-                }
-
-                /* Tablet Responsive (768px) */
-                @media (max-width: 768px) {
-                    .subject-dist-wrapper {
-                        grid-template-columns: 1fr;
-                        gap: 2rem;
-                        align-items: stretch;
-                    }
-
-                    .subject-dist-left {
-                        padding: 2rem;
-                        height: auto;
-                    }
-
-                    .subject-dist-left h3 {
-                        font-size: 1.3rem;
-                        margin-bottom: 1.25rem;
-                    }
-
-                    .subject-dist-feature {
-                        gap: 0.85rem;
-                    }
-
-                    .subject-dist-feature-icon {
-                        width: 44px;
-                        height: 44px;
-                        font-size: 1.1rem;
-                    }
-
-                    .subject-dist-feature h4 {
-                        font-size: 0.95rem;
-                    }
-
-                    .subject-dist-feature p {
-                        font-size: 0.85rem;
-                    }
-
-                    .subject-dist-features {
-                        gap: 1.25rem;
-                        margin-bottom: 1.5rem;
-                    }
-
-                    .subject-dist-left .btn {
-                        padding: 0.7rem 1.5rem;
-                        font-size: 0.9rem;
-                        margin-top: 1.5rem;
-                    }
-
-                    .subject-dist-right {
-                        overflow-x: auto;
-                        -webkit-overflow-scrolling: touch;
-                    }
-
-                    .subject-dist-table th,
-                    .subject-dist-table td {
-                        padding: 1rem;
-                        font-size: 0.85rem;
-                    }
-
-                    .subject-dist-table th {
-                        font-size: 0.9rem;
-                    }
-
-                    .subject-stream-badge {
-                        font-size: 0.8rem;
-                        padding: 0.25rem 0.6rem;
-                    }
-                }
-
-                /* Mobile Responsive (480px) */
-                @media (max-width: 480px) {
-                    .subject-dist-wrapper {
-                        gap: 1.5rem;
-                    }
-
-                    .subject-dist-left {
-                        padding: 1.75rem;
-                    }
-
-                    .subject-dist-left h3 {
-                        font-size: 1.1rem;
-                        margin-bottom: 1rem;
-                    }
-
-                    .subject-dist-feature {
-                        gap: 0.75rem;
-                    }
-
-                    .subject-dist-feature-icon {
-                        width: 40px;
-                        height: 40px;
-                        font-size: 1rem;
-                        border-radius: 8px;
-                    }
-
-                    .subject-dist-feature h4 {
-                        font-size: 0.9rem;
-                        margin-bottom: 0.3rem;
-                    }
-
-                    .subject-dist-feature p {
-                        font-size: 0.8rem;
-                        line-height: 1.5;
-                    }
-
-                    .subject-dist-features {
-                        gap: 1rem;
-                        margin-bottom: 1.25rem;
-                    }
-
-                    .subject-dist-left .btn {
-                        padding: 0.6rem 1.25rem;
-                        font-size: 0.85rem;
-                        margin-top: 1rem;
-                        width: 100%;
-                        text-align: center;
-                    }
-
-                    .subject-dist-right {
-                        overflow-x: auto;
-                        -webkit-overflow-scrolling: touch;
-                    }
-
-                    .subject-dist-table {
-                        font-size: 0.75rem;
-                        min-width: 500px;
-                    }
-
-                    .subject-dist-table th,
-                    .subject-dist-table td {
-                        padding: 0.8rem;
-                        font-size: 0.8rem;
-                    }
-
-                    .subject-dist-table th {
-                        font-size: 0.85rem;
-                    }
-
-                    .subject-dist-table td:first-child {
-                        min-width: 100px;
-                        font-size: 0.8rem;
-                    }
-
-                    .subject-stream-badge {
-                        font-size: 0.75rem;
-                        padding: 0.2rem 0.5rem;
-                        display: block;
-                        margin-bottom: 0.3rem;
-                    }
-                }
-
-                /* Extra Small Devices (320px) */
-                @media (max-width: 360px) {
-                    .subject-dist-wrapper {
-                        gap: 1rem;
-                    }
-
-                    .subject-dist-left {
-                        padding: 1.5rem 1rem;
-                    }
-
-                    .subject-dist-left h3 {
-                        font-size: 1rem;
-                        margin-bottom: 0.85rem;
-                    }
-
-                    .subject-dist-feature-icon {
-                        width: 36px;
-                        height: 36px;
-                        font-size: 0.9rem;
-                    }
-
-                    .subject-dist-feature h4 {
-                        font-size: 0.85rem;
-                    }
-
-                    .subject-dist-feature p {
-                        font-size: 0.75rem;
-                        line-height: 1.4;
-                    }
-
-                    .subject-dist-features {
-                        gap: 0.9rem;
-                        margin-bottom: 1rem;
-                    }
-
-                    .subject-dist-left .btn {
-                        padding: 0.55rem 1rem;
-                        font-size: 0.8rem;
-                    }
-
-                    .subject-dist-table {
-                        min-width: 450px;
-                    }
-
-                    .subject-dist-table th,
-                    .subject-dist-table td {
-                        padding: 0.6rem;
-                        font-size: 0.75rem;
-                    }
-
-                    .subject-dist-table th {
-                        font-size: 0.8rem;
-                    }
-
-                    .subject-dist-table td:first-child {
-                        min-width: 80px;
-                        font-size: 0.75rem;
-                    }
-                }
-            </style>
-
-            <div class="subject-dist-wrapper">
-                <!-- LEFT SIDE: Key Features Card -->
-                <div class="subject-dist-left">
-                    <h3>
-                        <i class="fas fa-graduation-cap"></i>Curriculum Highlights
-                    </h3>
+            <!-- Stats Row -->
+            <div class="sd-stats-row">
+                <div class="sd-stat-card" data-animate="fade-up" data-delay="0">
+                    <div class="sd-stat-icon sd-stat-icon-1"><i class="fas fa-layer-group"></i></div>
+                    <div class="sd-stat-number" data-count="5">0</div>
+                    <div class="sd-stat-label">Academic Levels</div>
+                </div>
+                <div class="sd-stat-card" data-animate="fade-up" data-delay="100">
+                    <div class="sd-stat-icon sd-stat-icon-2"><i class="fas fa-book-open"></i></div>
+                    <div class="sd-stat-number" data-count="15">0</div>
+                    <div class="sd-stat-label">Core Subjects</div>
+                </div>
+                <div class="sd-stat-card" data-animate="fade-up" data-delay="200">
+                    <div class="sd-stat-icon sd-stat-icon-3"><i class="fas fa-laptop-code"></i></div>
+                    <div class="sd-stat-number" data-count="10">0</div>
+                    <div class="sd-stat-label">Grades Covered</div>
+                </div>
+                <div class="sd-stat-card" data-animate="fade-up" data-delay="300">
+                    <div class="sd-stat-icon sd-stat-icon-4"><i class="fas fa-book-quran"></i></div>
+                    <div class="sd-stat-number" data-count="100">0</div>
+                    <div class="sd-stat-suffix">%</div>
+                    <div class="sd-stat-label">Islamic Integration</div>
+                </div>
+            </div>
+
+            <div class="sd-main-grid">
+                <!-- LEFT SIDE: Features Panel -->
+                <div class="sd-features-panel" data-animate="fade-right">
+                    <div class="sd-panel-header">
+                        <div class="sd-panel-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Curriculum Highlights</h3>
+                        <p>What makes our academic framework stand out</p>
+                    </div>
                     
-                    <div class="subject-dist-features">
-                        <!-- Feature 1 -->
-                        <div class="subject-dist-feature">
-                            <div class="subject-dist-feature-icon icon-1">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div>
+                    <div class="sd-feature-list">
+                        <div class="sd-feature-item">
+                            <div class="sd-feature-icon sd-fi-1"><i class="fas fa-check-circle"></i></div>
+                            <div class="sd-feature-content">
                                 <h4>Integrated Learning</h4>
                                 <p>Core academics integrated with Computer Education and Islamic values at every level.</p>
                             </div>
+                            <div class="sd-feature-arrow"><i class="fas fa-chevron-right"></i></div>
                         </div>
 
-                        <!-- Feature 2 -->
-                        <div class="subject-dist-feature">
-                            <div class="subject-dist-feature-icon icon-2">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div>
+                        <div class="sd-feature-item">
+                            <div class="sd-feature-icon sd-fi-2"><i class="fas fa-laptop-code"></i></div>
+                            <div class="sd-feature-content">
                                 <h4>Computer Core Subject</h4>
-                                <p>Not optional – Computer is mandatory from Play Group through Secondary. Practical, hands-on learning focused on real-world applications.</p>
+                                <p>Not optional – Computer is mandatory from Play Group through Secondary. Practical, hands-on learning.</p>
                             </div>
+                            <div class="sd-feature-arrow"><i class="fas fa-chevron-right"></i></div>
                         </div>
 
-                        <!-- Feature 3 -->
-                        <div class="subject-dist-feature">
-                            <div class="subject-dist-feature-icon icon-3">
-                                <i class="fas fa-book-quran"></i>
-                            </div>
-                            <div>
+                        <div class="sd-feature-item">
+                            <div class="sd-feature-icon sd-fi-3"><i class="fas fa-book-quran"></i></div>
+                            <div class="sd-feature-content">
                                 <h4>Islamic Foundation</h4>
                                 <p>Daily Duas, Nazra Quran with Tajweed, and character building woven into every school day.</p>
                             </div>
+                            <div class="sd-feature-arrow"><i class="fas fa-chevron-right"></i></div>
                         </div>
-                      
-                    </div> 
+                    </div>
 
-                    <a href="admissions.html" class="btn">Start Your Journey <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+                    <a href="admissions.html" class="sd-cta-btn">
+                        <span>Start Your Journey</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
 
-                <!-- RIGHT SIDE: Subject Matrix Table -->
-                <div class="subject-dist-right">
-                    <table class="subject-dist-table">
-                        <thead>
-                            <tr>
-                                <th>Level</th>
-                                <th>Core Subjects</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Play Group</td>
-                                <td>ABCs, Numbers, Art, Motor Skills, Daily Duas</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td>Nursery/Prep</td>
-                                <td>English, Urdu, Math, Science Basics, Islamic Stories, Nazra Quran</td>
-                            </tr>
-                            <tr>
-                                <td>Primary (1-5)</td>
-                                <td>English, Urdu, Math, Science, Social Studies, Computer Basics, Islamiat, Tajweed</td>
-                            </tr>
-                            <tr style="background: #f8f9fa;">
-                                <td>Middle (6-8)</td>
-                                <td>English, Urdu, Math, Physics, Chemistry, Biology, History, Geography, Computer Science (Core), Islamiat</td>
-                            </tr>
-                            <tr>
-                                <td>Secondary (9-10)</td>
-                                <td><span class="subject-stream-badge">Computer Science Stream Only</span><span style="font-size: 0.85rem; margin-top: 0.5rem; display: block;">English, Urdu, Math, Physics, Chemistry, Computer Science, Islamiat</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- RIGHT SIDE: Subject Matrix -->
+                <div class="sd-matrix-panel" data-animate="fade-left">
+                    <div class="sd-matrix-header">
+                        <h3><i class="fas fa-table"></i> Subject Matrix</h3>
+                        <span class="sd-matrix-badge">Complete Overview</span>
+                    </div>
+                    
+                    <div class="sd-table-wrapper">
+                        <table class="sd-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="sd-th-content">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <span>Level</span>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="sd-th-content">
+                                            <i class="fas fa-book"></i>
+                                            <span>Core Subjects</span>
+                                        </div>
+                                    </th>
+                                    <th class="sd-th-computer">
+                                        <div class="sd-th-content">
+                                            <i class="fas fa-laptop-code"></i>
+                                            <span>Computer</span>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="sd-level-cell">
+                                            <span class="sd-level-dot sd-ld-1"></span>
+                                            <div>
+                                                <span class="sd-level-name">Play Group</span>
+                                                <span class="sd-level-age">Age 3-4</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>ABCs, Numbers, Art, Motor Skills, Daily Duas</td>
+                                    <td class="sd-td-computer"><span class="sd-comp-badge sd-cb-intro">Intro</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="sd-level-cell">
+                                            <span class="sd-level-dot sd-ld-2"></span>
+                                            <div>
+                                                <span class="sd-level-name">Nursery / Prep</span>
+                                                <span class="sd-level-age">Age 4-6</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>English, Urdu, Math, Science Basics, Islamic Stories, Nazra Quran</td>
+                                    <td class="sd-td-computer"><span class="sd-comp-badge sd-cb-intro">Intro</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="sd-level-cell">
+                                            <span class="sd-level-dot sd-ld-3"></span>
+                                            <div>
+                                                <span class="sd-level-name">Primary (1-5)</span>
+                                                <span class="sd-level-age">Age 6-11</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>English, Urdu, Math, Science, Social Studies, Islamiat, Tajweed</td>
+                                    <td class="sd-td-computer"><span class="sd-comp-badge sd-cb-basics">Basics</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="sd-level-cell">
+                                            <span class="sd-level-dot sd-ld-4"></span>
+                                            <div>
+                                                <span class="sd-level-name">Middle (6-8)</span>
+                                                <span class="sd-level-age">Age 11-14</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>English, Urdu, Math, Physics, Chemistry, Biology, History, Geography, Islamiat</td>
+                                    <td class="sd-td-computer"><span class="sd-comp-badge sd-cb-core">Core</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="sd-level-cell">
+                                            <span class="sd-level-dot sd-ld-5"></span>
+                                            <div>
+                                                <span class="sd-level-name">Secondary (9-10)</span>
+                                                <span class="sd-level-age">Age 14-16</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>English, Urdu, Math, Physics, Chemistry, Islamiat</td>
+                                    <td class="sd-td-computer"><span class="sd-comp-badge sd-cb-advanced">Advanced</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sd-matrix-legend">
+                        <div class="sd-legend-item"><span class="sd-comp-badge sd-cb-intro">Intro</span> <span>Basic Awareness</span></div>
+                        <div class="sd-legend-item"><span class="sd-comp-badge sd-cb-basics">Basics</span> <span>Foundation Skills</span></div>
+                        <div class="sd-legend-item"><span class="sd-comp-badge sd-cb-core">Core</span> <span>Core Subject</span></div>
+                        <div class="sd-legend-item"><span class="sd-comp-badge sd-cb-advanced">Advanced</span> <span>Board Exam Level</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ===== PROGRAM MATRIX ===== -->
-    <section class="bg-light" style="padding: 5rem 0;">
-        <div class="container">
-            <div class="ac-title">
-                <div class="eyebrow"><i class="fas fa-table"></i> Quick Reference</div>
-                <h2>Academic Programs <span>Overview</span></h2>
-                <p>Quick reference showing our five educational levels and program structure.</p>
-            </div>
+        <style>
+            /* ===== SUBJECT DISTRIBUTION - PREMIUM DESIGN ===== */
+            .sd-section {
+                position: relative;
+                padding: 3rem 0 2.5rem;
+                background: linear-gradient(180deg, #f0f4f8 0%, #e8eef5 50%, #f0f4f8 100%);
+                overflow: hidden;
+            }
 
-            <style>
-                /* Academic Programs Overview - Base Styles */
-                .programs-overview-wrapper {
-                    overflow-x: auto;
-                    -webkit-overflow-scrolling: touch;
-                    background: #fff;
+            .sd-section .ac-title {
+                margin-bottom: 1.5rem;
+            }
+
+            /* Animated Background Shapes */
+            .sd-bg-shapes {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                overflow: hidden;
+            }
+
+            .sd-shape {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(80px);
+                opacity: 0.4;
+            }
+
+            .sd-shape-1 {
+                width: 500px; height: 500px;
+                background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+                top: -150px; right: -100px;
+                animation: sdFloat 20s ease-in-out infinite;
+            }
+
+            .sd-shape-2 {
+                width: 400px; height: 400px;
+                background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
+                bottom: -100px; left: -100px;
+                animation: sdFloat 25s ease-in-out infinite reverse;
+            }
+
+            .sd-shape-3 {
+                width: 300px; height: 300px;
+                background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%);
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                animation: sdFloat 18s ease-in-out infinite;
+            }
+
+            @keyframes sdFloat {
+                0%, 100% { transform: translateY(0) scale(1); }
+                33% { transform: translateY(-30px) scale(1.05); }
+                66% { transform: translateY(20px) scale(0.95); }
+            }
+
+            /* Stats Row */
+            .sd-stats-row {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .sd-stat-card {
+                background: rgba(255,255,255,0.7);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255,255,255,0.8);
+                border-radius: 16px;
+                padding: 1rem 0.75rem;
+                text-align: center;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .sd-stat-card.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .sd-stat-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, var(--ac-blue), transparent);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .sd-stat-card:nth-child(1)::before { background: linear-gradient(90deg, transparent, #FF8C00, transparent); }
+            .sd-stat-card:nth-child(2)::before { background: linear-gradient(90deg, transparent, #3B82F6, transparent); }
+            .sd-stat-card:nth-child(3)::before { background: linear-gradient(90deg, transparent, #10B981, transparent); }
+            .sd-stat-card:nth-child(4)::before { background: linear-gradient(90deg, transparent, #9333EA, transparent); }
+
+            .sd-stat-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 50px rgba(31,42,68,0.12);
+                border-color: rgba(59,130,246,0.2);
+            }
+
+            .sd-stat-card:hover::before { opacity: 1; }
+
+            .sd-stat-icon {
+                width: 40px; height: 40px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                margin: 0 auto 0.5rem;
+                transition: all 0.3s ease;
+            }
+
+            .sd-stat-card:hover .sd-stat-icon {
+                transform: scale(1.1) rotateY(10deg);
+            }
+
+            .sd-stat-icon-1 { background: rgba(255,140,0,0.12); color: #FF8C00; border: 1px solid rgba(255,140,0,0.2); }
+            .sd-stat-icon-2 { background: rgba(59,130,246,0.12); color: #3B82F6; border: 1px solid rgba(59,130,246,0.2); }
+            .sd-stat-icon-3 { background: rgba(16,185,129,0.12); color: #10B981; border: 1px solid rgba(16,185,129,0.2); }
+            .sd-stat-icon-4 { background: rgba(147,51,234,0.12); color: #9333EA; border: 1px solid rgba(147,51,234,0.2); }
+
+            .sd-stat-number {
+                font-size: 1.75rem;
+                font-weight: 900;
+                color: var(--ac-primary);
+                line-height: 1;
+                margin-bottom: 0.2rem;
+                display: inline;
+            }
+
+            .sd-stat-suffix {
+                font-size: 1.75rem;
+                font-weight: 900;
+                color: var(--ac-primary);
+                line-height: 1;
+                display: inline;
+            }
+
+            .sd-stat-label {
+                font-size: 0.72rem;
+                font-weight: 600;
+                color: var(--ac-muted);
+                letter-spacing: 0.3px;
+            }
+
+            /* Main Grid */
+            .sd-main-grid {
+                display: grid;
+                grid-template-columns: 1fr 1.3fr;
+                gap: 1.5rem;
+                align-items: stretch;
+            }
+
+            /* Features Panel */
+            .sd-features-panel {
+                background: linear-gradient(135deg, #0f1d35 0%, #1a2a4a 50%, #1F2A44 100%);
+                border-radius: 22px;
+                padding: 1.5rem;
+                color: #fff;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 25px 60px rgba(15,29,53,0.25);
+            }
+
+            .sd-features-panel::before {
+                content: '';
+                position: absolute;
+                top: -80px; right: -80px;
+                width: 250px; height: 250px;
+                background: radial-gradient(circle, rgba(255,140,0,0.15) 0%, transparent 70%);
+                pointer-events: none;
+            }
+
+            .sd-features-panel::after {
+                content: '';
+                position: absolute;
+                bottom: -60px; left: -60px;
+                width: 200px; height: 200px;
+                background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+                pointer-events: none;
+            }
+
+            .sd-panel-header {
+                position: relative;
+                z-index: 2;
+                margin-bottom: 1rem;
+            }
+
+            .sd-panel-icon {
+                width: 40px; height: 40px;
+                border-radius: 12px;
+                background: rgba(255,140,0,0.15);
+                border: 1px solid rgba(255,140,0,0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                color: #FF8C00;
+                margin-bottom: 0.75rem;
+            }
+
+            .sd-panel-header h3 {
+                font-size: 1.2rem;
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+            }
+
+            .sd-panel-header p {
+                font-size: 0.78rem;
+                color: rgba(255,255,255,0.6);
+                line-height: 1.4;
+            }
+
+            .sd-feature-list {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-bottom: 1.25rem;
+                position: relative;
+                z-index: 2;
+            }
+
+            .sd-feature-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 0.75rem;
+                padding: 0.65rem 0.85rem;
+                border-radius: 14px;
+                transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                cursor: default;
+                border: 1px solid transparent;
+            }
+
+            .sd-feature-item:hover {
+                background: rgba(255,255,255,0.06);
+                border-color: rgba(255,255,255,0.08);
+                transform: translateX(6px);
+            }
+
+            .sd-feature-icon {
+                flex-shrink: 0;
+                width: 36px; height: 36px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+            }
+
+            .sd-feature-item:hover .sd-feature-icon {
+                transform: scale(1.12);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            }
+
+            .sd-fi-1 { background: rgba(255,140,0,0.18); color: #FF8C00; }
+            .sd-fi-2 { background: rgba(59,130,246,0.18); color: #3B82F6; }
+            .sd-fi-3 { background: rgba(168,85,247,0.18); color: #A855F7; }
+
+            .sd-feature-content {
+                flex: 1;
+            }
+
+            .sd-feature-content h4 {
+                font-size: 0.82rem;
+                font-weight: 500;
+                margin-bottom: 0.15rem;
+                color: #fff;
+            }
+
+            .sd-feature-content p {
+                font-size: 0.72rem;
+                color: rgba(255,255,255,0.6);
+                line-height: 1.4;
+                margin: 0;
+            }
+
+            .sd-feature-arrow {
+                flex-shrink: 0;
+                color: rgba(255,255,255,0.2);
+                font-size: 0.7rem;
+                margin-top: 6px;
+                transition: all 0.3s ease;
+            }
+
+            .sd-feature-item:hover .sd-feature-arrow {
+                color: #FF8C00;
+                transform: translateX(4px);
+            }
+
+            /* CTA Button */
+            .sd-cta-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                background: linear-gradient(135deg, #FF8C00, #FFB347);
+                color: #000 !important;
+                font-weight: 700;
+                font-size: 0.85rem;
+                padding: 0.7rem 1.5rem;
+                border-radius: 12px;
+                text-decoration: none;
+                transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                z-index: 2;
+                overflow: hidden;
+            }
+
+            .sd-cta-btn::before {
+                content: '';
+                position: absolute;
+                top: 0; left: -100%;
+                width: 100%; height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+                transition: left 0.5s ease;
+            }
+
+            .sd-cta-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(255,140,0,0.4);
+            }
+
+            .sd-cta-btn:hover::before {
+                left: 100%;
+            }
+
+            .sd-cta-btn i {
+                transition: transform 0.3s ease;
+            }
+
+            .sd-cta-btn:hover i {
+                transform: translateX(4px);
+            }
+
+            /* Matrix Panel */
+            .sd-matrix-panel {
+                background: #fff;
+                border-radius: 22px;
+                overflow: hidden;
+                box-shadow: 0 10px 40px rgba(31,42,68,0.08);
+                border: 1px solid rgba(31,42,68,0.06);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sd-matrix-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 1.5rem;
+                background: linear-gradient(135deg, #1F2A44, #2d4a6f);
+                color: #fff;
+            }
+
+            .sd-matrix-header h3 {
+                font-size: 0.95rem;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                color: #fff;
+                margin: 0;
+            }
+
+            .sd-matrix-badge {
+                background: rgba(255,140,0,0.2);
+                color: #FF8C00;
+                font-size: 0.65rem;
+                font-weight: 700;
+                padding: 0.25rem 0.7rem;
+                border-radius: 20px;
+                letter-spacing: 0.5px;
+                text-transform: uppercase;
+                border: 1px solid rgba(255,140,0,0.25);
+            }
+
+            .sd-table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                flex: 1;
+            }
+
+            .sd-matrix-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .sd-matrix-table th {
+                padding: 0.75rem 1.25rem;
+                text-align: left;
+                font-weight: 700;
+                font-size: 0.75rem;
+                color: var(--ac-muted);
+                background: #f8fafc;
+                border-bottom: 2px solid #e2e8f0;
+                white-space: nowrap;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .sd-th-content {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .sd-th-content i {
+                color: var(--ac-blue);
+                font-size: 0.9rem;
+            }
+
+            .sd-th-computer {
+                text-align: center;
+            }
+
+            .sd-matrix-table td {
+                padding: 0.7rem 1.25rem;
+                font-size: 0.78rem;
+                color: #475569;
+                border-bottom: 1px solid #f1f5f9;
+                line-height: 1.45;
+                vertical-align: middle;
+            }
+
+            .sd-matrix-table tbody tr {
+                transition: all 0.3s ease;
+            }
+
+            .sd-matrix-table tbody tr:hover {
+                background: rgba(59,130,246,0.03);
+            }
+
+            .sd-matrix-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+
+            .sd-level-cell {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .sd-level-dot {
+                width: 8px; height: 8px;
+                border-radius: 50%;
+                flex-shrink: 0;
+                box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+            }
+
+            .sd-ld-1 { background: #FF8C00; }
+            .sd-ld-2 { background: #3B82F6; }
+            .sd-ld-3 { background: #10B981; }
+            .sd-ld-4 { background: #F59E0B; }
+            .sd-ld-5 { background: #EF4444; }
+
+            .sd-level-name {
+                display: block;
+                font-weight: 700;
+                color: var(--ac-primary);
+                font-size: 0.8rem;
+            }
+
+            .sd-level-age {
+                display: block;
+                font-size: 0.65rem;
+                color: var(--ac-muted);
+                margin-top: 1px;
+            }
+
+            .sd-td-computer {
+                text-align: center;
+            }
+
+            .sd-comp-badge {
+                display: inline-block;
+                padding: 0.2rem 0.6rem;
+                border-radius: 8px;
+                font-size: 0.68rem;
+                font-weight: 700;
+                letter-spacing: 0.3px;
+            }
+
+            .sd-cb-intro {
+                background: rgba(59,130,246,0.1);
+                color: #3B82F6;
+                border: 1px solid rgba(59,130,246,0.15);
+            }
+
+            .sd-cb-basics {
+                background: rgba(16,185,129,0.1);
+                color: #10B981;
+                border: 1px solid rgba(16,185,129,0.15);
+            }
+
+            .sd-cb-core {
+                background: rgba(255,140,0,0.12);
+                color: #FF8C00;
+                border: 1px solid rgba(255,140,0,0.2);
+            }
+
+            .sd-cb-advanced {
+                background: rgba(239,68,68,0.1);
+                color: #EF4444;
+                border: 1px solid rgba(239,68,68,0.15);
+            }
+
+            /* Legend */
+            .sd-matrix-legend {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                padding: 0.7rem 1.5rem;
+                background: #f8fafc;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .sd-legend-item {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.68rem;
+                color: var(--ac-muted);
+                font-weight: 500;
+            }
+
+            /* ===== RESPONSIVE ===== */
+            @media (max-width: 1200px) {
+                .sd-main-grid {
+                    grid-template-columns: 1fr 1.2fr;
+                    gap: 1.5rem;
+                }
+            }
+
+            @media (max-width: 1024px) {
+                .sd-stats-row {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .sd-main-grid {
+                    grid-template-columns: 1fr;
+                    gap: 1.5rem;
+                }
+                .sd-features-panel {
+                    order: 1;
+                }
+                .sd-matrix-panel {
+                    order: 2;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .sd-section {
+                    padding: 2.5rem 0;
+                }
+                .sd-section .ac-title {
+                    margin-bottom: 1.25rem;
+                }
+                .sd-stats-row {
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 0.75rem;
+                    margin-bottom: 1.25rem;
+                }
+                .sd-stat-card {
+                    padding: 0.75rem 0.5rem;
+                }
+                .sd-stat-number, .sd-stat-suffix {
+                    font-size: 1.4rem;
+                }
+                .sd-stat-icon {
+                    width: 34px; height: 34px;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.35rem;
+                }
+                .sd-stat-label {
+                    font-size: 0.62rem;
+                }
+                .sd-features-panel {
+                    padding: 1.25rem;
+                    border-radius: 18px;
+                }
+                .sd-panel-icon {
+                    width: 34px; height: 34px;
+                    font-size: 0.85rem;
+                    margin-bottom: 0.5rem;
+                }
+                .sd-panel-header h3 {
+                    font-size: 1rem;
+                }
+                .sd-panel-header p {
+                    font-size: 0.72rem;
+                }
+                .sd-feature-item {
+                    padding: 0.5rem 0.7rem;
+                    gap: 0.6rem;
+                }
+                .sd-feature-icon {
+                    width: 30px; height: 30px;
+                    font-size: 0.8rem;
+                }
+                .sd-feature-content h4 {
+                    font-size: 0.78rem;
+                }
+                .sd-feature-content p {
+                    font-size: 0.68rem;
+                }
+                .sd-cta-btn {
+                    padding: 0.55rem 1.2rem;
+                    font-size: 0.78rem;
+                }
+                .sd-matrix-header {
+                    padding: 0.85rem 1.25rem;
+                }
+                .sd-matrix-header h3 {
+                    font-size: 0.88rem;
+                }
+                .sd-matrix-badge {
+                    font-size: 0.62rem;
+                    padding: 0.22rem 0.6rem;
+                }
+                .sd-matrix-table th {
+                    padding: 0.6rem 1rem;
+                    font-size: 0.7rem;
+                }
+                .sd-matrix-table td {
+                    padding: 0.55rem 1rem;
+                    font-size: 0.73rem;
+                }
+                .sd-level-name {
+                    font-size: 0.75rem;
+                }
+                .sd-level-age {
+                    font-size: 0.62rem;
+                }
+                .sd-comp-badge {
+                    font-size: 0.62rem;
+                    padding: 0.15rem 0.5rem;
+                }
+                .sd-matrix-legend {
+                    padding: 0.55rem 1rem;
+                    gap: 0.5rem;
+                }
+                .sd-legend-item {
+                    font-size: 0.62rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .sd-section {
+                    padding: 2rem 0 1.5rem;
+                }
+                .sd-stats-row {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+                .sd-stat-card {
+                    padding: 0.6rem 0.5rem;
                     border-radius: 12px;
-                    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
                 }
-
-                .programs-table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    background: #fff;
-                    border-radius: 12px;
-                    overflow: hidden;
+                .sd-stat-icon {
+                    width: 30px; height: 30px;
+                    font-size: 0.8rem;
+                    margin-bottom: 0.3rem;
+                    border-radius: 8px;
                 }
-
-                .programs-table thead tr {
-                    background: linear-gradient(90deg, #1F2A44, #3B82F6);
+                .sd-stat-number, .sd-stat-suffix {
+                    font-size: 1.3rem;
                 }
-
-                .programs-table th {
+                .sd-stat-label {
+                    font-size: 0.6rem;
+                }
+                .sd-features-panel {
                     padding: 1rem;
-                    color: #fff;
-                    text-align: left;
-                    font-weight: 700;
-                    font-size: 0.95rem;
-                    white-space: nowrap;
+                    border-radius: 16px;
                 }
-
-                .programs-table tbody tr {
-                    border-bottom: 1px solid #eee;
+                .sd-panel-header {
+                    margin-bottom: 0.75rem;
                 }
-
-                .programs-table tbody tr:last-child {
-                    border-bottom: none;
+                .sd-panel-icon {
+                    width: 30px; height: 30px;
+                    font-size: 0.8rem;
+                    margin-bottom: 0.4rem;
                 }
-
-                .programs-table td {
-                    padding: 1rem;
+                .sd-panel-header h3 {
                     font-size: 0.9rem;
-                    color: #64748B;
-                    line-height: 1.6;
                 }
-
-                .programs-table td:first-child {
-                    font-weight: 600;
-                    color: #1F2A44;
-                    min-width: 140px;
+                .sd-panel-header p {
+                    font-size: 0.65rem;
                 }
-
-                .programs-table tbody tr:nth-child(odd) td:first-child {
-                    background: rgba(255,140,0,0.05);
+                .sd-feature-list {
+                    gap: 0.35rem;
+                    margin-bottom: 0.85rem;
                 }
-
-                .programs-table tbody tr:nth-child(even) {
-                    background: #f8f9fa;
+                .sd-feature-item {
+                    padding: 0.45rem 0.6rem;
+                    gap: 0.5rem;
+                    border-radius: 10px;
                 }
-
-                /* Tablet Responsive (768px) */
-                @media (max-width: 768px) {
-                    .programs-overview-wrapper {
-                        overflow-x: auto;
-                        -webkit-overflow-scrolling: touch;
-                        border-radius: 10px;
-                    }
-
-                    .programs-table {
-                        border-radius: 10px;
-                        min-width: 100%;
-                    }
-
-                    .programs-table th,
-                    .programs-table td {
-                        padding: 0.9rem;
-                        font-size: 0.85rem;
-                    }
-
-                    .programs-table th {
-                        font-size: 0.9rem;
-                        font-weight: 700;
-                    }
-
-                    .programs-table td:first-child {
-                        min-width: 130px;
-                        font-weight: 600;
-                    }
-
-                    .programs-table td {
-                        line-height: 1.5;
-                    }
+                .sd-feature-icon {
+                    width: 26px; height: 26px;
+                    font-size: 0.7rem;
+                    border-radius: 8px;
                 }
-
-                /* Mobile Responsive (480px) */
-                @media (max-width: 480px) {
-                    .programs-overview-wrapper {
-                        overflow-x: auto;
-                        -webkit-overflow-scrolling: touch;
-                        border-radius: 8px;
-                        padding: 0;
-                        margin: 0 -1rem;
-                    }
-
-                    .programs-table {
-                        min-width: 650px;
-                        border-radius: 0;
-                        font-size: 0.75rem;
-                    }
-
-                    .programs-table th,
-                    .programs-table td {
-                        padding: 0.8rem;
-                        font-size: 0.8rem;
-                    }
-
-                    .programs-table th {
-                        font-size: 0.85rem;
-                        font-weight: 700;
-                        padding: 0.85rem;
-                    }
-
-                    .programs-table td {
-                        color: #64748B;
-                        line-height: 1.6;
-                        word-break: break-word;
-                    }
-
-                    .programs-table td:first-child {
-                        font-weight: 600;
-                        color: #1F2A44;
-                        min-width: 100px;
-                        font-size: 0.8rem;
-                    }
-
-                    .programs-table tbody tr:nth-child(odd) td:first-child {
-                        background: rgba(255,140,0,0.05);
-                    }
-
-                    .programs-table tbody tr:nth-child(even) {
-                        background: #f8f9fa;
-                    }
-
-                    .programs-table tbody tr {
-                        border-bottom: 1px solid rgba(0,0,0,0.08);
-                    }
+                .sd-feature-content h4 {
+                    font-size: 0.68rem;
                 }
-
-                /* Extra Small Devices (320px) */
-                @media (max-width: 360px) {
-                    .programs-overview-wrapper {
-                        overflow-x: auto;
-                        -webkit-overflow-scrolling: touch;
-                        border-radius: 6px;
-                        margin: 0 -0.75rem;
-                    }
-
-                    .programs-table {
-                        min-width: 580px;
-                        border-radius: 0;
-                    }
-
-                    .programs-table thead tr {
-                        background: linear-gradient(90deg, #1F2A44, #3B82F6);
-                    }
-
-                    .programs-table th,
-                    .programs-table td {
-                        padding: 0.65rem;
-                        font-size: 0.75rem;
-                    }
-
-                    .programs-table th {
-                        font-size: 0.8rem;
-                        font-weight: 600;
-                        padding: 0.7rem;
-                        white-space: nowrap;
-                    }
-
-                    .programs-table td {
-                        color: #64748B;
-                        line-height: 1.5;
-                        word-break: break-word;
-                    }
-
-                    .programs-table td:first-child {
-                        font-weight: 600;
-                        color: #1F2A44;
-                        min-width: 90px;
-                        font-size: 0.75rem;
-                    }
-
-                    .programs-table tbody tr:nth-child(odd) td:first-child {
-                        background: rgba(255,140,0,0.05);
-                    }
-
-                    .programs-table tbody tr:nth-child(even) {
-                        background: #f8f9fa;
-                    }
-
-                    .programs-table tbody tr {
-                        border-bottom: 1px solid rgba(0,0,0,0.08);
-                    }
+                .sd-feature-content p {
+                    font-size: 0.58rem;
+                    line-height: 1.3;
                 }
-            </style>
+                .sd-feature-arrow {
+                    display: none;
+                }
+                .sd-cta-btn {
+                    padding: 0.5rem 1rem;
+                    font-size: 0.72rem;
+                    border-radius: 10px;
+                }
+                .sd-matrix-panel {
+                    border-radius: 16px;
+                }
+                .sd-matrix-header {
+                    padding: 0.7rem 1rem;
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                }
+                .sd-matrix-header h3 {
+                    font-size: 0.82rem;
+                    gap: 6px;
+                }
+                .sd-matrix-badge {
+                    font-size: 0.58rem;
+                    padding: 0.2rem 0.55rem;
+                }
+                .sd-table-wrapper {
+                    min-width: 0;
+                    overflow-x: auto;
+                }
+                .sd-matrix-table {
+                    min-width: 420px;
+                }
+                .sd-matrix-table th {
+                    padding: 0.5rem 0.75rem;
+                    font-size: 0.65rem;
+                }
+                .sd-matrix-table td {
+                    padding: 0.5rem 0.75rem;
+                    font-size: 0.7rem;
+                    line-height: 1.4;
+                }
+                .sd-level-name {
+                    font-size: 0.72rem;
+                }
+                .sd-level-age {
+                    font-size: 0.58rem;
+                }
+                .sd-comp-badge {
+                    font-size: 0.6rem;
+                    padding: 0.15rem 0.5rem;
+                }
+                .sd-matrix-legend {
+                    padding: 0.5rem 0.75rem;
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                }
+                .sd-legend-item {
+                    font-size: 0.6rem;
+                }
+            }
 
-            <div class="programs-overview-wrapper">
-                <table class="programs-table">
-                    <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>Grade</th>
-                            <th>Age</th>
-                            <th>Program</th>
-                            <th>Special Features</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td>Play Group</td>
-                            <td>Pre-School</td>
-                            <td>3-4</td>
-                            <td>Boys & Girls</td>
-                            <td>Play-based learning, motor skills</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee; background: rgba(59,130,246,0.03);">
-                            <td>Nursery/Prep</td>
-                            <td>KG - Prep</td>
-                            <td>4-6</td>
-                            <td>Boys & Girls</td>
-                            <td>Early literacy, Nazra Quran intro</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee;">
-                            <td>Primary School</td>
-                            <td>Grades 1-5</td>
-                            <td>6-11</td>
-                            <td>Boys & Girls</td>
-                            <td>Core academics, Computer basics, Tajweed</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid #eee; background: rgba(59,130,246,0.03);">
-                            <td>Middle School</td>
-                            <td>Grades 6-8</td>
-                            <td>11-14</td>
-                            <td>Boys & Girls</td>
-                            <td>Computer as core (replaces Arabic)</td>
-                        </tr>
-                        <tr>
-                            <td>Secondary/Matric</td>
-                            <td>Grades 9-10</td>
-                            <td>14-16</td>
-                            <td>Boys & Girls</td>
-                            <td><strong>Computer Science Only</strong> - Board exam prep</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            @media (max-width: 360px) {
+                .sd-stats-row {
+                    gap: 0.4rem;
+                }
+                .sd-stat-card {
+                    padding: 0.5rem 0.4rem;
+                }
+                .sd-stat-number, .sd-stat-suffix {
+                    font-size: 1.15rem;
+                }
+                .sd-features-panel {
+                    padding: 0.85rem;
+                }
+                .sd-feature-content h4 {
+                    font-size: 0.65rem;
+                }
+                .sd-feature-content p {
+                    font-size: 0.55rem;
+                }
+                .sd-matrix-table {
+                    min-width: 380px;
+                }
+                .sd-matrix-table th {
+                    padding: 0.45rem 0.6rem;
+                    font-size: 0.6rem;
+                }
+                .sd-matrix-table td {
+                    padding: 0.45rem 0.6rem;
+                    font-size: 0.65rem;
+                }
+                .sd-level-name {
+                    font-size: 0.68rem;
+                }
+                .sd-level-age {
+                    font-size: 0.52rem;
+                }
+                .sd-comp-badge {
+                    font-size: 0.55rem;
+                    padding: 0.1rem 0.4rem;
+                }
+                .sd-matrix-header h3 {
+                    font-size: 0.75rem;
+                }
+                .sd-matrix-badge {
+                    font-size: 0.55rem;
+                    padding: 0.18rem 0.5rem;
+                }
+            }
+        </style>
     </section>
 
     <!-- ===== ADMISSION CTA ===== -->
-    <section style="padding: 4rem 0;">
-        <div class="container">
-            <div style="background: linear-gradient(135deg, #1F2A44 0%, #0f1d35 100%); border-radius: 24px; padding: 3rem; text-align: center; color: #fff;">
-                <h2 style="color: #fff; margin-bottom: 1rem;">Ready to Join Our Community?</h2>
-                <p style="color: rgba(255,255,255,0.75); font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Admissions are open for 2025-26 across all levels. Enroll your child today and give them the gift of quality education combined with Islamic values and modern skills.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="admissions.html" class="btn btn-accent" style="color: #000 !important;">Apply Now</a>
-                    <a href="campus-facilities.html" class="btn btn-outline">Tour Campus</a>
-                </div>
+    <section class="ac-cta">
+        <div class="ac-cta-circle"></div>
+        <div class="ac-cta-circle"></div>
+        <div class="ac-cta-circle"></div>
+        <div class="ac-cta-content">
+            <h2>Ready to Join Our Community?</h2>
+            <p>Admissions are open for 2025-26 across all levels. Enroll your child today and give them the gift of quality education combined with Islamic values and modern skills.</p>
+            <div class="ac-cta-btns">
+                <a href="admissions.html" class="ac-btn orange">Apply Now <i class="fas fa-arrow-right"></i></a>
+                <a href="campus-facilities.html" class="ac-btn outline-orange">Tour Campus <i class="fas fa-calendar-check"></i></a>
             </div>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer>
+        <!-- Premium Footer -->
+    <footer class="premium-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1rem;">
+            <div class="footer-main">
+                <!-- Brand & Intro -->
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education. Grades KG to 10.</p>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+
+                <!-- Quick Links -->
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Academic Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="academics.html#levels">Educational Levels</a></li>
+
+                <!-- Programs -->
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
-                        <li><a href="campus-facilities.html">Our Facilities</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Our Faculty</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; margin-bottom: 0.8rem;">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra</a>
+
+                <!-- Contact Info -->
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-bottom: 0.8rem;">
-                            <i class="fas fa-phone" style="margin-right: 10px;"></i> 
-                            <a href="tel:03281642297">0328-1642297</a>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="phone-group">
+                                <a href="tel:03281642297">0328-1642297</a>
+                                <a href="https://wa.me/923216892097" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>0321-6892097</a>
+                            </div>
                         </li>
-                        <li style="display: flex; align-items: center;">
-                            <i class="fas fa-envelope" style="margin-right: 10px;"></i> 
-                            <a href="mailto:info@noshahi.edu.pk">info@noshahi.edu.pk</a>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
+            
+            <div class="footer-divider"></div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 Noshahi School System. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a></p>
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -2203,6 +3545,67 @@
                     this.classList.toggle('open');
                 }
             });
+        });
+
+        // ===== SUBJECT DISTRIBUTION - SCROLL ANIMATIONS =====
+        const sdObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, parseInt(delay));
+                    sdObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.sd-stat-card[data-animate]').forEach(el => {
+            sdObserver.observe(el);
+        });
+
+        // ===== COUNTER ANIMATION =====
+        const sdCounterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-count'));
+                    const duration = 2000;
+                    const startTime = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.round(eased * target);
+                        if (progress < 1) requestAnimationFrame(updateCounter);
+                    }
+                    requestAnimationFrame(updateCounter);
+                    sdCounterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.sd-stat-number[data-count]').forEach(el => {
+            sdCounterObserver.observe(el);
+        });
+
+        // ===== SUBJECT DISTRIBUTION - FEATURE PANEL ANIMATION =====
+        const sdPanelObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    sdPanelObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.sd-features-panel[data-animate], .sd-matrix-panel[data-animate]').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            sdPanelObserver.observe(el);
         });
     </script>
 

@@ -4,25 +4,1239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noshahi School System</title>
-    <!-- Favicon -->
+    <title>Noshahi School System - Campus Facilities</title>
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
-    <meta name="description"
-        content="Discover our modern campus facilities including computer labs, library, prayer area, and more.">
-    <!-- Font Awesome -->
+    <meta name="description" content="Discover our safe, modern campus facilities including smart classrooms, computer lab, Nazra Quran, solar power, and more.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Dropdown menu links - ensure black color for campus page */
-        .dropdown-menu a {
-            color: #1F2A44 !important;
+        :root {
+            --nave: #0B2E6F;
+            --orange: #F7941D;
+            --white: #FFFFFF;
+            --light-bg: #F8F9FC;
+            --text-dark: #2D3748;
+            --border: #E6EAF2;
         }
-        .navbar.scrolled .dropdown-menu a {
-            color: #1F2A44 !important;
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: var(--text-dark); overflow-x: hidden; }
+
+        .dropdown-menu a { color: #FFFFFF !important; }
+        .navbar.scrolled .dropdown-menu a { color: #FFFFFF !important; }
+        .dropdown-menu a:hover { color: var(--orange) !important; }
+
+        /* ═══════════════════════════════════════════
+           HERO SECTION
+        ═══════════════════════════════════════════ */
+        .fac-hero {
+            position: relative;
+            height: auto;
+            min-height: 0;
+            padding: 7rem 2rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
-        .dropdown-menu a:hover {
-            color: #FF8C00 !important;
+
+        .fac-hero-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .fac-hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(160deg, rgba(11,46,111,0.88) 0%, rgba(6,20,48,0.80) 100%);
+            z-index: 1;
+        }
+
+        .fac-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 850px;
+            padding: 0 2rem;
+        }
+
+        .fac-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(247,148,29,0.15);
+            border: 1px solid rgba(247,148,29,0.4);
+            color: var(--orange);
+            padding: 0.5rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .fac-hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        .fac-hero h1 span { color: var(--orange); }
+
+        .fac-hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fac-hero-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .fac-hero-btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .fac-hero-btn.primary {
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 8px 30px rgba(247,148,29,0.35);
+        }
+
+        .fac-hero-btn.primary:hover {
+            background: #e5850f;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(247,148,29,0.45);
+        }
+
+        .fac-hero-btn.outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        .fac-hero-btn.outline:hover {
+            background: var(--white);
+            color: var(--nave);
+            border-color: var(--white);
+        }
+
+        .fac-scroll-indicator {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════════════
+           COMPUTER COURSES SECTION
+        ═══════════════════════════════════════════ */
+        .fac-computer-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .fac-computer-img {
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(11,46,111,0.12);
+        }
+
+        .fac-computer-img img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .fac-computer-img:hover img {
+            transform: scale(1.04);
+        }
+
+        .fac-computer-img .fac-img-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 6px 20px rgba(247,148,29,0.4);
+        }
+
+        .fac-computer-courses {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .fac-computer-course {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.6rem 0.9rem;
+            background: rgba(255,140,0,0.06);
+            border: 1px solid rgba(255,140,0,0.12);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .fac-computer-course:hover {
+            background: rgba(255,140,0,0.12);
+            border-color: rgba(255,140,0,0.3);
+            transform: translateX(4px);
+        }
+
+        .fac-computer-course i {
+            color: var(--orange);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .fac-computer-levels {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .fac-computer-level {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .fac-computer-level:hover {
+            border-color: var(--orange);
+            box-shadow: 0 6px 20px rgba(247,148,29,0.12);
+            transform: translateY(-3px);
+        }
+
+        .fac-computer-level .level-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 0.6rem;
+            background: rgba(255,140,0,0.1);
+            color: var(--orange);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .fac-computer-level h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--nave);
+            margin-bottom: 0.2rem;
+        }
+
+        .fac-computer-level p {
+            font-size: 0.72rem;
+            color: #8896A7;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .fac-computer-wrap {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .fac-computer-img img {
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .fac-computer-courses {
+                grid-template-columns: 1fr;
+            }
+            .fac-computer-levels {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .fac-computer-img img {
+                height: 280px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════
+           INTRO SECTION
+        ═══════════════════════════════════════════ */
+        .fac-intro {
+            padding: 7rem 2rem 5rem;
+            background: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fac-intro-bg-text {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem;
+            font-weight: 900;
+            color: rgba(11,46,111,0.03);
+            letter-spacing: 15px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .fac-intro p {
+            font-size: 1.15rem;
+            color: #556070;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ═══════════════════════════════════════════
+           INTERACTIVE SIDE NAV
+        ═══════════════════════════════════════════ */
+        .fac-nav-wrapper {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fac-nav-line {
+            width: 2px;
+            height: 100%;
+            background: var(--border);
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .fac-nav-progress {
+            width: 2px;
+            background: var(--orange);
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            transition: height 0.3s ease;
+            z-index: 1;
+        }
+
+        .fac-nav-item {
+            position: relative;
+            z-index: 2;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            margin: 10px 0;
+        }
+
+        .fac-nav-item.active {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(247,148,29,0.4);
+            transform: scale(1.15);
+        }
+
+        .fac-nav-item:hover { border-color: var(--orange); color: var(--orange); }
+        .fac-nav-item.active:hover { color: var(--white); }
+
+        @media (max-width: 1200px) { .fac-nav-wrapper { display: none; } }
+
+        /* ═══════════════════════════════════════════
+           FACILITY SECTION BASE
+        ═══════════════════════════════════════════ */
+        .fac-section { padding: 6rem 2rem; position: relative; overflow: hidden; }
+        .fac-section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .fac-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,140,0,0.1);
+            border: 1px solid rgba(255,140,0,0.25);
+            color: #FF8C00;
+            padding: 0.4rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .fac-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .fac-split.reverse { direction: rtl; }
+        .fac-split.reverse > * { direction: ltr; }
+
+        .fac-img-wrap {
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(11,46,111,0.12);
+        }
+
+        .fac-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s ease;
+        }
+
+        .fac-img-wrap:hover img { transform: scale(1.04); }
+
+        .fac-img-badge {
+            position: absolute;
+            bottom: 1.5rem; left: 1.5rem;
+            background: var(--orange);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 6px 20px rgba(247,148,29,0.4);
+        }
+
+        .fac-num {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(11,46,111,0.06);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .fac-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--nave);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .fac-text h2 span { color: var(--orange); }
+
+        .fac-text > p {
+            font-size: 0.92rem;
+            color: #556070;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .fac-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .fac-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .fac-feature-item i { color: var(--orange); font-size: 0.85rem; flex-shrink: 0; }
+
+        .fac-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.35s ease;
+        }
+
+        .fac-btn.orange {
+            background: var(--orange);
+            color: var(--white);
+            box-shadow: 0 6px 25px rgba(247,148,29,0.3);
+        }
+
+        .fac-btn.orange:hover {
+            background: #e5850f;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgba(247,148,29,0.4);
+        }
+
+        .fac-btn.outline-orange {
+            background: transparent;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+        }
+
+        .fac-btn.outline-orange:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        /* ═══════════════════════════════════════════
+           NAZRA QURAN SECTION
+        ═══════════════════════════════════════════ */
+        .fac-quran {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            color: var(--white);
+        }
+
+        .fac-quran .fac-text h2 { color: var(--white); }
+        .fac-quran .fac-text > p { color: rgba(255,255,255,0.7); }
+        .fac-quran .fac-section-label { background: rgba(247,148,29,0.15); border-color: rgba(247,148,29,0.35); }
+
+        .fac-quran-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .fac-quran-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 1.2rem;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .fac-quran-item:hover {
+            background: rgba(247,148,29,0.12);
+            border-color: rgba(247,148,29,0.3);
+        }
+
+        .fac-quran-item i { color: var(--orange); font-size: 1.1rem; width: 20px; text-align: center; }
+        .fac-quran-item span { font-size: 0.9rem; font-weight: 500; }
+
+        /* ═══════════════════════════════════════════
+           SOLAR POWER SECTION
+        ═══════════════════════════════════════════ */
+        .fac-solar {
+            background: var(--light-bg);
+        }
+
+        .fac-solar-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fac-solar-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .fac-solar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11,46,111,0.08);
+            border-color: var(--orange);
+        }
+
+        .fac-solar-card i { font-size: 2.2rem; color: var(--orange); margin-bottom: 1rem; }
+
+        .fac-solar-card h4 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--nave);
+            margin-bottom: 0.4rem;
+        }
+
+        .fac-solar-card p { font-size: 0.92rem; color: #556070; line-height: 1.6; }
+
+        /* ═══════════════════════════════════════════
+           TRANSPORT - TIMELINE
+        ═══════════════════════════════════════════ */
+        .fac-transport-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin: 3rem 0;
+        }
+
+        .fac-timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fac-timeline-dot {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--nave);
+            transition: all 0.3s ease;
+        }
+
+        .fac-timeline-step.active .fac-timeline-dot {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(247,148,29,0.35);
+        }
+
+        .fac-timeline-step span { font-size: 0.8rem; font-weight: 600; color: var(--text-dark); }
+
+        .fac-timeline-connector {
+            width: 80px; height: 3px;
+            background: var(--border);
+            margin-bottom: 1.6rem;
+            position: relative;
+        }
+
+        .fac-timeline-connector::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            height: 100%;
+            width: 0;
+            background: var(--orange);
+            transition: width 0.6s ease;
+        }
+
+        .fac-timeline-connector.filled::after { width: 100%; }
+
+        .fac-transport-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .fac-transport-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .fac-transport-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11,46,111,0.08);
+            border-color: var(--orange);
+        }
+
+        .fac-transport-card i { font-size: 2rem; color: var(--orange); margin-bottom: 1rem; }
+
+        .fac-transport-card h4 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--nave);
+            margin-bottom: 0.4rem;
+        }
+
+        .fac-transport-card p { font-size: 0.92rem; color: #556070; line-height: 1.6; }
+
+        /* ═══════════════════════════════════════════
+           WATER & HYGIENE - HALF/HALF
+        ═══════════════════════════════════════════ */
+        .fac-health-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(11,46,111,0.08);
+        }
+
+        .fac-health-img { position: relative; min-height: 500px; border-radius: 24px; overflow: hidden; }
+        .fac-health-img img, .fac-health-img svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .fac-health-content {
+            background: var(--nave);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .fac-health-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .fac-health-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fac-health-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .fac-health-item:hover {
+            background: rgba(247,148,29,0.1);
+            border-color: rgba(247,148,29,0.25);
+        }
+
+        .fac-health-item i { color: var(--orange); font-size: 1.1rem; width: 22px; text-align: center; }
+        .fac-health-item span { font-size: 0.92rem; font-weight: 500; color: var(--white); }
+
+        /* ═══════════════════════════════════════════
+           SECURE CAMPUS
+        ═══════════════════════════════════════════ */
+        .fac-secure {
+            background: var(--light-bg);
+        }
+
+        .fac-secure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fac-secure-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .fac-secure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11,46,111,0.08);
+            border-color: var(--orange);
+        }
+
+        .fac-secure-card i { font-size: 2rem; color: var(--orange); margin-bottom: 1rem; }
+
+        .fac-secure-card h4 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--nave);
+            margin-bottom: 0.4rem;
+        }
+
+        .fac-secure-card p { font-size: 0.92rem; color: #556070; line-height: 1.6; }
+
+        /* ═══════════════════════════════════════════
+           STATISTICS
+        ═══════════════════════════════════════════ */
+        .fac-stats {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 5rem 2rem;
+        }
+
+        .fac-stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .fac-stat-item { padding: 1.5rem; }
+
+        .fac-stat-num {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .fac-stat-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ═══════════════════════════════════════════
+           CTA
+        ═══════════════════════════════════════════ */
+        .fac-cta {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fac-cta-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(247,148,29,0.06);
+            pointer-events: none;
+        }
+
+        .fac-cta-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; left: -60px; }
+        .fac-cta-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; right: -30px; }
+        .fac-cta-circle:nth-child(3) { width: 150px; height: 150px; top: 30%; right: 10%; }
+
+        .fac-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .fac-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .fac-cta p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .fac-cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ═══════════════════════════════════════════
+           REVEAL ANIMATIONS
+        ═══════════════════════════════════════════ */
+        .fac-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+        .fac-reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal-left.revealed { opacity: 1; transform: translateX(0); }
+
+        .fac-reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .fac-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .fac-split.reverse { direction: ltr; }
+            .fac-health-grid { grid-template-columns: 1fr; }
+            .fac-health-img { min-height: 350px; }
+            .fac-solar-highlights { grid-template-columns: 1fr 1fr; }
+            .fac-secure-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .fac-hero { padding: 5rem 1.5rem 3rem; }
+            .fac-hero h1 { font-size: 2.8rem; }
+            .fac-hero p { font-size: 1rem; }
+            .fac-text h2 { font-size: 2.2rem; }
+            .fac-features { grid-template-columns: 1fr; }
+            .fac-transport-timeline { flex-wrap: wrap; gap: 0.5rem; }
+            .fac-timeline-connector { width: 40px; }
+.fac-health-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fac-health-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .fac-health-item:hover {
+            background: rgba(247,148,29,0.1);
+            border-color: rgba(247,148,29,0.25);
+        }
+
+        .fac-health-item i { color: var(--orange); font-size: 1.1rem; width: 22px; text-align: center; }
+        .fac-health-item span { font-size: 0.92rem; font-weight: 500; color: var(--white); }
+
+        /* ═══════════════════════════════════════════
+           SECURE CAMPUS
+        ═══════════════════════════════════════════ */
+        .fac-secure {
+            background: var(--light-bg);
+        }
+
+        .fac-secure-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fac-secure-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.35s ease;
+        }
+
+        .fac-secure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11,46,111,0.08);
+            border-color: var(--orange);
+        }
+
+        .fac-secure-card i { font-size: 2rem; color: var(--orange); margin-bottom: 1rem; }
+
+        .fac-secure-card h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--nave);
+            margin-bottom: 0.4rem;
+        }
+
+        .fac-secure-card p { font-size: 0.85rem; color: #556070; line-height: 1.6; }
+
+        /* ═══════════════════════════════════════════
+           STATISTICS
+        ═══════════════════════════════════════════ */
+        .fac-stats {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 5rem 2rem;
+        }
+
+        .fac-stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .fac-stat-item { padding: 1.5rem; }
+
+        .fac-stat-num {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .fac-stat-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ═══════════════════════════════════════════
+           CTA
+        ═══════════════════════════════════════════ */
+        .fac-cta {
+            background: linear-gradient(160deg, #0B2E6F 0%, #061430 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fac-cta-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(247,148,29,0.06);
+            pointer-events: none;
+        }
+
+        .fac-cta-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; left: -60px; }
+        .fac-cta-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; right: -30px; }
+        .fac-cta-circle:nth-child(3) { width: 150px; height: 150px; top: 30%; right: 10%; }
+
+        .fac-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .fac-cta h2 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .fac-cta p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .fac-cta-btns {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ═══════════════════════════════════════════
+           REVEAL ANIMATIONS
+        ═══════════════════════════════════════════ */
+        .fac-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+        .fac-reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal-left.revealed { opacity: 1; transform: translateX(0); }
+
+        .fac-reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .fac-reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+        /* ═══════════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .fac-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .fac-split.reverse { direction: ltr; }
+            .fac-health-grid { grid-template-columns: 1fr; }
+            .fac-health-img { min-height: 350px; }
+            .fac-solar-highlights { grid-template-columns: 1fr 1fr; }
+            .fac-secure-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .fac-hero h1 { font-size: 2.8rem; }
+            .fac-hero p { font-size: 1.05rem; }
+            .fac-text h2 { font-size: 2.2rem; }
+            .fac-features { grid-template-columns: 1fr; }
+            .fac-transport-timeline { flex-wrap: wrap; gap: 0.5rem; }
+            .fac-timeline-connector { width: 40px; }
+            .fac-transport-features { grid-template-columns: 1fr; }
+            .fac-quran-features { grid-template-columns: 1fr; }
+            .fac-solar-highlights { grid-template-columns: 1fr; }
+            .fac-secure-grid { grid-template-columns: 1fr; }
+            .fac-stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .fac-intro-bg-text { font-size: 5rem; }
+            .fac-health-content { padding: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .fac-hero { padding: 4rem 1.25rem 2.5rem; }
+            .fac-hero h1 { font-size: 2.2rem; }
+            .fac-hero-btns { flex-direction: column; align-items: center; }
+            .fac-stat-num { font-size: 2.5rem; }
+        }
+
+        /* ═══════════════════════════════════════════
+           FOOTER RESPONSIVE
+        ═══════════════════════════════════════════ */
+        @media (max-width: 992px) {
+            .premium-footer .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .premium-footer {
+                padding: 3.5rem 0 1.5rem;
+            }
+            .premium-footer .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-logo {
+                justify-content: center;
+            }
+            .footer-desc {
+                text-align: center;
+                max-width: 100%;
+            }
+            .social-links {
+                justify-content: center;
+            }
+            .footer-col.links-col,
+            .footer-col.contact-col {
+                text-align: center;
+            }
+            .footer-col.links-col ul,
+            .footer-col.contact-col .contact-list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .footer-col.contact-col .contact-list li {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.3rem;
+            }
+            .footer-col.contact-col .contact-list li i {
+                margin-right: 0;
+            }
+            .footer-col.contact-col .phone-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+            .footer-bottom-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .premium-footer {
+                padding: 2.5rem 0 1.25rem;
+            }
+            .footer-logo .logo-text {
+                font-size: 1.15rem;
+            }
+            .footer-logo img {
+                width: 40px;
+                height: 40px;
+            }
+            .footer-col h3 {
+                font-size: 1rem;
+            }
+            .footer-col p,
+            .footer-col a,
+            .footer-col li {
+                font-size: 0.82rem;
+            }
+            .social-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -30,20 +1244,22 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar scrolled">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                 <span class="logo-text">Noshahi School System</span>
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
@@ -51,1542 +1267,547 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html" class="active">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="campus-facilities.html" class="active">Campus Facilities</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
-        <div class="page-header-content">
-            <h1>Campus Facilities</h1>
-            <p>A Safe and Inspiring Environment for Learning</p>
-        </div>
-    </header>
-
-    <!-- Facilities - PREMIUM MULTI-SECTION LAYOUT -->
-    <section id="facilities">
-        <style>
-            /* ═══════════════════════════════════════
-               OUR FACILITIES — PREMIUM MULTI-SECTION
-            ═══════════════════════════════════════ */
-
-            #facilities {
-                background: linear-gradient(135deg, #F5F7FA 0%, #E8ECEF 100%);
-                padding: 0;
-                position: relative;
-                overflow: hidden;
-            }
-
-            /* subtle top decorative bar */
-            #facilities::before {
-                content: '';
-                position: absolute;
-                top: 0; left: 0; right: 0;
-                height: 4px;
-                background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
-            }
-
-            /* ── Section intro block ── */
-            .fac-intro {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-                align-items: center;
-                margin-bottom: 4rem;
-            }
-
-            .fac-intro-left .fac-eyebrow {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: rgba(255,140,0,0.1);
-                border: 1px solid rgba(255,140,0,0.25);
-                color: var(--accent-color);
-                padding: 0.35rem 1rem;
-                border-radius: 30px;
-                font-size: 0.75rem;
-                font-weight: 700;
-                letter-spacing: 1.5px;
-                text-transform: uppercase;
-                margin-bottom: 1rem;
-            }
-
-            .fac-intro-left h2 {
-                font-size: 2.5rem;
-                font-weight: 800;
-                color: var(--primary-color);
-                line-height: 1.2;
-                margin-bottom: 1rem;
-            }
-
-            .fac-intro-left h2 span {
-                color: var(--accent-color);
-            }
-
-            .fac-intro-left p {
-                color: var(--text-light);
-                font-size: 1rem;
-                line-height: 1.75;
-                margin-bottom: 0;
-                max-width: 440px;
-            }
-
-            /* right: 3 stat counters */
-            .fac-stats {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-            }
-
-            .fac-stat {
-                background: #fff;
-                border-radius: 16px;
-                padding: 1.5rem 1.25rem;
-                text-align: center;
-                border: 1px solid rgba(31,42,68,0.07);
-                box-shadow: 0 4px 16px rgba(31,42,68,0.05);
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            .fac-stat:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 12px 30px rgba(31,42,68,0.1);
-            }
-
-            .fac-stat .stat-icon {
-                width: 44px;
-                height: 44px;
-                border-radius: 12px;
-                background: rgba(255,140,0,0.1);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--accent-color);
-                font-size: 1.1rem;
-                margin: 0 auto 0.75rem;
-            }
-
-            .fac-stat .stat-num {
-                font-size: 2rem;
-                font-weight: 900;
-                color: var(--primary-color);
-                line-height: 1;
-                margin-bottom: 0.3rem;
-            }
-
-            .fac-stat .stat-lbl {
-                font-size: 0.75rem;
-                font-weight: 600;
-                color: var(--text-light);
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            }
-
-            /* ── Masonry-style bento grid ── */
-            .fac-bento {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                grid-template-rows: auto auto auto;
-                gap: 1.25rem;
-            }
-
-            /* base card */
-            .fac-card {
-                background: #fff;
-                border-radius: 20px;
-                padding: 2rem 1.75rem;
-                border: 1px solid rgba(31,42,68,0.07);
-                box-shadow: 0 2px 12px rgba(31,42,68,0.04);
-                transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1);
-                position: relative;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .fac-card::after {
-                content: '';
-                position: absolute;
-                bottom: 0; left: 0; right: 0;
-                height: 3px;
-                background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-                transform: scaleX(0);
-                transform-origin: left;
-                transition: transform 0.35s ease;
-                border-radius: 0 0 20px 20px;
-            }
-
-            .fac-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 20px 50px rgba(31,42,68,0.12);
-                border-color: rgba(255,140,0,0.2);
-            }
-
-            .fac-card:hover::after {
-                transform: scaleX(1);
-            }
-
-            /* dark featured card */
-            .fac-card.dark {
-                background: var(--primary-color);
-                border-color: transparent;
-            }
-
-            .fac-card.dark::after {
-                background: linear-gradient(90deg, var(--accent-color), #ffb347);
-            }
-
-            .fac-card.dark .fac-card-icon {
-                background: rgba(255,140,0,0.15);
-                color: var(--accent-color);
-            }
-
-            /* wide card spans 2 columns */
-            .fac-card.wide { grid-column: span 2; }
-
-            /* tall card spans 2 rows */
-            .fac-card.tall { grid-row: span 2; }
-
-            .fac-card-icon {
-                width: 52px;
-                height: 52px;
-                border-radius: 14px;
-                background: rgba(255,140,0,0.09);
-                border: 1px solid rgba(255,140,0,0.15);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: var(--accent-color);
-                font-size: 1.3rem;
-                margin-bottom: 1.25rem;
-                transition: all 0.3s ease;
-                flex-shrink: 0;
-            }
-
-            .fac-card:hover .fac-card-icon {
-                background: var(--accent-color);
-                color: #fff;
-                border-color: var(--accent-color);
-                box-shadow: 0 8px 20px rgba(255,140,0,0.3);
-                transform: scale(1.08);
-            }
-
-            .fac-card.dark:hover .fac-card-icon {
-                background: var(--accent-color);
-                color: #fff;
-            }
-
-            .fac-card h3 {
-                font-size: 1.05rem;
-                font-weight: 700;
-                color: var(--primary-color);
-                margin-bottom: 0.6rem;
-                line-height: 1.3;
-            }
-
-            .fac-card p {
-                font-size: 0.87rem;
-                color: #4B5563;
-                line-height: 1.7;
-                margin: 0;
-                flex-grow: 1;
-            }
-
-            /* bold words inside light cards → blue */
-            .fac-card:not(.dark) p strong,
-            .fac-card:not(.dark) p b {
-                color: #1A3A6B;
-                font-weight: 700;
-            }
-
-            /* dark card text */
-            .fac-card.dark h3 { color: #fff; }
-            .fac-card.dark p  { color: rgba(255,255,255,0.82); }
-
-            /* bold words inside dark cards → orange-amber */
-            .fac-card.dark p strong,
-            .fac-card.dark p b {
-                color: #FFB347;
-                font-weight: 700;
-            }
-            .fac-badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                background: rgba(255,140,0,0.1);
-                border: 1px solid rgba(255,140,0,0.2);
-                color: var(--accent-color);
-                padding: 0.2rem 0.65rem;
-                border-radius: 20px;
-                font-size: 0.7rem;
-                font-weight: 700;
-                letter-spacing: 0.5px;
-                margin-bottom: 0.85rem;
-                align-self: flex-start;
-            }
-
-            .fac-card.dark .fac-badge {
-                background: rgba(255,140,0,0.2);
-                border-color: rgba(255,140,0,0.35);
-            }
-
-            /* ── CTA block below grid ── */
-            .fac-cta {
-                margin-top: 3rem;
-                background: var(--primary-color);
-                border-radius: 24px;
-                padding: 2.5rem 3rem;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 2rem;
-                flex-wrap: wrap;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .fac-cta::before {
-                content: '';
-                position: absolute;
-                top: -60px; right: -60px;
-                width: 220px; height: 220px;
-                border-radius: 50%;
-                background: rgba(255,140,0,0.07);
-                pointer-events: none;
-            }
-
-            .fac-cta-text h3 {
-                color: #fff;
-                font-size: 1.4rem;
-                font-weight: 800;
-                margin-bottom: 0.35rem;
-            }
-
-            .fac-cta-text p {
-                color: rgba(255,255,255,0.6);
-                font-size: 0.9rem;
-                margin: 0;
-            }
-
-            .fac-cta-btns {
-                display: flex;
-                gap: 1rem;
-                flex-shrink: 0;
-                flex-wrap: wrap;
-            }
-
-            .fac-btn-solid {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: var(--accent-color);
-                color: #fff;
-                padding: 0.8rem 1.75rem;
-                border-radius: 30px;
-                font-weight: 700;
-                font-size: 0.9rem;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            .fac-btn-solid:hover {
-                background: #e67e00;
-                transform: translateY(-2px);
-                box-shadow: 0 10px 25px rgba(255,140,0,0.4);
-                color: #fff;
-            }
-
-            .fac-btn-ghost {
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-                background: transparent;
-                color: #fff;
-                border: 2px solid rgba(255,255,255,0.3);
-                padding: 0.8rem 1.75rem;
-                border-radius: 30px;
-                font-weight: 700;
-                font-size: 0.9rem;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            .fac-btn-ghost:hover {
-                border-color: #fff;
-                background: rgba(255,255,255,0.08);
-                color: #fff;
-            }
-
-            /* ───────────────────────────────────
-               RESPONSIVE DESIGN — MOBILE FIRST
-            ─────────────────────────────────── */
-
-            /* ────── TABLET BREAKPOINT (768px) ────── */
-            @media (max-width: 1100px) {
-                .fac-bento {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-                .fac-card.wide { grid-column: span 2; }
-                .fac-card.tall { grid-row: span 1; }
-            }
-
-            @media (max-width: 768px) {
-                /* ── Intro Section ── */
-                .fac-intro {
-                    grid-template-columns: 1fr;
-                    gap: 2rem;
-                    margin-bottom: 2.5rem;
-                }
-                .fac-intro-left .fac-eyebrow {
-                    font-size: 0.7rem;
-                    padding: 0.3rem 0.85rem;
-                }
-                .fac-intro-left h2 {
-                    font-size: 2rem;
-                    margin-bottom: 0.9rem;
-                }
-                .fac-intro-left p {
-                    max-width: 100%;
-                    font-size: 0.95rem;
-                }
-
-                /* ── Stats Grid ── */
-                .fac-stats {
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 0.9rem;
-                }
-                .fac-stat {
-                    padding: 1.25rem 1rem;
-                    border-radius: 12px;
-                }
-                .fac-stat .stat-icon {
-                    width: 40px;
-                    height: 40px;
-                    font-size: 1rem;
-                    margin-bottom: 0.5rem;
-                }
-                .fac-stat .stat-num {
-                    font-size: 1.6rem;
-                }
-                .fac-stat .stat-lbl {
-                    font-size: 0.7rem;
-                }
-
-                /* ── Featured Cards Grid ── */
-                .fac-bento {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-                .fac-card.wide { grid-column: span 2; }
-                .fac-card.tall { grid-row: span 1; }
-                .fac-card {
-                    padding: 2rem 1.5rem;
-                    border-radius: 18px;
-                }
-                .fac-card-icon {
-                    width: 48px;
-                    height: 48px;
-                    font-size: 1.1rem;
-                    margin-bottom: 1rem;
-                }
-                .fac-card h3 {
-                    font-size: 0.95rem;
-                }
-                .fac-card p {
-                    font-size: 0.82rem;
-                }
-
-                /* ── CTA Section ── */
-                .fac-cta {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    padding: 2rem 1.75rem;
-                    gap: 1.5rem;
-                }
-                .fac-cta-text h3 {
-                    font-size: 1.2rem;
-                }
-                .fac-cta-text p {
-                    font-size: 0.85rem;
-                }
-                .fac-cta-btns {
-                    flex-direction: row;
-                    gap: 0.8rem;
-                }
-            }
-
-            /* ────── MOBILE BREAKPOINT (480px) ────── */
-            @media (max-width: 480px) {
-                /* ── Intro Section ── */
-                .fac-intro {
-                    gap: 1.5rem;
-                    margin-bottom: 2rem;
-                }
-                .fac-intro-left .fac-eyebrow {
-                    font-size: 0.65rem;
-                    padding: 0.25rem 0.75rem;
-                    margin-bottom: 0.8rem;
-                }
-                .fac-intro-left h2 {
-                    font-size: 1.6rem;
-                    margin-bottom: 0.75rem;
-                    line-height: 1.25;
-                }
-                .fac-intro-left p {
-                    font-size: 0.85rem;
-                    line-height: 1.6;
-                }
-
-                /* ── Stats Grid ── */
-                .fac-stats {
-                    grid-template-columns: 1fr 1fr;
-                    gap: 0.75rem;
-                }
-                .fac-stat {
-                    padding: 1rem 0.85rem;
-                }
-                .fac-stat:last-child {
-                    grid-column: span 2;
-                }
-                .fac-stat .stat-icon {
-                    width: 36px;
-                    height: 36px;
-                    font-size: 0.9rem;
-                    margin-bottom: 0.4rem;
-                }
-                .fac-stat .stat-num {
-                    font-size: 1.3rem;
-                    margin-bottom: 0.2rem;
-                }
-                .fac-stat .stat-lbl {
-                    font-size: 0.65rem;
-                }
-
-                /* ── Featured Cards Grid ── */
-                .fac-bento {
-                    grid-template-columns: 1fr;
-                    gap: 1.5rem;
-                }
-                .fac-card.wide { grid-column: span 1; }
-                .fac-card {
-                    padding: 1.5rem 1.25rem;
-                }
-                .fac-card-icon {
-                    width: 40px;
-                    height: 40px;
-                    font-size: 0.95rem;
-                    margin-bottom: 0.8rem;
-                }
-                .fac-card h3 {
-                    font-size: 0.9rem;
-                    margin-bottom: 0.5rem;
-                }
-                .fac-card p {
-                    font-size: 0.78rem;
-                    line-height: 1.6;
-                }
-
-                /* ── CTA Section ── */
-                .fac-cta {
-                    padding: 1.5rem 1.25rem;
-                }
-                .fac-cta-text h3 {
-                    font-size: 1rem;
-                    margin-bottom: 0.3rem;
-                }
-                .fac-cta-text p {
-                    font-size: 0.8rem;
-                }
-                .fac-cta-btns {
-                    width: 100%;
-                    flex-direction: column;
-                    gap: 0.6rem;
-                }
-                .fac-btn-solid, .fac-btn-ghost {
-                    justify-content: center;
-                    padding: 0.75rem 1.5rem;
-                    font-size: 0.85rem;
-                    width: 100%;
-                }
-            }
-
-            /* ────── EXTRA SMALL BREAKPOINT (360px) ────── */
-            @media (max-width: 360px) {
-                /* ── Intro Section ── */
-                .fac-intro-left h2 {
-                    font-size: 1.4rem;
-                }
-                .fac-intro-left p {
-                    font-size: 0.8rem;
-                }
-
-                /* ── Stats Grid ── */
-                .fac-stats {
-                    gap: 0.6rem;
-                }
-                .fac-stat {
-                    padding: 0.85rem 0.75rem;
-                    border-radius: 10px;
-                }
-
-                /* ── Featured Cards Grid ── */
-                .fac-card {
-                    padding: 1.25rem 1rem;
-                    border-radius: 16px;
-                }
-                .fac-card h3 {
-                    font-size: 0.85rem;
-                }
-                .fac-card p {
-                    font-size: 0.75rem;
-                }
-
-                /* ── CTA Section ── */
-                .fac-cta {
-                    padding: 1.25rem 1rem;
-                    border-radius: 20px;
-                }
-                .fac-btn-solid, .fac-btn-ghost {
-                    padding: 0.7rem 1.25rem;
-                    font-size: 0.8rem;
-                }
-            }
-        </style>
-
-        <!-- ═══ SECTION 1: HERO INTRO WITH STATS ═══ -->
-        <div style="background: #fff; padding: 5rem 0; border-bottom: 1px solid rgba(31,42,68,0.08);">
-            <div class="container">
-                <div class="fac-intro">
-                    <div class="fac-intro-left">
-                        <div class="fac-eyebrow"><i class="fas fa-star"></i> Premium Facilities</div>
-                        <h2>Everything Your Child<br>Needs — <span>Under One Roof</span></h2>
-                        <p>From a fully equipped Computer Lab to CCTV security and certified Quran teachers — every facility at Noshahi is designed with your child's safety, growth, and success in mind.</p>
-                    </div>
-                    <div class="fac-stats">
-                        <div class="fac-stat">
-                            <div class="stat-icon"><i class="fas fa-desktop"></i></div>
-                            <div class="stat-num">1</div>
-                            <div class="stat-lbl">Computer Lab</div>
-                        </div>
-                        <div class="fac-stat">
-                            <div class="stat-icon"><i class="fas fa-shield-halved"></i></div>
-                            <div class="stat-num">24/7</div>
-                            <div class="stat-lbl">CCTV Security</div>
-                        </div>
-                        <div class="fac-stat">
-                            <div class="stat-icon"><i class="fas fa-user-tie"></i></div>
-                            <div class="stat-num">100%</div>
-                            <div class="stat-lbl">Qualified Staff</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Hero Section -->
+    <section class="fac-hero" id="home">
+        <img src="img/hero_banner.png" alt="Noshahi Campus" class="fac-hero-video" onerror="this.src='img/school banner.png'">
+        <div class="fac-hero-overlay"></div>
+        <div class="fac-hero-content">
+            <div class="fac-hero-badge"><i class="fas fa-building-columns"></i> Campus Facilities</div>
+            <h1>World-Class <span>Campus</span> Built for Learning</h1>
+            <p>From smart computer labs to solar-powered classrooms and safe transport — explore the facilities that make Noshahi a place where students thrive.</p>
+            <div class="fac-hero-btns">
+                <a href="#computer-courses" class="fac-hero-btn primary">Explore Facilities <i class="fas fa-arrow-down"></i></a>
+                <a href="admissions.html" class="fac-hero-btn outline">Enroll Now</a>
             </div>
-        </div>
-
-        <!-- ═══ SECTION 2: FEATURED FACILITIES SHOWCASE ═══ -->
-        <div style="padding: 0 0 5rem 0; background: linear-gradient(135deg, rgba(245,247,250,0.5) 0%, rgba(232,236,239,0.5) 100%); border-bottom: 1px solid rgba(31,42,68,0.08);">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 3.5rem;">
-                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); color: var(--accent-color); padding: 0.35rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;">
-                        <i class="fas fa-building"></i> Featured Highlights
-                    </div>
-                    <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">Premium Facilities Showcase</h2>
-                    <p style="color: var(--text-light); font-size: 1rem; max-width: 700px; margin: 0 auto;">World-class amenities designed to support academic excellence and student development</p>
-                </div>
-
-                <!-- Featured Item: Core Program (Computer Lab) - PREMIUM DESIGN -->
-                <div style="background: linear-gradient(135deg, #1a2a4a 0%, #0f1820 50%, var(--primary-color) 100%); border-radius: 28px; padding: 4rem 4.5rem; color: #fff; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; position: relative; overflow: hidden; box-shadow: 0 30px 80px rgba(31,42,68,0.25), inset 0 1px 0 rgba(255,255,255,0.1); margin-bottom: 3rem; border: 1px solid rgba(255,140,0,0.15);">
-                    
-                    <!-- Decorative Elements -->
-                    <div style="position: absolute; top: -150px; right: -150px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,140,0,0.15) 0%, rgba(255,140,0,0) 70%); pointer-events: none;"></div>
-                    <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(255,140,0,0.08) 0%, rgba(255,140,0,0) 70%); pointer-events: none;"></div>
-                    
-                    <!-- Left Content -->
-                    <div style="position: relative; z-index: 2;">
-                        <!-- Badge -->
-                        <div style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, rgba(255,140,0,0.2), rgba(255,140,0,0.1)); border: 1px solid rgba(255,140,0,0.35); color: #FFD700; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; backdrop-filter: blur(10px);">
-                            <i class="fas fa-crown"></i> Core Program
-                        </div>
-                        
-                        <!-- Heading -->
-                        <h2 style="font-size: 2.8rem; font-weight: 900; margin-bottom: 1.25rem; line-height: 1.15; letter-spacing: -0.5px;">
-                            <span style="color: var(--accent-color);">Dedicated</span><br><span style="color: var(--accent-color);">Computer Lab</span>
-                        </h2>
-                        
-                        <!-- Description -->
-                        <p style="font-size: 1.05rem; line-height: 1.9; color: rgba(255,255,255,0.88); margin-bottom: 2rem; max-width: 500px;">Fully equipped with <strong style="color: #FFD700;">modern machines</strong> for <strong style="color: #FFD700;">hands-on, practical learning</strong> — Basic to Advanced. Computer is a <strong style="color: #FFD700;">mandatory core subject</strong> at every grade level, not optional.</p>
-                        
-                        <!-- Features List -->
-                        <div style="margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.8rem;">
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,140,0,0.2); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,140,0,0.3);">
-                                    <i class="fas fa-check" style="color: #FFD700; font-size: 0.9rem; font-weight: 900;"></i>
-                                </div>
-                                <span style="font-size: 0.95rem; color: rgba(255,255,255,0.85);">Practical hands-on training sessions</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,140,0,0.2); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,140,0,0.3);">
-                                    <i class="fas fa-check" style="color: #FFD700; font-size: 0.9rem; font-weight: 900;"></i>
-                                </div>
-                                <span style="font-size: 0.95rem; color: rgba(255,255,255,0.85);">Grade-appropriate curriculum</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,140,0,0.2); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,140,0,0.3);">
-                                    <i class="fas fa-check" style="color: #FFD700; font-size: 0.9rem; font-weight: 900;"></i>
-                                </div>
-                                <span style="font-size: 0.95rem; color: rgba(255,255,255,0.85);">Expert specialist instructors</span>
-                            </div>
-                        </div>
-                        
-                        <!-- CTA Button -->
-                        <a href="contact.html" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--accent-color) 0%, #FFB347 100%); color: #000; padding: 1rem 2.25rem; border-radius: 35px; font-weight: 800; font-size: 0.95rem; text-decoration: none; transition: all 0.3s cubic-bezier(0.165,0.84,0.44,1); border: 2px solid transparent; cursor: pointer; box-shadow: 0 12px 30px rgba(255,140,0,0.3);"
-                            onmouseover="this.style.background='linear-gradient(135deg, #FFB347, var(--accent-color))'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 18px 45px rgba(255,140,0,0.5)'; this.style.color='#000';"
-                            onmouseout="this.style.background='linear-gradient(135deg, var(--accent-color), #FFB347)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 12px 30px rgba(255,140,0,0.3)'; this.style.color='#000';">
-                            <i class="fas fa-arrow-right"></i> Book Lab Tour
-                        </a>
-                    </div>
-                    
-                    <!-- Right Visual Section -->
-                    <div style="position: relative; z-index: 2; text-align: center;">
-                        <!-- Outer Frame with Generated Laptop Image -->
-                        <div style="width: 260px; height: 220px; margin: 0 auto; border-radius: 24px; background: linear-gradient(135deg, rgba(255,140,0,0.15) 0%, rgba(255,140,0,0.05) 100%); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,140,0,0.25); position: relative; box-shadow: inset 0 8px 20px rgba(0,0,0,0.2); overflow: hidden;">
-                            <!-- Laptop SVG Representation -->
-                            <svg viewBox="0 0 200 150" width="200" height="150" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));">
-                                <!-- Laptop Screen -->
-                                <rect x="20" y="20" width="160" height="100" rx="8" fill="#FF8C00" opacity="0.8"/>
-                                <!-- Screen Content -->
-                                <rect x="25" y="25" width="150" height="90" rx="6" fill="#FFA500"/>
-                                <!-- Code Lines (simulated) -->
-                                <line x1="35" y1="40" x2="145" y2="40" stroke="#fff" stroke-width="2" opacity="0.7"/>
-                                <line x1="35" y1="55" x2="130" y2="55" stroke="#fff" stroke-width="2" opacity="0.7"/>
-                                <line x1="35" y1="70" x2="140" y2="70" stroke="#fff" stroke-width="2" opacity="0.7"/>
-                                <line x1="35" y1="85" x2="125" y2="85" stroke="#fff" stroke-width="2" opacity="0.7"/>
-                                <line x1="35" y1="100" x2="135" y2="100" stroke="#fff" stroke-width="2" opacity="0.7"/>
-                                <!-- Laptop Base -->
-                                <rect x="40" y="120" width="120" height="8" rx="2" fill="#333"/>
-                                <!-- Stand -->
-                                <rect x="95" y="128" width="10" height="12" rx="2" fill="#555"/>
-                            </svg>
-                        </div>
-                        
-                        <!-- Stats Below Visual -->
-                        <div style="margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div style="background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.2); border-radius: 12px; padding: 0.75rem; backdrop-filter: blur(10px);">
-                                <div style="font-size: 1.4rem; font-weight: 900; color: var(--accent-color);">1</div>
-                                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem;">Lab</div>
-                            </div>
-                            <div style="background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.2); border-radius: 12px; padding: 0.75rem; backdrop-filter: blur(10px);">
-                                <div style="font-size: 1.4rem; font-weight: 900; color: var(--accent-color);">100%</div>
-                                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem;">Practical</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <style>
-                        @keyframes float {
-                            0%, 100% { transform: translateY(0px); }
-                            50% { transform: translateY(-15px); }
-                        }
-
-                        /* ═══════════════════════════════════════
-                           COMPUTER LAB — RESPONSIVE STYLES
-                        ═══════════════════════════════════════ */
-
-                        /* Tablet Breakpoint (768px) */
-                        @media (max-width: 768px) {
-                            div[style*="grid-template-columns: 1.2fr 1fr"] {
-                                grid-template-columns: 1fr !important;
-                                gap: 3rem !important;
-                                padding: 3rem 2.5rem !important;
-                                border-radius: 24px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] h2 {
-                                font-size: 2.2rem !important;
-                                margin-bottom: 1rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] p[style*="font-size: 1.05rem"] {
-                                font-size: 0.95rem !important;
-                                margin-bottom: 1.5rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] span[style*="font-size: 0.95rem"] {
-                                font-size: 0.88rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="width: 260px"] {
-                                width: 200px !important;
-                                height: 170px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] svg {
-                                width: 150px !important;
-                                height: 120px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="margin-top: 2rem"] {
-                                margin-top: 1.5rem !important;
-                                gap: 0.8rem !important;
-                            }
-                        }
-
-                        /* Mobile Breakpoint (480px) */
-                        @media (max-width: 480px) {
-                            div[style*="grid-template-columns: 1.2fr 1fr"] {
-                                grid-template-columns: 1fr !important;
-                                gap: 2rem !important;
-                                padding: 2rem 1.5rem !important;
-                                border-radius: 20px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] > div[style*="position: relative"] > div[style*="display: inline-flex"] {
-                                font-size: 0.65rem !important;
-                                padding: 0.3rem 0.85rem !important;
-                                margin-bottom: 1rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] h2 {
-                                font-size: 1.6rem !important;
-                                margin-bottom: 0.75rem !important;
-                                line-height: 1.2 !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] p[style*="font-size: 1.05rem"] {
-                                font-size: 0.85rem !important;
-                                margin-bottom: 1.25rem !important;
-                                max-width: 100% !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="display: flex; flex-direction: column"] {
-                                gap: 0.6rem !important;
-                                margin-bottom: 1.5rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="display: flex; align-items: center; gap: 12px"] {
-                                gap: 10px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="width: 36px; height: 36px"] {
-                                width: 30px !important;
-                                height: 30px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] span[style*="font-size: 0.95rem"] {
-                                font-size: 0.8rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] a[href*="contact.html"] {
-                                padding: 0.85rem 1.75rem !important;
-                                font-size: 0.9rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="width: 260px"] {
-                                width: 160px !important;
-                                height: 130px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] svg {
-                                width: 120px !important;
-                                height: 90px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="font-size: 1.4rem; font-weight: 900"] {
-                                font-size: 1.1rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="font-size: 0.75rem; color: rgba"] {
-                                font-size: 0.65rem !important;
-                            }
-                        }
-
-                        /* Extra Small Breakpoint (360px) */
-                        @media (max-width: 360px) {
-                            div[style*="grid-template-columns: 1.2fr 1fr"] {
-                                padding: 1.75rem 1.25rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] h2 {
-                                font-size: 1.4rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] p[style*="font-size: 1.05rem"] {
-                                font-size: 0.8rem !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] div[style*="width: 260px"] {
-                                width: 140px !important;
-                                height: 110px !important;
-                            }
-                            div[style*="grid-template-columns: 1.2fr 1fr"] svg {
-                                width: 100px !important;
-                                height: 75px !important;
-                            }
-                        }
-                    </style>
-                </div>
-
-                <!-- Two Featured Items Row -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                    <!-- Quran Section -->
-                    <div style="background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(255,140,0,0.04) 100%); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(59,130,246,0.15); transition: all 0.3s ease; position: relative; overflow: hidden;"
-                        onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 50px rgba(31,42,68,0.1)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(31,42,68,0.04)';">
-                        <div style="width: 60px; height: 60px; border-radius: 16px; background: rgba(59,130,246,0.15); display: flex; align-items: center; justify-content: center; color: #3B82F6; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                            <i class="fas fa-book-quran"></i>
-                        </div>
-                        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.8rem;">Quran Education</h3>
-                        <p style="color: #4B5563; line-height: 1.8; margin-bottom: 1.5rem;"><strong style="color: #1A3A6B;">Nazra Quran with Taj weed</strong> by <strong style="color: #1A3A6B;">certified Huffaz</strong> — correct recitation and a lifelong bond with the Quran.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="color: #4B5563; font-size: 0.9rem; margin-bottom: 0.6rem;"><i class="fas fa-check-circle" style="color: #3B82F6; margin-right: 8px;"></i> Certified Teachers</li>
-                            <li style="color: #4B5563; font-size: 0.9rem;"><i class="fas fa-check-circle" style="color: #3B82F6; margin-right: 8px;"></i> Daily Classes</li>
-                        </ul>
-                    </div>
-
-                    <!-- Security Section -->
-                    <div style="background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(255,140,0,0.04) 100%); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(34,197,94,0.15); transition: all 0.3s ease; position: relative; overflow: hidden;"
-                        onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 50px rgba(31,42,68,0.1)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 12px rgba(31,42,68,0.04)';">
-                        <div style="width: 60px; height: 60px; border-radius: 16px; background: rgba(34,197,94,0.15); display: flex; align-items: center; justify-content: center; color: #22C55E; font-size: 1.8rem; margin-bottom: 1.5rem;">
-                            <i class="fas fa-shield-halved"></i>
-                        </div>
-                        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--primary-color); margin-bottom: 0.8rem;">Security &amp; Safety</h3>
-                        <p style="color: #4B5563; line-height: 1.8; margin-bottom: 1.5rem;"><strong style="color: #1A3A6B;">24/7 CCTV surveillance</strong> throughout campus. <strong style="color: #1A3A6B;">Complete peace of mind</strong> for every parent.</p>
-                        <ul style="list-style: none; padding: 0; margin: 0;">
-                            <li style="color: #4B5563; font-size: 0.9rem; margin-bottom: 0.6rem;"><i class="fas fa-check-circle" style="color: #22C55E; margin-right: 8px;"></i> 24/7 Monitoring</li>
-                            <li style="color: #4B5563; font-size: 0.9rem;"><i class="fas fa-check-circle" style="color: #22C55E; margin-right: 8px;"></i> Latest Technology</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Responsive Styles for Featured Cards -->
-                <style>
-                    /* ═══════════════════════════════════════
-                       FEATURED CARDS — RESPONSIVE STYLES
-                    ═══════════════════════════════════════ */
-
-                    /* Tablet Breakpoint (768px) */
-                    @media (max-width: 768px) {
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] {
-                            grid-template-columns: 1fr !important;
-                            gap: 1.75rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] > div {
-                            padding: 2rem !important;
-                            border-radius: 18px !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] div[style*="width: 60px; height: 60px"] {
-                            width: 52px !important;
-                            height: 52px !important;
-                            font-size: 1.5rem !important;
-                            margin-bottom: 1.25rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] h3 {
-                            font-size: 1.2rem !important;
-                            margin-bottom: 0.7rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] p {
-                            line-height: 1.7 !important;
-                            margin-bottom: 1.25rem !important;
-                            font-size: 0.85rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] li {
-                            font-size: 0.85rem !important;
-                            margin-bottom: 0.5rem !important;
-                        }
-                    }
-
-                    /* Mobile Breakpoint (480px) */
-                    @media (max-width: 480px) {
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] {
-                            grid-template-columns: 1fr !important;
-                            gap: 1.5rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] > div {
-                            padding: 1.5rem 1.25rem !important;
-                            border-radius: 16px !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] div[style*="width: 60px; height: 60px"] {
-                            width: 44px !important;
-                            height: 44px !important;
-                            font-size: 1.3rem !important;
-                            margin-bottom: 1rem !important;
-                            border-radius: 12px !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] h3 {
-                            font-size: 1rem !important;
-                            margin-bottom: 0.6rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] p {
-                            line-height: 1.6 !important;
-                            margin-bottom: 1rem !important;
-                            font-size: 0.8rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] li {
-                            font-size: 0.78rem !important;
-                            margin-bottom: 0.4rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] i[style*="margin-right: 8px"] {
-                            margin-right: 6px !important;
-                        }
-                    }
-
-                    /* Extra Small Breakpoint (360px) */
-                    @media (max-width: 360px) {
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] > div {
-                            padding: 1.25rem 1rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] div[style*="width: 60px; height: 60px"] {
-                            width: 40px !important;
-                            height: 40px !important;
-                            font-size: 1.2rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] h3 {
-                            font-size: 0.95rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] p {
-                            font-size: 0.75rem !important;
-                        }
-                        div[style*="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem"] li {
-                            font-size: 0.75rem !important;
-                        }
-                    }
-                </style>
-        <div style="padding: 5rem 0; background: #fff;">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 3.5rem;">
-                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); color: var(--accent-color); padding: 0.35rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;">
-                        <i class="fas fa-th"></i> Complete Setup
-                    </div>
-                    <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">Additional Facilities</h2>
-                    <p style="color: var(--text-light); font-size: 1rem; max-width: 700px; margin: 0 auto;">Comprehensive amenities ensuring a supportive, thriving learning environment</p>
-                </div>
-
-                <!-- 3-Column Facilities Grid - PREMIUM REDESIGN -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;">
-                    
-                    <!-- Facility 1: Clean & Hygienic - Orange Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(255,140,0,0.08) 0%, rgba(255,140,0,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(255,140,0,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(255,140,0,0.15)'; this.style.borderColor='rgba(255,140,0,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(255,140,0,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent-color), #FFB347); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, var(--accent-color) 0%, #FFB347 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(255,140,0,0.25);">
-                            <i class="fas fa-broom"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Clean & Hygienic</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Every classroom and corridor</strong> maintained <strong style="color: #1A3A6B;">spotless to the highest standards</strong> daily.</p>
-                    </div>
-
-                    <!-- Facility 2: Spacious Private Building - Blue Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(59,130,246,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(59,130,246,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(59,130,246,0.15)'; this.style.borderColor='rgba(59,130,246,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(59,130,246,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #3B82F6, #60A5FA); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(59,130,246,0.25);">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Spacious Private Building</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Purpose-built campus</strong> giving students <strong style="color: #1A3A6B;">ample, comfortable space</strong> to learn and grow.</p>
-                    </div>
-
-                    <!-- Facility 3: Clean Drinking Water - Green Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(34,197,94,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(34,197,94,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(34,197,94,0.15)'; this.style.borderColor='rgba(34,197,94,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(34,197,94,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #22C55E, #4ADE80); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #22C55E 0%, #4ADE80 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(34,197,94,0.25);">
-                            <i class="fas fa-droplet"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Clean Drinking Water</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Filtered, safe water</strong> available <strong style="color: #1A3A6B;">throughout the campus</strong> at all times.</p>
-                    </div>
-
-                    <!-- Facility 4: Nazra Quran - Purple Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(147,112,219,0.08) 0%, rgba(147,112,219,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(147,112,219,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(147,112,219,0.15)'; this.style.borderColor='rgba(147,112,219,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(147,112,219,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #9370DB, #B19CD9); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #9370DB 0%, #B19CD9 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(147,112,219,0.25);">
-                            <i class="fas fa-book-quran"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Nazra Quran</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Nazra with Tajweed</strong> by <strong style="color: #1A3A6B;">certified Huffaz</strong> — structured, focused daily learning.</p>
-                    </div>
-
-                    <!-- Facility 5: Parent Communication - Pink Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(236,72,153,0.08) 0%, rgba(236,72,153,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(236,72,153,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(236,72,153,0.15)'; this.style.borderColor='rgba(236,72,153,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(236,72,153,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #EC4899, #F472B6); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(236,72,153,0.25);">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Parent Communication</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Regular meetings, reports & open doors</strong> — <strong style="color: #1A3A6B;">always informed</strong> of your child's progress.</p>
-                    </div>
-
-                    <!-- Facility 6: Character Building - Deep Purple Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(168,85,247,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(168,85,247,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(168,85,247,0.15)'; this.style.borderColor='rgba(168,85,247,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(168,85,247,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #A855F7, #C084FC); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #A855F7 0%, #C084FC 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(168,85,247,0.25);">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Character Development</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Daily Tarbiat & Akhlaqiat</strong> building <strong style="color: #1A3A6B;">confident, respectful individuals</strong> ready for life.</p>
-                    </div>
-
-                    <!-- Facility 7: CCTV Security System - Sky Blue Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(14,165,233,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(14,165,233,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(14,165,233,0.15)'; this.style.borderColor='rgba(14,165,233,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(14,165,233,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #0EA5E9, #38BDF8); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(14,165,233,0.25);">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">CCTV Security System</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Full campus surveillance</strong> throughout the school day. <strong style="color: #1A3A6B;">Complete peace of mind</strong> for every parent.</p>
-                    </div>
-
-                    <!-- Facility 8: Highly Qualified Staff - Emerald Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(5,150,105,0.08) 0%, rgba(5,150,105,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(5,150,105,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(5,150,105,0.15)'; this.style.borderColor='rgba(5,150,105,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(5,150,105,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #059669, #10B981); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #059669 0%, #10B981 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(5,150,105,0.25);">
-                            <i class="fas fa-chalkboard"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Highly Qualified Staff</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Certified Huffaz</strong>, <strong style="color: #1A3A6B;">specialist computer teachers</strong> & experienced educators focused on <strong style="color: #1A3A6B;">real understanding</strong>.</p>
-                    </div>
-
-                    <!-- Facility 9: Academic & Moral Training - Fuchsia Gradient -->
-                    <div style="background: linear-gradient(135deg, rgba(219,39,119,0.08) 0%, rgba(219,39,119,0.03) 100%); border-radius: 24px; padding: 2.5rem 2rem; border: 1px solid rgba(219,39,119,0.2); position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 24px rgba(31,42,68,0.06);"
-                        onmouseover="this.style.transform='translateY(-16px)'; this.style.boxShadow='0 24px 60px rgba(219,39,119,0.15)'; this.style.borderColor='rgba(219,39,119,0.35)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(31,42,68,0.06)'; this.style.borderColor='rgba(219,39,119,0.2)';">
-                        <!-- Top Border Animation -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #DB2777, #EC4899); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"></div>
-                        <!-- Icon Container -->
-                        <div style="width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, #DB2777 0%, #EC4899 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; color: #fff; font-size: 2rem; box-shadow: 0 12px 30px rgba(219,39,119,0.25);">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <!-- Content -->
-                        <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Academic & Moral Training</h3>
-                        <p style="color: #4B5563; font-size: 0.9rem; line-height: 1.8; margin: 0;"><strong style="color: #1A3A6B;">Special focus</strong> on both <strong style="color: #1A3A6B;">academic excellence and character</strong> — Tarbiat sessions and daily etiquette practices.</p>
-                    </div>
-                
-                <!-- Responsive CSS for Premium Facilities Cards -->
-                <style>
-                    /* ═══════════════════════════════════════
-                       3-COLUMN FACILITIES GRID — RESPONSIVE
-                    ═══════════════════════════════════════ */
-
-                    /* Desktop to Tablet Transition (1024px) */
-                    @media (max-width: 1024px) {
-                        div[style*="display: grid"][style*="repeat(3"] {
-                            grid-template-columns: repeat(2, 1fr) !important;
-                            gap: 2rem !important;
-                        }
-                    }
-
-                    /* Tablet Breakpoint (768px) */
-                    @media (max-width: 768px) {
-                        div[style*="display: grid"][style*="repeat(3"] {
-                            grid-template-columns: 1fr !important;
-                            gap: 1.75rem !important;
-                        }
-                        /* All facility cards on tablet */
-                        div[style*="display: grid"][style*="repeat(3"] > div {
-                            padding: 2rem 1.75rem !important;
-                            border-radius: 20px !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] div[style*="width: 80px; height: 80px"] {
-                            width: 70px !important;
-                            height: 70px !important;
-                            font-size: 1.6rem !important;
-                            margin-bottom: 1.5rem !important;
-                            border-radius: 18px !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] h3 {
-                            font-size: 1.15rem !important;
-                            margin-bottom: 0.65rem !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] p {
-                            font-size: 0.85rem !important;
-                            line-height: 1.7 !important;
-                        }
-                    }
-
-                    /* Mobile Breakpoint (480px) */
-                    @media (max-width: 480px) {
-                        div[style*="display: grid"][style*="repeat(3"] {
-                            grid-template-columns: 1fr !important;
-                            gap: 1.5rem !important;
-                        }
-                        /* All facility cards on mobile */
-                        div[style*="display: grid"][style*="repeat(3"] > div {
-                            padding: 1.5rem 1.25rem !important;
-                            border-radius: 18px !important;
-                            box-shadow: 0 4px 16px rgba(31,42,68,0.04) !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] div[style*="width: 80px; height: 80px"] {
-                            width: 60px !important;
-                            height: 60px !important;
-                            font-size: 1.4rem !important;
-                            margin-bottom: 1.25rem !important;
-                            border-radius: 16px !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] h3 {
-                            font-size: 1rem !important;
-                            font-weight: 700 !important;
-                            margin-bottom: 0.55rem !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] p {
-                            font-size: 0.8rem !important;
-                            line-height: 1.6 !important;
-                        }
-                    }
-
-                    /* Extra Small Breakpoint (360px) */
-                    @media (max-width: 360px) {
-                        div[style*="display: grid"][style*="repeat(3"] {
-                            gap: 1.25rem !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] > div {
-                            padding: 1.25rem 1rem !important;
-                            border-radius: 16px !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] div[style*="width: 80px; height: 80px"] {
-                            width: 50px !important;
-                            height: 50px !important;
-                            font-size: 1.2rem !important;
-                            margin-bottom: 1rem !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] h3 {
-                            font-size: 0.95rem !important;
-                        }
-                        div[style*="display: grid"][style*="repeat(3"] p {
-                            font-size: 0.75rem !important;
-                        }
-                    }
-                </style>
-            </div>
-        </div>
-
-        <!-- ═══ SECTION 4: CTA BLOCK - PREMIUM REDESIGN ═══ -->
-        <div style="padding: 6rem 0; background: linear-gradient(135deg, #F5F7FA 0%, #E8ECEF 100%); position: relative; overflow: hidden;">
-            <!-- Decorative Background Elements -->
-            <div style="position: absolute; top: -200px; left: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(255,140,0,0.08) 0%, rgba(255,140,0,0) 70%); pointer-events: none;"></div>
-            <div style="position: absolute; bottom: -150px; right: -150px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, rgba(59,130,246,0) 70%); pointer-events: none;"></div>
-            
-            <div class="container" style="position: relative; z-index: 1;">
-                <!-- Section Header -->
-                <div style="text-align: center; margin-bottom: 4rem;">
-                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); color: var(--accent-color); padding: 0.35rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;">
-                        <i class="fas fa-sparkles"></i> Join Us Today
-                    </div>
-                    <h2 style="font-size: 2.8rem; font-weight: 900; color: var(--primary-color); margin-bottom: 1rem; line-height: 1.2;">Experience <span style="color: var(--accent-color);">Noshahi Excellence</span></h2>
-                    <p style="color: var(--text-light); font-size: 1.1rem; max-width: 800px; margin: 0 auto; line-height: 1.8;">Ready to give your child the best education? Visit our campus, meet our faculty, and see why families choose Noshahi.</p>
-                </div>
-
-                <!-- Premium CTA Cards Grid -->
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-bottom: 3rem;">
-                    
-                    <!-- Card 1: Schedule a Tour -->
-                    <div style="background: #fff; border-radius: 24px; padding: 2.75rem 2.25rem; position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 4px 20px rgba(31,42,68,0.08); border: 1px solid rgba(31,42,68,0.07);"
-                        onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 24px 60px rgba(31,42,68,0.15)'; this.style.borderColor='rgba(255,140,0,0.3)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(31,42,68,0.08)'; this.style.borderColor='rgba(31,42,68,0.07)';">
-                        
-                        <!-- Decorative Top Bar -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary-color), var(--accent-color)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"
-                            class="card-top-bar"></div>
-                        
-                        <!-- Icon with Background -->
-                        <div style="width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, rgba(255,140,0,0.12) 0%, rgba(255,140,0,0.05) 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; border: 2px solid rgba(255,140,0,0.15);">
-                            <i class="fas fa-calendar-check" style="font-size: 2rem; color: var(--accent-color);"></i>
-                        </div>
-                        
-                        <!-- Content -->
-                        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Book a Campus Tour</h3>
-                        <p style="color: #4B5563; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem;">Visit our modern facilities, meet dedicated teachers, and experience the Noshahi learning environment firsthand.</p>
-                        
-                        <!-- CTA Button -->
-                        <a href="contact.html" style="display: inline-flex; align-items: center; gap: 8px; background: #1F2A44; color: #fff; padding: 0.9rem 1.85rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer;"
-                            onmouseover="this.style.background='var(--accent-color)'; this.style.color='#000'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 12px 30px rgba(255,140,0,0.35)';"
-                            onmouseout="this.style.background='#1F2A44'; this.style.color='#fff'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
-                            Schedule Now <i class="fas fa-arrow-right"></i>
-                        </a>
-                        
-                        <script>
-                            (function() {
-                                let el = document.currentScript.parentElement;
-                                el.addEventListener('mouseenter', function() {
-                                    this.querySelector('.card-top-bar').style.transform = 'scaleX(1)';
-                                });
-                                el.addEventListener('mouseleave', function() {
-                                    this.querySelector('.card-top-bar').style.transform = 'scaleX(0)';
-                                });
-                            })();
-                        </script>
-                    </div>
-
-                    <!-- Card 2: Apply Now -->
-                    <div style="background: linear-gradient(135deg, var(--primary-color) 0%, #16233a 100%); border-radius: 24px; padding: 2.75rem 2.25rem; position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 8px 40px rgba(31,42,68,0.15); border: 1px solid rgba(255,140,0,0.15);"
-                        onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 30px 70px rgba(31,42,68,0.25)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 40px rgba(31,42,68,0.15)';">
-                        
-                        <!-- Decorative Circle -->
-                        <div style="position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,140,0,0.1); pointer-events: none;"></div>
-                        
-                        <!-- Icon with Background -->
-                        <div style="width: 72px; height: 72px; border-radius: 18px; background: rgba(255,140,0,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; border: 2px solid rgba(255,140,0,0.3); position: relative; z-index: 1;">
-                            <i class="fas fa-rocket" style="font-size: 2rem; color: #FFB347;"></i>
-                        </div>
-                        
-                        <!-- Content -->
-                        <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; position: relative; z-index: 1;">Start the Admission Process</h3>
-                        <p style="color: rgba(255,255,255,0.82); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; position: relative; z-index: 1;">Begin your journey with Noshahi. Fill out our simple application form and take the first step.</p>
-                        
-                        <!-- CTA Button -->
-                        <a href="admissions.html" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #FFB347, var(--accent-color)); color: #000; padding: 0.9rem 1.85rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s ease; border: 2px solid transparent; cursor: pointer; position: relative; z-index: 1;"
-                            onmouseover="this.style.transform='translateX(4px)'; this.style.boxShadow='0 12px 30px rgba(255,215,0,0.4)'; this.style.color='#000';"
-                            onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='none'; this.style.color='#000';">
-                            Apply Today <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-
-                    <!-- Card 3: Contact Us -->
-                    <div style="background: #fff; border-radius: 24px; padding: 2.75rem 2.25rem; position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.165,0.84,0.44,1); box-shadow: 0 4px 20px rgba(31,42,68,0.08); border: 1px solid rgba(31,42,68,0.07);"
-                        onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 24px 60px rgba(31,42,68,0.15)'; this.style.borderColor='rgba(59,130,246,0.3)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(31,42,68,0.08)'; this.style.borderColor='rgba(31,42,68,0.07)';">
-                        
-                        <!-- Decorative Top Bar -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3B82F6, var(--accent-color)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;"
-                            class="card-top-bar-2"></div>
-                        
-                        <!-- Icon with Background -->
-                        <div style="width: 72px; height: 72px; border-radius: 18px; background: linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(59,130,246,0.05) 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 1.75rem; border: 2px solid rgba(59,130,246,0.15);">
-                            <i class="fas fa-phone-alt" style="font-size: 2rem; color: #3B82F6;"></i>
-                        </div>
-                        
-                        <!-- Content -->
-                        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;">Get in Touch</h3>
-                        <p style="color: #4B5563; font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem;">Have questions? Our admissions team is ready to help. Contact us via phone, email, or WhatsApp anytime.</p>
-                        
-                        <!-- CTA Button -->
-                        <a href="contact.html" style="display: inline-flex; align-items: center; gap: 8px; background: #1F2A44; color: #fff; padding: 0.9rem 1.85rem; border-radius: 30px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer;"
-                            onmouseover="this.style.background='var(--accent-color)'; this.style.color='#000'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 12px 30px rgba(255,140,0,0.35)';"
-                            onmouseout="this.style.background='#1F2A44'; this.style.color='#fff'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
-                            Contact Us <i class="fas fa-arrow-right"></i>
-                        </a>
-                        
-                        <script>
-                            (function() {
-                                let el = document.currentScript.parentElement;
-                                el.addEventListener('mouseenter', function() {
-                                    this.querySelector('.card-top-bar-2').style.transform = 'scaleX(1)';
-                                });
-                                el.addEventListener('mouseleave', function() {
-                                    this.querySelector('.card-top-bar-2').style.transform = 'scaleX(0)';
-                                });
-                            })();
-                        </script>
-                    </div>
-                </div>
-
-                <!-- Bottom Info Row -->
-                <div style="background: #fff; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(31,42,68,0.07); display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center;">
-                    
-                    <!-- Info 1 -->
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                        <div style="width: 56px; height: 56px; border-radius: 14px; background: rgba(255,140,0,0.1); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,140,0,0.2);">
-                            <i class="fas fa-clock" style="font-size: 1.5rem; color: var(--accent-color);"></i>
-                        </div>
-                        <div>
-                            <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.3rem;">Quick Response</p>
-                            <p style="color: #4B5563; font-size: 0.9rem; margin: 0;">We reply within 24 hours</p>
-                        </div>
-                    </div>
-
-                    <!-- Info 2 -->
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                        <div style="width: 56px; height: 56px; border-radius: 14px; background: rgba(59,130,246,0.1); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(59,130,246,0.2);">
-                            <i class="fas fa-phone" style="font-size: 1.5rem; color: #3B82F6;"></i>
-                        </div>
-                        <div>
-                            <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.3rem;">Easy Reach</p>
-                            <p style="color: #4B5563; font-size: 0.9rem; margin: 0;">Call or text us anytime</p>
-                        </div>
-                    </div>
-
-                    <!-- Info 3 -->
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                        <div style="width: 56px; height: 56px; border-radius: 14px; background: rgba(34,197,94,0.1); display: flex; align-items: center; justify-content: center; border: 1px solid rgba(34,197,94,0.2);">
-                            <i class="fas fa-check-circle" style="font-size: 1.5rem; color: #22C55E;"></i>
-                        </div>
-                        <div>
-                            <p style="font-weight: 700; color: var(--primary-color); margin-bottom: 0.3rem;">Simple Process</p>
-                            <p style="color: #4B5563; font-size: 0.9rem; margin: 0;">Hassle-free admission</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile Responsive Styles -->
-            <style>
-                @media (max-width: 1024px) {
-                    section[style*="grid-template-columns: repeat(3"]  {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    section[style*="grid-template-columns: repeat(3"]  {
-                        grid-template-columns: 1fr !important;
-                    }
-                    
-                    h2[style*="font-size: 2.8rem"] {
-                        font-size: 2rem !important;
-                    }
-                    
-                    [style*="grid-template-columns: repeat(3"]  {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    [style*="padding: 2.75rem"] {
-                        padding: 1.75rem 1.25rem !important;
-                    }
-                    
-                    h3[style*="font-size: 1.35rem"] {
-                        font-size: 1.1rem !important;
-                    }
-                    
-                    p[style*="font-size: 0.95rem"] {
-                        font-size: 0.85rem !important;
-                    }
-                }
-            </style>
         </div>
     </section>
 
-         
-
-        <!-- Footer -->
+    <!-- ════════════════════════════════════════════
+         03 - COMPUTER COURSES
+    ════════════════════════════════════════════ -->
+    <section class="fac-section" id="computer-courses" data-nav="3" style="background: var(--white);">
+        <div class="fac-section-inner">
+            <div class="fac-computer-wrap">
+                <!-- Image Side -->
+                <div class="fac-reveal-left">
+                    <div class="fac-computer-img">
+                        <img src="img/computer-lab.png" alt="Computer Lab" onerror="this.src='img/about-coputer.png'">
+                        <div class="fac-img-badge"><i class="fas fa-laptop-code"></i> Computer Education</div>
+                    </div>
+                </div>
+                <!-- Content Side -->
+                <div class="fac-reveal-right">
+                    <div class="fac-num">03</div>
+                    <div class="fac-section-label"><i class="fas fa-laptop-code"></i> Computer Courses</div>
+                    <div class="fac-text">
+                        <h2>Computer Education at <span>Every Level</span></h2>
+                        <p>Not just a subject — Computer Education is a core part of our curriculum from Play Group to Matric. Students learn practical, real-world skills that prepare them for the future.</p>
+                    </div>
+                    <!-- Course List -->
+                    <div class="fac-computer-courses">
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Basic Computer Skills</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> MS Office & Typing</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Internet & Research</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Programming Basics</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Graphic Design Intro</div>
+                        <div class="fac-computer-course"><i class="fas fa-check-circle"></i> Digital Literacy</div>
+                    </div>
+                    <!-- Level Cards -->
+                    <div class="fac-computer-levels">
+                        <div class="fac-computer-level">
+                            <div class="level-icon"><i class="fas fa-child"></i></div>
+                            <h4>KG – Grade 5</h4>
+                            <p>Basics & Digital Literacy</p>
+                        </div>
+                        <div class="fac-computer-level">
+                            <div class="level-icon"><i class="fas fa-laptop"></i></div>
+                            <h4>Grade 6 – 8</h4>
+                            <p>MS Office & Internet</p>
+                        </div>
+                        <div class="fac-computer-level">
+                            <div class="level-icon"><i class="fas fa-code"></i></div>
+                            <h4>Grade 9 – 10</h4>
+                            <p>Programming & Design</p>
+                        </div>
+                    </div>
+                    <a href="computer-education.html" class="fac-btn orange">Explore Computer Ed <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- ════════════════════════════════════════════
+         04 - NAZRA QURAN WITH TAJWEED
+    ════════════════════════════════════════════ -->
+    <section class="fac-section fac-quran" id="quran" data-nav="4">
+        <div class="fac-section-inner">
+            <div class="fac-split">
+                <div class="fac-reveal-left">
+                    <div class="fac-img-wrap" style="height:420px;">
+                        <img src="img/Islamic study.png" alt="Nazra Quran" style="height:100%;">
+                        <div class="fac-img-badge"><i class="fas fa-book-quran"></i> Tajweed</div>
+                    </div>
+                </div>
+                <div class="fac-reveal-right">
+                    <div class="fac-section-label"><i class="fas fa-mosque"></i> Nazra Quran</div>
+                    <div class="fac-text">
+                        <h2>Nazra Quran with <span>Proper Tajweed</span></h2>
+                        <p>We give special focus on Nazra Quran with proper pronunciation (Tajweed). Our certified Quran teachers help every child learn to read the Holy Quran correctly from a young age.</p>
+                        <div class="fac-quran-features">
+                            <div class="fac-quran-item"><i class="fas fa-check-circle"></i> <span>Daily Nazra Practice</span></div>
+                            <div class="fac-quran-item"><i class="fas fa-check-circle"></i> <span>Proper Tajweed Rules</span></div>
+                            <div class="fac-quran-item"><i class="fas fa-check-circle"></i> <span>Certified Quran Teachers</span></div>
+                            <div class="fac-quran-item"><i class="fas fa-check-circle"></i> <span>Individual Attention</span></div>
+                        </div>
+                        <a href="islamic-education.html" class="fac-btn orange">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         06 - SOLAR POWER SYSTEM
+    ════════════════════════════════════════════ -->
+    <section class="fac-section fac-solar" id="solar" data-nav="5">
+        <div class="fac-section-inner">
+            <div class="fac-split reverse">
+                <div class="fac-reveal-right">
+                    <div class="fac-img-wrap" style="height:420px;">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop" alt="Solar Power">
+                        <div class="fac-img-badge"><i class="fas fa-sun"></i> Green Energy</div>
+                    </div>
+                </div>
+                <div class="fac-reveal-left">
+                    <div class="fac-num">06</div>
+                    <div class="fac-section-label"><i class="fas fa-bolt"></i> Solar Power</div>
+                    <div class="fac-text">
+                        <h2>Solar Power for <span>Uninterrupted</span> Learning</h2>
+                        <p>Our school is equipped with a solar power system to ensure learning never stops during power outages. Classes continue smoothly even when the electricity goes out.</p>
+                    </div>
+                    <div class="fac-solar-highlights">
+                        <div class="fac-solar-card">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Uninterrupted Learning</h4>
+                            <p>Classes continue without any power disruptions</p>
+                        </div>
+                        <div class="fac-solar-card">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Green Energy</h4>
+                            <p>Eco-friendly power for a better tomorrow</p>
+                        </div>
+                        <div class="fac-solar-card">
+                            <i class="fas fa-plug"></i>
+                            <h4>Reliable Supply</h4>
+                            <p>Full day power for all school needs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         07 - TRANSPORT SERVICE
+    ════════════════════════════════════════════ -->
+    <section class="fac-section" id="transport" data-nav="6">
+        <div class="fac-section-inner">
+            <div class="fac-reveal">
+                <div style="text-align:center;">
+                    <div class="fac-section-label"><i class="fas fa-bus"></i> Transport</div>
+                    <div class="fac-text" style="text-align:center; margin-bottom:1rem;">
+                        <h2>Safe & Reliable <span>Transport</span> Service</h2>
+                        <p style="max-width:650px; margin:0 auto;">We provide safe, comfortable, and on-time school transport. Your child can travel to and from school securely on all major routes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fac-transport-timeline fac-reveal">
+                <div class="fac-timeline-step active">
+                    <div class="fac-timeline-dot"><i class="fas fa-home"></i></div>
+                    <span>Home</span>
+                </div>
+                <div class="fac-timeline-connector filled"></div>
+                <div class="fac-timeline-step active">
+                    <div class="fac-timeline-dot"><i class="fas fa-location-dot"></i></div>
+                    <span>Pickup</span>
+                </div>
+                <div class="fac-timeline-connector filled"></div>
+                <div class="fac-timeline-step active">
+                    <div class="fac-timeline-dot"><i class="fas fa-school"></i></div>
+                    <span>School</span>
+                </div>
+                <div class="fac-timeline-connector filled"></div>
+                <div class="fac-timeline-step active">
+                    <div class="fac-timeline-dot"><i class="fas fa-flag-checkered"></i></div>
+                    <span>Drop</span>
+                </div>
+            </div>
+
+            <div class="fac-transport-features fac-reveal">
+                <div class="fac-transport-card">
+                    <i class="fas fa-shield-halved"></i>
+                    <h4>Safe Transportation</h4>
+                    <p>Every trip is carefully monitored to ensure your child reaches school and home safely.</p>
+                </div>
+                <div class="fac-transport-card">
+                    <i class="fas fa-satellite-dish"></i>
+                    <h4>GPS Tracking</h4>
+                    <p>Parents can track the bus location in real-time using our GPS tracking system.</p>
+                </div>
+                <div class="fac-transport-card">
+                    <i class="fas fa-id-card"></i>
+                    <h4>Professional Drivers</h4>
+                    <p>Our trained and licensed drivers are experienced in safely transporting children.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         08 - CLEAN DRINKING WATER & HYGIENE
+    ════════════════════════════════════════════ -->
+    <section class="fac-section" id="water" data-nav="7">
+        <div class="fac-section-inner">
+            <div class="fac-reveal">
+                <div style="text-align:center; margin-bottom:3rem;">
+                    <div class="fac-section-label"><i class="fas fa-droplet"></i> Water & Hygiene</div>
+                    <div class="fac-text" style="text-align:center;">
+                        <h2>Clean Drinking Water & <span>Hygienic</span> Washrooms</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="fac-health-grid fac-reveal">
+                <div class="fac-health-img">
+                    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+                        <defs>
+                            <linearGradient id="waterGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#0284c7;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="waterGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.1" />
+                            </linearGradient>
+                            <linearGradient id="tapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#94a3b8;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#64748b;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="softShadow">
+                                <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0284c7" flood-opacity="0.15"/>
+                            </filter>
+                        </defs>
+                        <!-- Background -->
+                        <rect width="400" height="500" rx="0" fill="#f0f9ff"/>
+                        <!-- Decorative circles -->
+                        <circle cx="320" cy="80" r="60" fill="#38bdf8" opacity="0.08"/>
+                        <circle cx="80" cy="420" r="80" fill="#0ea5e9" opacity="0.06"/>
+                        <circle cx="350" cy="380" r="40" fill="#38bdf8" opacity="0.1"/>
+                        <!-- Water Tank / Dispenser Body -->
+                        <rect x="140" y="160" width="120" height="180" rx="16" fill="url(#waterGrad1)" filter="url(#softShadow)"/>
+                        <rect x="148" y="168" width="104" height="50" rx="10" fill="rgba(255,255,255,0.2)"/>
+                        <!-- Water Level Lines -->
+                        <line x1="160" y1="240" x2="240" y2="240" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4"/>
+                        <line x1="160" y1="260" x2="240" y2="260" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4"/>
+                        <line x1="160" y1="280" x2="240" y2="280" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="6,4"/>
+                        <!-- Water Wave Inside -->
+                        <path d="M148,300 Q175,285 200,300 Q225,315 252,300 L252,336 Q252,340 248,340 L152,340 Q148,340 148,336 Z" fill="rgba(255,255,255,0.25)"/>
+                        <!-- Tap/Faucet -->
+                        <rect x="185" y="340" width="30" height="20" rx="4" fill="url(#tapGrad)"/>
+                        <rect x="190" y="360" width="20" height="8" rx="3" fill="#64748b"/>
+                        <!-- Water Drops from tap -->
+                        <ellipse cx="200" cy="385" rx="6" ry="8" fill="#38bdf8" opacity="0.7"/>
+                        <ellipse cx="200" cy="405" rx="4" ry="6" fill="#38bdf8" opacity="0.5"/>
+                        <ellipse cx="200" cy="420" rx="3" ry="4" fill="#38bdf8" opacity="0.3"/>
+                        <!-- Cup/Glass -->
+                        <path d="M175,410 L180,450 Q180,458 200,458 Q220,458 220,450 L225,410 Z" fill="rgba(255,255,255,0.9)" stroke="#e2e8f0" stroke-width="1.5"/>
+                        <path d="M180,425 Q200,418 220,425 L220,450 Q220,456 200,456 Q180,456 180,450 Z" fill="#38bdf8" opacity="0.4"/>
+                        <!-- Decorative big drop -->
+                        <path d="M300,120 Q300,90 320,70 Q340,90 340,120 Q340,150 320,170 Q300,150 300,120 Z" fill="#38bdf8" opacity="0.15"/>
+                        <!-- Small floating drops -->
+                        <circle cx="100" cy="150" r="8" fill="#38bdf8" opacity="0.15"/>
+                        <circle cx="310" cy="280" r="5" fill="#0ea5e9" opacity="0.12"/>
+                        <circle cx="90" cy="300" r="6" fill="#38bdf8" opacity="0.1"/>
+                        <!-- Sparkle / Clean icon -->
+                        <g transform="translate(290,200)" opacity="0.2">
+                            <path d="M0,-12 L3,-4 L12,0 L3,4 L0,12 L-3,4 L-12,0 L-3,-4 Z" fill="#0ea5e9"/>
+                        </g>
+                        <g transform="translate(110,220) scale(0.7)" opacity="0.15">
+                            <path d="M0,-12 L3,-4 L12,0 L3,4 L0,12 L-3,4 L-12,0 L-3,-4 Z" fill="#38bdf8"/>
+                        </g>
+                        <!-- Shield / Hygiene Badge -->
+                        <g transform="translate(200,115)">
+                            <path d="M0,-28 Q-30,-20 -30,10 Q-30,35 0,45 Q30,35 30,10 Q30,-20 0,-28 Z" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+                            <path d="M0,-22 Q-24,-15 -24,8 Q-24,28 0,36 Q24,28 24,8 Q24,-15 0,-22 Z" fill="#f0f9ff"/>
+                            <text x="0" y="4" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#0ea5e9">H₂O</text>
+                            <path d="M-8,14 L-2,14 L2,8 L6,14 L12,14" stroke="#0ea5e9" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="fac-health-content">
+                    <h2>Your Child's Health & Hygiene Matter Most</h2>
+                    <div class="fac-health-list">
+                        <div class="fac-health-item"><i class="fas fa-droplet"></i> <span>Clean Drinking Water Everywhere</span></div>
+                        <div class="fac-health-item"><i class="fas fa-faucet-drip"></i> <span>Filtered & Safe Water</span></div>
+                        <div class="fac-health-item"><i class="fas fa-broom"></i> <span>Hygienic Washrooms</span></div>
+                        <div class="fac-health-item"><i class="fas fa-pump-soap"></i> <span>Hand Wash Stations</span></div>
+                        <div class="fac-health-item"><i class="fas fa-check-double"></i> <span>Regular Cleaning & Maintenance</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         09 - SECURE, DISCIPLINED & PEACEFUL CAMPUS
+    ════════════════════════════════════════════ -->
+    <section class="fac-section fac-secure" id="campus" data-nav="8">
+        <div class="fac-section-inner">
+            <div class="fac-reveal" style="text-align:center; margin-bottom:2rem;">
+                <div class="fac-section-label"><i class="fas fa-shield-halved"></i> Secure Campus</div>
+                <div class="fac-text" style="text-align:center;">
+                    <h2>A Secure, Disciplined & <span>Peaceful</span> Campus</h2>
+                    <p style="max-width:650px; margin:0 auto;">Your child's safety is our top priority. Our campus is secure, well-disciplined, and provides a peaceful environment where students can focus on learning without any worries.</p>
+                </div>
+            </div>
+            <div class="fac-secure-grid fac-reveal">
+                <div class="fac-secure-card">
+                    <i class="fas fa-video"></i>
+                    <h4>24/7 CCTV Monitoring</h4>
+                    <p>Complete camera coverage across the campus for round-the-clock security.</p>
+                </div>
+                <div class="fac-secure-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h4>Security Staff</h4>
+                    <p>Trained security personnel present at all times to ensure a safe environment.</p>
+                </div>
+                <div class="fac-secure-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h4>Visitor Management</h4>
+                    <p>Strict visitor checking system to control who enters the campus.</p>
+                </div>
+                <div class="fac-secure-card">
+                    <i class="fas fa-fire-extinguisher"></i>
+                    <h4>Fire Safety</h4>
+                    <p>Fire safety equipment and emergency procedures for complete protection.</p>
+                </div>
+                <div class="fac-secure-card">
+                    <i class="fas fa-hand"></i>
+                    <h4>Disciplined Environment</h4>
+                    <p>A well-structured and respectful atmosphere for focused learning.</p>
+                </div>
+                <div class="fac-secure-card">
+                    <i class="fas fa-heart-pulse"></i>
+                    <h4>Medical Support</h4>
+                    <p>First aid and emergency medical support available on campus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         STATISTICS
+    ════════════════════════════════════════════ -->
+    <section class="fac-stats">
+        <div class="fac-stats-grid fac-reveal">
+            <div class="fac-stat-item">
+                <div class="fac-stat-num" data-target="2500">0</div>
+                <div class="fac-stat-label">Students</div>
+            </div>
+            <div class="fac-stat-item">
+                <div class="fac-stat-num" data-target="80">0</div>
+                <div class="fac-stat-label">Teachers</div>
+            </div>
+            <div class="fac-stat-item">
+                <div class="fac-stat-num" data-target="35">0</div>
+                <div class="fac-stat-label">Classrooms</div>
+            </div>
+            <div class="fac-stat-item">
+                <div class="fac-stat-num" data-target="100">0</div>
+                <div class="fac-stat-label">Safe Campus</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         COMMITMENT SECTION
+    ════════════════════════════════════════════ -->
+    <section class="fac-section" style="background: var(--light-bg);">
+        <div class="fac-section-inner">
+            <div class="fac-reveal" style="text-align:center; max-width:800px; margin:0 auto;">
+                <div class="fac-section-label"><i class="fas fa-handshake"></i> Our Commitment</div>
+                <h2 style="font-size:2.8rem; font-weight: 500; color:var(--nave); margin-bottom:1.5rem;">We Are Committed to <span style="color:var(--orange);">Every Student</span></h2>
+                <p style="font-size:0.92rem; color:#556070; line-height:1.9;">Noshahi School System is dedicated to the academic, moral, and personal development of every student. We provide the facilities, teachers, and environment your child needs to become a successful and responsible human being.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         CTA
+    ════════════════════════════════════════════ -->
+    <section class="fac-cta">
+        <div class="fac-cta-circle"></div>
+        <div class="fac-cta-circle"></div>
+        <div class="fac-cta-circle"></div>
+        <div class="fac-cta-content fac-reveal">
+            <h2>Ready To Give Your Child The Best Learning Experience?</h2>
+            <p>Visit our campus, meet our dedicated teachers, and see why hundreds of families trust Noshahi School System with their children's future.</p>
+            <div class="fac-cta-btns">
+                <a href="admissions.html" class="fac-btn orange">Apply Now <i class="fas fa-arrow-right"></i></a>
+                <a href="contact.html" class="fac-btn outline-orange">Book Campus Visit <i class="fas fa-calendar-check"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1rem;">
+            <div class="footer-main">
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Special Focus</h3>
-                    <ul class="footer-links">
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Our Faculty</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="color: inherit; text-decoration: none;">Village 97 JB, Gojra</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03281642297" style="color: inherit; text-decoration: none;">0328-1642297</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.25rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03216892097" style="color: inherit; text-decoration: none;">0321-6892097</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-envelope" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="mailto:noshahischoolsystem@gmail.com" style="color: inherit; text-decoration: none;">noshahischoolsystem@gmail.com</a>
-                        </li>
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i><a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a></li>
+                        <li><i class="fas fa-phone-alt"></i><div class="phone-group"><a href="tel:03281642297">0328-1642297</a><a href="https://wa.me/923216892097" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>0321-6892097</a></div></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;">
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
                 <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
-                <!-- Social Media Icons -->
-                <div style="display: flex; gap: 1.5rem; align-items: center;">
-                    <a href="https://twitter.com" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; transition: all 0.3s ease;"
-                        onmouseover="this.style.color='var(--accent-color)'; this.style.transform='scale(1.2) translateY(-3px)';"
-                        onmouseout="this.style.color='rgba(255,255,255,0.7)'; this.style.transform='scale(1) translateY(0)';"
-                        title="Follow us on Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; transition: all 0.3s ease;"
-                        onmouseover="this.style.color='var(--accent-color)'; this.style.transform='scale(1.2) translateY(-3px)';"
-                        onmouseout="this.style.color='rgba(255,255,255,0.7)'; this.style.transform='scale(1) translateY(0)';"
-                        title="Like us on Facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://tiktok.com" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; transition: all 0.3s ease;"
-                        onmouseover="this.style.color='var(--accent-color)'; this.style.transform='scale(1.2) translateY(-3px)';"
-                        onmouseout="this.style.color='rgba(255,255,255,0.7)'; this.style.transform='scale(1) translateY(0)';"
-                        title="Follow us on TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" style="color: rgba(255,255,255,0.7); font-size: 1.5rem; transition: all 0.3s ease;"
-                        onmouseover="this.style.color='var(--accent-color)'; this.style.transform='scale(1.2) translateY(-3px)';"
-                        onmouseout="this.style.color='rgba(255,255,255,0.7)'; this.style.transform='scale(1) translateY(0)';"
-                        title="Follow us on Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Custom JS -->
     <script src="js/main.js"></script>
-    <!-- Floating Widgets -->
+    <script>
+        /* Scroll Reveal */
+        (function() {
+            var reveals = document.querySelectorAll('.fac-reveal, .fac-reveal-left, .fac-reveal-right');
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            reveals.forEach(function(el) { observer.observe(el); });
+        })();
+
+        /* Side Nav */
+        (function() {
+            var navItems = document.querySelectorAll('.fac-nav-item');
+            var sections = document.querySelectorAll('[data-nav]');
+            var progress = document.getElementById('facNavProgress');
+            if (!navItems.length || !sections.length) return;
+
+            navItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var target = document.getElementById(this.dataset.target);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            });
+
+            window.addEventListener('scroll', function() {
+                var scrollY = window.scrollY + window.innerHeight / 2;
+                sections.forEach(function(sec, i) {
+                    var top = sec.offsetTop;
+                    var bottom = top + sec.offsetHeight;
+                    if (scrollY >= top && scrollY < bottom) {
+                        navItems.forEach(function(n) { n.classList.remove('active'); });
+                        if (navItems[i]) navItems[i].classList.add('active');
+                    }
+                });
+                var firstSec = sections[0];
+                var lastSec = sections[sections.length - 1];
+                if (firstSec && lastSec) {
+                    var start = firstSec.offsetTop;
+                    var end = lastSec.offsetTop + lastSec.offsetHeight;
+                    var pct = Math.min(Math.max((window.scrollY - start) / (end - start), 0), 1);
+                    if (progress) progress.style.height = (pct * 100) + '%';
+                }
+            });
+        })();
+
+        /* Counter Animation */
+        (function() {
+            var counters = document.querySelectorAll('.fac-stat-num');
+            var observed = false;
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !observed) {
+                        observed = true;
+                        counters.forEach(function(c) {
+                            var target = parseInt(c.dataset.target);
+                            var duration = 2000;
+                            var startTime = null;
+                            function animate(timestamp) {
+                                if (!startTime) startTime = timestamp;
+                                var progress = Math.min((timestamp - startTime) / duration, 1);
+                                var eased = 1 - Math.pow(1 - progress, 3);
+                                c.textContent = Math.floor(eased * target) + '+';
+                                if (progress < 1) requestAnimationFrame(animate);
+                            }
+                            requestAnimationFrame(animate);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            var statsSection = document.querySelector('.fac-stats');
+            if (statsSection) observer.observe(statsSection);
+        })();
+    </script>
+
     <div class="floating-widgets">
         <a href="https://wa.me/923281642297" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>

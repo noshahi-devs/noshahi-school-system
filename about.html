@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Noshahi School System</title>
+    <title>About Us | Noshahi School System</title>
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
     <meta name="description"
@@ -18,20 +18,22 @@
 <body class="apply-card-colors">
 
     <!-- Navbar -->
-    <nav class="navbar scrolled">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
                 <span class="logo-text">Noshahi School System</span>
             </a>
-            <div class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+                        <div class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="academics.html">Academics <i class="fas fa-caret-down"></i></a>
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="academics.html">Academics Overview</a></li>
                         <li><a href="computer-education.html">Computer Ed</a></li>
@@ -39,27 +41,179 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="campus-facilities.html">Facilities <i class="fas fa-caret-down"></i></a>
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Faculty</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </li>
+                <li><a href="student-activities.html">Activities</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="admissions.html" class="nav-btn btn btn-accent">Apply Now</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <img src="img/page_header.png" alt="Header Background" class="page-header-bg">
-        <div class="page-header-content">
-            <h1>About Us</h1>
-            <p>Our Story, Vision, and Mission</p>
+    <main class="page-content">
+
+    <!-- About Hero — Premium Redesign -->
+    <section class="about-hero">
+        <img src="img/hero_banner.png" alt="Noshahi School System Campus" class="about-hero-bg">
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+            <div class="about-hero-badge"><i class="fas fa-graduation-cap"></i> About Us</div>
+            <h1>About <span>Noshahi School System</span></h1>
+            <p>Empowering young minds with modern academics, advanced computer education, and strong Islamic values — from KG to Grade 12.</p>
         </div>
-    </header>
+        <style>
+            .about-hero {
+                position: relative;
+                height: 70vh;
+                min-height: 480px;
+                max-height: 650px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+            .about-hero-bg {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                object-fit: cover;
+                z-index: 1;
+                animation: zoomEffect 15s ease infinite;
+            }
+            .about-hero-overlay {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: linear-gradient(135deg, rgba(10,25,70,0.78) 0%, rgba(15,35,80,0.60) 50%, rgba(10,25,70,0.75) 100%);
+                z-index: 2;
+            }
+            .about-hero-content {
+                position: relative;
+                z-index: 3;
+                text-align: center;
+                max-width: 720px;
+                padding: 0 1.5rem;
+            }
+            .about-hero-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255,140,0,0.15);
+                border: 1px solid rgba(255,140,0,0.35);
+                color: #FFB347;
+                padding: 0.4rem 1.1rem;
+                border-radius: 30px;
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin-bottom: 1.25rem;
+                backdrop-filter: blur(6px);
+                animation: fadeInDown 0.6s ease both;
+            }
+            .about-hero-content h1 {
+                color: #FFFFFF;
+                font-size: 4rem;
+                font-weight: 700;
+                line-height: 1.15;
+                margin-bottom: 1rem;
+                text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+                animation: fadeInUp 0.7s ease 0.15s both;
+            }
+            .about-hero-content h1 span {
+                color: #f97316;
+            }
+            .about-hero-content p {
+                color: rgba(255,255,255,0.92);
+                font-size: 1.15rem;
+                line-height: 1.8;
+                margin-bottom: 2rem;
+                text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+                animation: fadeInUp 0.7s ease 0.3s both;
+            }
+            .about-hero-btns {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                animation: fadeInUp 0.7s ease 0.45s both;
+            }
+            .about-hero-btns .btn {
+                padding: 0.85rem 2rem;
+                font-size: 0.95rem;
+                font-weight: 700;
+                border-radius: 30px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+            }
+            .about-hero-btns .btn-accent {
+                background: #FF8C00;
+                color: #fff;
+                box-shadow: 0 6px 20px rgba(255,140,0,0.35);
+            }
+            .about-hero-btns .btn-accent:hover {
+                background: #e67e00;
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(255,140,0,0.45);
+            }
+            .about-hero-btns .btn-outline {
+                background: transparent;
+                border: 2px solid rgba(255,255,255,0.45);
+                color: #fff;
+            }
+            .about-hero-btns .btn-outline:hover {
+                border-color: #fff;
+                background: rgba(255,255,255,0.1);
+                transform: translateY(-3px);
+            }
+
+            @keyframes fadeInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(25px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+
+            /* ── Responsive ── */
+            @media (max-width: 992px) {
+                .about-hero { height: 60vh; min-height: 420px; }
+                .about-hero-content h1 { font-size: 2.6rem; }
+                .about-hero-content p { font-size: 1.05rem; }
+            }
+
+            @media (max-width: 768px) {
+                .about-hero { height: 55vh; min-height: 380px; }
+                .about-hero-content h1 { font-size: 2.1rem; margin-bottom: 0.75rem; }
+                .about-hero-content p { font-size: 0.95rem; margin-bottom: 1.5rem; padding: 0 0.5rem; }
+                .about-hero-btns .btn { padding: 0.75rem 1.6rem; font-size: 0.88rem; }
+            }
+
+            @media (max-width: 576px) {
+                .about-hero { height: 50vh; min-height: 340px; }
+                .about-hero-badge { font-size: 0.68rem; padding: 0.35rem 0.9rem; margin-bottom: 1rem; }
+                .about-hero-content h1 { font-size: 1.65rem; line-height: 1.2; margin-bottom: 0.6rem; }
+                .about-hero-content p { font-size: 0.85rem; line-height: 1.65; margin-bottom: 1.25rem; }
+                .about-hero-btns { flex-direction: column; align-items: center; gap: 0.6rem; }
+                .about-hero-btns .btn { width: 100%; max-width: 260px; justify-content: center; padding: 0.7rem 1.4rem; font-size: 0.85rem; }
+            }
+
+            @media (max-width: 400px) {
+                .about-hero { height: 48vh; min-height: 300px; }
+                .about-hero-content h1 { font-size: 1.4rem; }
+                .about-hero-content p { font-size: 0.78rem; }
+                .about-hero-btns .btn { font-size: 0.8rem; padding: 0.6rem 1.2rem; }
+            }
+        </style>
+    </section>
 
     <!-- Why Choose Section -->
     <section id="why-choose">
@@ -67,8 +221,10 @@
             <div class="why-choose-grid">
                 <!-- Column 1 -->
                 <div class="why-choose-content">
-                    <h3 class="subtitle">Why Choose</h3>
-                    <h2 class="title">Noshahi School System</h2>
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="font-size: 0.85rem; color: #FF8C00; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.5rem;">Who We Are</p>
+                        <h2 class="title">Noshahi School System</h2>
+                    </div>
                     <p>We provide modern academic education with a special focus on Computer Education and Islamic character building. From KG to Grade 12, every student receives practical skills, strong values, and the academic foundation they need to succeed in today's world.</p>
 
                     <div class="feature-lists-wrapper">
@@ -92,10 +248,10 @@
                     </div>
                 </div>
 
-                <!-- Column 2 -->
+                <!-- Column 2 - Girl Reading -->
                 <div class="why-choose-image-col">
-                    <img src="https://www.superiorcolleges.edu.pk/wp-content/uploads/2026/06/about-superior-colleges.jpeg"
-                        alt="About Us">
+                    <img src="img/about.png"
+                        alt="Student Reading in Library">
                     <div class="facilities-btn-wrapper">
                         <a href="campus-facilities.html" class="btn btn-accent btn-float"
                             style="padding: 0.6rem 1.5rem;">
@@ -104,187 +260,596 @@
                     </div>
                 </div>
 
-                <!-- Column 3 -->
+                <!-- Column 3 - Computer Lab -->
                 <div class="why-choose-image-col hidden-mobile">
-                    <img src="https://www.superiorcolleges.edu.pk/wp-content/uploads/2026/06/boy-in-lab.jpeg"
-                        alt="Student in Lab">
+                    <img src="img/about-coputer.png"
+                        alt="Computer Lab">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vision, Mission, Core Values -->
-    <section class="bg-light" id="vision-mission">
-        <div class="container">
-            <div class="grid-3">
-                <div class="card">
-                    <i class="fas fa-eye card-icon"></i>
-                    <h3 class="card-title">Our Vision</h3>
-                    <p>To be a leading educational institution that nurtures students who are academically strong, digitally skilled, and grounded in strong Islamic values — ready to serve their families, community, and nation.</p>
+    <!-- Vision, Mission, Core Values — PREMIUM REDESIGN -->
+    <section id="vision-mission" style="background: linear-gradient(135deg, #F0F4FF 0%, #EEF2FF 50%, #F5F8FF 100%); padding: 4rem 0; position: relative; overflow: hidden;">
+
+        <div style="position: absolute; top: -120px; right: -120px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,140,0,0.07) 0%, transparent 70%); pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -100px; left: -100px; width: 350px; height: 350px; border-radius: 50%; background: radial-gradient(circle, rgba(31,42,68,0.05) 0%, transparent 70%); pointer-events: none;"></div>
+
+        <style>
+            .vm-section-label {
+                display: inline-flex; align-items: center; gap: 8px;
+                background: rgba(255,140,0,0.12); border: 1px solid rgba(255,140,0,0.3);
+                color: #FF8C00; padding: 0.45rem 1.2rem; border-radius: 30px;
+                font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px;
+                text-transform: uppercase; margin-bottom: 1rem;
+            }
+            .vm-section-title {
+                font-size: 2.6rem; font-weight: 900; color: var(--primary-color);
+                margin-bottom: 0.75rem; line-height: 1.2;
+            }
+            .vm-section-title span {
+                background: linear-gradient(135deg, #FF8C00, #FFB347);
+                -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            }
+            .vm-section-sub { color: var(--text-light); font-size: 1rem; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+            .vm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; position: relative; z-index: 2; }
+            
+            /* REDESIGNED VM CARDS */
+            .vm-card {
+                background: #ffffff; border-radius: 24px; padding: 2.5rem 2rem;
+                border: 1px solid rgba(31,42,68,0.08); box-shadow: 0 4px 24px rgba(31,42,68,0.07);
+                position: relative; overflow: hidden;
+                transition: all 0.4s cubic-bezier(0.165,0.84,0.44,1); display: flex; flex-direction: column;
+            }
+            .vm-card::before {
+                content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+                background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+                transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; border-radius: 24px 24px 0 0;
+            }
+            .vm-card:hover::before { transform: scaleX(1); }
+            .vm-card:hover { 
+                transform: translateY(-12px); 
+                box-shadow: 0 24px 60px rgba(31,42,68,0.14); 
+                border-color: rgba(255,140,0,0.2); 
+            }
+            
+            /* Card Header with Icon on Left */
+            .vm-card-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 1.25rem;
+                margin-bottom: 1.75rem;
+            }
+            
+            .vm-icon-wrap {
+                width: 60px; height: 60px; border-radius: 16px;
+                background: linear-gradient(135deg, var(--primary-color) 0%, #2d3f5a 100%);
+                display: flex; align-items: center; justify-content: center;
+                flex-shrink: 0; box-shadow: 0 8px 20px rgba(31,42,68,0.2); 
+                transition: all 0.35s ease;
+            }
+            .vm-card:hover .vm-icon-wrap {
+                background: linear-gradient(135deg, #FF8C00 0%, #FFB347 100%);
+                box-shadow: 0 10px 28px rgba(255,140,0,0.35); 
+                transform: scale(1.08) rotate(5deg);
+            }
+            .vm-icon-wrap i { font-size: 1.5rem; color: #ffffff; }
+            
+            /* Card Heading Area */
+            .vm-card-heading {
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+            
+            .vm-card-tag {
+                display: inline-flex; align-items: center; gap: 5px;
+                background: rgba(255,140,0,0.08); border: 1px solid rgba(255,140,0,0.2);
+                color: #FF8C00; font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
+                text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 20px; 
+                align-self: flex-start; width: fit-content;
+            }
+            .vm-card h3 { 
+                font-size: 1.75rem; font-weight: 700; color: var(--primary-color); 
+                margin: 0; line-height: 1.3; 
+            }
+            
+            .vm-card p { color: #4B5563; font-size: 0.92rem; line-height: 1.8; margin: 0; flex-grow: 1; }
+            .vm-values-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.7rem; }
+            .vm-values-list li { display: flex; align-items: center; gap: 10px; color: #374151; font-size: 0.9rem; font-weight: 500; }
+            .vm-values-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, #FF8C00, #FFB347); flex-shrink: 0; }
+            .vm-card-divider { height: 1px; background: linear-gradient(90deg, rgba(255,140,0,0.3), rgba(31,42,68,0.06), rgba(255,140,0,0.3)); margin: 1.25rem 0; }
+            
+            @media (max-width: 900px) { 
+                .vm-grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+                .vm-section-title { font-size: 2rem; } 
+            }
+            @media (max-width: 600px) { 
+                .vm-section-title { font-size: 1.7rem; }
+                .vm-card-header { gap: 1rem; }
+                .vm-icon-wrap { width: 50px; height: 50px; }
+                .vm-icon-wrap i { font-size: 1.2rem; }
+                .vm-card h3 { font-size: 1.1rem; }
+            }
+        </style>
+
+        <div class="container" style="max-width: 1500px; position: relative; z-index: 2;">
+            <div style="text-align: center; margin-bottom: 0;">
+                <div class="vm-section-label"><i class="fas fa-star"></i> Who We Are</div>
+                <h2 class="vm-section-title">Our <span>Vision</span>, Mission &amp; Values</h2>
+                <p class="vm-section-sub">Guiding principles that shape every student's journey at Noshahi School System</p>
+            </div>
+            <div class="vm-grid">
+                <!-- Vision Card -->
+                <div class="vm-card">
+                    <div class="vm-card-header">
+                        <div class="vm-icon-wrap"><i class="fas fa-eye"></i></div>
+                        <div class="vm-card-heading">
+                            <div class="vm-card-tag"><i class="fas fa-compass"></i> Vision</div>
+                            <h3>Our Vision</h3>
+                        </div>
+                    </div>
+                    <div class="vm-card-divider"></div>
+                    <p>To prepare students for a future of innovation, leadership, and lifelong success through quality education.</p>
                 </div>
-                <div class="card">
-                    <i class="fas fa-bullseye card-icon"></i>
-                    <h3 class="card-title">Our Mission</h3>
-                    <p>To provide high-quality, practical education combining modern Computer Science with Nazra Quran, Tajweed, and daily character building — ensuring every student excels academically and morally.</p>
+
+                <!-- Mission Card -->
+                <div class="vm-card">
+                    <div class="vm-card-header">
+                        <div class="vm-icon-wrap"><i class="fas fa-bullseye"></i></div>
+                        <div class="vm-card-heading">
+                            <div class="vm-card-tag"><i class="fas fa-rocket"></i> Mission</div>
+                            <h3>Our Mission</h3>
+                        </div>
+                    </div>
+                    <div class="vm-card-divider"></div>
+                    <p>At Noshahi School System, we integrate technology, business, and interactive learning into education to develop practical skills, critical thinking, and creativity. Through quality teaching, continuous teacher development, and real-world experiences, we prepare students to excel academically and professionally.</p>
                 </div>
-                <div class="card">
-                    <i class="fas fa-heart card-icon"></i>
-                    <h3 class="card-title">Core Values</h3>
-                    <ul class="feature-list" style="margin-top: 0;">
+
+                <!-- Core Values Card -->
+                <div class="vm-card">
+                    <div class="vm-card-header">
+                        <div class="vm-icon-wrap"><i class="fas fa-heart"></i></div>
+                        <div class="vm-card-heading">
+                            <div class="vm-card-tag"><i class="fas fa-shield-halved"></i> Values</div>
+                            <h3>Core Values</h3>
+                        </div>
+                    </div>
+                    <div class="vm-card-divider"></div>
+                    <ul class="vm-values-list">
                         <li>Academic Excellence &amp; Practical Learning</li>
                         <li>Islamic Character &amp; Moral Integrity</li>
                         <li>Safe, Clean &amp; Supportive Environment</li>
                         <li>Continuous Parent Communication</li>
-                        <li>Respect, Compassion &amp; Discipline</li>
+                    <li>Respect, Compassion &amp; Discipline</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- Leadership Section — Director & Principal Cards -->
+    <section id="leadership" style="padding: 4rem 0; background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);">
+        <div class="container" style="max-width: 1300px;">
+            <!-- Section Header -->
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25); color: #FF8C00; padding: 0.35rem 1.1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <i class="fas fa-user-tie"></i> Executive Leadership
+                </div>
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.5rem;">
+                    Our <span style="color: #FF8C00;">Leadership</span>
+                </h2>
+                <p style="color: #64748B; font-size: 1rem; max-width: 600px; margin: 0 auto;">Guiding Noshahi School System towards academic excellence and strong character building</p>
+            </div>
 
-    <!-- Principal Message & Philosophy -->
-    <section id="principal-message">
-        <div class="container">
-            <div class="grid-2">
-                <div class="img-text-block">
-                    <!-- Placeholder for Principal photo -->
-                    <div
-                        style="background-color: #ddd; height: 400px; border-radius: var(--border-radius); display:flex; align-items:center; justify-content:center; color: #777;">
-                        <i class="fas fa-user-tie" style="font-size: 5rem;"></i>
+            <!-- Leadership Grid (Responsive Auto-Fit Grid) -->
+            <div class="leadership-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch;">
+
+                <!-- Director Card -->
+                <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(255, 140, 0, 0.25); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #FF8C00, #FFA733);"></div>
+                    <div>
+                        <!-- Header Profile Info -->
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                            <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #1F2A44 0%, #2C3E67 100%); display: flex; align-items: center; justify-content: center; color: #FF8C00; font-size: 1.8rem; flex-shrink: 0; border: 2px solid #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <span style="display: inline-block; background: rgba(255, 140, 0, 0.12); color: #FF8C00; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 20px; text-transform: uppercase;">Director's Words</span>
+                                <h3 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin: 0.2rem 0 0; line-height: 1.2;">Adeel Noshahi</h3>
+                                <p style="color: #64748B; font-size: 0.85rem; font-weight: 600; margin: 0;">Director, Noshahi School System</p>
+                            </div>
+                        </div>
+
+                        <!-- Short Quote Message -->
+                        <div style="position: relative; background: #F8FAFC; border-left: 3px solid #FF8C00; padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; margin-bottom: 1.25rem;">
+                            <p style="color: #334155; font-size: 0.92rem; line-height: 1.65; font-style: italic; margin-bottom: 0;">
+                                "Welcome to Noshahi School System. We combine technology, practical education, and real-world learning to prepare students for life. Our <strong>'Learn to Earn'</strong> philosophy builds confidence, leadership, and modern skills in every child."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Phone Button -->
+                    <div style="padding-top: 0.85rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Direct Contact:</span>
+                        <a href="tel:03281642297" style="display: inline-flex; align-items: center; gap: 6px; background: #1F2A44; color: #FFFFFF; font-weight: 700; font-size: 0.85rem; padding: 0.45rem 1rem; border-radius: 25px; text-decoration: none;">
+                            <i class="fas fa-phone-alt" style="color: #FF8C00;"></i> 0328-1642297
+                        </a>
                     </div>
                 </div>
-                <div class="img-text-content">
-                    <h2>Message from the Principal</h2>
-                    <p>"Welcome to Noshahi School System. Our goal is not just to educate, but to truly prepare each child for life — academically, morally, and practically.</p>
-                    <p>In today's world, a child who can use technology confidently and carries strong Islamic values is unstoppable. That is exactly what we build here — Computer Education from Basic to Advanced as a regular subject, Nazra Quran with Tajweed, daily character training, and a safe, supportive campus environment.</p>
-                    <p>Whether your child joins our School or Academy, from KG to Grade 12, they will be in the hands of highly qualified, caring teachers who communicate with parents every step of the way. We don't just teach — we build people."</p>
-                    <h4 style="margin-top: 1rem; color: var(--primary-color);">Principal</h4>
-                    <p style="margin-bottom: 0;">Noshahi School System</p>
+
+                <!-- Principal Card -->
+                <div style="background: #FFFFFF; border-radius: 18px; border: 1px solid rgba(59, 130, 246, 0.25); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #3B82F6, #60A5FA);"></div>
+                    <div>
+                        <!-- Header Profile Info -->
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+                            <div style="width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #1F2A44 0%, #2C3E67 100%); display: flex; align-items: center; justify-content: center; color: #3B82F6; font-size: 1.8rem; flex-shrink: 0; border: 2px solid #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div>
+                                <span style="display: inline-block; background: rgba(59, 130, 246, 0.12); color: #3B82F6; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 20px; text-transform: uppercase;">Principal's Message</span>
+                                <h3 style="font-size: 1.75rem; font-weight: 700; color: #1F2A44; margin: 0.2rem 0 0; line-height: 1.2;">Aqeel Noshahi</h3>
+                                <p style="color: #64748B; font-size: 0.85rem; font-weight: 600; margin: 0;">Principal, Noshahi School System</p>
+                            </div>
+                        </div>
+
+                        <!-- Short Quote Message -->
+                        <div style="position: relative; background: #F8FAFC; border-left: 3px solid #3B82F6; padding: 1rem 1.2rem; border-radius: 0 10px 10px 0; margin-bottom: 1.25rem;">
+                            <p style="color: #334155; font-size: 0.92rem; line-height: 1.65; font-style: italic; margin-bottom: 0;">
+                                "We provide a safe, disciplined, and inspiring learning environment where students thrive. Through modern teaching methods, trained teachers, and strong values, we focus on academic excellence and parent communication."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Phone Button -->
+                    <div style="padding-top: 0.85rem; border-top: 1px solid #F1F5F9; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                        <span style="font-size: 0.8rem; color: #64748B; font-weight: 600;">Direct Contact:</span>
+                        <a href="tel:03216892097" style="display: inline-flex; align-items: center; gap: 6px; background: #1F2A44; color: #FFFFFF; font-weight: 700; font-size: 0.85rem; padding: 0.45rem 1rem; border-radius: 25px; text-decoration: none;">
+                            <i class="fas fa-phone-alt" style="color: #3B82F6;"></i> 0321-6892097
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Why Join Noshahi -->
-    <section class="bg-light" id="why-noshahi">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Join Noshahi School System</h2>
+    <!-- Why Join Noshahi Section — Premium 8-Card Design -->
+    <section class="bg-light" id="why-noshahi" style="padding: 5rem 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,140,0,0.06) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -80px; left: -80px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(59,130,246,0.05) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+
+        <div class="container" style="max-width: 1300px; position: relative; z-index: 1;">
+            <!-- Section Header -->
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,140,0,0.12); border: 1px solid rgba(255,140,0,0.3); color: #FF8C00; padding: 0.35rem 1rem; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.75rem;">
+                    <i class="fas fa-check-circle"></i> Why Choose Us
+                </div>
+                <h2 style="font-size: 2.5rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.5rem;">
+                    Why Join <span style="color: #FF8C00;">Noshahi</span> School System
+                </h2>
+                <p style="color: #64748B; font-size: 1rem; max-width: 650px; margin: 0 auto;">Eight key reasons families trust us for academic excellence and character building</p>
             </div>
-            <div class="grid-3" style="text-align: center;">
 
-                <div class="feature-card" style="padding: 2rem 1.5rem;">
-                    <div class="icon-wrapper" style="width:60px;height:60px;margin-bottom:1rem;">
-                        <i class="fa-solid fa-laptop-code" style="font-size:1.6rem;"></i>
+            <style>
+                /* Why Join Cards - Premium Grid */
+                .wj-cards-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 1.5rem;
+                }
+
+                .wj-card {
+                    background: #fff;
+                    border-radius: 18px;
+                    padding: 2rem 1.5rem;
+                    text-align: center;
+                    border: 1px solid rgba(31,42,68,0.06);
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+                    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .wj-card::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 3px;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .wj-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 12px 35px rgba(31,42,68,0.1);
+                }
+
+                .wj-card:hover::before {
+                    opacity: 1;
+                }
+
+                /* Card top border colors */
+                .wj-card:nth-child(1)::before { background: linear-gradient(90deg, #FF8C00, #FFB347); }
+                .wj-card:nth-child(2)::before { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+                .wj-card:nth-child(3)::before { background: linear-gradient(90deg, #10B981, #34D399); }
+                .wj-card:nth-child(4)::before { background: linear-gradient(90deg, #8B5CF6, #A78BFA); }
+                .wj-card:nth-child(5)::before { background: linear-gradient(90deg, #F59E0B, #FBBF24); }
+                .wj-card:nth-child(6)::before { background: linear-gradient(90deg, #EC4899, #F472B6); }
+                .wj-card:nth-child(7)::before { background: linear-gradient(90deg, #14B8A6, #2DD4BF); }
+                .wj-card:nth-child(8)::before { background: linear-gradient(90deg, #6366F1, #818CF8); }
+
+                .wj-card-icon {
+                    width: 64px;
+                    height: 64px;
+                    margin: 0 auto 1.25rem;
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.5rem;
+                    transition: all 0.35s ease;
+                }
+
+                .wj-card:hover .wj-card-icon {
+                    transform: scale(1.12) rotate(-5deg);
+                    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+                }
+
+                .wj-card-icon.c-orange { background: linear-gradient(135deg, rgba(255,140,0,0.15), rgba(255,140,0,0.05)); color: #FF8C00; }
+                .wj-card-icon.c-blue { background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.05)); color: #3B82F6; }
+                .wj-card-icon.c-green { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(16,185,129,0.05)); color: #10B981; }
+                .wj-card-icon.c-purple { background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.05)); color: #8B5CF6; }
+                .wj-card-icon.c-amber { background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05)); color: #F59E0B; }
+                .wj-card-icon.c-pink { background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(236,72,153,0.05)); color: #EC4899; }
+                .wj-card-icon.c-teal { background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(20,184,166,0.05)); color: #14B8A6; }
+                .wj-card-icon.c-indigo { background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05)); color: #6366F1; }
+
+                .wj-card:hover .wj-card-icon.c-orange { background: #FF8C00; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-blue { background: #3B82F6; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-green { background: #10B981; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-purple { background: #8B5CF6; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-amber { background: #F59E0B; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-pink { background: #EC4899; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-teal { background: #14B8A6; color: #fff; }
+                .wj-card:hover .wj-card-icon.c-indigo { background: #6366F1; color: #fff; }
+
+                .wj-card h3 {
+                    font-size: 1.05rem;
+                    font-weight: 500;
+                    color: #1F2A44;
+                    margin-bottom: 0.5rem;
+                }
+
+                .wj-card p {
+                    font-size: 0.88rem;
+                    line-height: 1.65;
+                    color: #64748B;
+                    margin: 0;
+                }
+
+                /* --- Responsive --- */
+                @media (max-width: 1024px) {
+                    .wj-cards-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .wj-cards-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 1.25rem;
+                    }
+                    .wj-card {
+                        padding: 1.5rem 1.25rem;
+                    }
+                    .wj-card-icon {
+                        width: 56px;
+                        height: 56px;
+                        font-size: 1.3rem;
+                    }
+                    .wj-card h3 {
+                        font-size: 0.95rem;
+                    }
+                    .wj-card p {
+                        font-size: 0.82rem;
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .wj-cards-grid {
+                        grid-template-columns: 1fr 1fr;
+                        gap: 1rem;
+                    }
+                    .wj-card {
+                        padding: 1.25rem 1rem;
+                        border-radius: 14px;
+                    }
+                    .wj-card-icon {
+                        width: 48px;
+                        height: 48px;
+                        font-size: 1.15rem;
+                        border-radius: 12px;
+                        margin-bottom: 1rem;
+                    }
+                    .wj-card h3 {
+                        font-size: 0.85rem;
+                        margin-bottom: 0.35rem;
+                    }
+                    .wj-card p {
+                        font-size: 0.75rem;
+                        line-height: 1.5;
+                    }
+                }
+
+                @media (max-width: 360px) {
+                    .wj-cards-grid {
+                        grid-template-columns: 1fr;
+                        gap: 0.85rem;
+                    }
+                    .wj-card {
+                        padding: 1.1rem 1rem;
+                    }
+                    .wj-card-icon {
+                        width: 44px;
+                        height: 44px;
+                        font-size: 1rem;
+                    }
+                    .wj-card h3 {
+                        font-size: 0.82rem;
+                    }
+                    .wj-card p {
+                        font-size: 0.72rem;
+                    }
+                }
+            </style>
+
+            <!-- 8-Card Grid -->
+            <div class="wj-cards-grid">
+
+                <!-- Card 1 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-orange">
+                        <i class="fa-solid fa-laptop-code"></i>
                     </div>
-                    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Computer as a Regular Subject</h3>
-                    <p style="font-size:0.88rem;line-height:1.55;">Basic to Advanced — practical, hands-on, mandatory at every grade. Not a separate course.</p>
+                    <h3>Computer as a Regular Subject</h3>
+                    <p>Basic to Advanced — practical, hands-on learning mandatory at every grade level.</p>
                 </div>
 
-                <div class="feature-card" style="padding: 2rem 1.5rem;">
-                    <div class="icon-wrapper" style="width:60px;height:60px;margin-bottom:1rem;">
-                        <i class="fa-solid fa-book-quran" style="font-size:1.6rem;"></i>
+                <!-- Card 2 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-blue">
+                        <i class="fa-solid fa-book-quran"></i>
                     </div>
-                    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Islamic Education &amp; Tarbiat</h3>
-                    <p style="font-size:0.88rem;line-height:1.55;">Nazra Quran with Tajweed, daily Duas, Akhlaqiat &amp; high-quality character building every day.</p>
+                    <h3>Islamic Education &amp; Tarbiat</h3>
+                    <p>Nazra Quran with Tajweed, daily Duas, Akhlaqiat &amp; character building every day.</p>
                 </div>
 
-                <div class="feature-card" style="padding: 2rem 1.5rem;">
-                    <div class="icon-wrapper" style="width:60px;height:60px;margin-bottom:1rem;">
-                        <i class="fa-solid fa-shield-halved" style="font-size:1.6rem;"></i>
+                <!-- Card 3 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-green">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Safe &amp; Supportive Campus</h3>
-                    <p style="font-size:0.88rem;line-height:1.55;">Clean environment, CCTV security, safe drinking water &amp; continuous parent communication.</p>
+                    <h3>Safe &amp; Supportive Campus</h3>
+                    <p>Clean environment, CCTV security, safe drinking water &amp; regular parent updates.</p>
                 </div>
 
-                <div class="feature-card" style="padding: 2rem 1.5rem;">
-                    <div class="icon-wrapper" style="width:60px;height:60px;margin-bottom:1rem;">
-                        <i class="fa-solid fa-layer-group" style="font-size:1.6rem;"></i>
+                <!-- Card 4 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-purple">
+                        <i class="fa-solid fa-layer-group"></i>
                     </div>
-                    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">School &amp; Academy Programs</h3>
-                    <p style="font-size:0.88rem;line-height:1.55;"><strong>School:</strong> KG–10 (Girls 6–10). <strong>Academy:</strong> KG–12 (Boys 6–12). Only Computer Science at Matric.</p>
+                    <h3>School &amp; Academy Programs</h3>
+                    <p>School: KG–10 (Girls 6–10). Academy: KG–12 (Boys 6–12). Computer Science at Matric.</p>
                 </div>
 
-                <div class="feature-card" style="padding: 2rem 1.5rem;">
-                    <div class="icon-wrapper" style="width:60px;height:60px;margin-bottom:1rem;">
-                        <i class="fa-solid fa-star" style="font-size:1.6rem;"></i>
+                <!-- Card 5 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-amber">
+                        <i class="fa-solid fa-star"></i>
                     </div>
-                    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Vibrant Student Activities</h3>
-                    <p style="font-size:0.88rem;line-height:1.55;">Morning Assembly, Naat &amp; Qirat, Speech, Quiz, Science Experiments, Celebrations &amp; Prize Distribution.</p>
+                    <h3>Vibrant Student Activities</h3>
+                    <p>Naat &amp; Qirat, Speech, Quiz, Science Experiments, Celebrations &amp; Prize Distribution.</p>
                 </div>
 
-                <div class="feature-card" style="padding: 2rem 1.5rem;">
-                    <div class="icon-wrapper" style="width:60px;height:60px;margin-bottom:1rem;">
-                        <i class="fa-solid fa-user-tie" style="font-size:1.6rem;"></i>
+                <!-- Card 6 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-pink">
+                        <i class="fa-solid fa-user-tie"></i>
                     </div>
-                    <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Highly Qualified Faculty</h3>
-                    <p style="font-size:0.88rem;line-height:1.55;">Certified Huffaz, specialist computer teachers — focused on real learning &amp; character, not just exams.</p>
+                    <h3>Highly Qualified Faculty</h3>
+                    <p>Certified Huffaz &amp; specialist teachers focused on real learning &amp; character building.</p>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-teal">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h3>Affordable Fee Structure</h3>
+                    <p>Quality education at fees every family can afford. No hidden charges, flexible payment plans.</p>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="wj-card">
+                    <div class="wj-card-icon c-indigo">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3>Strong Parent Engagement</h3>
+                    <p>Regular PTMs, progress reports, open communication &amp; involving parents in school growth.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 1rem;">
+            <div class="footer-main">
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
                         <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
                     </div>
-                    <p>Modern Academic Education with a Special Focus on Computer Education and Islamic Education.</p>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academics.html">Academics</a></li>
                         <li><a href="admissions.html">Admissions</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Special Focus</h3>
-                    <ul class="footer-links">
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
                         <li><a href="computer-education.html">Computer Education</a></li>
                         <li><a href="islamic-education.html">Islamic Education</a></li>
                         <li><a href="campus-facilities.html">Campus Facilities</a></li>
                         <li><a href="faculty.html">Our Faculty</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links" style="position: relative;">
-                        <li style="display: flex; align-items: center; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank" style="color: inherit; text-decoration: none;">Village 97 JB, Gojra</a>
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03281642297" style="color: inherit; text-decoration: none;">0328-1642297</a>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="phone-group">
+                                <a href="tel:03281642297">0328-1642297</a>
+                                <a href="https://wa.me/923216892097" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>0321-6892097</a>
+                            </div>
                         </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.25rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-phone" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="tel:03216892097" style="color: inherit; text-decoration: none;">0321-6892097</a>
-                        </li>
-                        <li style="display: flex; align-items: center; margin-top: 0.5rem; transition: all 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-color)'; this.style.transform='translateX(5px)';"
-                            onmouseout="this.style.color='inherit'; this.style.transform='translateX(0)';">
-                            <i class="fas fa-envelope" style="margin-right: 10px; transition: all 0.3s ease;"></i> 
-                            <a href="mailto:noshahischoolsystem@gmail.com" style="color: inherit; text-decoration: none;">noshahischoolsystem@gmail.com</a>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a>
                         </li>
                     </ul>
                 </div>
             </div>
+            <div class="footer-divider"></div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -303,4 +868,3 @@
 </body>
 
 </html>
-

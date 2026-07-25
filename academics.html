@@ -77,7 +77,9 @@
 
         /* ===== HERO SECTION ===== */
         .ac-hero {
-            min-height: auto;
+            height: 70vh;
+            min-height: 480px;
+            max-height: 650px;
             background: linear-gradient(135deg, #060d1a 0%, #0f1d35 50%, #1a2a4a 100%);
             background-image: 
                 linear-gradient(135deg, rgba(10, 25, 70, 0.75) 0%, rgba(15, 35, 80, 0.60) 100%),
@@ -86,7 +88,7 @@
             background-position: center;
             display: flex;
             align-items: center;
-            padding: 40px 0 30px;
+            padding: 0;
             position: relative;
             overflow: hidden;
             margin-top: 0;
@@ -440,14 +442,17 @@
             }
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 992px) {
+            .ac-hero {
+                height: 60vh;
+                min-height: 420px;
+            }
             .ac-hero h1 {
                 font-size: 2.8rem;
             }
             .level-cards-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-            /* Override inline grid to 2 columns on tablet */
             div[style*="grid-template-columns: repeat(3"] {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
@@ -455,7 +460,8 @@
 
         @media (max-width: 768px) {
             .ac-hero {
-                padding: 100px 0 60px;
+                height: 55vh;
+                min-height: 380px;
             }
             .ac-hero h1 {
                 font-size: 2.2rem;
@@ -469,7 +475,6 @@
             .level-cards-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            /* Override inline grid to 2 columns on tablet */
             div[style*="grid-template-columns: repeat(3"] {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
@@ -481,15 +486,35 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
             .ac-hero {
-                padding: 80px 0 40px;
+                height: 50vh;
+                min-height: 340px;
             }
             .ac-hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
+                line-height: 1.2;
             }
             .ac-hero .hero-sub {
-                font-size: 0.95rem;
+                font-size: 0.88rem;
+                line-height: 1.6;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ac-hero {
+                height: 48vh;
+                min-height: 300px;
+            }
+            .ac-hero h1 {
+                font-size: 1.5rem;
+            }
+            .ac-hero .hero-sub {
+                font-size: 0.78rem;
             }
             .hero-highlights {
                 display: none !important;

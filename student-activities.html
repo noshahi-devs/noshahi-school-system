@@ -28,9 +28,9 @@
         /* ═══ HERO ═══ */
         .act-hero {
             position: relative;
-            height: auto;
-            min-height: 0;
-            padding: 8rem 2rem 4rem;
+            height: 70vh;
+            min-height: 480px;
+            max-height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -113,7 +113,7 @@
 
         /* ═══ LEARNING BEYOND BOOKS ═══ */
         .act-intro {
-            padding: 7rem 2rem 5rem;
+            padding: 7rem 2rem 2rem;
             background: var(--white);
             text-align: center;
             position: relative;
@@ -138,6 +138,7 @@
 
         /* ═══ SECTION BASE ═══ */
         .act-section { padding: 6rem 2rem; position: relative; overflow: hidden; }
+        .act-section + .act-section { padding-top: 3rem; }
         .act-section-inner { max-width: 1200px; margin: 0 auto; }
         .act-label {
             display: inline-flex; align-items: center; gap: 8px;
@@ -486,10 +487,10 @@
         .act-reveal-right.revealed { opacity: 1; transform: translateX(0); }
 
         /* ═══ RESPONSIVE ═══ */
-        @media (max-width: 1024px) {
-            .act-hero { padding: 7rem 1.5rem 3rem; }
-            .act-hero h1 { font-size: 2.5rem; }
-            .act-hero p { font-size: 1rem; }
+        @media (max-width: 992px) {
+            .act-hero { height: 60vh; min-height: 420px; }
+            .act-hero h1 { font-size: 2.6rem; }
+            .act-hero p { font-size: 1.05rem; }
             .act-split, .act-char-split { grid-template-columns: 1fr; gap: 2.5rem; }
             .act-split.reverse, .act-journey-item.reverse { direction: ltr; }
             .act-journey-item { grid-template-columns: 1fr; min-height: auto; }
@@ -499,8 +500,8 @@
             .act-national-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
-            .act-hero { padding: 6rem 1.25rem 2.5rem; }
-            .act-hero h1 { font-size: 2rem; margin-bottom: 0.85rem; }
+            .act-hero { height: 55vh; min-height: 380px; }
+            .act-hero h1 { font-size: 2.1rem; margin-bottom: 0.75rem; }
             .act-hero p { font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.65; }
             .act-hero-badge { padding: 0.35rem 1rem; font-size: 0.68rem; margin-bottom: 1rem; }
             .act-hero-btns { gap: 0.75rem; }
@@ -518,14 +519,35 @@
             }
             .act-science-wrap img { height: 300px; }
         }
-        @media (max-width: 480px) {
-            .act-hero { padding: 5rem 1rem 2rem; }
-            .act-hero h1 { font-size: 1.65rem; line-height: 1.2; margin-bottom: 0.75rem; }
-            .act-hero p { font-size: 0.88rem; margin-bottom: 1.25rem; }
-            .act-hero-badge { font-size: 0.62rem; padding: 0.3rem 0.85rem; margin-bottom: 0.85rem; }
+        @media (max-width: 576px) {
+            .act-hero { height: 50vh; min-height: 340px; }
+            .act-hero h1 { font-size: 1.65rem; line-height: 1.2; margin-bottom: 0.6rem; }
+            .act-hero p { font-size: 0.85rem; line-height: 1.65; margin-bottom: 1.25rem; }
+            .act-hero-badge { font-size: 0.65rem; padding: 0.3rem 0.85rem; margin-bottom: 0.85rem; }
             .act-hero-content { padding: 0 0.5rem; }
             .act-hero-btns { flex-direction: column; align-items: center; width: 100%; }
-            .act-btn { width: 100%; justify-content: center; padding: 0.75rem 1.5rem; font-size: 0.85rem; }
+            .act-btn { width: 80%; justify-content: center; padding: 0.75rem 1.5rem; font-size: 0.85rem; }
+        }
+        @media (max-width: 480px) {
+            .act-hero { height: 48vh; min-height: 300px; }
+            .act-hero h1 { font-size: 1.5rem; }
+            .act-hero p {
+                font-size: 0.78rem;
+                margin-bottom: 1rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .act-hero-badge { font-size: 0.6rem; padding: 0.25rem 0.75rem; margin-bottom: 0.75rem; }
+            .act-hero-content { padding: 0 0.5rem; }
+            .act-btn.outline { display: none !important; }
+            .act-btn.primary {
+                width: 85%;
+                justify-content: center;
+                padding: 0.85rem 1.5rem;
+                font-size: 0.9rem;
+            }
             .act-section { padding: 4rem 1rem; }
         }
     </style>
@@ -600,7 +622,7 @@
     </section>
 
     <!-- ═══ ACADEMIC EXCELLENCE JOURNEY ═══ -->
-    <section class="act-section" id="academic">
+    <section class="act-section" id="academic" style="padding-top: 2rem;">
         <div class="act-section-inner">
             <div class="act-reveal" style="text-align:center; margin-bottom:3rem;">
                 <div class="act-label"><i class="fas fa-trophy"></i> Academic Excellence</div>
@@ -608,48 +630,30 @@
             </div>
         </div>
 
-        <!-- 01 - Speech Competition -->
+        <!-- 01 - Naat Competition -->
         <div class="act-journey-item">
             <div class="act-journey-img act-reveal-left">
-                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop" alt="Speech Competition">
+                <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop" alt="Naat Competition">
             </div>
             <div class="act-journey-content act-reveal-right">
                 <div class="act-num">01</div>
                 <div class="act-divider"></div>
-                <h3>Speech <span>Competition</span></h3>
-                <p>Students develop public speaking skills, confidence, and the ability to express their ideas clearly. Our speech competitions help children find their voice and speak with conviction.</p>
+                <h3>Naat <span>Competition</span></h3>
+                <p>Students develop their love for Islamic poetry and develop the ability to recite naats with devotion. Our naat competitions help children connect with their faith and express their reverence beautifully.</p>
                 <div class="act-features">
-                    <div class="act-feat"><i class="fas fa-check-circle"></i> Public Speaking</div>
-                    <div class="act-feat"><i class="fas fa-check-circle"></i> Confidence Building</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Islamic Poetry</div>
+                    <div class="act-feat"><i class="fas fa-check-circle"></i> Devotional Recitation</div>
                     <div class="act-feat"><i class="fas fa-check-circle"></i> Stage Performance</div>
                 </div>
             </div>
         </div>
 
-        <!-- 02 - Quiz Competition -->
+        <!-- 03 - Essay Writing -->
         <div class="act-journey-item reverse">
             <div class="act-journey-img act-reveal-right">
-                <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" alt="Quiz Competition">
-            </div>
-            <div class="act-journey-content act-reveal-left">
-                <div class="act-num">02</div>
-                <div class="act-divider"></div>
-                <h3>Quiz <span>Competition</span></h3>
-                <p>Our quiz competitions test students' knowledge across subjects and encourage healthy competition. Students learn to think fast, work under pressure, and expand their general knowledge.</p>
-                <div class="act-features">
-                    <div class="act-feat"><i class="fas fa-check-circle"></i> Quick Thinking</div>
-                    <div class="act-feat"><i class="fas fa-check-circle"></i> Team Work</div>
-                    <div class="act-feat"><i class="fas fa-check-circle"></i> General Knowledge</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 03 - Essay Writing -->
-        <div class="act-journey-item">
-            <div class="act-journey-img act-reveal-left">
                 <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800&auto=format&fit=crop" alt="Essay Writing">
             </div>
-            <div class="act-journey-content act-reveal-right">
+            <div class="act-journey-content act-reveal-left">
                 <div class="act-num">03</div>
                 <div class="act-divider"></div>
                 <h3>Essay Writing <span>Competition</span></h3>
@@ -734,28 +738,28 @@
             </div>
             <div class="act-national-grid act-reveal">
                 <div class="act-national-card">
-                    <img src="https://images.unsplash.com/photo-1569974507005-6dc61f97fb5c?q=80&w=500&auto=format&fit=crop" alt="Independence Day Celebration">
+                    <img src="img/independance.jpg" alt="Independence Day Celebration">
                     <div class="card-body">
                         <h4>Independence Day</h4>
                         <p>We celebrate 14th August with flag hoisting, national songs, and patriotic speeches by students.</p>
                     </div>
                 </div>
                 <div class="act-national-card">
-                    <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=500&auto=format&fit=crop" alt="Pakistan Day Celebration">
+                    <img src="img/pakistan-day.jpg" alt="Pakistan Day Celebration">
                     <div class="card-body">
                         <h4>Pakistan Day</h4>
                         <p>23rd March is celebrated with special assemblies, tableaux, and speeches highlighting Pakistan's history.</p>
                     </div>
                 </div>
                 <div class="act-national-card">
-                    <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=500&auto=format&fit=crop" alt="Iqbal Day Celebration">
+                    <img src="img/iqbal.jpg" alt="Iqbal Day Celebration">
                     <div class="card-body">
                         <h4>Iqbal Day</h4>
                         <p>Students honor Allama Iqbal through poetry recitations, speeches, and essays about his vision for Pakistan.</p>
                     </div>
                 </div>
                 <div class="act-national-card">
-                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=500&auto=format&fit=crop" alt="Quaid-e-Azam Day Celebration">
+                    <img src="img/quaid.jpg" alt="Quaid-e-Azam Day Celebration">
                     <div class="card-body">
                         <h4>Quaid-e-Azam Day</h4>
                         <p>We celebrate 25th December with special events remembering the founder of Pakistan, Muhammad Ali Jinnah.</p>
@@ -829,9 +833,9 @@
                         <p>Every student who strives to do their best is celebrated at Noshahi School System.</p>
                     </div>
                     <div class="act-features">
-                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2);"><i class="fas fa-trophy"></i> Academic Awards</div>
-                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2);"><i class="fas fa-medal"></i> Activity Awards</div>
-                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2);"><i class="fas fa-star"></i> Character Awards</div>
+                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2); color:#fff;"><i class="fas fa-trophy"></i> Academic Awards</div>
+                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2); color:#fff;"><i class="fas fa-medal"></i> Activity Awards</div>
+                        <div class="act-feat" style="background:rgba(247,148,29,0.1); border-color:rgba(247,148,29,0.2); color:#fff;"><i class="fas fa-star"></i> Character Awards</div>
                     </div>
                 </div>
             </div>

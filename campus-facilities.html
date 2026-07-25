@@ -32,9 +32,9 @@
         ═══════════════════════════════════════════ */
         .fac-hero {
             position: relative;
-            height: auto;
-            min-height: 0;
-            padding: 7rem 2rem 4rem;
+            height: 70vh;
+            min-height: 480px;
+            max-height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -933,10 +933,16 @@
             .fac-secure-grid { grid-template-columns: 1fr 1fr; }
         }
 
-        @media (max-width: 768px) {
-            .fac-hero { padding: 5rem 1.5rem 3rem; }
+        @media (max-width: 992px) {
+            .fac-hero { height: 60vh; min-height: 420px; }
             .fac-hero h1 { font-size: 2.8rem; }
-            .fac-hero p { font-size: 1rem; }
+            .fac-hero p { font-size: 1.05rem; }
+        }
+
+        @media (max-width: 768px) {
+            .fac-hero { height: 55vh; min-height: 380px; }
+            .fac-hero h1 { font-size: 2.2rem; }
+            .fac-hero p { font-size: 0.95rem; }
             .fac-text h2 { font-size: 2.2rem; }
             .fac-features { grid-template-columns: 1fr; }
             .fac-transport-timeline { flex-wrap: wrap; gap: 0.5rem; }
@@ -1145,10 +1151,37 @@
             .fac-health-content { padding: 2rem; }
         }
 
-        @media (max-width: 480px) {
-            .fac-hero { padding: 4rem 1.25rem 2.5rem; }
-            .fac-hero h1 { font-size: 2.2rem; }
+        @media (max-width: 576px) {
+            .fac-hero { height: 50vh; min-height: 340px; }
+            .fac-hero h1 { font-size: 1.7rem; line-height: 1.2; }
+            .fac-hero p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 1.3rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .fac-hero-badge {
+                font-size: 0.6rem;
+                padding: 0.3rem 0.8rem;
+                margin-bottom: 0.85rem;
+                letter-spacing: 1.2px;
+            }
             .fac-hero-btns { flex-direction: column; align-items: center; }
+            .fac-hero-btn { width: 80%; justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .fac-hero { height: 48vh; min-height: 300px; }
+            .fac-hero h1 { font-size: 1.5rem; }
+            .fac-hero p { font-size: 0.78rem; }
+            .fac-hero-badge {
+                font-size: 0.55rem;
+                padding: 0.25rem 0.7rem;
+                letter-spacing: 1px;
+            }
             .fac-stat-num { font-size: 2.5rem; }
         }
 

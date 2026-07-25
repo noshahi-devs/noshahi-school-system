@@ -1408,7 +1408,14 @@ section {
     transition: var(--transition);
   }
 
-  .nav-links > li > a.active, 
+  .nav-links > li > a.active {
+    color: var(--accent-color) !important;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent-color);
+    background: rgba(255, 140, 0, 0.08);
+    border-radius: 0 8px 8px 0;
+  }
+
   .nav-links > li > a:hover {
     color: var(--accent-color) !important;
     padding-left: 0;
@@ -1503,7 +1510,8 @@ section {
     background-color: transparent;
     color: var(--accent-color) !important;
     box-shadow: none;
-    padding-left: 0 !important;
+    padding-left: 0.5rem !important;
+    border-left: 2px solid var(--accent-color);
     transform: none !important;
   }
 

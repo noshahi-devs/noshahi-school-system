@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospectus | Noshahi School System</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="img/NSS logo.jpeg">
+    <meta name="description"
+        content="Official Prospectus of Noshahi School System — Vision & Mission, Academic Programs, Admission Process, Fee Structure, Facilities, Rules & Regulations, and Academic Calendar.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Playful heading font -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ═════════════════════════════════════════════
+           PROSPECTUS PAGE — FRIENDLY SCHOOL-STYLE DESIGN
+        ═════════════════════════════════════════════ */
+        body.prospectus-page { background-color: #F5F7FA; }
+        .prospectus-page .pros-hero-content h1,
+        .prospectus-page .pros-sec-head h2,
+        .prospectus-page .lead-body h3,
+        .prospectus-page .prog-card h3,
+        .prospectus-page .vm-card2 h3,
+        .prospectus-page .pros-cta h2,
+        .prospectus-page .page-heading,
+        .prospectus-page .banner h2 { font-family: 'Baloo 2', 'Segoe UI', sans-serif; }
+        .prospectus-page .doodle-star { position: absolute; color: #FFD166; opacity: .55; pointer-events: none; }
+
+        .prospectus-page .navbar { background-color: rgba(31, 42, 68, 0.9); }
+        .prospectus-page .navbar .logo-text,
+        .prospectus-page .navbar .nav-links > li > a { color: rgba(255,255,255,0.9) !important; }
+        .prospectus-page .navbar .mobile-toggle .bar { background-color: #fff; }
+        .prospectus-page .navbar.scrolled {
+            background-color: rgba(31,42,68,0.94);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,140,0,0.25);
+        }
+        .prospectus-page .navbar.scrolled .logo-text,
+        .prospectus-page .navbar.scrolled .nav-links a { color: rgba(255,255,255,0.9) !important; }
+        .prospectus-page .dropdown-menu a { color: rgba(255,255,255,0.85) !important; }
+
+        /* Hero */
+        .pros-hero {
+            position: relative;
+            padding: 8rem 2rem 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .pros-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(160deg, rgba(11,46,111,0.92) 0%, rgba(6,20,48,0.85) 50%, rgba(31,42,68,0.9) 100%);
+            z-index: 1;
+        }
+        .pros-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .pros-hero-content { position: relative; z-index: 2; color: #fff; text-align: center; max-width: 820px; margin: 0 auto; padding: 0 1rem; }
+        .pros-hero-content .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(247,148,29,0.15); border: 1px solid rgba(247,148,29,0.4);
+            color: #FF8C00; padding: 0.5rem 1.3rem; border-radius: 50px;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 1.75rem; backdrop-filter: blur(10px);
+        }
+        .pros-hero-content h1 { font-size: 3.6rem; font-weight: 700; margin-bottom: 1.1rem; line-height: 1.15; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        .pros-hero-content h1 span { color: #FF8C00; }
+        .pros-hero-content p { font-size: 1.15rem; color: rgba(255,255,255,0.82); max-width: 640px; margin: 0 auto 2.25rem; line-height: 1.8; }
+        .pros-hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .pros-hero-btns .btn { padding: 0.9rem 2.1rem; border-radius: 50px; font-weight: 700; font-size: 0.92rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: all 0.3s ease; }
+        .pros-btn-primary { background: linear-gradient(135deg, #FF8C00, #FFB347); color: #fff; box-shadow: 0 8px 24px rgba(255,140,0,0.35); }
+        .pros-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,140,0,0.45); }
+        .pros-btn-outline { background: rgba(255,255,255,0.06); border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+        .pros-btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.14); transform: translateY(-3px); }
+
+        /* Table of Contents */
+        .pros-toc { background: #fff; border-bottom: 1px solid rgba(31,42,68,0.08); position: sticky; top: 0; z-index: 50; overflow-x: auto; }
+        .pros-toc-inner { display: flex; gap: 0.4rem; padding: 0.85rem 2rem; max-width: 1300px; margin: 0 auto; white-space: nowrap; }
+        .pros-toc-inner a {
+            font-size: 0.82rem; font-weight: 600; color: #475569; padding: 0.5rem 1rem;
+            border-radius: 30px; text-decoration: none; transition: all 0.25s ease; flex-shrink: 0;
+        }
+        .pros-toc-inner a:hover { background: rgba(255,140,0,0.1); color: #FF8C00; }
+
+        /* Generic Section Header */
+        .pros-sec { padding: 5rem 0; }
+        .pros-sec.alt { background: #fff; }
+        .pros-sec-head { text-align: center; margin-bottom: 3.25rem; }
+        .pros-badge {
+            display: inline-flex; align-items: center; gap: 8px; padding: 0.4rem 1.2rem; border-radius: 30px;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .pros-badge.o { background: rgba(255,140,0,0.12); border: 1px solid rgba(255,140,0,0.3); color: #FF8C00; }
+        .pros-badge.b { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.25); color: #3B82F6; }
+        .pros-sec-head h2 { font-size: 2.5rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.6rem; }
+        .pros-sec-head h2 span { color: #FF8C00; }
+        .pros-sec-head p { color: #64748B; font-size: 1.02rem; max-width: 650px; margin: 0 auto; line-height: 1.7; }
+
+        /* Leadership */
+        .lead-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+        .lead-card { background: #fff; border-radius: 20px; border: 1px solid rgba(31,42,68,0.07); box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-direction: column; }
+        .lead-photo { width: 100%; aspect-ratio: 5/4; object-fit: cover; display: block; }
+        .lead-body { padding: 1.75rem; }
+        .lead-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 20px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .lead-card.director .lead-tag { background: rgba(255,140,0,0.12); color: #FF8C00; }
+        .lead-card.principal .lead-tag { background: rgba(59,130,246,0.12); color: #3B82F6; }
+        .lead-body h3 { font-size: 1.4rem; font-weight: 700; color: #1F2A44; margin-bottom: 0.15rem; }
+        .lead-body .role { color: #64748B; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .lead-quote { color: #334155; font-size: 0.94rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 3px solid #FF8C00; }
+        .lead-card.principal .lead-quote { border-left-color: #3B82F6; }
+
+        /* Vision/Mission cards (reuses about.html visual language) */
+        .vm-grid2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .vm-card2 { background: #F8FAFC; border-radius: 20px; padding: 2.25rem 1.75rem; border: 1px solid rgba(31,42,68,0.06); transition: all 0.3s ease; }
+        .vm-card2:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(31,42,68,0.08); background: #fff; }
+        .vm-icon2 { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, #1F2A44, #2d3f5a); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+        .vm-icon2 i { color: #FF8C00; font-size: 1.3rem; }
+        .vm-card2 h3 { font-size: 1.3rem; color: #1F2A44; margin-bottom: 0.6rem; }
+        .vm-card2 p { color: #64748B; font-size: 0.92rem; line-height: 1.75; margin: 0; }
+        .vm-card2 ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+        .vm-card2 ul li { font-size: 0.88rem; color: #374151; display: flex; align-items: flex-start; gap: 8px; }
+        .vm-card2 ul li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #10B981; font-size: 0.75rem; margin-top: 3px; }
+
+        /* Program cards */
+        .prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .prog-card { background: #fff; border-radius: 20px; padding: 2rem; border: 1px solid rgba(31,42,68,0.06); box-shadow: 0 4px 20px rgba(0,0,0,0.04); position: relative; overflow: hidden; transition: all 0.35s ease; }
+        .prog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(31,42,68,0.1); }
+        .prog-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+        .prog-card.c1::before { background: linear-gradient(90deg, #FF8C00, #FFB347); }
+        .prog-card.c2::before { background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+        .prog-card.c3::before { background: linear-gradient(90deg, #10B981, #34D399); }
+        .prog-icon { width: 58px; height: 58px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem; }
+        .prog-card.c1 .prog-icon { background: rgba(255,140,0,0.12); color: #FF8C00; }
+        .prog-card.c2 .prog-icon { background: rgba(59,130,246,0.12); color: #3B82F6; }
+        .prog-card.c3 .prog-icon { background: rgba(16,185,129,0.12); color: #10B981; }
+        .prog-card h3 { font-size: 1.25rem; color: #1F2A44; margin-bottom: 0.6rem; }
+        .prog-card p { color: #64748B; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .prog-card a.more { font-size: 0.85rem; font-weight: 700; color: #1F2A44; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+        .prog-card a.more:hover { color: #FF8C00; }
+
+        /* Admission steps + requirements (reused pattern) */
+        .adm-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: flex-start; }
+        .adm-steps { display: flex; flex-direction: column; gap: 1.25rem; }
+        .adm-step { display: flex; gap: 1.25rem; padding: 1.15rem; border-radius: 14px; background: #F8FAFC; border: 1px solid rgba(31,42,68,0.05); }
+        .adm-num { width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px; background: linear-gradient(135deg, #FF8C00, #FFB347); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; box-shadow: 0 6px 16px rgba(255,140,0,0.3); }
+        .adm-step h4 { font-size: 1rem; color: #1e293b; margin-bottom: 0.25rem; font-weight: 700; }
+        .adm-step p { color: #64748b; font-size: 0.87rem; margin: 0; line-height: 1.6; }
+        .req-card { background: #F8FAFC; border: 1.5px solid rgba(31,42,68,0.08); border-radius: 22px; padding: 2.25rem; }
+        .req-card h3 { font-size: 1.2rem; color: #1F2A44; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+        .req-card h3 i { color: #FF8C00; }
+        .req-list { list-style: none; padding: 0; margin: 0 0 1.75rem 0; display: flex; flex-direction: column; gap: 0.7rem; }
+        .req-list li { font-size: 0.9rem; color: #334155; display: flex; align-items: flex-start; gap: 10px; }
+        .req-list li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #10B981; margin-top: 2px; }
+        .elig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+        .elig-item { background: #fff; border-radius: 10px; padding: 0.7rem 0.9rem; border: 1px solid rgba(31,42,68,0.05); font-size: 0.83rem; }
+        .elig-item strong { color: #1F2A44; display: block; }
+        .elig-item span { color: #64748B; }
+
+        /* Timings */
+        .tim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 950px; margin: 0 auto; }
+        .tim-card { background: #fff; border-radius: 18px; padding: 2rem; box-shadow: 0 8px 25px rgba(31,42,68,0.05); border: 1px solid rgba(31,42,68,0.06); }
+        .tim-card.summer { border-top: 4px solid #FF8C00; }
+        .tim-card.winter { border-top: 4px solid #3B82F6; }
+        .tim-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; }
+        .tim-table th { padding: 0.6rem 0.8rem; font-size: 0.78rem; text-transform: uppercase; color: #64748B; border-bottom: 2px solid #F1F5F9; text-align: left; }
+        .tim-table td { padding: 0.85rem 0.8rem; font-size: 0.92rem; border-bottom: 1px solid #F1F5F9; }
+
+        /* Fee table */
+        .fee-table-wrap { overflow-x: auto; border-radius: 18px; box-shadow: 0 8px 25px rgba(31,42,68,0.05); border: 1px solid rgba(31,42,68,0.06); }
+        table.fee-table { width: 100%; border-collapse: collapse; min-width: 560px; background: #fff; }
+        table.fee-table thead { background: #1F2A44; color: #fff; }
+        table.fee-table th { padding: 0.9rem 1rem; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; }
+        table.fee-table td { padding: 0.75rem 1rem; text-align: center; font-size: 0.92rem; color: #334155; border-bottom: 1px solid #F1F5F9; }
+        table.fee-table tbody tr:nth-child(even) { background: #F8FAFC; }
+        .fee-note { border-left: 4px solid #FF8C00; background: #FFF8F0; padding: 1rem 1.25rem; border-radius: 10px; margin-top: 1.5rem; font-size: 0.88rem; color: #1e293b; }
+
+        /* Facilities */
+        .fac-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .fac-item { background: #fff; border-radius: 16px; padding: 1.5rem 1.25rem; text-align: center; border: 1px solid rgba(31,42,68,0.06); box-shadow: 0 2px 12px rgba(0,0,0,0.03); transition: all 0.3s ease; }
+        .fac-item:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(31,42,68,0.09); }
+        .fac-item i { font-size: 1.5rem; color: #FF8C00; margin-bottom: 0.75rem; display: block; }
+        .fac-item h4 { font-size: 0.92rem; color: #1F2A44; margin-bottom: 0.35rem; font-weight: 700; }
+        .fac-item p { font-size: 0.78rem; color: #64748B; margin: 0; line-height: 1.5; }
+
+        /* Rules & Discipline */
+        .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .rule-card { background: #F8FAFC; border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(31,42,68,0.06); display: flex; gap: 1rem; }
+        .rule-num { width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px; background: rgba(31,42,68,0.08); color: #1F2A44; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; }
+        .rule-card h4 { font-size: 0.95rem; color: #1F2A44; margin-bottom: 0.3rem; }
+        .rule-card p { font-size: 0.83rem; color: #64748B; margin: 0; line-height: 1.6; }
+
+        /* Academic Calendar */
+        .cal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .cal-card { background: #fff; border-radius: 18px; padding: 1.75rem; border: 1px solid rgba(31,42,68,0.06); box-shadow: 0 6px 20px rgba(0,0,0,0.04); }
+        .cal-card i { color: #FF8C00; font-size: 1.3rem; margin-bottom: 0.75rem; display: block; }
+        .cal-card h4 { font-size: 1.02rem; color: #1F2A44; margin-bottom: 0.5rem; }
+        .cal-card p { font-size: 0.85rem; color: #64748B; margin: 0; line-height: 1.65; }
+        .cal-note { text-align: center; color: #64748B; font-size: 0.88rem; margin-top: 2rem; font-style: italic; }
+
+        /* CTA */
+        .pros-cta { background: linear-gradient(135deg, #0B2E6F 0%, #1F2A44 60%, #0A1430 100%); padding: 4.5rem 0; text-align: center; color: #fff; }
+        .pros-cta h2 { font-size: 2.1rem; color: #fff; margin-bottom: 0.75rem; }
+        .pros-cta h2 span { color: #FF8C00; }
+        .pros-cta p { color: rgba(255,255,255,0.75); max-width: 560px; margin: 0 auto 2rem; font-size: 1rem; }
+        .pros-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .lead-grid, .vm-grid2, .prog-grid, .adm-grid, .tim-grid, .rules-grid, .cal-grid { grid-template-columns: 1fr; }
+            .fac-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .pros-hero-content h1 { font-size: 2.1rem; }
+            .pros-hero { padding: 6.5rem 1.25rem 3.5rem; }
+            .pros-sec { padding: 3.25rem 0; }
+            .pros-sec-head h2 { font-size: 1.8rem; }
+            .fac-grid { grid-template-columns: 1fr 1fr; }
+            .elig-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body class="prospectus-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                <span class="logo-text">Noshahi School System</span>
+            </a>
+            <div class="mobile-toggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">Academics <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academics Overview</a></li>
+                        <li><a href="computer-education.html">Computer Ed</a></li>
+                        <li><a href="islamic-education.html">Islamic Ed</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="campus-facilities.html">Facilities <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Faculty</a></li>
+                    </ul>
+                </li>
+                <li><a href="student-activities.html">Activities</a></li>
+                <li><a href="prospectus.html">Prospectus</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="admissions.html" class="nav-btn btn btn-accent">Enroll Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pros-hero">
+        <img src="img/school banner.png" alt="Noshahi School System Campus" class="pros-hero-bg">
+        <i class="fas fa-star doodle-star" style="top:18%; left:8%; font-size:22px; z-index:2;"></i>
+        <i class="fas fa-star doodle-star" style="top:28%; right:10%; font-size:16px; z-index:2;"></i>
+        <i class="fas fa-graduation-cap doodle-star" style="bottom:14%; left:12%; font-size:26px; z-index:2;"></i>
+        <div class="pros-hero-content">
+            <div class="badge"><i class="fas fa-book-open"></i> Institutional Prospectus</div>
+            <h1>Noshahi School System <span>Prospectus</span></h1>
+            <p>A complete guide to our vision, academic programs, admission process, fee structure, facilities, and policies — everything a prospective family needs to know.</p>
+            <div class="pros-hero-btns">
+                <a href="prospectus-print.html" target="_blank" class="btn pros-btn-primary"><i class="fas fa-print"></i> Download / Print Prospectus</a>
+                <a href="admissions.html" class="btn pros-btn-outline"><i class="fas fa-user-graduate"></i> Apply for Admission</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="pros-toc">
+        <div class="pros-toc-inner">
+            <a href="#leadership">Leadership Message</a>
+            <a href="#about">Vision &amp; Mission</a>
+            <a href="#programs">Academic Programs</a>
+            <a href="#admission">Admission Process</a>
+            <a href="#timings">School Timings</a>
+            <a href="#fees">Fee Structure</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#rules">Rules &amp; Discipline</a>
+            <a href="#calendar">Academic Calendar</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main class="page-content">
+
+        <!-- Leadership Message -->
+        <section id="leadership" class="pros-sec alt">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge o"><i class="fas fa-quote-left"></i> A Word From Our Leadership</div>
+                    <h2>Message From The <span>Director &amp; Principal</span></h2>
+                    <p>Guiding Noshahi School System towards academic excellence and strong character building.</p>
+                </div>
+                <div class="lead-grid">
+                    <div class="lead-card director">
+                        <img src="img/director-placeholder.svg" alt="Director Photo — placeholder, to be replaced" class="lead-photo">
+                        <div class="lead-body">
+                            <span class="lead-tag">Director's Message</span>
+                            <h3>Adeel Noshahi</h3>
+                            <p class="role">Director, Noshahi School System</p>
+                            <p class="lead-quote">"Welcome to Noshahi School System. We combine technology, practical education, and real-world learning to prepare students for life. Our 'Learn to Earn' philosophy builds confidence, leadership, and modern skills in every child."</p>
+                        </div>
+                    </div>
+                    <div class="lead-card principal">
+                        <img src="img/principal-placeholder.svg" alt="Principal Photo — placeholder, to be replaced" class="lead-photo">
+                        <div class="lead-body">
+                            <span class="lead-tag">Principal's Message</span>
+                            <h3>Aqeel Noshahi</h3>
+                            <p class="role">Principal, Noshahi School System</p>
+                            <p class="lead-quote">"We provide a safe, disciplined, and inspiring learning environment where students thrive. Through modern teaching methods, trained teachers, and strong values, we focus on academic excellence and parent communication."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Vision Mission Values -->
+        <section id="about" class="pros-sec">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge o"><i class="fas fa-star"></i> Who We Are</div>
+                    <h2>Our <span>Vision</span>, Mission &amp; Values</h2>
+                    <p>We provide modern academic education with a special focus on Computer Education and Islamic character building, from KG to Grade 12.</p>
+                </div>
+                <div class="vm-grid2">
+                    <div class="vm-card2">
+                        <div class="vm-icon2"><i class="fas fa-eye"></i></div>
+                        <h3>Our Vision</h3>
+                        <p>To prepare students for a future of innovation, leadership, and lifelong success through quality education.</p>
+                    </div>
+                    <div class="vm-card2">
+                        <div class="vm-icon2"><i class="fas fa-bullseye"></i></div>
+                        <h3>Our Mission</h3>
+                        <p>We integrate technology, business, and interactive learning into education to develop practical skills, critical thinking, and creativity — preparing students to excel academically and professionally.</p>
+                    </div>
+                    <div class="vm-card2">
+                        <div class="vm-icon2"><i class="fas fa-heart"></i></div>
+                        <h3>Core Values</h3>
+                        <ul>
+                            <li>Academic Excellence &amp; Practical Learning</li>
+                            <li>Islamic Character &amp; Moral Integrity</li>
+                            <li>Safe, Clean &amp; Supportive Environment</li>
+                            <li>Continuous Parent Communication</li>
+                            <li>Respect, Compassion &amp; Discipline</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Programs -->
+        <section id="programs" class="pros-sec alt">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge b"><i class="fas fa-layer-group"></i> What We Offer</div>
+                    <h2>Our Academic <span>Programs</span></h2>
+                    <p>School: KG&ndash;10 (Girls 6&ndash;10). Academy: KG&ndash;12 (Boys 6&ndash;12), with Computer Science offered at Matric level.</p>
+                </div>
+                <div class="prog-grid">
+                    <div class="prog-card c1">
+                        <div class="prog-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Academic Education</h3>
+                        <p>A structured curriculum from KG to Grade 12 building strong fundamentals in core subjects, critical thinking, and academic discipline.</p>
+                        <a href="academics.html" class="more">View Academics <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="prog-card c2">
+                        <div class="prog-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Computer Education</h3>
+                        <p>Computer is taught as a core subject at every grade level &mdash; from basic literacy to advanced, hands-on practical skills in our dedicated lab.</p>
+                        <a href="computer-education.html" class="more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="prog-card c3">
+                        <div class="prog-icon"><i class="fas fa-book-quran"></i></div>
+                        <h3>Islamic Education</h3>
+                        <p>Nazra Quran with Tajweed, daily Duas, and Akhlaqiat &mdash; nurturing Islamic character and moral values alongside academics.</p>
+                        <a href="islamic-education.html" class="more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admission Process -->
+        <section id="admission" class="pros-sec">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge o"><i class="fas fa-clipboard-list"></i> Get Started</div>
+                    <h2>Admission <span>Process &amp; Requirements</span></h2>
+                    <p>To apply for admission, parents or guardians are requested to visit the Admission Office during school hours.</p>
+                </div>
+                <div class="adm-grid">
+                    <div class="adm-steps">
+                        <div class="adm-step">
+                            <div class="adm-num">1</div>
+                            <div>
+                                <h4><i class="fas fa-building"></i> Office Visit</h4>
+                                <p>Visit the Admission Office during school timings.</p>
+                            </div>
+                        </div>
+                        <div class="adm-step">
+                            <div class="adm-num">2</div>
+                            <div>
+                                <h4><i class="fas fa-file-arrow-up"></i> Document Submission</h4>
+                                <p>Submit all required documents to the Admission Officer.</p>
+                            </div>
+                        </div>
+                        <div class="adm-step">
+                            <div class="adm-num">3</div>
+                            <div>
+                                <h4><i class="fas fa-file-lines"></i> Form Completion &amp; Review</h4>
+                                <p>Our Admission Officer will complete and review the admission form with the parent/guardian.</p>
+                            </div>
+                        </div>
+                        <div class="adm-step">
+                            <div class="adm-num">4</div>
+                            <div>
+                                <h4><i class="fas fa-signature"></i> Signature &amp; Final Approval</h4>
+                                <p>The completed form must be signed by the parent/guardian and the Principal. Once approved, admission is complete.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="req-card">
+                        <h3><i class="fas fa-file-contract"></i> Required Documents</h3>
+                        <ul class="req-list">
+                            <li>Photocopy of the student's B-Form</li>
+                            <li>Photocopy of the Father's CNIC</li>
+                            <li>Home Contact Number</li>
+                            <li>Home WhatsApp Number</li>
+                            <li>Four (4) recent passport-size photographs of the student</li>
+                            <li>School Leaving Certificate (if applicable)</li>
+                        </ul>
+                        <h3><i class="fas fa-info-circle"></i> Eligibility Criteria</h3>
+                        <div class="elig-row">
+                            <div class="elig-item"><strong>Play Group</strong><span>3+ Years</span></div>
+                            <div class="elig-item"><strong>Nursery</strong><span>4+ Years</span></div>
+                            <div class="elig-item"><strong>Prep</strong><span>5+ Years</span></div>
+                            <div class="elig-item"><strong>Higher Classes</strong><span>Age per previous grade</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- School Timings -->
+        <section id="timings" class="pros-sec alt">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge b"><i class="fas fa-clock"></i> School Schedule</div>
+                    <h2>School <span>Timings</span></h2>
+                    <p>Operational schedules for Summer and Winter academic sessions. Timings are subject to change in accordance with government directives.</p>
+                </div>
+                <div class="tim-grid">
+                    <div class="tim-card summer">
+                        <h3 style="font-size:1.4rem; color:#1F2A44; display:flex; align-items:center; gap:8px;"><i class="fas fa-sun" style="color:#FF8C00;"></i> Summer Schedule</h3>
+                        <table class="tim-table">
+                            <thead><tr><th>Program</th><th>Timing</th></tr></thead>
+                            <tbody>
+                                <tr><td>School</td><td style="color:#3B82F6; font-weight:700;">7:30 AM &ndash; 1:00 PM</td></tr>
+                                <tr><td>Academy</td><td style="color:#FF8C00; font-weight:700;">4:00 PM &ndash; 7:00 PM</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tim-card winter">
+                        <h3 style="font-size:1.4rem; color:#1F2A44; display:flex; align-items:center; gap:8px;"><i class="fas fa-snowflake" style="color:#3B82F6;"></i> Winter Schedule</h3>
+                        <table class="tim-table">
+                            <thead><tr><th>Program</th><th>Timing</th></tr></thead>
+                            <tbody>
+                                <tr><td>School</td><td style="color:#3B82F6; font-weight:700;">8:30 AM &ndash; 2:00 PM</td></tr>
+                                <tr><td>Academy</td><td style="color:#FF8C00; font-weight:700;">3:30 PM &ndash; 7:00 PM</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fee Structure -->
+        <section id="fees" class="pros-sec">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge o"><i class="fas fa-money-bill-wave"></i> Investing In Education</div>
+                    <h2>Academic <span>Fee Structure</span></h2>
+                    <p>Affordable, transparent fees with no hidden charges. Admission fee is charged once; monthly fee is payable every month.</p>
+                </div>
+                <div class="fee-table-wrap">
+                    <table class="fee-table">
+                        <thead>
+                            <tr><th>Class</th><th>Admission Fee</th><th>Monthly Fee</th><th>Paper Fund</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Play</td><td>Rs. 1,000</td><td>Rs. 800</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Nursery</td><td>Rs. 1,000</td><td>Rs. 800</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Prep</td><td>Rs. 1,000</td><td>Rs. 800</td><td>Rs. 1,500</td></tr>
+                            <tr><td>One</td><td>Rs. 1,000</td><td>Rs. 900</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Two</td><td>Rs. 1,000</td><td>Rs. 900</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Three</td><td>Rs. 1,000</td><td>Rs. 1,000</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Four</td><td>Rs. 1,000</td><td>Rs. 1,100</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Five</td><td>Rs. 1,000</td><td>Rs. 1,200</td><td>Rs. 1,500</td></tr>
+                            <tr><td>Six</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 2,000</td></tr>
+                            <tr><td>Seven</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 2,000</td></tr>
+                            <tr><td>Eight</td><td>Rs. 1,000</td><td>Rs. 1,500</td><td>Rs. 2,000</td></tr>
+                            <tr><td>Nine</td><td>Rs. 1,500</td><td>Rs. 2,000</td><td>Rs. 3,000</td></tr>
+                            <tr><td>Ten</td><td>Rs. 1,500</td><td>Rs. 2,000</td><td>Rs. 3,000</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="fee-note">
+                    <strong>Important Instructions:</strong> Admission Fee is charged once at the time of admission &bull; Monthly fee must be deposited before the <strong>10th</strong> of every month &bull; Paper Fund is collected annually &bull; Fees once paid are non-refundable &bull; Sibling discounts may be available &mdash; ask the Admission Office for details.
+                </div>
+                <div style="text-align:center; margin-top: 2rem;">
+                    <a href="fee-structure.html" class="btn pros-btn-primary" style="background:linear-gradient(135deg,#FF8C00,#FFB347); color:#fff; padding:0.85rem 2rem; border-radius:50px; text-decoration:none; font-weight:700; font-size:0.9rem; display:inline-flex; align-items:center; gap:8px;"><i class="fas fa-print"></i> View / Print Fee Voucher</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities -->
+        <section id="facilities" class="pros-sec alt">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge b"><i class="fas fa-school"></i> Campus Life</div>
+                    <h2>Campus <span>Facilities</span></h2>
+                    <p>A safe, well-equipped campus designed to support learning, safety, and student wellbeing.</p>
+                </div>
+                <div class="fac-grid">
+                    <div class="fac-item"><i class="fas fa-laptop"></i><h4>Computer Lab</h4><p>Dedicated lab for hands-on practical learning.</p></div>
+                    <div class="fac-item"><i class="fas fa-video"></i><h4>24/7 CCTV Monitoring</h4><p>Complete campus security coverage.</p></div>
+                    <div class="fac-item"><i class="fas fa-user-shield"></i><h4>Security Staff</h4><p>On-site staff ensuring a safe environment.</p></div>
+                    <div class="fac-item"><i class="fas fa-fire-extinguisher"></i><h4>Fire Safety</h4><p>Fire safety equipment across the campus.</p></div>
+                    <div class="fac-item"><i class="fas fa-bus"></i><h4>Safe Transportation</h4><p>GPS-tracked vehicles with professional drivers.</p></div>
+                    <div class="fac-item"><i class="fas fa-notes-medical"></i><h4>Medical Support</h4><p>Basic medical support available on campus.</p></div>
+                    <div class="fac-item"><i class="fas fa-clipboard-check"></i><h4>Disciplined Environment</h4><p>Structured, respectful learning atmosphere.</p></div>
+                    <div class="fac-item"><i class="fas fa-id-card-clip"></i><h4>Visitor Management</h4><p>Controlled campus entry for student safety.</p></div>
+                </div>
+                <div style="text-align:center; margin-top: 2.5rem;">
+                    <a href="campus-facilities.html" class="more" style="color:#1F2A44; font-weight:700; font-size:0.92rem; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">View All Facilities <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rules & Discipline -->
+        <section id="rules" class="pros-sec">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge o"><i class="fas fa-scale-balanced"></i> Code of Conduct</div>
+                    <h2>Rules &amp; <span>Discipline</span></h2>
+                    <p>Every student is expected to uphold the following standards to maintain a positive, safe, and productive learning environment.</p>
+                </div>
+                <div class="rules-grid">
+                    <div class="rule-card"><div class="rule-num">01</div><div><h4>Punctuality &amp; Attendance</h4><p>Students must arrive on time and maintain regular attendance. Prior leave application is required for planned absence.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">02</div><div><h4>School Uniform</h4><p>Complete summer/winter uniform, including PE kit on designated days, is mandatory at all times.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">03</div><div><h4>Respect &amp; Behaviour</h4><p>Courteous conduct towards teachers, staff, and fellow students is expected at all times, on and off campus.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">04</div><div><h4>Homework &amp; Academics</h4><p>Assigned homework and class work must be completed regularly and submitted on time.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">05</div><div><h4>Campus Property</h4><p>Students are responsible for the care of school property, books, and equipment issued to them.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">06</div><div><h4>Fee Payment</h4><p>Monthly fee must be paid before the 10th of each month to avoid late charges or suspension of classes.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">07</div><div><h4>Mobile &amp; Electronic Devices</h4><p>Personal mobile phones and electronic gadgets are not permitted on campus without prior permission.</p></div></div>
+                    <div class="rule-card"><div class="rule-num">08</div><div><h4>Parent Communication</h4><p>Parents/guardians are expected to attend PTMs and respond promptly to school communication.</p></div></div>
+                </div>
+                <p class="cal-note">A detailed Code of Conduct handbook is shared with parents at the time of admission.</p>
+            </div>
+        </section>
+
+        <!-- Academic Calendar -->
+        <section id="calendar" class="pros-sec alt">
+            <div class="container">
+                <div class="pros-sec-head">
+                    <div class="pros-badge b"><i class="fas fa-calendar-days"></i> Session Planning</div>
+                    <h2>Academic <span>Calendar</span></h2>
+                    <p>A general overview of how the academic year is structured at Noshahi School System.</p>
+                </div>
+                <div class="cal-grid">
+                    <div class="cal-card">
+                        <i class="fas fa-flag-checkered"></i>
+                        <h4>Session Structure</h4>
+                        <p>The academic year is divided into two terms, each concluding with a formal assessment period.</p>
+                    </div>
+                    <div class="cal-card">
+                        <i class="fas fa-pen-to-square"></i>
+                        <h4>Assessments</h4>
+                        <p>Regular monthly tests, a Mid-Term examination, and an Annual/Final examination are held each session.</p>
+                    </div>
+                    <div class="cal-card">
+                        <i class="fas fa-people-roof"></i>
+                        <h4>Parent-Teacher Meetings</h4>
+                        <p>PTMs are held periodically to discuss student progress and share report cards directly with parents.</p>
+                    </div>
+                    <div class="cal-card">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <h4>Vacations</h4>
+                        <p>Summer and winter breaks are observed as per the official school calendar and government directives.</p>
+                    </div>
+                    <div class="cal-card">
+                        <i class="fas fa-star-and-crescent"></i>
+                        <h4>Islamic &amp; National Days</h4>
+                        <p>Islamic and national occasions are observed with special assemblies, Naat/Qirat, and commemorative activities.</p>
+                    </div>
+                    <div class="cal-card">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Annual Prize Distribution</h4>
+                        <p>An annual ceremony recognizes outstanding academic and co-curricular achievement across all grades.</p>
+                    </div>
+                </div>
+                <p class="cal-note">Exact dates are announced via official circulars/notice board at the start of each academic session &mdash; contact the school office for the current calendar.</p>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section id="contact" class="pros-cta">
+            <div class="container">
+                <h2>Ready To Join <span>Noshahi School System?</span></h2>
+                <p>Visit our campus, speak with our Admission Office, or reach out directly &mdash; we're happy to answer every question.</p>
+                <div class="pros-cta-btns">
+                    <a href="admissions.html" class="btn pros-btn-primary"><i class="fas fa-user-graduate"></i> Start Admission</a>
+                    <a href="tel:+923216892097" class="btn pros-btn-outline"><i class="fas fa-phone-alt"></i> Call 0321-6892097</a>
+                    <a href="https://wa.me/923216892097" target="_blank" class="btn pros-btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                </div>
+                <p style="margin-top:2rem; font-size:0.85rem; color:rgba(255,255,255,0.6);">
+                    <i class="fas fa-map-marker-alt"></i> Village 97 JB, Gojra, Punjab, Pakistan &nbsp;|&nbsp;
+                    <i class="fas fa-envelope"></i> info@noshahischoolsystem.com
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="premium-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col brand-col">
+                    <div class="footer-logo">
+                        <img src="img/NSS logo.jpeg" alt="Noshahi School System Logo">
+                        <span class="logo-text">Noshahi School System</span>
+                    </div>
+                    <p class="footer-desc">Empowering the next generation with modern academics, advanced computer education, and strong Islamic values.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="social-icon" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/923216892097" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="fee-structure.html">Fee Structure</a></li>
+                        <li><a href="prospectus.html">Prospectus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col links-col">
+                    <h3>Our Programs</h3>
+                    <ul>
+                        <li><a href="computer-education.html">Computer Education</a></li>
+                        <li><a href="islamic-education.html">Islamic Education</a></li>
+                        <li><a href="campus-facilities.html">Campus Facilities</a></li>
+                        <li><a href="faculty.html">Our Faculty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact-col">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Village+97+JB+Gojra+Pakistan" target="_blank">Village 97 JB, Gojra, Pakistan</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="phone-group">
+                                <a href="tel:03281642297">0328-1642297</a>
+                                <a href="https://wa.me/923216892097" target="_blank"><i class="fab fa-whatsapp" style="color:#25D366; margin-right:4px;"></i>0321-6892097</a>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@noshahischoolsystem.com">info@noshahischoolsystem.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Noshahi School System. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <!-- Floating Widgets -->
+    <div class="floating-widgets">
+        <a href="https://wa.me/923281642297" target="_blank" class="whatsapp-btn" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button id="scrollToTopBtn" class="scroll-top-btn" title="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+</body>
+
+</html>

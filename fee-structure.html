@@ -12,7 +12,7 @@
 
 @page{
     size:A4;
-    margin:12mm;
+    margin:0;
 }
 
 body{
@@ -43,6 +43,21 @@ body{
     height:105px;
     object-fit:cover;
     border-radius:50%;
+
+}
+
+.header{
+
+    display:grid;
+    grid-template-columns:105px 1fr 105px;
+    align-items:center;
+    gap:15px;
+
+}
+
+.header-text{
+
+    text-align:center;
 
 }
 
@@ -149,17 +164,27 @@ tbody tr:nth-child(even){
 
 @media print{
 
+html,
 body{
 
+    width:210mm;
+    height:297mm;
+    margin:0;
+    padding:0;
     background:white;
 
 }
 
 .paper{
 
+    width:100%;
+    height:100%;
+    min-height:auto;
     margin:0;
+    padding:10mm;
     box-shadow:none;
     border:2px solid #0d2d62;
+    box-sizing:border-box;
 
 }
 
@@ -183,9 +208,11 @@ body{
 
 <div class="paper">
 
-<div class="text-center">
+<div class="header">
 
-<img src="NSS logo.jpeg" class="logo mb-3">
+<img src="NSS logo.jpeg" class="logo">
+
+<div class="header-text">
 
 <h1 class="school-name">
 NOSHAHI SCHOOL SYSTEM
@@ -195,9 +222,11 @@ NOSHAHI SCHOOL SYSTEM
 Academic Fee Structure
 </div>
 
-<div class="line"></div>
+</div>
 
 </div>
+
+<div class="line"></div>
 
 <table class="table table-bordered">
 
@@ -219,20 +248,21 @@ Academic Fee Structure
 
 <tbody>
 
-<tr><td>Play</td><td>Rs. 1,000</td><td>Rs. 800</td><td>Rs. 1,500</td></tr>
-<tr><td>Nursery</td><td>Rs. 1,000</td><td>Rs. 800</td><td>Rs. 1,500</td></tr>
-<tr><td>Prep</td><td>Rs. 1,000</td><td>Rs. 800</td><td>Rs. 1,500</td></tr>
-<tr><td>One</td><td>Rs. 1,000</td><td>Rs. 900</td><td>Rs. 1,500</td></tr>
-<tr><td>Two</td><td>Rs. 1,000</td><td>Rs. 900</td><td>Rs. 1,500</td></tr>
-<tr><td>Three</td><td>Rs. 1,000</td><td>Rs. 1,000</td><td>Rs. 1,500</td></tr>
-<tr><td>Four</td><td>Rs. 1,000</td><td>Rs. 1,100</td><td>Rs. 1,500</td></tr>
-<tr><td>Five</td><td>Rs. 1,000</td><td>Rs. 1,200</td><td>Rs. 1,500</td></tr>
-<tr><td>Six</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 2,000</td></tr>
-<tr><td>Seven</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 2,000</td></tr>
-<tr><td>Eight</td><td>Rs. 1,000</td><td>Rs. 1,500</td><td>Rs. 2,000</td></tr>
-<tr><td>Nine</td><td>Rs. 1,500</td><td>Rs. 2,000</td><td>Rs. 3,000</td></tr>
-<tr><td>Ten</td><td>Rs. 1,500</td><td>Rs. 2,000</td><td>Rs. 3,000</td></tr>
-
+<tr><td>Playgroup</td><td>Rs. 1,000</td><td>Rs. 1,000</td><td>Rs. 1,500</td></tr>
+<tr><td>Nursery</td><td>Rs. 1,000</td><td>Rs. 1,000</td><td>Rs. 1,500</td></tr>
+<tr><td>Prep</td><td>Rs. 1,000</td><td>Rs. 1,000</td><td>Rs. 1,500</td></tr>
+<tr><td>One</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 1,500</td></tr>
+<tr><td>Two</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 1,500</td></tr>
+<tr><td>Three</td><td>Rs. 1,000</td><td>Rs. 1,400</td><td>Rs. 1,500</td></tr>
+<tr><td>Four</td><td>Rs. 1,000</td><td>Rs. 1,500</td><td>Rs. 1,500</td></tr>
+<tr><td>Five</td><td>Rs. 1,000</td><td>Rs. 1,500</td><td>Rs. 1,500</td></tr>
+<tr><td>Six</td><td>Rs. 1,000</td><td>Rs. 1,800</td><td>Rs. 2,000</td></tr>
+<tr><td>Seven</td><td>Rs. 1,000</td><td>Rs. 1,800</td><td>Rs. 2,000</td></tr>
+<tr><td>Eight</td><td>Rs. 1,000</td><td>Rs. 2,000</td><td>Rs. 2,000</td></tr>
+<tr><td>Nine</td><td>Rs. 1,500</td><td>Rs. 2,800</td><td>Rs. 3,000</td></tr>
+<tr><td>Ten</td><td>Rs. 1,500</td><td>Rs. 2,800</td><td>Rs. 3,000</td></tr>
+<tr><td>1<sup>st</sup> Year</td><td>Rs. 2,000</td><td>Rs. 3,500</td><td>Rs. 3,000</td></tr>
+<tr><td>2<sup>nd</sup> Year</td><td>Rs. 2,000</td><td>Rs. 3,500</td><td>Rs. 3,000</td></tr>
 </tbody>
 
 </table>
@@ -242,25 +272,10 @@ Academic Fee Structure
 <h5>Important Instructions</h5>
 
 <ul class="mb-0">
-<li>Admission Fee is charged once at the time of admission.</li>
-<li>Monthly fee must be deposited before the <strong>10th</strong> of every month.</li>
+<li>Monthly fee must be deposited before the <strong>5<sup>th</sup></strong> of every month.</li>
 <li>Paper Fund is collected annually.</li>
 <li>Fees once paid are non-refundable.</li>
 </ul>
-
-</div>
-
-<div class="footer">
-
-<strong style="color:#0d2d62;">
-NOSHAHI SCHOOL SYSTEM
-</strong>
-
-<br>
-
-<span style="color:#f58220;">
-Learn To Earn
-</span>
 
 </div>
 

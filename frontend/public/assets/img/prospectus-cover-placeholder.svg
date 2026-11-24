@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B2E6F"/>
+      <stop offset="55%" stop-color="#1F2A44"/>
+      <stop offset="100%" stop-color="#0A1430"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="700" fill="url(#cover)"/>
+  <rect width="1200" height="700" fill="url(#grid)"/>
+  <circle cx="1000" cy="150" r="220" fill="#FF8C00" fill-opacity="0.08"/>
+  <circle cx="150" cy="600" r="180" fill="#FF8C00" fill-opacity="0.06"/>
+  <text x="600" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#FFFFFF" opacity="0.85">CAMPUS PHOTO PLACEHOLDER</text>
+  <text x="600" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#FFB347">Replace: img/prospectus-cover-placeholder.svg</text>
+</svg>

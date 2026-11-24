@@ -1,0 +1,60 @@
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" routerLink="/" aria-label="Noshahi School System home">
+      <img src="/assets/img/NSS logo.jpeg" alt="Noshahi School System">
+      <span>Noshahi <b>School System</b></span>
+    </a>
+    <button class="menu-button" type="button" aria-label="Toggle navigation" onclick="document.querySelector('.site-nav')?.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/academics" routerLinkActive="active">Academics</a>
+      <a routerLink="/campus-facilities" routerLinkActive="active">Facilities</a>
+      <a routerLink="/activities" routerLinkActive="active">Activities</a>
+      <a routerLink="/prospectus" routerLinkActive="active">Prospectus</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+      <a class="nav-enroll" routerLink="/login">Login</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="/assets/img/NSS logo.jpeg" alt="">
+        <strong>Noshahi School System</strong>
+      </div>
+      <p>Modern academics, computer skills and Islamic values for confident future-ready students.</p>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <a routerLink="/about">About Us</a>
+      <a routerLink="/academics">Academics</a>
+      <a routerLink="/campus-facilities">Facilities</a>
+      <a routerLink="/activities">Activities</a>
+    </div>
+    <div>
+      <h3>Admissions</h3>
+      <a routerLink="/admissions">Apply Now</a>
+      <a routerLink="/fee-structure">Fee Structure</a>
+      <a routerLink="/prospectus">Prospectus</a>
+      <a routerLink="/contact">Contact Us</a>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <p>Phone: <a href="tel:+923001234567">+92 321 6892097</a></p>
+      <p>Email: <a href="mailto:noshahischoolsystem@gmail.com">noshahischoolsystem@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Noshahi School System</span>
+    <span>Education with Character &amp; Technology</span>
+  </div>
+</footer>

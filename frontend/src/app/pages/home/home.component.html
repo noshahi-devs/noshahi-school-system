@@ -1,0 +1,73 @@
+<section class="hero">
+  <img src="/assets/img/hero_banner.png" alt="Noshahi School campus" class="hero-bg-img">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-card">
+      <div class="eyebrow"><span></span> Admissions Open 2026-27</div>
+      <h1>Where Learning Meets <em>Character</em></h1>
+      <p>Modern education, strong computer skills and timeless Islamic values — preparing every child to lead with confidence.</p>
+      <div class="hero-actions">
+        <a class="button primary" routerLink="/admissions">Apply for Admission</a>
+        <a class="button ghost" routerLink="/about">Discover Our School</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  @for (item of trustItems(); track item.title) {
+    <div class="trust-item">
+      <strong>{{ item.title }}</strong>
+      <span>{{ item.subtitle }}</span>
+    </div>
+  }
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <div class="eyebrow orange">Why Noshahi</div>
+    <h2>Education Built for the <span>Future</span></h2>
+    <p>We combine academic excellence with practical skills and strong moral development.</p>
+  </div>
+  <div class="feature-grid">
+    @for (feature of features(); track feature.number) {
+      <article class="card-3d">
+        <div class="icon" [class]="feature.colorClass ? 'icon ' + feature.colorClass : 'icon'">
+          {{ feature.number }}
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+<section class="programs">
+  <div class="program-image">
+    <img src="/assets/img/computer-lab.png" alt="Students in a computer laboratory">
+  </div>
+  <div class="program-content">
+    <div class="eyebrow orange">Our Programs</div>
+    <h2>Two paths. One strong <span>foundation.</span></h2>
+    @for (prog of programs(); track prog.number) {
+      <div class="program-card">
+        <div class="number" [class]="prog.colorClass ? 'number ' + prog.colorClass : 'number'">
+          {{ prog.number }}
+        </div>
+        <div>
+          <h3>{{ prog.title }}</h3>
+          <p>{{ prog.description }}</p>
+          <a [routerLink]="prog.link">Explore program →</a>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="cta">
+  <div>
+    <div class="eyebrow">Admissions 2026-27</div>
+    <h2>Give your child a strong beginning.</h2>
+  </div>
+  <a class="button white" routerLink="/admissions">Start Your Application</a>
+</section>

@@ -1,0 +1,122 @@
+<div class="login-wrapper">
+  <!-- Floating Background Particles -->
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+  <div class="particle p5"></div>
+
+  <div class="scene">
+    <div class="neon-ring"></div>
+    <div class="neon-ring-2"></div>
+
+    <div class="card" [class.signup-mode]="isSignUp()">
+      <!-- LOGIN FACE -->
+      <div class="card-face card-front">
+        <div class="form-box">
+          <h2>WELCOME</h2>
+          <p class="form-subtitle">Login to Noshahi School System</p>
+
+          <form (submit)="onLogin($event)">
+            <div class="input-box">
+              <input
+                type="email"
+                placeholder="Email Address"
+                [ngModel]="loginEmail()"
+                (ngModelChange)="loginEmail.set($event)"
+                name="loginEmail"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <input
+                [type]="showLoginPassword() ? 'text' : 'password'"
+                placeholder="Password"
+                [ngModel]="loginPassword()"
+                (ngModelChange)="loginPassword.set($event)"
+                name="loginPassword"
+                required
+              />
+              <span class="password-toggle" (click)="toggleLoginPassword()" role="button" aria-label="Toggle password visibility">
+                {{ showLoginPassword() ? '🔒' : '👁' }}
+              </span>
+            </div>
+
+            <div class="options">
+              <label>
+                <input
+                  type="checkbox"
+                  [ngModel]="rememberMe()"
+                  (ngModelChange)="rememberMe.set($event)"
+                  name="rememberMe"
+                /> Remember me
+              </label>
+              <a href="#">Forgot?</a>
+            </div>
+
+            <button type="submit" class="btn" [class.loading]="loginLoading()">LOGIN</button>
+          </form>
+
+          <p class="switch">
+            Don't have an account? <span (click)="flipCard()" role="button">Sign Up</span>
+          </p>
+          <p class="message" [class.show]="loginMessage()">{{ loginMessage() }}</p>
+        </div>
+      </div>
+
+      <!-- SIGN UP FACE -->
+      <div class="card-face card-back">
+        <div class="form-box">
+          <h2>SIGN UP</h2>
+          <p class="form-subtitle">Create your school account</p>
+
+          <form (submit)="onSignup($event)">
+            <div class="input-box">
+              <input
+                type="text"
+                placeholder="Full Name"
+                [ngModel]="signupName()"
+                (ngModelChange)="signupName.set($event)"
+                name="signupName"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <input
+                type="email"
+                placeholder="Email Address"
+                [ngModel]="signupEmail()"
+                (ngModelChange)="signupEmail.set($event)"
+                name="signupEmail"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <input
+                [type]="showSignupPassword() ? 'text' : 'password'"
+                placeholder="Password"
+                [ngModel]="signupPassword()"
+                (ngModelChange)="signupPassword.set($event)"
+                name="signupPassword"
+                required
+              />
+              <span class="password-toggle" (click)="toggleSignupPassword()" role="button" aria-label="Toggle password visibility">
+                {{ showSignupPassword() ? '🔒' : '👁' }}
+              </span>
+            </div>
+
+            <button type="submit" class="btn" [class.loading]="signupLoading()">CREATE ACCOUNT</button>
+          </form>
+
+          <p class="switch">
+            Already have an account? <span (click)="flipCard()" role="button">Login</span>
+          </p>
+          <p class="message" [class.show]="signupMessage()">{{ signupMessage() }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

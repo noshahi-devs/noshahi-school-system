@@ -1,0 +1,26 @@
+<section class="page-hero">
+  <div class="hero-container">
+    <div class="page-hero-card">
+      <div class="eyebrow">Learning at Noshahi</div>
+      <h1>Academics</h1>
+      <p>A balanced curriculum that develops strong concepts, analytical thinking and practical skills.</p>
+    </div>
+  </div>
+</section>
+
+<section class="academic-section">
+  <div class="section-heading">
+    <div class="eyebrow orange">Our Curriculum</div>
+    <h2>Growing at every stage</h2>
+    <p>Carefully structured stages from foundational play-group to senior secondary education.</p>
+  </div>
+  <div class="academic-grid">
+    @for (stage of stages(); track stage.step) {
+      <article class="academic-card-3d">
+        <span class="step-num">{{ stage.step }}</span>
+        <h3>{{ stage.title }}</h3>
+        <p>{{ stage.description }}</p>
+      </article>
+    }
+  </div>
+</section>

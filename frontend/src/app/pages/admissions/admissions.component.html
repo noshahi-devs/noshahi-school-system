@@ -1,0 +1,71 @@
+<section class="page-hero admissions-hero">
+  <div class="hero-container">
+    <div class="page-hero-card">
+      <div class="eyebrow">Join Noshahi</div>
+      <h1>Admissions</h1>
+      <p>Take the first step toward a future of knowledge, computer skills and Islamic character.</p>
+    </div>
+  </div>
+</section>
+
+<section class="admission-section">
+  <div class="admission-info">
+    <div class="eyebrow orange">Admission Process</div>
+    <h2>Start your child's journey</h2>
+    <p class="subtitle">Our admissions team is here to guide you through every simple step.</p>
+    <ol class="steps-list-3d">
+      <li class="step-item">
+        <b class="step-badge">1</b>
+        <span><strong>Submit inquiry</strong>Complete the online form to begin</span>
+      </li>
+      <li class="step-item">
+        <b class="step-badge">2</b>
+        <span><strong>Visit our campus</strong>Meet teachers and explore facilities</span>
+      </li>
+      <li class="step-item">
+        <b class="step-badge">3</b>
+        <span><strong>Complete enrollment</strong>Submit documents and secure admission</span>
+      </li>
+    </ol>
+  </div>
+
+  <form class="admission-form card-form-3d" (ngSubmit)="submit()" #admissionForm="ngForm">
+    <h2>Admission Inquiry</h2>
+    <p class="form-desc">Fill out the details below and we will contact you shortly.</p>
+    <div class="field-row">
+      <label>Student name *<input required [(ngModel)]="form.studentName" name="studentName" placeholder="Full name"></label>
+      <label>Parent / Guardian name *<input required [(ngModel)]="form.parentName" name="parentName" placeholder="Full name"></label>
+    </div>
+    <div class="field-row">
+      <label>Phone number *<input required [(ngModel)]="form.phone" name="phone" placeholder="+92 300 0000000"></label>
+      <label>Email address<input type="email" [(ngModel)]="form.email" name="email" placeholder="name@example.com"></label>
+    </div>
+    <div class="field-row">
+      <label>Applying for grade *
+        <select required [(ngModel)]="form.grade" name="grade">
+          <option value="">Select grade</option>
+          <option>Play Group</option>
+          <option>Nursery</option>
+          <option>KG</option>
+          <option>Grade 1</option>
+          <option>Grade 2</option>
+          <option>Grade 3</option>
+          <option>Grade 4</option>
+          <option>Grade 5</option>
+          <option>Grade 6</option>
+          <option>Grade 7</option>
+          <option>Grade 8</option>
+          <option>Grade 9</option>
+          <option>Grade 10</option>
+          <option>Grade 11</option>
+          <option>Grade 12</option>
+        </select>
+      </label>
+      <label>Date of birth<input type="date" [(ngModel)]="form.dateOfBirth" name="dateOfBirth"></label>
+    </div>
+    <button type="submit" [disabled]="admissionForm.invalid || submitting">
+      {{ submitting ? 'Submitting...' : 'Submit Inquiry' }}
+    </button>
+    @if (status) { <div class="status">{{ status }}</div> }
+  </form>
+</section>

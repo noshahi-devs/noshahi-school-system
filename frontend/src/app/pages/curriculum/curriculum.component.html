@@ -1,0 +1,235 @@
+<!-- Hero Section -->
+<section class="curr-hero">
+  <div class="curr-hero-glow"></div>
+  <div class="curr-hero-container">
+    <div class="curr-hero-badge">
+      <i class="fas fa-graduation-cap"></i> Academic Session 2026 - 2027
+    </div>
+    <h1>Academic <span>Curriculum</span> &amp; Book Store</h1>
+    <p class="curr-hero-desc">
+      Official prescribed booklists and syllabi from Early Childhood to University Degree programs. Select your grade level, filter by class, and order individual prescribed textbooks or complete course bundles directly via WhatsApp.
+    </p>
+    <div class="curr-hero-metrics">
+      <div class="metric-chip">
+        <i class="fas fa-layer-group"></i>
+        <span>6 Academic Levels</span>
+      </div>
+      <div class="metric-chip">
+        <i class="fas fa-book"></i>
+        <span>Official Prescribed Publishers</span>
+      </div>
+      <a routerLink="/academics" fragment="academic-calendar" class="metric-chip" style="text-decoration: none; cursor: pointer;">
+        <i class="fas fa-calendar-days"></i>
+        <span>Academic Calendar 2027-2028 &rarr;</span>
+      </a>
+      <div class="metric-chip">
+        <i class="fab fa-whatsapp"></i>
+        <span>Instant WhatsApp Ordering</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Bookstore Container -->
+<section class="curr-main-wrap">
+  <div class="curr-container">
+
+    <!-- Quick Info Helpline Bar -->
+    <div class="curr-info-bar glass-card-3d">
+      <div class="curr-info-left">
+        <div class="curr-info-icon">
+          <i class="fas fa-book-open-reader"></i>
+        </div>
+        <div>
+          <h3>Direct WhatsApp Bookstore Ordering</h3>
+          <p>Instant order processing with pre-filled book title, grade, publisher, and price.</p>
+        </div>
+      </div>
+      <div class="curr-info-right">
+        <a href="https://wa.me/923281642297" target="_blank" class="curr-helpline-pill" title="Contact Bookstore Helpline">
+          <i class="fab fa-whatsapp"></i>
+          <span>Book Helpline: <strong>+92 328 1642297</strong></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Accordion Sections -->
+    <div class="curr-accordion-list">
+      @for (section of sections; track section.id) {
+        <div class="curr-acc-card" [class.is-open]="isSectionOpen(section.id)">
+          <!-- Accordion Header -->
+          <button 
+            type="button" 
+            class="curr-acc-header"
+            (click)="toggleSection(section.id)"
+            [attr.aria-expanded]="isSectionOpen(section.id)"
+          >
+            <div class="curr-acc-header-left">
+              <div class="curr-acc-icon" [ngClass]="section.badgeClass">
+                <i class="fas" [ngClass]="section.icon"></i>
+              </div>
+              <div class="curr-acc-title-group">
+                <div class="curr-acc-title-row">
+                  <h3 class="curr-acc-title">{{ section.title }}</h3>
+                  @if (section.isComingSoon) {
+                    <span class="curr-acc-badge badge-coming">Coming Soon</span>
+                  } @else {
+                    <span class="curr-acc-badge">{{ getClassNames(section).length }} Classes</span>
+                  }
+                </div>
+                <p class="curr-acc-subtitle">{{ section.subtitle }}</p>
+              </div>
+            </div>
+
+            <div class="curr-acc-header-right">
+              <span class="curr-chevron" [class.rotated]="isSectionOpen(section.id)">
+                <i class="fas fa-chevron-down"></i>
+              </span>
+            </div>
+          </button>
+
+          <!-- Accordion Expandable Body -->
+          <div class="curr-acc-body" [class.open]="isSectionOpen(section.id)">
+            <div class="curr-acc-inner">
+
+              @if (section.isComingSoon) {
+                <!-- Coming Soon View for Undergraduate -->
+                <div class="curr-coming-soon-card">
+                  <div class="coming-soon-icon">
+                    <i class="fas fa-university"></i>
+                  </div>
+                  <h3>Undergraduate Degree Programs (Coming Soon)</h3>
+                  <p>Our upcoming Bachelor of Science degree programs are launching soon. Prescribed syllabi, textbooks, and course outlines will be available prior to the commencement of the session.</p>
+                  
+                  <div class="coming-soon-grid">
+                    @for (prog of section.comingSoonPrograms; track prog) {
+                      <div class="prog-pill-card">
+                        <div class="prog-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="prog-name">{{ prog }}</div>
+                        <span class="prog-tag">Curriculum Coming Soon</span>
+                        <a [href]="getComingSoonWaLink(prog)" target="_blank" class="prog-wa-btn">
+                          <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+                        </a>
+                      </div>
+                    }
+                  </div>
+                </div>
+              } @else {
+                <!-- Class Filter Buttons -->
+                <div class="curr-filter-bar">
+                  <span class="curr-filter-label">
+                    <i class="fas fa-layer-group"></i> Select Class:
+                  </span>
+                  <div class="curr-filter-pills">
+                    @for (className of getClassNames(section); track className) {
+                      <button 
+                        type="button"
+                        class="curr-filter-pill"
+                        [class.active]="getActiveClass(section.id) === className"
+                        (click)="selectClass(section.id, className)"
+                      >
+                        {{ className }}
+                      </button>
+                    }
+                  </div>
+                </div>
+
+                <!-- Books Grid -->
+                <div class="curr-books-grid">
+                  @for (book of getActiveBooks(section); track book.subject) {
+                    <article class="curr-book-card">
+                      <!-- Book Cover -->
+                      <div class="curr-book-cover-wrap">
+                        <span class="curr-book-spine"></span>
+                        <span class="curr-book-tag">{{ book.tag }}</span>
+                        <span class="curr-book-class">{{ getActiveClass(section.id) }}</span>
+                        <img 
+                          [src]="getCoverSvg(book.subject, getActiveClass(section.id), book.publications, book.bg, book.accent)" 
+                          [alt]="book.subject"
+                          class="curr-book-img"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      <!-- Book Info -->
+                      <div class="curr-book-info">
+                        <span class="curr-book-subject-label">Subject</span>
+                        <h4 class="curr-book-title" [title]="book.subject">{{ book.subject }}</h4>
+                        
+                        <div class="curr-book-meta">
+                          <div class="curr-meta-row">
+                            <span class="meta-label">Publisher:</span>
+                            <span class="meta-val">{{ book.publications }}</span>
+                          </div>
+                          <div class="curr-meta-row price-row">
+                            <span class="meta-label">Price:</span>
+                            <span class="meta-price" [class.tbd]="book.price === 0">{{ formatPrice(book.price) }}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Buy Now WhatsApp Button -->
+                      <div class="curr-book-action">
+                        <a 
+                          [href]="getSingleBookWaLink(section.title, getActiveClass(section.id), book)" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          class="curr-btn-buy"
+                          title="Order this book via WhatsApp"
+                        >
+                          <i class="fab fa-whatsapp"></i> Buy Now
+                        </a>
+                      </div>
+                    </article>
+                  }
+                </div>
+
+                <!-- Bottom Horizontal Summary Card -->
+                <div class="curr-summary-card">
+                  <div class="curr-summary-left">
+                    <div class="curr-summary-icon">
+                      <i class="fas fa-boxes-stacked"></i>
+                    </div>
+                    <div>
+                      <span class="curr-summary-badge">Complete Course Bundle</span>
+                      <h4 class="curr-summary-heading">Class: {{ getActiveClass(section.id) }} Complete Course</h4>
+                      <p class="curr-summary-desc">
+                        Includes all {{ getTotalBooks(section) }} prescribed textbooks for Class {{ getActiveClass(section.id) }}.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="curr-summary-right">
+                    <div class="curr-stat-box">
+                      <span class="stat-label">Total Books</span>
+                      <span class="stat-value">{{ getTotalBooks(section) }} Books</span>
+                    </div>
+
+                    <div class="curr-stat-divider"></div>
+
+                    <div class="curr-stat-box">
+                      <span class="stat-label">Complete Course Price</span>
+                      <span class="stat-value price">{{ formatTotalPrice(getTotalPrice(section)) }}</span>
+                    </div>
+
+                    <a 
+                      [href]="getBundleWaLink(section.title, getActiveClass(section.id), section)" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="curr-btn-complete"
+                      title="Order complete course bundle via WhatsApp"
+                    >
+                      <i class="fab fa-whatsapp"></i> Buy Complete Course
+                    </a>
+                  </div>
+                </div>
+              }
+
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

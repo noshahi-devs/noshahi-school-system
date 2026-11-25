@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { AcademicsComponent } from './pages/academics/academics.component';
+import { CurriculumComponent } from './pages/curriculum/curriculum.component';
 import { AdmissionsComponent } from './pages/admissions/admissions.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { GenericComponent } from './pages/generic/generic.component';
@@ -10,7 +11,8 @@ import { LoginComponent } from './pages/login/login.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Noshahi School System' },
   { path: 'about', component: AboutComponent, title: 'About Us' },
-  { path: 'academics', component: AcademicsComponent, title: 'Academics' },
+  { path: 'academics', component: AcademicsComponent, title: 'Academics - Noshahi School System' },
+  { path: 'curriculum', component: CurriculumComponent, title: 'Curriculum & Book Store - Noshahi School System' },
   { path: 'admissions', component: AdmissionsComponent, title: 'Admissions' },
   { path: 'contact', component: ContactComponent, title: 'Contact Us' },
   { path: 'login', component: LoginComponent, title: 'Login - Noshahi School System' },

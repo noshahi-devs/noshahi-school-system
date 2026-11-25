@@ -8,6 +8,30 @@
   </div>
 </section>
 
+<!-- Curriculum & Book Store Direct Callout -->
+<section class="curriculum-cta-section">
+  <div class="hero-container">
+    <div class="curr-cta-card glass-card-3d">
+      <div class="curr-cta-content">
+        <span class="curr-cta-badge"><i class="fas fa-book-open"></i> Prescribed Syllabus &amp; Textbooks</span>
+        <h2>Explore Prescribed Curriculum &amp; Book Store</h2>
+        <p>Browse book lists from Pre-Classes to Undergraduate, filter by grade, view details, and order single books or complete sets directly via WhatsApp.</p>
+        <div class="curr-cta-features">
+          <span><i class="fas fa-check-circle"></i> 6 Academic Levels</span>
+          <span><i class="fas fa-check-circle"></i> 20 Classes Covered</span>
+          <span><i class="fas fa-check-circle"></i> Instant WhatsApp Ordering</span>
+        </div>
+      </div>
+      <div class="curr-cta-action">
+        <a routerLink="/curriculum" class="curr-cta-btn">
+          <span>View Curriculum &amp; Bookstore</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="academic-section">
   <div class="section-heading">
     <div class="eyebrow orange">Our Curriculum</div>
@@ -22,5 +46,90 @@
         <p>{{ stage.description }}</p>
       </article>
     }
+  </div>
+</section>
+
+<!-- Academic Calendar 2027 - 2028 Section -->
+<section class="calendar-section" id="academic-calendar">
+  <div class="hero-container">
+    <div class="section-heading text-center">
+      <div class="eyebrow orange"><i class="fas fa-calendar-days"></i> Session 2027 - 2028</div>
+      <h2>Academic Calendar &amp; Events</h2>
+      <p>Official examination dates, result declarations, and scheduled annual events for the session.</p>
+    </div>
+
+    <div class="calendar-layout-grid">
+      
+      <!-- Left: Examination Terms & Results -->
+      <div class="cal-card-box terms-box glass-card-3d">
+        <div class="cal-box-header">
+          <div class="cal-box-icon"><i class="fas fa-file-signature"></i></div>
+          <div>
+            <h3>Examination Terms &amp; Results</h3>
+            <p>Prescribed evaluation schedule for Academic Session 2027–2028</p>
+          </div>
+        </div>
+
+        <div class="terms-timeline">
+          @for (item of examTerms(); track item.term) {
+            <div class="term-milestone-card">
+              <div class="term-badge-row">
+                <span class="term-pill">{{ item.badge }}</span>
+                <span class="term-title-text">{{ item.term }}</span>
+              </div>
+              <p class="term-desc">{{ item.description }}</p>
+
+              <div class="dates-row">
+                <div class="date-chip exam-chip">
+                  <div class="chip-label"><i class="fas fa-pencil"></i> Exam Date</div>
+                  <div class="chip-val">{{ item.examDate }}</div>
+                </div>
+                <div class="date-chip result-chip">
+                  <div class="chip-label"><i class="fas fa-square-poll-vertical"></i> Declaration of Results</div>
+                  <div class="chip-val">{{ item.resultDate }}</div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Right: Annual Events & Observances -->
+      <div class="cal-card-box events-box glass-card-3d">
+        <div class="cal-box-header">
+          <div class="cal-box-icon orange"><i class="fas fa-star-and-crescent"></i></div>
+          <div>
+            <h3>Annual Events &amp; Observances</h3>
+            <p>Religious, national, and institutional calendar days</p>
+          </div>
+        </div>
+
+        <div class="events-list-grid">
+          @for (evt of schoolEvents(); track evt.title) {
+            <div class="event-item-card">
+              <div class="event-icon-wrap" [attr.data-cat]="evt.category">
+                <i class="fas" [ngClass]="evt.icon"></i>
+              </div>
+              <div class="event-info-wrap">
+                <div class="event-meta-row">
+                  <span class="event-cat-tag" [attr.data-cat]="evt.category">{{ evt.category }}</span>
+                  <span class="event-date-text"><i class="far fa-clock"></i> {{ evt.date }}</span>
+                </div>
+                <h4 class="event-name">{{ evt.title }}</h4>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- WhatsApp Help Footer inside Calendar -->
+        <div class="cal-support-strip">
+          <span><i class="fab fa-whatsapp"></i> Need official circular or clarification?</span>
+          <a href="https://wa.me/923281642297?text=Hello%20Noshahi%20School%20System!%20I%20have%20an%20inquiry%20regarding%20Academic%20Calendar%202027-2028." target="_blank" class="cal-wa-link">
+            Chat on WhatsApp &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>

@@ -1,0 +1,960 @@
+/* ==========================================================================
+   Noshahi School System - Academic Curriculum & Book Store Styles
+   Matches the official NSS theme: Navy (#1F2A44), Orange (#FF8C00), 
+   Inter / Plus Jakarta Sans, rounded cards, and smooth micro-interactions.
+   ========================================================================== */
+
+/* Page Background & Base Variables */
+:root {
+  --nss-primary: #1F2A44;
+  --nss-primary-dark: #0B1120;
+  --nss-primary-light: #2A3859;
+  --nss-accent: #FF8C00;
+  --nss-accent-hover: #E07B00;
+  --nss-accent-light: rgba(255, 140, 0, 0.12);
+  --nss-whatsapp: #25D366;
+  --nss-whatsapp-hover: #1ebe5d;
+  --nss-whatsapp-dark: #128C7E;
+  --nss-whatsapp-glow: rgba(37, 211, 102, 0.25);
+  
+  --nss-bg-page: #F8FAFC;
+  --nss-bg-card: #FFFFFF;
+  --nss-border-color: rgba(31, 42, 68, 0.08);
+  --nss-border-hover: rgba(255, 140, 0, 0.35);
+
+  --nss-text-main: #1E293B;
+  --nss-text-muted: #64748B;
+  --nss-text-light: #94A3B8;
+
+  --nss-radius-sm: 8px;
+  --nss-radius-md: 14px;
+  --nss-radius-lg: 20px;
+  --nss-radius-pill: 9999px;
+
+  --nss-shadow-card: 0 4px 20px rgba(31, 42, 68, 0.06);
+  --nss-shadow-hover: 0 16px 36px rgba(31, 42, 68, 0.12);
+}
+
+body.curriculum-page {
+  background-color: var(--nss-bg-page);
+  color: var(--nss-text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Ensure navbar blends seamlessly */
+.curriculum-page .navbar {
+  background-color: var(--primary-color, #1F2A44);
+}
+.curriculum-page .navbar.scrolled {
+  background-color: rgba(31, 42, 68, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.curr-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0B1120 0%, #152238 50%, #1F2A44 100%);
+  background-image: 
+    linear-gradient(135deg, rgba(11, 17, 32, 0.88) 0%, rgba(31, 42, 68, 0.78) 100%),
+    url('../img/school banner.png');
+  background-size: cover;
+  background-position: center;
+  color: #FFFFFF;
+  padding: 8.5rem 0 4.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.curr-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.curr-hero-glow {
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.18) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.curr-hero-glow-2 {
+  position: absolute;
+  bottom: -150px;
+  left: -80px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.curr-hero-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.curr-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.45rem 1.25rem;
+  border-radius: var(--nss-radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(255, 140, 0, 0.15);
+  border: 1px solid rgba(255, 140, 0, 0.35);
+  color: #FFA534;
+  margin-bottom: 1.25rem;
+}
+
+.curr-hero h1 {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.curr-hero h1 span {
+  color: var(--nss-accent);
+  position: relative;
+  display: inline-block;
+}
+
+.curr-hero-desc {
+  font-size: 1.05rem;
+  color: #CBD5E1;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.curr-hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.curr-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--nss-radius-md);
+  color: #F1F5F9;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.curr-metric-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.curr-metric-item i {
+  color: var(--nss-accent);
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Quick Info / Helpline Banner
+   -------------------------------------------------------------------------- */
+.curr-info-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: var(--nss-bg-card);
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--nss-radius-lg);
+  border: 1px solid var(--nss-border-color);
+  box-shadow: var(--nss-shadow-card);
+  margin-top: -2rem;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 2.5rem;
+}
+
+.curr-info-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.curr-info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--nss-accent-light);
+  color: var(--nss-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.curr-info-left h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--nss-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.curr-info-left p {
+  font-size: 0.85rem;
+  color: var(--nss-text-muted);
+  margin: 0;
+}
+
+.curr-info-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.curr-helpline-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 0.55rem 1rem;
+  border-radius: var(--nss-radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--nss-primary);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.curr-helpline-pill:hover {
+  background: #E2E8F0;
+  color: var(--nss-accent);
+}
+
+.curr-helpline-pill i {
+  color: var(--nss-whatsapp);
+  font-size: 1.15rem;
+}
+
+/* --------------------------------------------------------------------------
+   Accordion Main Container
+   -------------------------------------------------------------------------- */
+.curr-accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+}
+
+.curr-accordion-card {
+  background: var(--nss-bg-card);
+  border-radius: var(--nss-radius-lg);
+  border: 1px solid var(--nss-border-color);
+  box-shadow: var(--nss-shadow-card);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.curr-accordion-card:hover {
+  border-color: rgba(31, 42, 68, 0.16);
+  box-shadow: 0 8px 28px rgba(31, 42, 68, 0.08);
+}
+
+.curr-accordion-card.is-open {
+  border-color: rgba(255, 140, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(31, 42, 68, 0.09);
+}
+
+/* Accordion Header Button */
+.curr-acc-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.35rem 1.75rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.curr-acc-header:hover {
+  background-color: rgba(248, 250, 252, 0.8);
+}
+
+.curr-acc-header:focus-visible {
+  outline: 2px solid var(--nss-accent);
+  outline-offset: -2px;
+}
+
+.curr-acc-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.curr-acc-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.curr-accordion-card:hover .curr-acc-icon {
+  transform: scale(1.05);
+}
+
+/* Dynamic Level Icon Themes */
+.curr-icon-pre { background: #FEF3C7; color: #D97706; }
+.curr-icon-primary { background: #DCFCE7; color: #16A34A; }
+.curr-icon-middle { background: #E0F2FE; color: #0284C7; }
+.curr-icon-matric { background: #EDE9FE; color: #7C3AED; }
+.curr-icon-inter { background: #FCE7F3; color: #DB2777; }
+.curr-icon-undergrad { background: #FFE4E6; color: #E11D48; }
+
+.curr-acc-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.curr-acc-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.curr-acc-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--nss-primary);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.curr-acc-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--nss-radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #F1F5F9;
+  color: var(--nss-text-muted);
+  border: 1px solid #E2E8F0;
+}
+
+.curr-acc-subtitle {
+  font-size: 0.88rem;
+  color: var(--nss-text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+.curr-acc-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.curr-acc-chevron-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--nss-radius-md);
+  background: #F1F5F9;
+  color: var(--nss-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.curr-accordion-card.is-open .curr-acc-chevron-btn {
+  transform: rotate(180deg);
+  background: var(--nss-accent);
+  color: #FFFFFF;
+}
+
+/* Accordion Body with Smooth CSS Grid Row Animation */
+.curr-acc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.curr-accordion-card.is-open .curr-acc-body {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.curr-acc-body-content {
+  overflow: hidden;
+}
+
+.curr-acc-inner {
+  padding: 1.5rem 1.75rem 2rem;
+  background: #FAFCFF;
+  border-top: 1px solid #EEF2F6;
+}
+
+/* --------------------------------------------------------------------------
+   Class Filter Buttons (Tabs)
+   -------------------------------------------------------------------------- */
+.curr-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px dashed #E2E8F0;
+}
+
+.curr-filter-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--nss-text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 0.5rem;
+}
+
+.curr-filter-btn {
+  padding: 0.55rem 1.25rem;
+  border-radius: var(--nss-radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: var(--nss-text-main);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.curr-filter-btn:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: var(--nss-primary);
+  transform: translateY(-1px);
+}
+
+.curr-filter-btn.active {
+  background: var(--nss-primary);
+  color: #FFFFFF;
+  border-color: var(--nss-primary);
+  box-shadow: 0 4px 14px rgba(31, 42, 68, 0.2);
+  transform: translateY(-1px);
+}
+
+.curr-filter-btn.active::after {
+  content: '✓';
+  font-size: 0.75rem;
+  color: var(--nss-accent);
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Book Cards Grid
+   -------------------------------------------------------------------------- */
+.curr-books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 1200px) {
+  .curr-books-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.curr-book-card {
+  background: var(--nss-bg-card);
+  border-radius: var(--nss-radius-md);
+  border: 1px solid var(--nss-border-color);
+  box-shadow: 0 4px 12px rgba(31, 42, 68, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.curr-book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--nss-shadow-hover);
+  border-color: var(--nss-border-hover);
+}
+
+/* Top Accent Line on Hover */
+.curr-book-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nss-accent), #FFB347);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+.curr-book-card:hover::before {
+  opacity: 1;
+}
+
+/* Book Cover Area */
+.curr-book-cover-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.28;
+  background: #E2E8F0;
+  overflow: hidden;
+}
+
+.curr-book-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.curr-book-card:hover .curr-book-cover-img {
+  transform: scale(1.04);
+}
+
+/* Realistic Book 3D Spine & Shadow */
+.curr-book-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.28) 0%, rgba(255,255,255,0.18) 35%, rgba(0,0,0,0.1) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Badges on Cover */
+.curr-book-tag {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: var(--nss-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--nss-radius-sm);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  z-index: 4;
+}
+
+.curr-book-class-pill {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  z-index: 4;
+}
+
+/* Book Details */
+.curr-book-body {
+  padding: 1.15rem 1.1rem 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.curr-book-subject-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--nss-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 0.25rem;
+}
+
+.curr-book-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--nss-primary);
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.7rem;
+}
+
+.curr-book-meta-list {
+  padding-top: 0.65rem;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+.curr-book-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.curr-book-meta-label {
+  color: var(--nss-text-muted);
+}
+
+.curr-book-meta-val {
+  font-weight: 600;
+  color: var(--nss-text-main);
+}
+
+.curr-book-price-row {
+  margin-top: 0.35rem;
+  padding-top: 0.35rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.curr-book-price-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--nss-primary);
+}
+
+/* WhatsApp Buy Now Action */
+.curr-book-action {
+  padding: 0 1.1rem 1.15rem;
+}
+
+.curr-btn-buy {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--nss-whatsapp);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  border-radius: var(--nss-radius-md);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 10px var(--nss-whatsapp-glow);
+  transition: all 0.25s ease;
+}
+
+.curr-btn-buy:hover {
+  background: var(--nss-whatsapp-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.curr-btn-buy i {
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal Course Summary Card
+   -------------------------------------------------------------------------- */
+.curr-summary-card {
+  background: linear-gradient(135deg, #0B1120 0%, #17233D 60%, #1F2A44 100%);
+  border-radius: var(--nss-radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.6rem 2rem;
+  color: #FFFFFF;
+  box-shadow: 0 12px 32px rgba(11, 17, 32, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.curr-summary-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.curr-summary-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.curr-summary-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.curr-summary-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 140, 0, 0.18);
+  border: 1px solid rgba(255, 140, 0, 0.35);
+  color: #FFA534;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.curr-summary-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #E2E8F0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.35rem;
+}
+
+.curr-summary-title {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.curr-summary-sub {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin: 0.2rem 0 0;
+}
+
+.curr-summary-metrics-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.curr-summary-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.curr-summary-stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #94A3B8;
+  margin-bottom: 0.2rem;
+}
+
+.curr-summary-stat-val {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.curr-summary-stat-val.price {
+  color: #FFA534;
+}
+
+.curr-summary-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.curr-btn-complete-course {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--nss-whatsapp);
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--nss-radius-md);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.curr-btn-complete-course:hover {
+  background: var(--nss-whatsapp-hover);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+}
+
+.curr-btn-complete-course i {
+  font-size: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .curr-hero {
+    padding: 7rem 0 3.5rem;
+  }
+  .curr-hero h1 {
+    font-size: 2.2rem;
+  }
+  .curr-summary-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .curr-summary-metrics-wrap {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .curr-btn-complete-course {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .curr-hero {
+    padding: 6.5rem 0 3rem;
+  }
+  .curr-hero h1 {
+    font-size: 1.85rem;
+  }
+  .curr-hero-desc {
+    font-size: 0.95rem;
+  }
+  .curr-acc-header {
+    padding: 1.15rem 1.25rem;
+  }
+  .curr-acc-header-left {
+    gap: 0.85rem;
+  }
+  .curr-acc-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
+  }
+  .curr-acc-title {
+    font-size: 1.1rem;
+  }
+  .curr-acc-inner {
+    padding: 1.25rem 1.15rem 1.5rem;
+  }
+  .curr-books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .curr-book-body {
+    padding: 0.85rem 0.85rem 0.5rem;
+  }
+  .curr-book-title {
+    font-size: 0.88rem;
+    min-height: 2.4rem;
+  }
+  .curr-book-price-tag {
+    font-size: 1rem;
+  }
+  .curr-book-action {
+    padding: 0 0.85rem 0.85rem;
+  }
+  .curr-summary-card {
+    padding: 1.25rem;
+  }
+  .curr-summary-divider {
+    display: none;
+  }
+}

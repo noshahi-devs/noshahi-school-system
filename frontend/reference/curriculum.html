@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Curriculum & Book Store | Learning Bridge</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        },
+                        whatsapp: {
+                            500: '#25D366',
+                            600: '#1ebe5d',
+                            700: '#128C7E'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-700">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 shadow-lg">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase bg-white/10 text-brand-100 border border-white/15 mb-4">
+                <i class="fa-solid fa-graduation-cap text-amber-400"></i> Academic Session 2026 - 2027
+            </span>
+            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4">
+                Complete Academic Curriculum
+            </h1>
+            <p class="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base leading-relaxed">
+                Explore our structured syllabus from Pre-Classes to Undergraduate programs. Select your academic level, filter by grade, and order individual books or complete course bundles directly via WhatsApp.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Quick Info Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-200/80 mb-8">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold text-slate-900">Direct WhatsApp Ordering</h2>
+                    <p class="text-xs text-slate-500">Instant order processing with pre-filled book & course details</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 px-3.5 py-2 rounded-xl">
+                <i class="fa-brands fa-whatsapp text-whatsapp-600 text-base"></i>
+                <span>Order Helpline: <strong class="text-slate-900">+92 328 1642297</strong></span>
+            </div>
+        </div>
+
+        <!-- Accordion Container (Populated dynamically via JS) -->
+        <div id="curriculum-accordion" class="space-y-5">
+            <!-- Sections will be injected here -->
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-16 py-8 px-4 text-center text-sm text-slate-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="font-medium text-slate-700">© 2026 Learning Bridge Publications & Curriculum Portal</p>
+            <p class="text-xs">Click any <span class="text-whatsapp-600 font-semibold">Buy Now</span> or <span class="text-whatsapp-600 font-semibold">Buy Complete Course</span> button to message us directly.</p>
+        </div>
+    </footer>
+
+    <!-- Application Logic & Data -->
+    <script>
+        /**
+         * WhatsApp Configuration
+         */
+        const WHATSAPP_NUMBER = "923281642297";
+
+        /**
+         * Helper function to generate clean SVG book cover data URLs or fallbacks
+         * Ensures zero broken images and distinct visual styling per subject
+         */
+        function getCoverPlaceholder(title, subtitle, bgHex, accentHex) {
+            return `https://placehold.co/400x520/${bgHex}/${accentHex}?text=${encodeURIComponent(title + '\n' + subtitle)}`;
+        }
+
+        /**
+         * Comprehensive Curriculum Dataset
+         * Includes all 6 levels, filter tabs, and 4-5 books per class
+         */
+        const curriculumData = [
+            {
+                id: "pre-classes",
+                title: "Pre Classes",
+                subtitle: "Early Childhood Foundation (Playgroup, Nursery, Prep)",
+                icon: "fa-shapes",
+                badgeColor: "bg-amber-100 text-amber-700",
+                defaultOpen: true,
+                classes: {
+                    "Playgroup": [
+                        { subject: "English Phonics & Tracing", publications: "Learning Bridge", price: 300, bg: "eef2ff", color: "3730a3", tag: "Language" },
+                        { subject: "Numbers & Shapes Fun", publications: "Learning Bridge", price: 300, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Meri Pehli Urdu Kitab", publications: "Learning Bridge", price: 280, bg: "fffbeb", color: "92400e", tag: "Urdu" },
+                        { subject: "Rhymes, Colors & Art", publications: "Learning Bridge", price: 320, bg: "fdf2f8", color: "9d174d", tag: "Creative" }
+                    ],
+                    "Nursery": [
+                        { subject: "English Alphabet & Words", publications: "Learning Bridge", price: 350, bg: "eef2ff", color: "3730a3", tag: "Language" },
+                        { subject: "Early Mathematics 1-50", publications: "Learning Bridge", price: 350, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Urdu Huroof-e-Tahajji", publications: "Learning Bridge", price: 320, bg: "fffbeb", color: "92400e", tag: "Urdu" },
+                        { subject: "General Knowledge & Manners", publications: "Learning Bridge", price: 300, bg: "f0f9ff", color: "075985", tag: "GK" },
+                        { subject: "Drawing & Activity Book", publications: "Learning Bridge", price: 280, bg: "fdf2f8", color: "9d174d", tag: "Activity" }
+                    ],
+                    "Prep": [
+                        { subject: "English Reading & Phonics", publications: "Learning Bridge", price: 400, bg: "eef2ff", color: "3730a3", tag: "Language" },
+                        { subject: "Step-by-Step Mathematics", publications: "Learning Bridge", price: 400, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Urdu Qaida & Likhai", publications: "Learning Bridge", price: 360, bg: "fffbeb", color: "92400e", tag: "Urdu" },
+                        { subject: "My World (General Knowledge)", publications: "Learning Bridge", price: 340, bg: "f0f9ff", color: "075985", tag: "GK" },
+                        { subject: "Islamiat & Moral Stories", publications: "Learning Bridge", price: 300, bg: "f5f3ff", color: "5b21b6", tag: "Ethics" }
+                    ]
+                }
+            },
+            {
+                id: "primary",
+                title: "Primary",
+                subtitle: "Elementary Education (Class 1 to Class 5)",
+                icon: "fa-book-open-reader",
+                badgeColor: "bg-emerald-100 text-emerald-700",
+                defaultOpen: false,
+                classes: {
+                    "Class 1": [
+                        { subject: "English Textbook & Workbook", publications: "Learning Bridge", price: 450, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Primary Mathematics 1", publications: "Learning Bridge", price: 480, bg: "ecfdf5", color: "065f46", tag: "Core" },
+                        { subject: "Urdu Adab & Qawaid 1", publications: "Learning Bridge", price: 420, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "General Science & Nature", publications: "Learning Bridge", price: 400, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Islamiat Lazmi 1", publications: "Learning Bridge", price: 350, bg: "f5f3ff", color: "5b21b6", tag: "Compulsory" }
+                    ],
+                    "Class 2": [
+                        { subject: "English Grammar & Reader 2", publications: "Learning Bridge", price: 480, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Primary Mathematics 2", publications: "Learning Bridge", price: 500, bg: "ecfdf5", color: "065f46", tag: "Core" },
+                        { subject: "Urdu Kitab 2", publications: "Learning Bridge", price: 440, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "Exploring Science 2", publications: "Learning Bridge", price: 430, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Social Studies 2", publications: "Learning Bridge", price: 390, bg: "fdf2f8", color: "9d174d", tag: "Social" }
+                    ],
+                    "Class 3": [
+                        { subject: "English Literature & Composition", publications: "Learning Bridge", price: 520, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Mathematics Concepts 3", publications: "Learning Bridge", price: 550, bg: "ecfdf5", color: "065f46", tag: "Core" },
+                        { subject: "Urdu Zaban-o-Adab 3", publications: "Learning Bridge", price: 460, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "General Science 3", publications: "Learning Bridge", price: 480, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Computer Basics 3", publications: "Learning Bridge", price: 420, bg: "f1f5f9", color: "1e293b", tag: "IT" }
+                    ],
+                    "Class 4": [
+                        { subject: "Progressive English 4", publications: "Learning Bridge", price: 550, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "New Countdown Math 4", publications: "Learning Bridge", price: 580, bg: "ecfdf5", color: "065f46", tag: "Core" },
+                        { subject: "Urdu Gulshan 4", publications: "Learning Bridge", price: 490, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "Science Horizons 4", publications: "Learning Bridge", price: 520, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Social Studies & Geography 4", publications: "Learning Bridge", price: 450, bg: "fdf2f8", color: "9d174d", tag: "Social" }
+                    ],
+                    "Class 5": [
+                        { subject: "Advanced Primary English 5", publications: "Learning Bridge", price: 580, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Mathematics Mastery 5", publications: "Learning Bridge", price: 620, bg: "ecfdf5", color: "065f46", tag: "Core" },
+                        { subject: "Urdu Adab 5", publications: "Learning Bridge", price: 510, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "Integrated Science 5", publications: "Learning Bridge", price: 550, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Computer & Digital Skills 5", publications: "Learning Bridge", price: 480, bg: "f1f5f9", color: "1e293b", tag: "IT" }
+                    ]
+                }
+            },
+            {
+                id: "middle",
+                title: "Middle",
+                subtitle: "Lower Secondary Education (Class 6 to Class 8)",
+                icon: "fa-compass-drafting",
+                badgeColor: "bg-sky-100 text-sky-700",
+                defaultOpen: false,
+                classes: {
+                    "Class 6": [
+                        { subject: "English Grammar & Prose 6", publications: "Learning Bridge", price: 620, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Algebra & Geometry 6", publications: "Learning Bridge", price: 650, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "General Science 6", publications: "Learning Bridge", price: 640, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Urdu Qawaid-o-Insha 6", publications: "Learning Bridge", price: 540, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "History & Geography 6", publications: "Learning Bridge", price: 520, bg: "fdf2f8", color: "9d174d", tag: "Social" }
+                    ],
+                    "Class 7": [
+                        { subject: "English Literature 7", publications: "Learning Bridge", price: 650, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Middle School Math 7", publications: "Learning Bridge", price: 680, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "General Science 7", publications: "Learning Bridge", price: 670, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Urdu Adab 7", publications: "Learning Bridge", price: 560, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "Computer Science & Coding 7", publications: "Learning Bridge", price: 590, bg: "f1f5f9", color: "1e293b", tag: "IT" }
+                    ],
+                    "Class 8": [
+                        { subject: "English Composition & Reader 8", publications: "Learning Bridge", price: 680, bg: "eef2ff", color: "3730a3", tag: "Core" },
+                        { subject: "Pre-Matric Mathematics 8", publications: "Learning Bridge", price: 720, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "General Science 8", publications: "Learning Bridge", price: 700, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Urdu Lazmi 8", publications: "Learning Bridge", price: 580, bg: "fffbeb", color: "92400e", tag: "Language" },
+                        { subject: "Islamiat & Ethics 8", publications: "Learning Bridge", price: 480, bg: "f5f3ff", color: "5b21b6", tag: "Compulsory" }
+                    ]
+                }
+            },
+            {
+                id: "matriculation",
+                title: "Matriculation",
+                subtitle: "Secondary School Certificate (Class 9 & Class 10)",
+                icon: "fa-flask-vial",
+                badgeColor: "bg-indigo-100 text-indigo-700",
+                defaultOpen: false,
+                classes: {
+                    "Class 9": [
+                        { subject: "Physics (Part I) + Practical", publications: "Learning Bridge", price: 750, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Chemistry (Part I)", publications: "Learning Bridge", price: 740, bg: "fdf2f8", color: "9d174d", tag: "Science" },
+                        { subject: "Mathematics (Science Group) 9", publications: "Learning Bridge", price: 800, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Biology / Computer Science 9", publications: "Learning Bridge", price: 760, bg: "f1f5f9", color: "1e293b", tag: "Elective" },
+                        { subject: "English Grammar & Text 9", publications: "Learning Bridge", price: 650, bg: "eef2ff", color: "3730a3", tag: "Compulsory" }
+                    ],
+                    "Class 10": [
+                        { subject: "Physics (Part II) + Solved Papers", publications: "Learning Bridge", price: 780, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Chemistry (Part II)", publications: "Learning Bridge", price: 760, bg: "fdf2f8", color: "9d174d", tag: "Science" },
+                        { subject: "Mathematics (Science Group) 10", publications: "Learning Bridge", price: 850, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Pakistan Studies & Urdu 10", publications: "Learning Bridge", price: 620, bg: "fffbeb", color: "92400e", tag: "Compulsory" },
+                        { subject: "English Complete Guide 10", publications: "Learning Bridge", price: 680, bg: "eef2ff", color: "3730a3", tag: "Compulsory" }
+                    ]
+                }
+            },
+            {
+                id: "intermediate",
+                title: "Intermediate",
+                subtitle: "Higher Secondary Education (1st Year & 2nd Year)",
+                icon: "fa-atom",
+                badgeColor: "bg-purple-100 text-purple-700",
+                defaultOpen: false,
+                classes: {
+                    "1st Year": [
+                        { subject: "FSc Physics Part I", publications: "Learning Bridge", price: 950, bg: "f0f9ff", color: "075985", tag: "FSc / ICS" },
+                        { subject: "FSc Chemistry Part I", publications: "Learning Bridge", price: 920, bg: "fdf2f8", color: "9d174d", tag: "FSc" },
+                        { subject: "Intermediate Mathematics I", publications: "Learning Bridge", price: 980, bg: "ecfdf5", color: "065f46", tag: "FSc / ICS" },
+                        { subject: "English Book I & III (Plays)", publications: "Learning Bridge", price: 780, bg: "eef2ff", color: "3730a3", tag: "Compulsory" },
+                        { subject: "Urdu Sarmaya-e-Adab I", publications: "Learning Bridge", price: 720, bg: "fffbeb", color: "92400e", tag: "Compulsory" }
+                    ],
+                    "2nd Year": [
+                        { subject: "FSc Physics Part II", publications: "Learning Bridge", price: 980, bg: "f0f9ff", color: "075985", tag: "FSc / ICS" },
+                        { subject: "Organic & Inorganic Chemistry II", publications: "Learning Bridge", price: 960, bg: "fdf2f8", color: "9d174d", tag: "FSc" },
+                        { subject: "Calculus & Analytic Geometry II", publications: "Learning Bridge", price: 1050, bg: "ecfdf5", color: "065f46", tag: "FSc / ICS" },
+                        { subject: "English Book II & Novel", publications: "Learning Bridge", price: 820, bg: "eef2ff", color: "3730a3", tag: "Compulsory" }
+                    ]
+                }
+            },
+            {
+                id: "undergraduate",
+                title: "Undergraduate",
+                subtitle: "University Degree Programs (BS Semester 1 & Semester 2)",
+                icon: "fa-university",
+                badgeColor: "bg-rose-100 text-rose-700",
+                defaultOpen: false,
+                classes: {
+                    "BS Semester 1": [
+                        { subject: "Programming Fundamentals (C++/Python)", publications: "Learning Bridge", price: 1250, bg: "f1f5f9", color: "1e293b", tag: "CS Core" },
+                        { subject: "Calculus & Analytical Geometry", publications: "Learning Bridge", price: 1150, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Applied Physics for Engineers", publications: "Learning Bridge", price: 1100, bg: "f0f9ff", color: "075985", tag: "Science" },
+                        { subject: "Functional English & Communication", publications: "Learning Bridge", price: 900, bg: "eef2ff", color: "3730a3", tag: "General" }
+                    ],
+                    "BS Semester 2": [
+                        { subject: "Object Oriented Programming (OOP)", publications: "Learning Bridge", price: 1350, bg: "f1f5f9", color: "1e293b", tag: "CS Core" },
+                        { subject: "Digital Logic Design (DLD)", publications: "Learning Bridge", price: 1200, bg: "f0f9ff", color: "075985", tag: "Hardware" },
+                        { subject: "Discrete Structures", publications: "Learning Bridge", price: 1150, bg: "ecfdf5", color: "065f46", tag: "Math" },
+                        { subject: "Technical & Business Writing", publications: "Learning Bridge", price: 950, bg: "eef2ff", color: "3730a3", tag: "General" },
+                        { subject: "Linear Algebra", publications: "Learning Bridge", price: 1180, bg: "f5f3ff", color: "5b21b6", tag: "Math" }
+                    ]
+                }
+            }
+        ];
+
+        /**
+         * State Tracker: Keeps track of open accordions and active class tab per section
+         */
+        const appState = {
+            openSections: new Set(["pre-classes"]),
+            activeTabs: {}
+        };
+
+        // Initialize default active tab (first class in each section)
+        curriculumData.forEach(section => {
+            const classNames = Object.keys(section.classes);
+            if (classNames.length > 0) {
+                appState.activeTabs[section.id] = classNames[0];
+            }
+        });
+
+        /**
+         * Format currency cleanly in PKR
+         */
+        function formatPrice(amount) {
+            return `Rs. ${amount.toLocaleString('en-PK')}/-`;
+        }
+
+        /**
+         * Generate WhatsApp URL for a Single Book
+         */
+        function getSingleBookWhatsAppUrl(className, book) {
+            const message = `Hello! I want to buy this book:\n` +
+                            `• Class: ${className}\n` +
+                            `• Subject: ${book.subject}\n` +
+                            `• Publications: ${book.publications}\n` +
+                            `• Price: ${formatPrice(book.price)}`;
+            return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        }
+
+        /**
+         * Generate WhatsApp URL for Complete Course Bundle
+         */
+        function getCompleteCourseWhatsAppUrl(className, bookCount, totalPrice) {
+            const message = `Hello, I want to order Class: ${className} Complete Course (${bookCount} Books - Total: ${formatPrice(totalPrice)})`;
+            return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        }
+
+        /**
+         * Toggle Accordion Open/Close with smooth CSS grid-row animation
+         */
+        function toggleAccordion(sectionId) {
+            const contentWrapper = document.getElementById(`accordion-body-${sectionId}`);
+            const chevron = document.getElementById(`chevron-${sectionId}`);
+            const headerBtn = document.getElementById(`accordion-btn-${sectionId}`);
+
+            if (appState.openSections.has(sectionId)) {
+                appState.openSections.delete(sectionId);
+                contentWrapper.classList.remove("grid-rows-[1fr]", "opacity-100");
+                contentWrapper.classList.add("grid-rows-[0fr]", "opacity-0");
+                chevron.classList.remove("rotate-180");
+                headerBtn.setAttribute("aria-expanded", "false");
+            } else {
+                appState.openSections.add(sectionId);
+                contentWrapper.classList.remove("grid-rows-[0fr]", "opacity-0");
+                contentWrapper.classList.add("grid-rows-[1fr]", "opacity-100");
+                chevron.classList.add("rotate-180");
+                headerBtn.setAttribute("aria-expanded", "true");
+            }
+        }
+
+        /**
+         * Select a Class Filter Tab within a section and re-render books + summary card
+         */
+        function selectClassTab(sectionId, className) {
+            appState.activeTabs[sectionId] = className;
+            renderSectionContent(sectionId);
+        }
+
+        /**
+         * Renders the filter pills, book cards grid, and bottom summary bar for a specific section
+         */
+        function renderSectionContent(sectionId) {
+            const section = curriculumData.find(s => s.id === sectionId);
+            if (!section) return;
+
+            const container = document.getElementById(`section-dynamic-area-${sectionId}`);
+            const classNames = Object.keys(section.classes);
+            const activeClass = appState.activeTabs[sectionId];
+            const books = section.classes[activeClass] || [];
+
+            // Calculate total books & sum price
+            const totalBooks = books.length;
+            const totalPrice = books.reduce((sum, b) => sum + b.price, 0);
+
+            // 1. Filter Pills HTML
+            const filterPillsHTML = `
+                <div class="flex flex-wrap items-center gap-2.5 pb-6 mb-6 border-b border-slate-100" role="tablist" aria-label="${section.title} Classes">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-1">
+                        <i class="fa-solid fa-filter mr-1"></i> Select Class:
+                    </span>
+                    ${classNames.map(cls => {
+                        const isActive = cls === activeClass;
+                        return `
+                            <button
+                                type="button"
+                                role="tab"
+                                aria-selected="${isActive}"
+                                onclick="selectClassTab('${sectionId}', '${cls}')"
+                                class="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500/40 ${
+                                    isActive
+                                        ? 'bg-brand-600 text-white shadow-md shadow-brand-600/25 scale-[1.02]'
+                                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200/80 hover:text-slate-900'
+                                }"
+                            >
+                                ${cls}
+                            </button>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+
+            // 2. Book Cards Grid HTML
+            const bookCardsHTML = `
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 mb-8">
+                    ${books.map(book => {
+                        const coverImg = getCoverPlaceholder(book.subject, activeClass, book.bg, book.color);
+                        const waLink = getSingleBookWhatsAppUrl(activeClass, book);
+
+                        return `
+                            <article class="group bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                                <!-- Book Cover Area -->
+                                <div>
+                                    <div class="relative aspect-[4/4.6] bg-slate-100 overflow-hidden">
+                                        <img
+                                            src="${coverImg}"
+                                            alt="${book.subject} Cover"
+                                            loading="lazy"
+                                            onerror="this.onerror=null;this.src='https://placehold.co/400x500/e2e8f0/475569?text=Book+Cover';"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[11px] font-bold uppercase tracking-wide bg-white/95 text-slate-800 shadow-sm backdrop-blur-sm">
+                                            ${book.tag}
+                                        </span>
+                                        <span class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-900/85 text-white backdrop-blur-sm">
+                                            ${activeClass}
+                                        </span>
+                                    </div>
+
+                                    <!-- Book Details -->
+                                    <div class="p-4">
+                                        <div class="mb-2">
+                                            <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-600">Subject</span>
+                                            <h4 class="font-display font-bold text-slate-900 text-base leading-snug line-clamp-2 min-h-[2.75rem]" title="${book.subject}">
+                                                ${book.subject}
+                                            </h4>
+                                        </div>
+
+                                        <div class="space-y-1.5 pt-2 border-t border-slate-100 text-xs">
+                                            <div class="flex items-center justify-between text-slate-500">
+                                                <span>Publications:</span>
+                                                <span class="font-semibold text-slate-700">${book.publications}</span>
+                                            </div>
+                                            <div class="flex items-center justify-between pt-1">
+                                                <span class="text-slate-500">Price:</span>
+                                                <span class="text-base font-extrabold text-slate-900">${formatPrice(book.price)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Buy Now WhatsApp CTA -->
+                                <div class="px-4 pb-4 pt-1">
+                                    <a
+                                        href="${waLink}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-whatsapp-500 hover:bg-whatsapp-600 active:scale-[0.98] text-white font-semibold text-sm shadow-sm shadow-whatsapp-500/20 transition-all duration-200"
+                                    >
+                                        <i class="fa-brands fa-whatsapp text-base"></i>
+                                        <span>Buy Now</span>
+                                    </a>
+                                </div>
+                            </article>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+
+            // 3. Bottom Horizontal Summary Card (Complete Course Bundle)
+            const bundleWaLink = getCompleteCourseWhatsAppUrl(activeClass, totalBooks, totalPrice);
+            const summaryCardHTML = `
+                <div class="rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-brand-950 text-white p-5 sm:p-6 shadow-lg border border-slate-700/60">
+                    <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                        
+                        <!-- Left: Course Info & Metrics -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full lg:w-auto">
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-amber-400 text-xl shrink-0">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2 mb-1">
+                                    <span class="px-2.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wider bg-brand-500/30 text-brand-200 border border-brand-400/30">
+                                        Complete Course Bundle
+                                    </span>
+                                    <h4 class="font-display text-lg sm:text-xl font-bold text-white">
+                                        Class: ${activeClass}
+                                    </h4>
+                                </div>
+                                <p class="text-xs sm:text-sm text-slate-300">
+                                    Includes all ${totalBooks} prescribed textbooks from <span class="text-white font-medium">Learning Bridge Publications</span>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right: Dynamic Totals & Complete Course Button -->
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between lg:justify-end gap-4 sm:gap-6 w-full lg:w-auto pt-4 lg:pt-0 border-t lg:border-t-0 border-white/10">
+                            <div class="flex items-center gap-6">
+                                <div>
+                                    <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Total Books</span>
+                                    <span class="text-lg sm:text-xl font-extrabold text-white">${totalBooks} Books</span>
+                                </div>
+                                <div class="h-8 w-px bg-white/15"></div>
+                                <div>
+                                    <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Complete Course Price</span>
+                                    <span class="text-xl sm:text-2xl font-extrabold text-amber-400">${formatPrice(totalPrice)}</span>
+                                </div>
+                            </div>
+
+                            <a
+                                href="${bundleWaLink}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-whatsapp-500 hover:bg-whatsapp-600 active:scale-[0.98] text-white font-bold text-sm sm:text-base shadow-lg shadow-whatsapp-500/25 transition-all duration-200 whitespace-nowrap"
+                            >
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Buy Complete Course</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = filterPillsHTML + bookCardsHTML + summaryCardHTML;
+        }
+
+        /**
+         * Initial Render of all Accordion Sections
+         */
+        function initCurriculumPage() {
+            const accordionContainer = document.getElementById("curriculum-accordion");
+
+            accordionContainer.innerHTML = curriculumData.map(section => {
+                const isOpen = appState.openSections.has(section.id);
+                const classCount = Object.keys(section.classes).length;
+
+                return `
+                    <section class="bg-white rounded-2xl shadow-sm border border-slate-200/90 overflow-hidden transition-shadow duration-300 hover:shadow-md">
+                        <!-- Accordion Header Button -->
+                        <button
+                            id="accordion-btn-${section.id}"
+                            type="button"
+                            aria-expanded="${isOpen}"
+                            aria-controls="accordion-body-${section.id}"
+                            onclick="toggleAccordion('${section.id}')"
+                            class="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left bg-white hover:bg-slate-50/80 transition-colors cursor-pointer focus:outline-none focus:bg-slate-50"
+                        >
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl ${section.badgeColor} flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid ${section.icon}"></i>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2.5">
+                                        <h3 class="font-display text-lg sm:text-xl font-extrabold text-slate-900">
+                                            ${section.title}
+                                        </h3>
+                                        <span class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">
+                                            ${classCount} ${classCount === 1 ? 'Class' : 'Classes'}
+                                        </span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+                                        ${section.subtitle}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                                <i id="chevron-${section.id}" class="fa-solid fa-chevron-down text-sm transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}"></i>
+                            </div>
+                        </button>
+
+                        <!-- Smooth Expandable Body using CSS Grid Transition -->
+                        <div
+                            id="accordion-body-${section.id}"
+                            class="grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}"
+                        >
+                            <div class="overflow-hidden">
+                                <div id="section-dynamic-area-${section.id}" class="p-5 sm:p-6 pt-2 border-t border-slate-100 bg-slate-50/40">
+                                    <!-- Filter buttons, Book cards, and Summary bar render here -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+            }).join('');
+
+            // Populate inner content for every section
+            curriculumData.forEach(section => {
+                renderSectionContent(section.id);
+            });
+        }
+
+        // Boot application on DOM ready
+        document.addEventListener("DOMContentLoaded", initCurriculumPage);
+    </script>
+</body>
+</html>

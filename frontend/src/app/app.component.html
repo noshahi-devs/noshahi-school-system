@@ -4,18 +4,75 @@
       <img src="/assets/img/NSS logo.jpeg" alt="Noshahi School System">
       <span>Noshahi <b>School System</b></span>
     </a>
-    <button class="menu-button" type="button" aria-label="Toggle navigation" onclick="document.querySelector('.site-nav')?.classList.toggle('open')">
+    <button class="menu-button" type="button" aria-label="Toggle navigation" (click)="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </button>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-      <a routerLink="/about" routerLinkActive="active">About</a>
-      <a routerLink="/academics" routerLinkActive="active">Academics</a>
-      <a routerLink="/campus-facilities" routerLinkActive="active">Facilities</a>
-      <a routerLink="/activities" routerLinkActive="active">Activities</a>
-      <a routerLink="/prospectus" routerLinkActive="active">Prospectus</a>
-      <a routerLink="/contact" routerLinkActive="active">Contact</a>
-      <a class="nav-enroll" routerLink="/login">Login</a>
+    <nav class="site-nav" [class.open]="isMobileMenuOpen()" aria-label="Main navigation">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+      
+      <!-- Academics Dropdown Menu -->
+      <div class="nav-dropdown" 
+           [class.active]="isAcademicsActive()" 
+           (mouseenter)="openDropdown('academics')" 
+           (mouseleave)="closeDropdown('academics')">
+        <a routerLink="/academics" 
+           [class.active]="isAcademicsActive()" 
+           class="dropdown-trigger" 
+           (click)="toggleDropdown($event, 'academics')">
+          Academics <i class="dropdown-chevron">▾</i>
+        </a>
+        <div class="dropdown-menu" [class.show]="activeDropdown() === 'academics'">
+          <a routerLink="/academics" routerLinkActive="active-sub" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-graduation-cap"></i> Academics Overview</span>
+            <span class="sub-desc">Programs from Playgroup to Degree</span>
+          </a>
+          <a routerLink="/academics" fragment="academic-calendar" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-calendar-days"></i> Academic Calendar</span>
+            <span class="sub-desc">Session 2027–2028 exams &amp; events</span>
+          </a>
+          <a routerLink="/curriculum" routerLinkActive="active-sub" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-book-open"></i> Curriculum &amp; Books</span>
+            <span class="sub-desc">Prescribed syllabus &amp; book store</span>
+          </a>
+          <a routerLink="/computer-education" routerLinkActive="active-sub" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-laptop-code"></i> Computer Education</span>
+            <span class="sub-desc">Modern practical IT skills</span>
+          </a>
+          <a routerLink="/islamic-education" routerLinkActive="active-sub" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-quran"></i> Islamic Education</span>
+            <span class="sub-desc">Daily Quran &amp; moral character</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Facilities Dropdown Menu -->
+      <div class="nav-dropdown" 
+           [class.active]="isFacilitiesActive()" 
+           (mouseenter)="openDropdown('facilities')" 
+           (mouseleave)="closeDropdown('facilities')">
+        <a routerLink="/campus-facilities" 
+           [class.active]="isFacilitiesActive()" 
+           class="dropdown-trigger" 
+           (click)="toggleDropdown($event, 'facilities')">
+          Facilities <i class="dropdown-chevron">▾</i>
+        </a>
+        <div class="dropdown-menu" [class.show]="activeDropdown() === 'facilities'">
+          <a routerLink="/campus-facilities" routerLinkActive="active-sub" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-school"></i> Campus Facilities</span>
+            <span class="sub-desc">Labs, classrooms &amp; library</span>
+          </a>
+          <a routerLink="/faculty" routerLinkActive="active-sub" (click)="closeMenu()">
+            <span class="sub-title"><i class="fas fa-chalkboard-user"></i> Our Faculty</span>
+            <span class="sub-desc">Dedicated &amp; trained teachers</span>
+          </a>
+        </div>
+      </div>
+
+      <a routerLink="/activities" routerLinkActive="active" (click)="closeMenu()">Activities</a>
+      <a routerLink="/prospectus" routerLinkActive="active" (click)="closeMenu()">Prospectus</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      <a class="nav-enroll" routerLink="/login" (click)="closeMenu()">Login</a>
     </nav>
   </div>
 </header>
@@ -37,6 +94,7 @@
       <h3>Explore</h3>
       <a routerLink="/about">About Us</a>
       <a routerLink="/academics">Academics</a>
+      <a routerLink="/curriculum">Curriculum &amp; Books</a>
       <a routerLink="/campus-facilities">Facilities</a>
       <a routerLink="/activities">Activities</a>
     </div>
